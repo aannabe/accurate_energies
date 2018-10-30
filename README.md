@@ -1,2 +1,2 @@
-# accurate-energies
+# accurate_energies
 Accurate energies
