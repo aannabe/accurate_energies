@@ -1,5 +1,5 @@
-***,N
-memory,8,g
+***,Mg
+memory,512,m
 gthresh,twoint=1.e-12
 
 gprint,basis,orbitals
@@ -9,17 +9,17 @@ angstrom
 geometry={                 
 1	! Number of atoms
 
-N 0.0 0.0 0.0
+Mg 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals/pps/N.pp
-include,/global/homes/a/aannabe/docs/totals/basis/aug-cc-pVnZ/N_6z.basis
+include,/global/homes/a/aannabe/docs/totals/pps/Mg.pp
+include,/global/homes/a/aannabe/docs/totals/basis/aug-cc-pVnZ/Mg_dz.basis
 }
 
 {hf                        
-wf,5,8,3
-occ,1,1,1,0,1,0,0,0
+wf,2,1,0
+occ,1,0,0,0,0,0,0,0
 !open,1.3
 closed,1,0,0,0,0,0,0,0
 !sym,
@@ -27,13 +27,13 @@ closed,1,0,0,0,0,0,0,0
 scf(i)=energy
 
 _CC_NORM_MAX=2.0
-{fci
+{uccsd(t)
 maxit,100
 core
 }
 posthf(i)=energy
 
 table,scf,posthf,ekin,pot
-save,6.csv
+save,2.csv
 
 
