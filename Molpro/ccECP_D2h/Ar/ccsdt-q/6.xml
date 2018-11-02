@@ -1,3 +1,10 @@
+<?xml version="1.0"?>
+<molpro xmlns="http://www.molpro.net/schema/molpro-output"
+  xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+  xmlns:cml="http://www.xml-cml.org/schema"
+  xmlns:stm="http://www.xml-cml.org/schema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+ <!--
 
  Primary working directories    : /global/cscratch1/sd/aannabe
  Secondary working directories  : /global/cscratch1/sd/aannabe
@@ -17,6 +24,8 @@
  Using customized tuning parameters: mindgm=8; mindgv=16; mindgc=4; mindgr=1; noblas=0; minvec=7
  default implementation of scratch files=df  
 
+ --><job>
+  <!--
  ***,Ar
  memory,8,g
  gthresh,twoint=1.e-12
@@ -90,6 +99,8 @@
 
  SHA1:             2873118e99aab1bc19f5b6fc1784693c06d15c95
  **********************************************************************************************************************************
+  -->
+  <!--
 
  THRESHOLDS:
 
@@ -115,6 +126,8 @@ Geometry recognized as XYZ
  Variable memory set to 8000000000 words,  buffer space   230000 words
 
  SETTING BASIS          =    USERDEF
+  --><jobstep command="HF-SCF" commandset="SCFPRO">
+   <!--
 
 
  Recomputing integrals since basis changed
@@ -136,6 +149,14 @@ Geometry recognized as XYZ
  Point group  D2h 
 
 
+   --><cml:molecule>
+    <cml:symmetry pointGroup="D2h"/>
+    <cml:atomArray>
+     <cml:atom id="a1" elementType="Ar" x3="0.0" y3="0.0" z3="0.0"/>
+    </cml:atomArray>
+    <cml:bondArray>
+    </cml:bondArray>
+   </cml:molecule><!--
 
  ATOMIC COORDINATES
 
@@ -443,17 +464,25 @@ Geometry recognized as XYZ
  Final occupancy:   1   1   1   0   1   0   0   0
 
  !RHF STATE 1.1 Energy                -20.779662767662
+   --><property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-20.7796627676617"/><!--
  Nuclear energy                         0.00000000
  One-electron energy                  -35.44818148
  Two-electron energy                   14.66851871
  Virial quotient                       -2.66545516
  !RHF STATE 1.1 Dipole moment           0.00000000     0.00000000     0.00000000
  Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+   --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 0.0 0.0"/><!--
  
 
  !RHF expec          <1.1|EKIN|1.1>     7.795915349282
+   --><property name="EKIN" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="7.79591534928158" origin="0.0 0.0 0.0"/><!--
  
  !RHF expec           <1.1|POT|1.1>    -5.884689209898
+   --><property name="POT" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-5.88468920989781" origin="0.0 0.0 0.0"/><!--
 
  ELECTRON ORBITALS
  =================
@@ -510,8 +539,14 @@ Geometry recognized as XYZ
  REAL TIME  *        16.41 SEC
  DISK USED  *       115.05 MB      
  **********************************************************************************************************************************
+   -->
+   <time start="11:21:34" end="11:21:50" cpu="4.61" system="10.96" real="16.41"/>
+   <storage units="megabyte" memory="64001.84" sf="0.0" df="115.05" eaf="0.0"/>
+  </jobstep><!--
  SETTING SCF(I)         =       -20.77966277  AU                              
  SETTING _CC_NORM_MAX   =         2.00000000                                  
+  --><jobstep command="UHF-SCF" commandset="SCFPRO">
+   <!--
 
 
  PROGRAM * UHF-SCF       Authors: W. Meyer, H.-J. Werner
@@ -541,17 +576,25 @@ Geometry recognized as XYZ
  Final beta  occupancy:   1   1   1   0   1   0   0   0
 
  !UHF STATE 1.1 Energy                -20.779662767662
+   --><property name="Energy" method="UHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-20.7796627676617"/><!--
  Nuclear energy                         0.00000000
  One-electron energy                  -35.44818148
  Two-electron energy                   14.66851871
  Virial quotient                       -2.66545516
  !UHF STATE 1.1 Dipole moment           0.00000000     0.00000000     0.00000000
  Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+   --><property name="Dipole moment" method="UHF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 0.0 0.0"/><!--
  
 
  !UHF expec          <1.1|EKIN|1.1>     7.795915349282
+   --><property name="EKIN" method="UHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="7.79591534928158" origin="0.0 0.0 0.0"/><!--
  
  !UHF expec           <1.1|POT|1.1>    -5.884689209898
+   --><property name="POT" method="UHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-5.88468920989782" origin="0.0 0.0 0.0"/><!--
 
  ELECTRON ORBITALS FOR POSITIVE SPIN
  ===================================
@@ -655,7 +698,13 @@ Geometry recognized as XYZ
  REAL TIME  *        16.55 SEC
  DISK USED  *       115.05 MB      
  **********************************************************************************************************************************
+   -->
+   <time start="11:21:50" end="11:21:50" cpu="0.03" system="0.02" real="0.14"/>
+   <storage units="megabyte" memory="64001.84" sf="0.0" df="115.05" eaf="0.0"/>
+  </jobstep><!--
  SETTING SCF(I)         =       -20.77966277  AU                              
+  --><jobstep command="MRCC" commandset="MRCC">
+   <!--
 
 
  PROGRAM * MRCC (General Multireference Coupled Cluster)    Author: M. Kallay, 2000-2005
@@ -911,9 +960,17 @@ Geometry recognized as XYZ
                       Normal termination of mrcc.
  **********************************************************************
  !CCSDT STATE 1.1 Energy              -21.066626471024
+   --><property name="Energy" method="CCSDT" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-21.066626471024"/><!--
  !MP2 STATE 1.1 Energy                -21.041410839982
+   --><property name="Energy" method="MP2" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-21.041410839982"/><!--
  !CCSDT[Q] STATE 1.1 Energy           -21.066627615219
+   --><property name="Energy" method="CCSDT[Q]" principal="true" stateSymmetry="1"
+     stateNumber="1" value="-21.066627615219"/><!--
  !CCSDT(Q) STATE 1.1 Energy           -21.067029463111
+   --><property name="Energy" method="CCSDT(Q)" principal="true" stateSymmetry="1"
+     stateNumber="1" value="-21.067029463111"/><!--
  
  CPU-time for MRCC:          60485.3 sec
  Elapsed-time for MRCC:      60545.7 sec
@@ -937,12 +994,22 @@ Geometry recognized as XYZ
  REAL TIME  *     61076.79 SEC
  DISK USED  *       115.05 MB      
  **********************************************************************************************************************************
+   -->
+   <time start="11:21:50" end="04:19:31" cpu="60589.39" system="394.92" real="61060.24"/>
+   <storage units="megabyte" memory="64001.84" sf="0.0" df="115.05" eaf="0.0"/>
+  </jobstep><!--
  SETTING POSTHF(I)      =       -21.06702946  AU                              
                                                                                                                                                                                                                                                                 
 
         SCF            POSTHF       EKIN          POT
     -20.77966277   -21.06702946   7.79591535   -5.88468921
                                                   
+-->
+<table xmlns="http://www.w3.org/1999/xhtml" id="table1">
+<thead><tr><th>SCF</th><th>POSTHF</th><th>EKIN</th><th>POT</th></tr></thead><tbody>
+<tr><td>   -20.77966277</td><td>   -21.06702946</td><td>   7.79591535</td><td>   -5.88468921</td></tr>
+</tbody></table>
+<!--
 
  CCSDT(Q)/USERDEF energy=    -21.067029463111
 
@@ -950,3 +1017,80 @@ Geometry recognized as XYZ
     -21.06702946    -20.77966277    -20.77966277
  **********************************************************************************************************************************
  Variable memory released
+  --><stm:metadataList>
+   <stm:metadata name="dc:date" content="2018-10-31T04:19:31-07:00"/>
+   <stm:metadata name="dc:creator" content="aannabe"/>
+   <stm:metadata name="dc:title" content="Ar"/>
+   <stm:metadata name="cmlm:insilico" content="Molpro"/>
+  </stm:metadataList><!--
+  --><platform>
+   <version major="2015" minor="1" SHA="2873118e99aab1bc19f5b6fc1784693c06d15c95"
+     integer_bits="64" parallelism="serial">
+    2015.1
+    <date year="2018" month="10" day="30" hour="11" minute="21" second="34">
+     2018-10-30T11:21:34
+    </date>
+   </version>
+   <licence id="lbl"/>
+   <parallel processes="1" nodes="1" all_processes="1" openmp="1"/>
+   <machine hostname="" architecture="">
+     64 bit serial version
+    <sysinfo name="cpu MHz" content="2301.000"/>
+    <sysinfo name="MemTotal" content="131899780 kB"/>
+    <sysinfo name="vendor_id" content="GenuineIntel"/>
+    <sysinfo name="cpu family" content="6"/>
+    <sysinfo name="model name" content="Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz"/>
+    <sysinfo name="flags"
+      content="fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb invpcid_single pln pts dtherm spec_ctrl kaiser tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm xsaveopt cqm_llc cqm_occup_llc"/>
+    <sysinfo name="MemTotal" content="131899780 kB"/>
+    <sysinfo name="cache size" content="40960 KB"/>
+    <sysinfo name="ncpu" content="64"/>
+   </machine>
+  </platform><!--
+  -->
+  <input>
+   <p> ***,Ar </p>
+   <p> memory,8,g </p>
+   <p> gthresh,twoint=1.e-12 </p>
+   <p> gprint,basis,orbitals </p>
+   <p> gexpec,ekin,pot </p>
+   <p> angstrom </p>
+   <p> geometry={ </p>
+   <p> 1                                                                               ! Number of atoms </p>
+   <p> Ar 0.0 0.0 0.0 </p>
+   <p> } </p>
+   <p> basis={ </p>
+   <include file="/global/homes/a/aannabe/docs/accurate/ccECP_D2h/pps/Ar.pp"/>
+   <include file="/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/cc-pVnZ/Ar_6z.basis"/>
+   <p> } </p>
+   <p> {hf </p>
+   <p> wf,8,1,0 </p>
+   <p> occ,1,1,1,0,1,0,0,0 </p>
+   <p>                                                                                 !open,1.2 </p>
+   <p> closed,1,1,1,0,1,0,0,0 </p>
+   <p>                                                                                 !sym, </p>
+   <p> } </p>
+   <p> scf(i)=energy </p>
+   <p> _CC_NORM_MAX=2.0 </p>
+   <p>  !NOTE: Perturbative MRCC works only with UHF reference. So, here we will trick MRCC by doing zero UHF iteration right after ROHF. </p>
+   <p> {uhf </p>
+   <p> wf,8,1,0 </p>
+   <p> occ,1,1,1,0,1,0,0,0 </p>
+   <p>                                                                                 !open,1.2 </p>
+   <p> closed,1,1,1,0,1,0,0,0 </p>
+   <p>                                                                                 !sym, </p>
+   <p> maxit,0 </p>
+   <p> } </p>
+   <p> scf(i)=energy </p>
+   <p> {mrcc,method=CCSDT(Q) </p>
+   <p> orbital,ignore_error=1                                                          !Ignore the fact that UHF WF is not converged </p>
+   <p> maxit,100 </p>
+   <p> core </p>
+   <p> } </p>
+   <p> posthf(i)=energy </p>
+   <p> table,scf,posthf,ekin,pot </p>
+   <p> save,6.csv,new </p>
+  </input>
+  <!--
+ --></job><!--
+--></molpro>
