@@ -22,7 +22,7 @@ styles = {
 '4.csv' :{'label':'2nd[He] row', 'color':'#9900cc', 'fmt':'*', 'linestyle':'--','dashes': (1,1,4,1)},
 }
 
-pquant='KPR'	# PR or KPR
+pquant='PR'	# PR or KPR
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -64,7 +64,7 @@ def s2f(x):
 	return y
 
 def init():
-	font = {'family' : 'serif', 'size': 20}
+	font = {'family' : 'serif', 'size': 16}
 	lines = {'linewidth':3}
 	axes = {'linewidth': 3}
 	tick = {'major.size': 5, 'major.width':2}
@@ -103,7 +103,7 @@ for row in rows:
 	udf['FN'] = udf['DMC']-udf['CC']
 	#print(udf['FN'])
 	df['FN'] = list(map(f2s, list(udf['FN']*tomha)))
-	#print(df['FN'])
+	print(df['FN'])
 	udf['PR'] = udf['FN']*(-100.0)/udf['Corr']	# FN as percentage
 	#print(udf['PR'])
 	udf['KPR'] = udf['Kin']*(-100.0)/udf['CC']	# Kinetic as percentage
