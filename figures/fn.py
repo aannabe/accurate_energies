@@ -12,7 +12,8 @@ import string
 
 #~~~~~~~~~~~~ Input ~~~~~~~~~~~~~~~~~~~~~~~
 
-rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
+#rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
+rows=['1.csv','2.csv','4.csv','3.csv']
 
 styles = {
 '0.csv' :{'label':'H-He[soft]',  'color':'#ff0000', 'fmt':'d', 'linestyle':'--','dashes': (1,1)},
@@ -22,7 +23,7 @@ styles = {
 '4.csv' :{'label':'2nd[He] row', 'color':'#9900cc', 'fmt':'*', 'linestyle':'--','dashes': (1,1,4,1)},
 }
 
-pquant='KPR'	# PR or KPR
+pquant='PR'	# PR or KPR
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
