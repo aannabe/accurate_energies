@@ -12,18 +12,18 @@ import string
 
 #~~~~~~~~~~~~ Input ~~~~~~~~~~~~~~~~~~~~~~~
 
-#rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
-rows=['1.csv','2.csv','4.csv','3.csv']
+rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
+#rows=['1.csv','2.csv','4.csv','3.csv']
 
 styles = {
-'0.csv' :{'label':'H-He[soft]',  'color':'#ff0000', 'fmt':'d', 'linestyle':'--','dashes': (1,1)},
-'1.csv' :{'label':'1st[He] row', 'color':'#ff9933', 'fmt':'o', 'linestyle':'--','dashes': (3,1)},
-'2.csv' :{'label':'2nd[Ne] row', 'color':'#33cc33', 'fmt':'D', 'linestyle':'--','dashes': (5,2)},
-'3.csv' :{'label':'3rd[Ne] row', 'color':'#3399ff', 'fmt':'X', 'linestyle':'--','dashes': (2,2)},
-'4.csv' :{'label':'2nd[He] row', 'color':'#9900cc', 'fmt':'*', 'linestyle':'--','dashes': (1,1,4,1)},
+'0.csv' :{'label':'H-He[soft]',  'color':'#ff0000', 'fmt':'d', 'linestyle':'--','dashes': (2,2)},    
+'1.csv' :{'label':'1st[He] row', 'color':'#ff9933', 'fmt':'o', 'linestyle':'--','dashes': (1,1)},    
+'2.csv' :{'label':'2nd[Ne] row', 'color':'#33cc33', 'fmt':'D', 'linestyle':'--','dashes': (3,1)},    
+'3.csv' :{'label':'3rd[Ne] row', 'color':'#3399ff', 'fmt':'X', 'linestyle':'-'},                     
+'4.csv' :{'label':'2nd[He] row', 'color':'#9900cc', 'fmt':'*', 'linestyle':'--','dashes': (1,2,3,2)},
 }
 
-pquant='PR'	# PR or KPR
+pquant='KPR'	# PR or KPR
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -65,11 +65,11 @@ def s2f(x):
 	return y
 
 def init():
-	font = {'family' : 'serif', 'size': 15}
+	font = {'family' : 'serif', 'size': 16}
 	lines = {'linewidth':3}
 	axes = {'linewidth': 3}
 	tick = {'major.size': 5, 'major.width':2}
-	legend = {'frameon':False, 'fontsize':14}
+	legend = {'frameon':False, 'fontsize':16}
 
 	mpl.rc('font',**font)
 	mpl.rc('lines',**lines)
@@ -104,11 +104,13 @@ for row in rows:
 	udf['FN'] = udf['DMC']-udf['CC']
 	#print(udf['FN'])
 	df['FN'] = list(map(f2s, list(udf['FN']*tomha)))
-	print(df['FN'])
+	#print(df['FN'])
 	udf['PR'] = udf['FN']*(-100.0)/udf['Corr']	# FN as percentage
 	#print(udf['PR'])
 	udf['KPR'] = udf['Kin']*(-100.0)/udf['CC']	# Kinetic as percentage
-	#print(udf['KPR'])
+	print(df['Kin'])
+	df['KPR'] = list(map(f2s, list(udf['KPR'])))
+	print(df['KPR'])
 
 	# ~~~ Plotting FN ~~~~
 	x = list(df['Valence'])
