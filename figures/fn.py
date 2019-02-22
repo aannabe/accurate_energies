@@ -12,8 +12,8 @@ import string
 
 #~~~~~~~~~~~~ Input ~~~~~~~~~~~~~~~~~~~~~~~
 
-rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
-#rows=['1.csv','2.csv','4.csv','3.csv']
+#rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
+rows=['1.csv','2.csv','4.csv','3.csv']
 
 styles = {
 '0.csv' :{'label':'H-He[soft]',  'color':'#ff0000', 'fmt':'d', 'linestyle':'--','dashes': (2,2)},    
@@ -23,7 +23,7 @@ styles = {
 '4.csv' :{'label':'2nd[He] row', 'color':'#9900cc', 'fmt':'*', 'linestyle':'--','dashes': (1,2,3,2)},
 }
 
-pquant='KPR'	# PR or KPR
+pquant='PR'	# PR or KPR
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -104,13 +104,13 @@ for row in rows:
 	udf['FN'] = udf['DMC']-udf['CC']
 	#print(udf['FN'])
 	df['FN'] = list(map(f2s, list(udf['FN']*tomha)))
-	#print(df['FN'])
+	print(df['FN'])
 	udf['PR'] = udf['FN']*(-100.0)/udf['Corr']	# FN as percentage
 	#print(udf['PR'])
 	udf['KPR'] = udf['Kin']*(-100.0)/udf['CC']	# Kinetic as percentage
-	print(df['Kin'])
+	#print(df['Kin'])
 	df['KPR'] = list(map(f2s, list(udf['KPR'])))
-	print(df['KPR'])
+	#print(df['KPR'])
 
 	# ~~~ Plotting FN ~~~~
 	x = list(df['Valence'])
