@@ -12,8 +12,8 @@ import string
 
 #~~~~~~~~~~~~ Input ~~~~~~~~~~~~~~~~~~~~~~~
 
-#rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
-rows=['1.csv','2.csv','4.csv','3.csv']
+rows=['0.csv','1.csv','2.csv','4.csv','3.csv']
+#rows=['1.csv','2.csv','4.csv','3.csv']
 
 styles = {
 '0.csv' :{'label':'H-He[soft]',  'color':'#ff0000', 'fmt':'d', 'linestyle':'--','dashes': (2,2)},    
@@ -109,6 +109,8 @@ for row in rows:
 	#print(udf['PR'])
 	udf['KPR'] = udf['Kin']*(-100.0)/udf['CC']	# Kinetic as percentage
 	#print(df['Kin'])
+	df['PR'] = list(map(f2s, list(udf['PR'])))
+	print(df['PR'])
 	df['KPR'] = list(map(f2s, list(udf['KPR'])))
 	#print(df['KPR'])
 
