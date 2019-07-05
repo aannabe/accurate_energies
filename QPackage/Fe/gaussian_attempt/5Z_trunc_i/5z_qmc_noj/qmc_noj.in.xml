@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<simulation>
+   <project id="qmc_noj" series="0">
+      <application name="qmcpack" role="molecu" class="serial" version="1.0"/>
+   </project>
+   <qmcsystem>
+      <simulationcell>
+         <parameter name="bconds">
+            n n n
+         </parameter>
+      </simulationcell>
+      <particleset name="e" random="yes" randomsrc="ion0">
+         <group name="u" size="10" mass="1.0">
+            <parameter name="charge"              >    -1                    </parameter>
+            <parameter name="mass"                >    1.0                   </parameter>
+         </group>
+         <group name="d" size="6" mass="1.0">
+            <parameter name="charge"              >    -1                    </parameter>
+            <parameter name="mass"                >    1.0                   </parameter>
+         </group>
+      </particleset>
+      <particleset name="ion0">
+         <group name="Fe" size="1" mass="101799.207432">
+            <parameter name="charge"              >    16                    </parameter>
+            <parameter name="valence"             >    16                    </parameter>
+            <parameter name="atomicnumber"        >    26                    </parameter>
+            <parameter name="mass"                >    101799.207432            </parameter>
+            <attrib name="position" datatype="posArray" condition="0">
+                     0.00000000        0.00000000        0.00000000
+            </attrib>
+         </group>
+      </particleset>
+      <wavefunction name="psi0" target="e">
+         <sposet_builder type="bspline" href="MISSING.h5" tilematrix="1 0 0 0 1 0 0 0 1" twistnum="None" source="ion0" version="0.10" meshfactor="1.0" precision="float" truncate="no">
+            <sposet type="bspline" name="spo_u" size="10" spindataset="0"/>
+            <sposet type="bspline" name="spo_d" size="6" spindataset="1"/>
+         </sposet_builder>
+         <determinantset>
+            <slaterdeterminant>
+               <determinant id="updet" group="u" sposet="spo_u" size="10"/>
+               <determinant id="downdet" group="d" sposet="spo_d" size="6"/>
+            </slaterdeterminant>
+         </determinantset>
+      </wavefunction>
+      <hamiltonian name="h0" type="generic" target="e">
+         <pairpot type="coulomb" name="ElecElec" source="e" target="e"/>
+         <pairpot type="coulomb" name="IonIon" source="ion0" target="ion0"/>
+         <pairpot type="pseudo" name="PseudoPot" source="ion0" wavefunction="psi0" format="xml">
+            <pseudo elementType="Fe" href="Fe.ccECP.xml"/>
+         </pairpot>
+      </hamiltonian>
+   </qmcsystem>
+   <qmc method="vmc" move="pbyp">
+      <parameter name="walkers"             >    1               </parameter>
+      <parameter name="blocks"              >    50              </parameter>
+      <parameter name="steps"               >    50              </parameter>
+      <parameter name="subSteps"            >    5               </parameter>
+      <parameter name="timestep"            >    0.12            </parameter>
+      <parameter name="useDrift"            >    no              </parameter>
+      <estimator name="LocalEnergy" hdf5="yes"/>
+   </qmc>
+</simulation>
