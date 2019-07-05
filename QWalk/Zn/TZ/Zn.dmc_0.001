@@ -1,0 +1,16 @@
+method { DMC
+        READCONFIG Zn.dmci.config
+        nconfig 5
+        nblock 40
+        timestep 0.001
+        tmoves
+	LOW_IO True
+        }
+
+include Zn.sys
+
+trialfunc { slater-jastrow
+  wf1 { include Zn.slater }
+  wf2 { include Zn.jast3_opt }
+}
+

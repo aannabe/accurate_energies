@@ -1,0 +1,16 @@
+method { DMC
+        READCONFIG Ti.dmci.config
+        nconfig 5
+        nblock 40
+        timestep 0.001
+        tmoves
+	LOW_IO True
+        }
+
+include Ti.sys
+
+trialfunc { slater-jastrow
+  wf1 { include Ti.slater }
+  wf2 { include Ti.jast3_opt }
+}
+

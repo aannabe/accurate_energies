@@ -1,0 +1,123 @@
+SLATER-JASTROW
+WF1 { 
+  SLATER
+  SHERMAN_MORRISON_UPDATES
+  NOSORT
+   CSF { 1  1  } 
+  STATES { 
+    1 2 3 4 
+    1 2 
+    }
+  ORBITALS {
+    CUTOFF_MO
+    NMO 4
+    ORBFILE O.orb
+    MAGNIFY 1
+    BASIS { 
+      O
+      AOSPLINE 
+      NORMTYPE  GAMESSNORM
+      GAMESS { 
+      S
+      9
+        0  54.7752   -0.0012444
+        1  25.6168   0.010733
+        2  11.9802   0.0018889
+        3  6.99232   -0.174254
+        4  2.62028   0.0017622
+        5  1.22543   0.316185
+        6  0.577797   0.451202
+        7  0.268022   0.312153
+        8  0.125346   0.0511167
+      S
+      1
+        0  0.258551   1
+      P
+      9
+        0  22.2173   0.0104866
+        1  10.7476   0.0366435
+        2  5.31578   0.0803674
+        3  2.66076   0.162701
+        4  1.33182   0.237779
+        5  0.678626   0.281142
+        6  0.333673   0.264319
+        7  0.167017   0.146601
+        8  0.083598   0.0458145
+      P
+      1
+        0  0.267865   1
+      6D
+      1
+        0  1.23275   1
+       } 
+    }
+    CENTERS { 
+      USEATOMS
+    }
+  }
+}
+WF2 { 
+  JASTROW2
+  GROUP { 
+    OPTIMIZEBASIS
+    TWOBODY_SPIN { 
+      FREEZE
+      LIKE_COEFFICIENTS { 0.25  0   } 
+      UNLIKE_COEFFICIENTS { 0  0.5   }  
+    } 
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 14.3815671698168
+      CUSP 1
+      CUTOFF 20
+    }
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 19.384180573856
+      CUSP 1
+      CUTOFF 20
+    }
+  }
+  GROUP { 
+    OPTIMIZEBASIS
+    ONEBODY { 
+      COEFFICIENTS { O  0.0268364297919952  0.478778854572895  1.67755198835825  -0.668327291813283   } 
+    } 
+    TWOBODY { 
+      COEFFICIENTS { 0.192057639231545  -0.205426825103752  -0.620760011935783  -0.0610593790119974   } 
+    } 
+    THREEBODY  { 
+      COEFFICIENTS { O  0.588484267683715  -0.231566080939801  -1.04200094496875  -0.518724452225662  1.49119162347828  1.00638239039134  -0.696397574224994  -0.0927152078255378  0.170782753516097  0.117389182875834  -0.226966490312618  -0.0193950469146156   } 
+      SM_TERMS {
+        1  1  0  
+        1  0  1  
+        1  1  1  
+        2  2  0  
+        2  0  1  
+        2  0  2  
+        2  2  2  
+        3  3  0  
+        3  0  2  
+        3  3  2  
+        1  2  2  
+        2  3  2  
+      }
+    }
+    EIBASIS { 
+      O
+      POLYPADE
+      RCUT 20
+      BETA0 -0.593985947715431
+      NFUNC 4
+    }
+    EEBASIS { 
+      EE
+      POLYPADE
+      RCUT 20
+      BETA0 -0.240434541977749
+      NFUNC 4
+    }
+  }
+}

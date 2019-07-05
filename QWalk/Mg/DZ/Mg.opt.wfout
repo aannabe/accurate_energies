@@ -1,0 +1,125 @@
+SLATER-JASTROW
+WF1 { 
+  SLATER
+  SHERMAN_MORRISON_UPDATES
+  NOSORT
+   CSF { 1  1  } 
+  STATES { 
+    1 
+    1 
+    }
+  ORBITALS {
+    CUTOFF_MO
+    NMO 1
+    ORBFILE Mg.orb
+    MAGNIFY 1
+    BASIS { 
+      MG
+      AOSPLINE 
+      NORMTYPE  GAMESSNORM
+      GAMESS { 
+      S
+      10
+        0  51.7113   1.3e-05
+        1  22.8922   -7.9e-05
+        2  10.1342   0.000388
+        3  4.48634   -0.005557
+        4  1.98607   0.047098
+        5  0.879218   -0.180052
+        6  0.389223   -0.07386
+        7  0.172306   0.237658
+        8  0.0762787   0.584777
+        9  0.033768   0.234225
+      S
+      1
+        0  0.029784   1
+      P
+      10
+        0  13.1521   1.8e-05
+        1  6.97948   -4.7e-05
+        2  3.70384   0.000578
+        3  1.96553   0.000743
+        4  1.04306   -0.000694
+        5  0.553527   -0.007343
+        6  0.293743   0.015526
+        7  0.155882   -0.006619
+        8  0.0827229   0.071634
+        9  0.043899   -0.019276
+      P
+      1
+        0  0.020348   1
+      6D
+      1
+        0  0.14529   1
+       } 
+    }
+    CENTERS { 
+      USEATOMS
+    }
+  }
+}
+WF2 { 
+  JASTROW2
+  GROUP { 
+    OPTIMIZEBASIS
+    TWOBODY_SPIN { 
+      FREEZE
+      LIKE_COEFFICIENTS { 0.25  0   } 
+      UNLIKE_COEFFICIENTS { 0  0.5   }  
+    } 
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 24
+      CUSP 1
+      CUTOFF 20
+    }
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 21.698446961494
+      CUSP 1
+      CUTOFF 20
+    }
+  }
+  GROUP { 
+    OPTIMIZEBASIS
+    ONEBODY { 
+      COEFFICIENTS { MG  0.160413489653955  0.334190533492644  0.0644418925496175  -0.157700097424117   } 
+    } 
+    TWOBODY { 
+      COEFFICIENTS { -0.268297258283627  -0.508382706084119  -0.30931895387926  -0.0205125472354177   } 
+    } 
+    THREEBODY  { 
+      COEFFICIENTS { MG  0.202450413512049  -0.228444101360045  -0.0108463142429595  0.134216614501603  -0.0658422075361918  -0.0129674023962576  0.0545272458377273  0.00749015924863672  -0.0424802602842685  -0.00552780614846817  0.0508141574141697  0.00266308684621315   } 
+      SM_TERMS {
+        1  1  0  
+        1  0  1  
+        1  1  1  
+        2  2  0  
+        2  0  1  
+        2  0  2  
+        2  2  2  
+        3  3  0  
+        3  0  2  
+        3  3  2  
+        1  2  2  
+        2  3  2  
+      }
+    }
+    EIBASIS { 
+      MG
+      POLYPADE
+      RCUT 20
+      BETA0 0.0951677551700433
+      NFUNC 4
+    }
+    EEBASIS { 
+      EE
+      POLYPADE
+      RCUT 20
+      BETA0 0.36625638722712
+      NFUNC 4
+    }
+  }
+}
