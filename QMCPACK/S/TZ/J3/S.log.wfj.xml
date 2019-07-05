@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="S.log.orbs.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="4">
+          <occupation mode="ground"/>
+          <coefficient size="29" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="2">
+          <occupation mode="ground"/>
+          <coefficient size="29" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="9.5" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.5030539172 0.2880953148 0.1337915101 0.02469415106 -0.05646927722 -0.1142482941 -0.1519192638 -0.1700470252 -0.1631616811 -0.131575873</coefficients>
+      </correlation>
+      <correlation rcut="9.5" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.8000912529 0.4471458006 0.2230512447 0.08493010232 -0.01173693165 -0.08239775256 -0.1335597342 -0.166545331 -0.1743529199 -0.1612112893</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="9.5" size="10" cusp="0" elementType="S">
+        <coefficients id="eS" type="Array"> -1.042017903 -0.8751101355 -0.5252231013 -0.1354238234 0.1933298928 0.4466763901 0.6039342139 0.6598291459 0.5361867205 0.1634729993</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="S" especies="u" isize="3" esize="3" rcut="9.5">
+        <coefficients id="uuS" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+      <correlation ispecies="S" especies1="u" especies2="d" isize="3" esize="3" rcut="9.5">
+        <coefficients id="udS" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

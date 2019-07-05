@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Ge.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="3">
+          <occupation mode="ground"/>
+          <coefficient size="90" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="1">
+          <occupation mode="ground"/>
+          <coefficient size="90" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="10.0" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.3825870541 0.2032629335 0.07296517961 -0.001856285071 -0.05230344932 -0.08905091591 -0.1095875265 -0.1173084365 -0.1062140943 -0.08157755532</coefficients>
+      </correlation>
+      <correlation rcut="10.0" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 1.281297712 0.9314556303 0.6680753645 0.4635601112 0.2970489412 0.1584568634 0.04473465278 -0.04951229693 -0.1087144615 -0.1530568122</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="10.0" size="10" cusp="0" elementType="Ge">
+        <coefficients id="eGe" type="Array"> -0.4838443647 -0.4816765879 -0.4350762556 -0.2238847079 -0.02744792767 0.1587574393 0.2873490464 0.3783437122 0.3654015681 0.280954835</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Ge" especies="u" isize="3" esize="3" rcut="10.0">
+        <coefficients id="uuGe" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+      <correlation ispecies="Ge" especies1="u" especies2="d" isize="3" esize="3" rcut="10.0">
+        <coefficients id="udGe" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

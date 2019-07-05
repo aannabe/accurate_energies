@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Na.log.orbs.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="5">
+          <occupation mode="ground"/>
+          <coefficient size="74" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="4">
+          <occupation mode="ground"/>
+          <coefficient size="74" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="9.5" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.2450932961 0.09984167863 0.02826537142 0.00440773221 -0.01306335883 -0.02947430067 -0.03677441434 -0.04322855878 -0.03818411435 -0.02728626691</coefficients>
+      </correlation>
+      <correlation rcut="9.5" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.2893505022 0.0934981401 0.01608847259 -0.00635384802 -0.01935149797 -0.03463037879 -0.0418615729 -0.0444771004 -0.03896670385 -0.03076919781</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="9.5" size="10" cusp="0" elementType="Na">
+        <coefficients id="eNa" type="Array"> -1.196434616 -0.6055537366 -0.2063321278 -0.02984372366 0.1142235212 0.228622362 0.3144783904 0.3412100441 0.3061351011 0.2054848583</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Na" especies="u" isize="3" esize="3" rcut="9.5">
+        <coefficients id="uuNa" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+      <correlation ispecies="Na" especies1="u" especies2="d" isize="3" esize="3" rcut="9.5">
+        <coefficients id="udNa" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

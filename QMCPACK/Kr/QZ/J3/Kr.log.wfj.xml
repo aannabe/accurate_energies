@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Kr.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="4">
+          <occupation mode="ground"/>
+          <coefficient size="54" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="4">
+          <occupation mode="ground"/>
+          <coefficient size="54" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="10.0" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.3885586546 0.1922715969 0.06705133505 -0.01857199592 -0.07885790802 -0.1183891463 -0.140611954 -0.1434550825 -0.1202764116 -0.0552034524</coefficients>
+      </correlation>
+      <correlation rcut="10.0" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.6192758712 0.2862310174 0.1081796763 0.006361247466 -0.06947199627 -0.1283716186 -0.1710418546 -0.1939668041 -0.1881644952 -0.1404252412</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="10.0" size="10" cusp="0" elementType="Kr">
+        <coefficients id="eKr" type="Array"> -1.142931797 -0.9667268172 -0.535763889 -0.06762281098 0.3123922978 0.6001503131 0.7567035081 0.735386724 0.3148960523 0.008076762</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Kr" especies="u" isize="3" esize="3" rcut="10.0">
+        <coefficients id="uuKr" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+      <correlation ispecies="Kr" especies1="u" especies2="d" isize="3" esize="3" rcut="10.0">
+        <coefficients id="udKr" type="Array" optimize="yes">
+        </coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>
