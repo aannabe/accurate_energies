@@ -1,0 +1,1236 @@
+
+ Primary working directories    : /global/cscratch1/sd/aannabe
+ Secondary working directories  : /global/cscratch1/sd/aannabe
+ Wavefunction directory         : /global/homes/a/aannabe/wfu/
+ Main file repository           : /global/cscratch1/sd/aannabe/
+
+ SHA1      : 19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ NAME      : 2015.1.36
+ ARCHNAME  : linux/x86_64
+ FC        : /opt/cray/pe/craype/2.5.14/bin/ftn
+ BLASLIB   : -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64 -Wl,-_start-group -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -Wl,-_end-group -liomp5
+ id        : lbl
+
+ Nodes     nprocs
+ nid00445     1
+
+ Using customized tuning parameters: mindgm=7; mindgv=16; mindgc=1; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+ ***,Al
+ memory,8,g
+ gthresh,twoint=1.e-12
+ 
+ gprint,basis,orbitals
+ gexpec,ekin,pot
+ 
+ angstrom
+ geometry={
+ 1                                                                               ! Number of atoms
+ Al 0.0 0.0 0.0
+ }
+ 
+ basis={
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Al/ccECP_He_core/Al.ccECP.molpro
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Al/ccECP_He_core/cc-pCVTZ.molpro
+ }
+ 
+ {rhf
+  start,atden
+  wf,11,2,1
+  occ,2,2,1,0,1,0,0,0
+  closed,2,1,1,0,1,0,0,0
+                                                                                 ! open,2.2
+  save,4202.2
+ }
+ {multi
+  start,4202.2
+  occ,2,2,2,0,2,0,0
+  closed,2,1,1,0,1,0,0,0
+  wf,11,2,1;state,1
+  wf,11,3,1;state,1
+  wf,11,5,1;state,1
+  natorb,ci,print
+  orbital,5202.2
+ }
+ {rhf,nitord=1,maxit=0
+  start,5202.2
+  wf,11,2,1
+  occ,2,2,1,0,1,0,0,0
+  closed,2,1,1,0,1,0,0,0
+                                                                                 ! open,2.2
+ }
+ 
+ scf(i)=energy
+ 
+ _CC_NORM_MAX=2.0
+  !NOTE: Perturbative MRCC works only with UHF reference. So, here we will trick MRCC by doing zero UHF iteration right after ROHF.
+ 
+ {uhf
+  wf,11,2,1
+  occ,2,2,1,0,1,0,0,0
+  closed,2,1,1,0,1,0,0,0
+ 
+ maxit,0
+ }
+ scf(i)=energy
+ 
+ {mrcc,method=CCSDT(Q),dir=Al                                                    !,restart=1
+ orbital,ignore_error=1                                                          !Ignore the fact that UHF WF is not converged
+ maxit,100
+ core
+ }
+ posthf(i)=energy
+ 
+ table,scf,posthf,ekin,pot
+ save,3.csv,new
+ 
+ 
+
+ Variables initialized (889), CPU time= 0.01 sec
+ Commands  initialized (702), CPU time= 0.01 sec, 572 directives.
+ Default parameters read. Elapsed time= 0.25 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2015.1 linked Dec 29 2018 15:55:43
+
+
+ **********************************************************************************************************************************
+ LABEL *   Al                                                                            
+  64 bit serial version                                                                  DATE: 28-Jan-19          TIME: 17:19:42  
+ **********************************************************************************************************************************
+
+ SHA1:             19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ **********************************************************************************************************************************
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-12  ONEINT  =  1.00D-12  TWOINT  =  1.00D-12  PREFAC  =  1.00D-14  LOCALI  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  0.00D+00  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-02  STEP    =  1.00D-03
+ ORBITAL =  1.00D-05  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  GRID    =  1.00D-06  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01  THROCCDE=  1.00D-01
+
+
+
+ ZUNIT=ANG
+ 
+
+Geometry recognized as XYZ
+
+
+ Variable memory set to 8000000000 words,  buffer space   230000 words
+
+ SETTING BASIS          =    USERDEF
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Atom
+ Symmetry elements: X,Y,Z
+ Rotational constants:       0.0000000      0.0000000      0.0000000 GHz  (calculated with average atomic masses)
+
+ Point group  D2h 
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  AL      3.00    0.000000000    0.000000000    0.000000000
+
+
+          AL  CORE POTENTIAL
+
+          d POTENTIAL
+
+ POWERS             1              3              2              1              1
+ EXPONENTIALS   11.06206       12.36978       11.96544       0.000000       0.000000    
+ COEFFICIENTS   11.00000       121.6826      -82.62457       3.000000      -11.00000    
+
+          s - d POTENTIAL
+
+ POWERS             2              2
+ EXPONENTIALS   81.81556       24.52288    
+ COEFFICIENTS   25.15726       113.0675    
+
+          p - d POTENTIAL
+
+ POWERS             2
+ EXPONENTIALS   1.000000    
+ COEFFICIENTS   0.000000    
+
+
+ BASIS DATA
+
+   Nr Sym  Nuc  Type         Exponents   Contraction coefficients
+
+    1.1 Ag    1  1s          78.990577    -0.000481    0.000024
+    2.1 Ag                   39.484884     0.013095   -0.002627
+                             19.737241    -0.146153    0.036948
+                              9.866021    -0.045206    0.010705
+                              4.931711     0.190708   -0.053342
+                              2.465206     0.453207   -0.144188
+                              1.232278     0.398824   -0.213969
+                              0.615977     0.103648   -0.125585
+                              0.307907     0.002247    0.193970
+                              0.153913     0.000790    0.484674
+                              0.076936    -0.000140    0.419414
+                              0.038458     0.000064    0.110430
+    3.1 Ag    1  1s           8.007860     1.000000
+    4.1 Ag    1  1s           1.393659     1.000000
+    5.1 Ag    1  1s           0.385867     1.000000
+    6.1 Ag    1  1s           0.062744     1.000000
+    7.1 Ag    1  3d0          9.041130     1.000000
+    8.1 Ag    1  3d2+         9.041130     1.000000
+    9.1 Ag    1  3d0          2.714322     1.000000
+   10.1 Ag    1  3d2+         2.714322     1.000000
+   11.1 Ag    1  3d0          0.327838     1.000000
+   12.1 Ag    1  3d2+         0.327838     1.000000
+   13.1 Ag    1  3d0          0.109206     1.000000
+   14.1 Ag    1  3d2+         0.109206     1.000000
+    1.2 B3u   1  2px         33.993368     0.011908   -0.002183
+    2.2 B3u                  17.617051     0.097485   -0.017362
+                              9.130030     0.180474   -0.032292
+                              4.731635     0.265522   -0.049810
+                              2.452168     0.307977   -0.059926
+                              1.270835     0.235061   -0.052553
+                              0.658610     0.089631    0.001989
+                              0.341324     0.011083    0.130052
+                              0.176891     0.001577    0.280089
+                              0.091674     0.000007    0.374339
+                              0.047510     0.000215    0.272857
+                              0.024622    -0.000022    0.085145
+    3.2 B3u   1  2px          3.452999     1.000000
+    4.2 B3u   1  2px          1.290286     1.000000
+    5.2 B3u   1  2px          0.286002     1.000000
+    6.2 B3u   1  2px          0.043756     1.000000
+    7.2 B3u   1  4f1+         5.819775     1.000000
+    8.2 B3u   1  4f3+         5.819775     1.000000
+    9.2 B3u   1  4f1+         0.254342     1.000000
+   10.2 B3u   1  4f3+         0.254342     1.000000
+    1.3 B2u   1  2py         33.993368     0.011908   -0.002183
+    2.3 B2u                  17.617051     0.097485   -0.017362
+                              9.130030     0.180474   -0.032292
+                              4.731635     0.265522   -0.049810
+                              2.452168     0.307977   -0.059926
+                              1.270835     0.235061   -0.052553
+                              0.658610     0.089631    0.001989
+                              0.341324     0.011083    0.130052
+                              0.176891     0.001577    0.280089
+                              0.091674     0.000007    0.374339
+                              0.047510     0.000215    0.272857
+                              0.024622    -0.000022    0.085145
+    3.3 B2u   1  2py          3.452999     1.000000
+    4.3 B2u   1  2py          1.290286     1.000000
+    5.3 B2u   1  2py          0.286002     1.000000
+    6.3 B2u   1  2py          0.043756     1.000000
+    7.3 B2u   1  4f1-         5.819775     1.000000
+    8.3 B2u   1  4f3-         5.819775     1.000000
+    9.3 B2u   1  4f1-         0.254342     1.000000
+   10.3 B2u   1  4f3-         0.254342     1.000000
+    1.4 B1g   1  3d2-         9.041130     1.000000
+    2.4 B1g   1  3d2-         2.714322     1.000000
+    3.4 B1g   1  3d2-         0.327838     1.000000
+    4.4 B1g   1  3d2-         0.109206     1.000000
+    1.5 B1u   1  2pz         33.993368     0.011908   -0.002183
+    2.5 B1u                  17.617051     0.097485   -0.017362
+                              9.130030     0.180474   -0.032292
+                              4.731635     0.265522   -0.049810
+                              2.452168     0.307977   -0.059926
+                              1.270835     0.235061   -0.052553
+                              0.658610     0.089631    0.001989
+                              0.341324     0.011083    0.130052
+                              0.176891     0.001577    0.280089
+                              0.091674     0.000007    0.374339
+                              0.047510     0.000215    0.272857
+                              0.024622    -0.000022    0.085145
+    3.5 B1u   1  2pz          3.452999     1.000000
+    4.5 B1u   1  2pz          1.290286     1.000000
+    5.5 B1u   1  2pz          0.286002     1.000000
+    6.5 B1u   1  2pz          0.043756     1.000000
+    7.5 B1u   1  4f0          5.819775     1.000000
+    8.5 B1u   1  4f2+         5.819775     1.000000
+    9.5 B1u   1  4f0          0.254342     1.000000
+   10.5 B1u   1  4f2+         0.254342     1.000000
+    1.6 B2g   1  3d1+         9.041130     1.000000
+    2.6 B2g   1  3d1+         2.714322     1.000000
+    3.6 B2g   1  3d1+         0.327838     1.000000
+    4.6 B2g   1  3d1+         0.109206     1.000000
+    1.7 B3g   1  3d1-         9.041130     1.000000
+    2.7 B3g   1  3d1-         2.714322     1.000000
+    3.7 B3g   1  3d1-         0.327838     1.000000
+    4.7 B3g   1  3d1-         0.109206     1.000000
+    1.8 Au    1  4f2-         5.819775     1.000000
+    2.8 Au    1  4f2-         0.254342     1.000000
+
+ NUCLEAR CHARGE:                    3
+ NUMBER OF PRIMITIVE AOS:         108
+ NUMBER OF SYMMETRY AOS:           98
+ NUMBER OF CONTRACTIONS:           58   (  14Ag  +  10B3u +  10B2u +   4B1g +  10B1u +   4B2g +   4B3g +   2Au  )
+ NUMBER OF CORE ORBITALS:           0   (   0Ag  +   0B3u +   0B2u +   0B1g +   0B1u +   0B2g +   0B3g +   0Au  )
+ NUMBER OF VALENCE ORBITALS:        4   (   1Ag  +   1B3u +   1B2u +   0B1g +   1B1u +   0B2g +   0B3g +   0Au  )
+
+
+ NUCLEAR REPULSION ENERGY    0.00000000
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 1 1 1 2 3 2 3   2 3 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 2:   1 1 1 1 1 1 2 3 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 3:   1 1 1 1 1 1 2 3 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 5:   1 1 1 1 1 1 2 3 2 3
+
+ Eigenvalues of metric
+
+         1 0.568E-02 0.111E-01 0.171E+00 0.347E+00 0.347E+00 0.485E+00 0.485E+00 0.563E+00
+         2 0.139E-01 0.299E-01 0.186E+00 0.611E+00 0.984E+00 0.984E+00 0.102E+01 0.102E+01
+         3 0.139E-01 0.299E-01 0.186E+00 0.611E+00 0.984E+00 0.984E+00 0.102E+01 0.102E+01
+         4 0.347E+00 0.485E+00 0.145E+01 0.172E+01
+         5 0.139E-01 0.299E-01 0.186E+00 0.611E+00 0.984E+00 0.984E+00 0.102E+01 0.102E+01
+         6 0.347E+00 0.485E+00 0.145E+01 0.172E+01
+         7 0.347E+00 0.485E+00 0.145E+01 0.172E+01
+         8 0.984E+00 0.102E+01
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-12
+ AO integral compression algorithm  1   Integral accuracy      1.0D-12
+
+     2.097 MB (compressed) written to integral file ( 69.4%)
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:     203904.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:     203904      RECORD LENGTH: 524288
+
+ Memory used in sort:       0.76 MW
+
+ SORT1 READ      417520. AND WROTE      167428. INTEGRALS IN      1 RECORDS. CPU TIME:     0.01 SEC, REAL TIME:     0.02 SEC
+ SORT2 READ      167428. AND WROTE      203904. INTEGRALS IN      8 RECORDS. CPU TIME:     0.03 SEC, REAL TIME:     0.05 SEC
+
+ FILE SIZES:   FILE 1:    22.1 MBYTE,  FILE 4:     4.2 MBYTE,   TOTAL:     26.3 MBYTE
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+ OPERATOR EKIN    FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+ OPERATOR POT     FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      20       21.01       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+ PROGRAMS   *        TOTAL       INT
+ CPU TIMES  *         2.25      2.13
+ REAL TIME  *        12.83 SEC
+ DISK USED  *        26.57 MB      
+ **********************************************************************************************************************************
+
+
+ PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       6+    5-    SPACE SYMMETRY=2    SPIN SYMMETRY: Doublet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.60 (CLOSED) -0.30 (OPEN) 
+
+ Number of closed-shell orbitals:    5 (   2   1   1   0   1   0   0   0 )
+ Number of open-shell orbitals:      1 (   0   1   0   0   0   0   0   0 )
+
+
+
+   Atom=AL basis=ECP10MWB_GUESS    lmin=0  lmax=1
+
+ Orbital guess generated from atomic densities. Full valence occupancy:    1   1   1   0   1   0   0   0
+
+
+ Molecular orbital dump at record        4202.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00       -69.84149791    149.536757    0.00000    0.00000    0.00000    0    start
+    2      0.000D+00      0.811D+00       -79.85361129     89.073475    0.00000    0.00000    0.00000    1    diag,B
+    3      0.101D+01      0.256D+00       -80.92045383     99.709270    0.00000    0.00000    0.00000    2    diag,B
+    4      0.140D+00      0.300D-01       -80.96732005    100.252762    0.00000    0.00000    0.00000    3    diag,B
+    5      0.742D-01      0.822D-02       -80.98268161    100.501701    0.00000    0.00000    0.00000    4    diag,B
+    6      0.369D-01      0.339D-02       -80.99045484    100.809616    0.00000    0.00000    0.00000    5    diag,B
+    7      0.244D-01      0.178D-02       -80.99327263    101.059284    0.00000    0.00000    0.00000    6    fixocc
+    8      0.305D-01      0.464D-03       -80.99334478    101.075794    0.00000    0.00000    0.00000    7    diag,B
+    9      0.798D-02      0.129D-03       -80.99334912    101.060817    0.00000    0.00000    0.00000    8    diag,B
+   10      0.167D-02      0.331D-04       -80.99334970    101.053174    0.00000    0.00000    0.00000    9    orth
+   11      0.517D-03      0.562D-05       -80.99334970    101.052540    0.00000    0.00000    0.00000    9    diag,B
+   12      0.471D-04      0.133D-05       -80.99334970    101.052603    0.00000    0.00000    0.00000    9    diag,B
+   13      0.600D-05      0.493D-06       -80.99334970    101.052600    0.00000    0.00000    0.00000    0    orth
+
+ Final alpha occupancy:   2   2   1   0   1   0   0   0
+ Final beta  occupancy:   2   1   1   0   1   0   0   0
+
+ !RHF STATE 1.2 Energy                -80.993349703675
+ Nuclear energy                         0.00000000
+ One-electron energy                 -131.51964983
+ Two-electron energy                   50.52630013
+ Virial quotient                       -1.28779596
+ !RHF STATE 1.2 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+ 
+
+ !RHF expec          <1.2|EKIN|1.2>    62.892998757669
+ 
+ !RHF expec           <1.2|POT|1.2>   -18.123408683826
+
+ ELECTRON ORBITALS
+ =================
+
+
+   Orb  Occ    Energy  Couls-En    Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1   2    -4.9004  -20.4904  0.999996  0.000003  0.000001  0.000003  0.000001 -0.000002 -0.000026  0.000045  0.000344 -0.000595
+                                 0.000214 -0.000371 -0.000149  0.000258
+
+   2.1   2    -0.3943   -5.0796  0.000078  1.000363  0.000002  0.000053 -0.000047 -0.000399  0.000031 -0.000053  0.000006 -0.000010
+                                 0.001222 -0.002116 -0.004483  0.007765
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2   2    -3.2771  -17.8470  1.001918  0.001419  0.000296 -0.001788 -0.001887 -0.000771  0.000121 -0.000157  0.000130 -0.000168
+
+   2.2   +    -0.2098   -3.8048  0.000859  1.000628 -0.000015  0.000060 -0.000068 -0.000683  0.000000 -0.000000  0.000043 -0.000055
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3   2    -3.2785  -17.8370  0.999032 -0.000907 -0.000141  0.000890  0.000955  0.000393  0.000040 -0.000157  0.000044 -0.000170
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5   2    -3.2785  -17.8370  0.999032 -0.000907 -0.000141  0.000890  0.000955  0.000393  0.000099 -0.000128  0.000108 -0.000139
+
+ HOMO      2.2    -0.209810 =      -5.7092eV
+ LUMO      2.3     0.015892 =       0.4324eV
+ LUMO-HOMO         0.225702 =       6.1417eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      20       21.01       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+              2       4        2.77       700     1000      520     4202   
+                                         GEOM     BASIS   MCVARS     RHF  
+
+ PROGRAMS   *        TOTAL       RHF       INT
+ CPU TIMES  *         2.32      0.07      2.13
+ REAL TIME  *        13.07 SEC
+ DISK USED  *        26.57 MB      
+ **********************************************************************************************************************************
+
+
+ PROGRAM * MULTI (Direct Multiconfiguration SCF)       Authors: P.J. Knowles, H.-J. Werner (1984)     S.T. Elbert (1988)
+
+
+ Number of closed-shell orbitals:   5 (   2   1   1   0   1   0   0   0 )
+ Number of active  orbitals:        3 (   0   1   1   0   1   0   0   0 )
+ Number of external orbitals:      50 (  12   8   8   4   8   4   4   2 )
+
+ State symmetry 1
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=2
+ Number of states:        1
+ Number of CSFs:          1   (1 determinants, 3 intermediate states)
+
+ State symmetry 2
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=3
+ Number of states:        1
+ Number of CSFs:          1   (1 determinants, 3 intermediate states)
+
+ State symmetry 3
+
+ Number of electrons:     1    Spin symmetry=Doublet   Space symmetry=5
+ Number of states:        1
+ Number of CSFs:          1   (1 determinants, 3 intermediate states)
+
+ Molecular orbitals read from record     4202.2  Type=RHF/CANONICAL (state 1.2)
+ *** IN SYMMETRY 1 ORBITAL  1 SYMMETRY CONTAMINATION OF 0.200D-02 HAS BEEN REMOVED
+ *** IN SYMMETRY 1 ORBITAL  2 SYMMETRY CONTAMINATION OF 0.154D-01 HAS BEEN REMOVED
+
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 1:   1 1 1 3 2 2 3 1 2 3   1 2 3 1
+ *** IN SYMMETRY 2 ORBITAL  1 SYMMETRY CONTAMINATION OF 0.571D-03 HAS BEEN REMOVED
+ *** IN SYMMETRY 2 ORBITAL  2 SYMMETRY CONTAMINATION OF 0.989D-04 HAS BEEN REMOVED
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 2:   1 1 1 1 2 3 1 1 2 3
+ *** IN SYMMETRY 3 ORBITAL  1 SYMMETRY CONTAMINATION OF 0.410D-03 HAS BEEN REMOVED
+ *** IN SYMMETRY 3 ORBITAL  2 SYMMETRY CONTAMINATION OF 0.555D-03 HAS BEEN REMOVED
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 3:   1 1 1 1 2 3 1 1 2 3
+ *** IN SYMMETRY 5 ORBITAL  1 SYMMETRY CONTAMINATION OF 0.472D-03 HAS BEEN REMOVED
+ *** IN SYMMETRY 5 ORBITAL  2 SYMMETRY CONTAMINATION OF 0.639D-03 HAS BEEN REMOVED
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 5:   1 1 1 1 2 3 1 1 2 3
+
+ Wavefunction dump at record             5202.2
+
+ Convergence thresholds  0.10E-01 (gradient)  0.10E-05 (energy)  0.10E-02 (step length)
+
+ Weight factors for state symmetry  1:    0.33333
+ Weight factors for state symmetry  2:    0.33333
+ Weight factors for state symmetry  3:    0.33333
+
+ Number of orbital rotations:       75   (     3 Core/Active     48 Core/Virtual   0 Active/Active     24 Active/Virtual)
+ Total number of variables:         78
+
+
+ ITER. MIC  NCI  NEG     ENERGY(VAR)     ENERGY(PROJ)   ENERGY CHANGE     GRAD(0)  GRAD(ORB)   GRAD(CI)     STEP       TIME
+
+   1   17   21    0     -80.98404133     -80.99324477   -0.00920344    0.03493422 0.00000000 0.00000000  0.36D+00      0.02
+   2   15   24    0     -80.99323743     -80.99324172   -0.00000430    0.00245630 0.00000000 0.00000000  0.24D-02      0.04
+   3   15   15    0     -80.99324173     -80.99324173   -0.00000000    0.00000119 0.00000000 0.00000000  0.20D-05      0.05
+
+ ** WVFN ****  CONVERGENCE REACHED, FINAL GRADIENT:  0.44D-12
+
+
+
+ Results for state 1.2
+ =====================
+
+ !MCSCF STATE 1.2 Energy              -80.993241725972
+ Nuclear energy                         0.00000000
+ Kinetic energy                        62.89280073
+ One electron energy                 -131.51892026
+ Two electron energy                   50.52567853
+ Virial ratio                           2.28779830
+
+ !MCSCF STATE 1.2 Dipole moment         0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+
+
+
+ Results for state 1.3
+ =====================
+
+ !MCSCF STATE 1.3 Energy              -80.993241725972
+ Nuclear energy                         0.00000000
+ Kinetic energy                        62.89280073
+ One electron energy                 -131.51892026
+ Two electron energy                   50.52567853
+ Virial ratio                           2.28779830
+
+ !MCSCF STATE 1.3 Dipole moment         0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+
+
+
+ Results for state 1.5
+ =====================
+
+ !MCSCF STATE 1.5 Energy              -80.993241725972
+ Nuclear energy                         0.00000000
+ Kinetic energy                        62.89280073
+ One electron energy                 -131.51892026
+ Two electron energy                   50.52567853
+ Virial ratio                           2.28779830
+
+ !MCSCF STATE 1.5 Dipole moment         0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+
+ State-averaged charge density matrix saved on record  5202.2 (density set 1)
+
+ !MCSCF expec        <1.2|EKIN|1.2>    62.892800726817
+ !MCSCF expec        <1.3|EKIN|1.3>    62.892800726817
+ !MCSCF expec        <1.5|EKIN|1.5>    62.892800726817
+
+ !MCSCF expec         <1.2|POT|1.2>   -18.123321746038
+ !MCSCF expec         <1.3|POT|1.3>   -18.123321746038
+ !MCSCF expec         <1.5|POT|1.5>   -18.123321746038
+
+
+ NATURAL ORBITALS (state averaged)
+ =================================
+
+   Orb     Occ        Energy       Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1  2.00000    -4.900451     0.999995 -0.000001  0.000001  0.000003  0.000000  0.000001  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+   2.1  2.00000    -0.394302     0.000014  1.000089  0.000000  0.000026 -0.000028 -0.000081  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.2  0.33333     0.001665     0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.3  0.33333     0.001665     0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.5  0.33333     0.001665     0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+ Total charge:  -8.000000000000
+ 
+
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 1:   1 1 1 2 3 2 3 1 3 2   1 3 2 1
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 2:   1 1 1 1 3 2 1 1 2 3
+ EXTRA SYMMETRY OF MOS IN SYMMETRY 3:   1 1 1 1 3 2 1 1 2 3
+
+ Natural orbital dump (state averaged) at molpro section  5202.2    (Orbital set 2)
+
+
+ CI vector for state symmetry 1
+ ==============================
+
+ a 0 0           1.0000000
+
+ TOTAL ENERGIES                       -80.99324173
+
+ CI vector for state symmetry 2
+ ==============================
+
+ 0 a 0           1.0000000
+
+ TOTAL ENERGIES                       -80.99324173
+
+ CI vector for state symmetry 3
+ ==============================
+
+ 0 0 a           1.0000000
+
+ TOTAL ENERGIES                       -80.99324173
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      21       21.22       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1380   
+                                         JKOP   
+
+              2       5        5.28       700     1000      520     4202     5202   
+                                         GEOM     BASIS   MCVARS     RHF     MCSCF   
+
+ PROGRAMS   *        TOTAL     MULTI       RHF       INT
+ CPU TIMES  *         2.39      0.07      0.07      2.13
+ REAL TIME  *        14.50 SEC
+ DISK USED  *        36.50 MB      
+ **********************************************************************************************************************************
+
+
+ PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       6+    5-    SPACE SYMMETRY=2    SPIN SYMMETRY: Doublet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:        0
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.60 (CLOSED) -0.30 (OPEN) 
+
+ Number of closed-shell orbitals:    5 (   2   1   1   0   1   0   0   0 )
+ Number of open-shell orbitals:      1 (   0   1   0   0   0   0   0   0 )
+
+
+ Molecular orbitals read from record     5202.2  Type=MCSCF/NATURAL (state averaged)
+
+ Molecular orbital dump at record        2101.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00       -80.99324173    101.051357    0.00000    0.00000    0.00000    0    start
+
+ Final alpha occupancy:   2   2   1   0   1   0   0   0
+ Final beta  occupancy:   2   1   1   0   1   0   0   0
+
+ !RHF STATE 1.2 Energy                -80.993241725972
+ Nuclear energy                         0.00000000
+ One-electron energy                 -131.51892026
+ Two-electron energy                   50.52567853
+ Virial quotient                       -1.28779830
+ !RHF STATE 1.2 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+ 
+
+ !RHF expec          <1.2|EKIN|1.2>    62.892800726817
+ 
+ !RHF expec           <1.2|POT|1.2>   -18.123321746038
+
+ ELECTRON ORBITALS
+ =================
+
+
+   Orb  Occ    Energy  Couls-En    Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1   2    -4.9005  -20.4905  0.999995 -0.000001  0.000001  0.000003  0.000000  0.000001  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+   2.1   2    -0.3943   -5.0795  0.000014  1.000089  0.000000  0.000026 -0.000028 -0.000081  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2   2    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.2   +     0.0017   -3.5937  0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3   2    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5   2    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+ HOMO      2.2     0.001665 =       0.0453eV
+ LUMO      2.3     0.001665 =       0.0453eV
+ LUMO-HOMO         0.000000 =       0.0000eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      21       21.22       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1380   
+                                         JKOP   
+
+              2       6        7.80       700     1000      520     4202     5202     2101   
+                                         GEOM     BASIS   MCVARS     RHF     MCSCF     RHF  
+
+ PROGRAMS   *        TOTAL       RHF     MULTI       RHF       INT
+ CPU TIMES  *         2.40      0.01      0.07      0.07      2.13
+ REAL TIME  *        14.59 SEC
+ DISK USED  *        36.50 MB      
+ **********************************************************************************************************************************
+ SETTING SCF(I)         =       -80.99324173  AU                              
+ SETTING _CC_NORM_MAX   =         2.00000000                                  
+
+
+ PROGRAM * UHF-SCF       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       6+    5-    SPACE SYMMETRY=2    SPIN SYMMETRY: Doublet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:        0
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                  0.20 (ALPHA)   0.20 (BETA) 
+
+ Number of closed-shell orbitals:    5 (   2   1   1   0   1   0   0   0 )
+ Number of open-shell orbitals:      1 (   0   1   0   0   0   0   0   0 )
+
+
+ Molecular orbitals read from record     2101.2  Type=RHF/CANONICAL (state 1.2)
+
+ Molecular orbital dump at record        2200.2
+
+ Initial alpha occupation   2   2   1   0   1   0   0   0
+ Initial beta  occupation   2   1   1   0   1   0   0   0
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS
+    1      0.000D+00      0.000D+00       -80.99324173    101.051357    0.00000    0.00000    0.00000    0
+ 
+ Final alpha occupancy:   2   2   1   0   1   0   0   0
+ Final beta  occupancy:   2   1   1   0   1   0   0   0
+
+ !UHF STATE 1.2 Energy                -80.993241725972
+ Nuclear energy                         0.00000000
+ One-electron energy                 -131.51892026
+ Two-electron energy                   50.52567853
+ Virial quotient                       -1.28779830
+ !UHF STATE 1.2 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+ 
+
+ !UHF expec          <1.2|EKIN|1.2>    62.892800726817
+ 
+ !UHF expec           <1.2|POT|1.2>   -18.123321746038
+
+ ELECTRON ORBITALS FOR POSITIVE SPIN
+ ===================================
+
+
+   Orb  Occ    Energy  Couls-En    Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1   +    -4.9005  -20.4905  0.999995 -0.000001  0.000001  0.000003  0.000000  0.000001  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+   2.1   +    -0.3943   -5.0795  0.000014  1.000089  0.000000  0.000026 -0.000028 -0.000081  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2   +    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.2   +     0.0017   -3.5937  0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3   +    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5   +    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+ ELECTRON ORBITALS FOR NEGATIVE SPIN
+ ===================================
+
+
+   Orb  Occ    Energy  Couls-En    Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1   -    -4.9005  -20.4905  0.999995 -0.000001  0.000001  0.000003  0.000000  0.000001  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+   2.1   -    -0.3943   -5.0795  0.000014  1.000089  0.000000  0.000026 -0.000028 -0.000081  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2   -    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3   -    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5   -    -3.2781  -17.8403  0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+ HOMO      2.2     0.001665 =       0.0453eV
+ LUMO      2.3     0.001665 =       0.0453eV
+ LUMO-HOMO         0.000000 =       0.0000eV
+
+ EXPECTATION VALUE OF S**2:             0.75000000
+
+ Occupation number threshold for canonical orbitals:  1.999000 (occupied),  0.001000 (virtual)
+
+ Number of pseudo-canonical orbitals per symmetry:    2   1   1   0   1   0   0   0
+ Number of active natural orbitals per symmetry:      0   1   0   0   0   0   0   0
+
+ NATURAL CHARGE ORBITALS
+ =======================
+
+
+   Orb     Occ        Energy       Coefficients
+
+                                   1 1s      1 1s      1 1s      1 1s      1 1s      1 1s      1 3d0     1 3d2+    1 3d0     1 3d2+ 
+                                   1 3d0     1 3d2+    1 3d0     1 3d2+ 
+
+   1.1  2.00000    -4.900451     0.999995 -0.000001  0.000001  0.000003  0.000000  0.000001  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+   2.1  2.00000    -0.394302     0.000014  1.000089  0.000000  0.000026 -0.000028 -0.000081  0.000000  0.000000  0.000000  0.000000
+                                 0.000000  0.000000  0.000000  0.000000
+
+                                   1 2px     1 2px     1 2px     1 2px     1 2px     1 2px     1 4f1+    1 4f3+    1 4f1+    1 4f3+ 
+
+
+   1.2  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+   2.2  1.00000    -0.066915     0.000003  1.000025  0.000000 -0.000001 -0.000008 -0.000022  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1-    1 4f3- 
+
+
+   1.3  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+                                   1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0     1 4f2+ 
+
+
+   1.5  2.00000    -3.278075     0.999995 -0.000006  0.000005 -0.000001  0.000004  0.000004  0.000000  0.000000  0.000000  0.000000
+
+ Natural orbitals saved to record    2200.2 (Orbital set 3)
+
+ Orbital spaces for UNO-CAS (Min. occupation: 0.020  Max. occupation: 1.980):
+
+ Closed:        2   1   1   0   1   0   0   0
+ Active:        0   1   0   0   0   0   0   0
+
+ No convergence
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      21       21.22       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1380   
+                                         JKOP   
+
+              2       7       10.33       700     1000      520     4202     5202     2101     2200   
+                                         GEOM     BASIS   MCVARS     RHF     MCSCF     RHF      UHF  
+
+ PROGRAMS   *        TOTAL       UHF       RHF     MULTI       RHF       INT
+ CPU TIMES  *         2.42      0.01      0.01      0.07      0.07      2.13
+ REAL TIME  *        14.75 SEC
+ DISK USED  *        36.50 MB      
+ **********************************************************************************************************************************
+ SETTING SCF(I)         =       -80.99324173  AU                              
+
+
+ PROGRAM * MRCC (General Multireference Coupled Cluster)    Author: M. Kallay, 2000-2005
+
+ ***  Initialisation ***
+
+   0 Spin projections
+ 
+ Molecular orbitals read from record     2200.2  Type=UHF/ALPHA (state 1.2)
+
+ ?Warning: UHF not converged
+ Molecular orbitals read from record     2200.2  Type=UHF/BETA (state 1.2)
+
+ ?Warning: UHF not converged
+ 
+ Frozen orbitals:              0 (  0  0  0  0  0  0  0  0)
+ Active orbitals:             58 ( 14 10 10  4 10  4  4  2)
+ Active electrons:            11
+ Spin quantum number:          0.5
+
+ Transformed integrals will be written to file al/mrcc_7078/fort.55
+
+ Load integrals                2.4 sec
+ Transform integrals           2.6 sec
+ Storage for integrals:        1158255
+ Remaining memory:           *********
+
+ Core energy:               0.00000000
+ 
+ MRCC Input:
+     4     0     0     0     3     0     0     2     0     0     0     1     1     0     0     7     0     0   0.000     0   64000
+  ex.lev,nsing,ntrip, rest,method,dens,conver,symm, diag, CS ,spatial, HF, ndoub,nacto,nactv, tol, maxex, sacc, freq,  dboc,   mem
+  2  2  0  0  0  0  0  0  0  0  0  0  0  0  2  1  0  0  0  0  0  0  0  0  2  0  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ MRCC Input end
+ Variable memory released
+ MRCC now being run, temporary output in /global/cscratch1/sd/aannabe/al/mrcc_7078/mrcc.out
+ **********************************************************************
+                          MRCC program system
+ **********************************************************************
+
+                              Written by
+  Mihaly Kallay, Zoltan Rolik, Jozsef Csontos, Peter Nagy, Gyula Samu,
+      David Mester, Jozsef Csoka, Bernat Szabo, Istvan Ladjanszki,
+       Lorant Szegedy, Bence Ladoczki, Klara Petrov, Mate Farkas,
+                    Pal D. Mezei, and Bence Hegely
+
+        Department of Physical Chemistry and Materials Science
+            Budapest University of Technology and Economics
+                  Budapest P.O.Box 91, H-1521 Hungary
+
+                              www.mrcc.hu
+
+                       Release date: May 23, 2018
+
+ ************************ 2019-01-28 17:20:13 *************************
+ Executing goldstone...
+
+ Generation of CC equations in terms of H and T...
+ Generation of antisymmetrized Goldstone diagrams...
+ Number of diagrams in T^1 equations:    15
+ Number of diagrams in T^2 equations:    38
+ Number of diagrams in T^3 equations:    49
+ Number of diagrams in T^4 equations:     5
+ Translation of diagrams to factorized equations...
+ Optimizing intermediate calculation...
+ Number of floating-point operations per iteration step:   1.2865E+11
+ Probable CPU time per iteration step (hours):      1.29
+ Required memory (Mbytes):    1504.4
+ Number of intermediates:                                  80
+ Number of intermediates to be stored:                     31
+ Length of intermediate file (Mbytes):      35.5
+
+ ************************ 2019-01-28 17:20:14 *************************
+ Executing xmrcc...
+
+ **********************************************************************
+ CC(3)(4) calculation
+
+
+ Allocation of1504.4 Mbytes of memory...
+ Number of spinorbitals:                   116
+ Number of alpha electrons:                        6
+ Number of beta electrons:                         5
+ Spin multiplicity:                     2
+ z-component of spin:  0.5
+ Spatial symmetry:                      2
+ Convergence criterion:  1.0E-07
+ Construction of occupation graphs...
+ Number of                     0 -fold excitations:                      1
+ Number of                     1 -fold excitations:                    109
+ Number of                     2 -fold excitations:                  15547
+ Number of                     3 -fold excitations:                1287271
+ Total number of configurations:                1302928
+ Calculation of coupling coefficients...
+ Length of intermediate file (Mbytes):      26.8
+
+ ======================================================================
+
+ Spin case  1   Alpha:  0   Beta:  4
+ Number of excitations:                 183659
+ Spin case  2   Alpha:  1   Beta:  3
+ Number of excitations:                9130240
+ Spin case  3   Alpha:  2   Beta:  2
+ Number of excitations:               34274980
+ Spin case  4   Alpha:  3   Beta:  1
+ Number of excitations:               14635360
+ Spin case  5   Alpha:  4   Beta:  0
+ Number of excitations:                 508478
+ Number of                     4 -fold excitations:               58732717
+
+ Memory requirements /Mbyte/:
+               Minimal        Optimal
+ Real*8:         55.6245        86.3932
+ Integer:        15.5058
+ Total:          71.1303       101.8991
+
+
+ ************************ 2019-01-28 17:20:16 *************************
+ Executing mrcc...
+
+ **********************************************************************
+ CCSDT(Q) calculation
+
+
+ Allocation of   86.4 Mbytes of memory...
+ Number of spinorbitals: 116
+ Number of alpha electrons:  6
+ Number of beta  electrons:  5
+ Spin multiplicity: 2
+ z-component of spin:  0.5
+ Spatial symmetry: 2
+ Convergence criterion:  1.0E-07
+ Construction of occupation graphs...
+ Number of 0-fold excitations: 1
+ Number of 1-fold excitations: 109
+ Number of 2-fold excitations: 15547
+ Number of 3-fold excitations: 1287271
+ Total number of determinants: 1302928
+ Calculation of coupling coefficients...
+ Initial cluster amplitudes are generated.
+ Length of intermediate file (Mbytes):      26.8
+ Reading integral list from unit 55...
+ Sorting integrals...
+ Sorting integrals...
+ Sorting integrals...
+ Sorting integrals...
+ Energy of reference determinant [au]:     -80.993241725972
+ Calculation of MP denominators...
+
+ Starting CC iteration...
+ ======================================================================
+ Norm of residual vector:     2.64312502
+ CPU time [min]:     0.286                   Wall time [min]:     0.301
+
+ Iteration  1  CC energy:   -81.30759488  Energy decrease:   0.31435316
+ ======================================================================
+ Norm of residual vector:     0.31471174
+ CPU time [min]:     0.525                   Wall time [min]:     0.990
+
+ Iteration  2  CC energy:   -81.32073747  Energy decrease:   0.01314259
+ ======================================================================
+ Norm of residual vector:     0.05263079
+ CPU time [min]:     0.776                   Wall time [min]:     1.251
+
+ Iteration  3  CC energy:   -81.32980758  Energy decrease:   0.00907011
+ ======================================================================
+ Norm of residual vector:     0.02291344
+ CPU time [min]:     1.032                   Wall time [min]:     1.513
+
+ Iteration  4  CC energy:   -81.32897950  Energy decrease:   0.00082808
+ ======================================================================
+ Norm of residual vector:     0.00568139
+ CPU time [min]:     1.288                   Wall time [min]:     1.779
+
+ Iteration  5  CC energy:   -81.32898005  Energy decrease:   0.00000054
+ ======================================================================
+ Norm of residual vector:     0.00194306
+ CPU time [min]:     1.547                   Wall time [min]:     2.047
+
+ Iteration  6  CC energy:   -81.32906667  Energy decrease:   0.00008662
+ ======================================================================
+ Norm of residual vector:     0.00053096
+ CPU time [min]:     1.807                   Wall time [min]:     2.315
+
+ Iteration  7  CC energy:   -81.32906986  Energy decrease:   0.00000319
+ ======================================================================
+ Norm of residual vector:     0.00017134
+ CPU time [min]:     2.070                   Wall time [min]:     2.588
+
+ Iteration  8  CC energy:   -81.32906078  Energy decrease:   0.00000908
+ ======================================================================
+ Norm of residual vector:     0.00005186
+ CPU time [min]:     2.334                   Wall time [min]:     2.860
+
+ Iteration  9  CC energy:   -81.32906207  Energy decrease:   0.00000129
+ ======================================================================
+ Norm of residual vector:     0.00001475
+ CPU time [min]:     2.600                   Wall time [min]:     3.136
+
+ Iteration 10  CC energy:   -81.32906205  Energy decrease:   0.00000002
+ ======================================================================
+ Norm of residual vector:     0.00000545
+ CPU time [min]:     2.876                   Wall time [min]:     3.421
+
+ Iteration 11  CC energy:   -81.32906199  Energy decrease:   0.00000006
+ ======================================================================
+ Norm of residual vector:     0.00000148
+ CPU time [min]:     3.145                   Wall time [min]:     3.701
+
+ Iteration 12  CC energy:   -81.32906203  Energy decrease:   0.00000003
+ ======================================================================
+ Norm of residual vector:     0.00000049
+ CPU time [min]:     3.419                   Wall time [min]:     3.983
+
+ Iteration 13  CC energy:   -81.32906202  Energy decrease:   0.00000001
+ ======================================================================
+ Norm of residual vector:     0.00000016
+ CPU time [min]:     3.693                   Wall time [min]:     4.267
+
+ Iteration 14  CC energy:   -81.32906202  Energy decrease:   2.5565E-10
+ ======================================================================
+ Norm of residual vector:     0.00000004
+ CPU time [min]:     3.938                   Wall time [min]:     4.523
+
+ Iteration 15  CC energy:   -81.32906202  Energy decrease:   7.4911E-10
+ ======================================================================
+
+ Iteration has converged in 15 steps.
+
+ Final results:
+ Total CCSDT energy [au]:            -81.329062018247
+ Total MP2 energy [au]:              -81.307594883090
+
+ Perturbative corrections are calculated...
+ ======================================================================
+ Spin case  1   Alpha:  0   Beta:  4
+ Number of excitations:        183659
+ CPU time [min]:     4.447                   Wall time [min]:     5.036
+ ======================================================================
+ Spin case  2   Alpha:  1   Beta:  3
+ Number of excitations:        9130240
+ CPU time [min]:    11.403                   Wall time [min]:    11.993
+ ======================================================================
+ Spin case  3   Alpha:  2   Beta:  2
+ Number of excitations:        34274980
+ CPU time [min]:    26.067                   Wall time [min]:    26.657
+ ======================================================================
+ Spin case  4   Alpha:  3   Beta:  1
+ Number of excitations:        14635360
+ CPU time [min]:    33.756                   Wall time [min]:    34.347
+ ======================================================================
+ Spin case  5   Alpha:  4   Beta:  0
+ Number of excitations:        508478
+ CPU time [min]:    34.323                   Wall time [min]:    34.914
+ ======================================================================
+ Number of 4-fold excitations: 58732717
+ CPU time [min]:    34.323                   Wall time [min]:    34.914
+
+ Total CCSDT[Q] energy [au]:         -81.329084216731
+ Total CCSDT(Q) energy [au]:         -81.329141775203
+
+ ************************ 2019-01-28 17:55:11 *************************
+                      Normal termination of mrcc.
+ **********************************************************************
+ !CCSDT STATE 1.2 Energy              -81.329062018247
+ !MP2 STATE 1.2 Energy                -81.307594883090
+ !CCSDT[Q] STATE 1.2 Energy           -81.329084216731
+ !CCSDT(Q) STATE 1.2 Energy           -81.329141775203
+ 
+ CPU-time for MRCC:           2059.4 sec
+ Elapsed-time for MRCC:       2099.8 sec
+
+ Variable memory set to 8000000000 words,  buffer space   230000 words
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      21       21.22       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1380   
+                                         JKOP   
+
+              2       7       10.33       700     1000      520     4202     5202     2101     2200   
+                                         GEOM     BASIS   MCVARS     RHF     MCSCF     RHF      UHF  
+
+ PROGRAMS   *        TOTAL      MRCC       UHF       RHF     MULTI       RHF       INT
+ CPU TIMES  *      2064.27   2061.85      0.01      0.01      0.07      0.07      2.13
+ REAL TIME  *      2129.81 SEC
+ DISK USED  *        36.50 MB      
+ **********************************************************************************************************************************
+ SETTING POSTHF(I)      =       -81.32914178  AU                              
+                                                                                                                                                                                                                                                                
+
+        SCF            POSTHF        EKIN           POT
+    -80.99324173   -81.32914178   62.89280073   -18.12332175
+                                                  
+
+ CCSDT(Q)/USERDEF energy=    -81.329141775203
+
+        CCSDT(Q)        UHF-SCF         RHF-SCF         MULTI           RHF-SCF 
+    -81.32914178    -80.99324173    -80.99324173    -80.99324173    -80.99334970
+ **********************************************************************************************************************************
+ Molpro calculation terminated
+ Variable memory released
