@@ -1,0 +1,94 @@
+***,Mg
+memory,512,m
+gthresh,twoint=1.e-12
+
+print,basis,orbitals
+
+angstrom
+geometry={                 
+2	! Number of atoms
+
+Mg 0.0 0.0 0.0
+Mg 0.0 0.0 3.8905
+}
+
+spar=[0.032875, 2.185534]
+ppar=[0.022391, 1.906957]
+dpar=[0.064912, 1.866390]
+fpar=[0.128471, 1.565056]
+gpar=[0.188993, 1.622140]
+hpar=[0.281248, 1.671076]
+ipar=[0.378013, 2.500000]
+
+
+proc opt_basis
+
+!Calculate the exponents
+N=5	!6Z
+do i=1,N
+sexp(i)=spar(1)*spar(2)^(i-1)
+pexp(i)=ppar(1)*ppar(2)^(i-1)
+dexp(i)=dpar(1)*dpar(2)^(i-1)
+enddo
+do i=1,N-1
+fexp(i)=fpar(1)*fpar(2)^(i-1)
+enddo
+do i=1,N-2
+gexp(i)=gpar(1)*gpar(2)^(i-1)
+enddo
+do i=1,N-3
+hexp(i)=hpar(1)*hpar(2)^(i-1)
+enddo
+do i=1,N-4
+iexp(i)=ipar(1)*ipar(2)^(i-1)
+enddo
+
+basis={
+ecp,Mg,10,2,0
+3
+1, 6.048538,   2.000000,
+3, 2.796989,  12.097075,
+2, 2.547408, -17.108313,
+2,
+2, 5.936017,   6.428631,
+2, 1.592891,  14.195491,
+2,
+2, 1.583969,   3.315069,
+2, 1.077297,   4.403025,
+
+s, MG, 51.71128254,  22.89220017,  10.13420675,   4.48633796,   1.98606845,   0.87921773,   0.38922315,   0.17230619,   0.07627867,   0.03376800
+c, 1.10,  0.000013, -0.000079,  0.000388, -0.005557,  0.047098, -0.180052, -0.073860,  0.237658,  0.584777,  0.234225
+p, MG, 13.15206115,   6.97947568,   3.70383624,   1.96553488,   1.04306106,   0.55352688,   0.29374311,   0.15588225,   0.08272288,   0.04389900
+c, 1.10,  0.000018, -0.000047,  0.000578,  0.000743, -0.000694, -0.007343,  0.015526, -0.006619,  0.071634, -0.019276
+
+s,Mg,sexp(1),sexp(2),sexp(3),sexp(4),sexp(5)
+p,Mg,pexp(1),pexp(2),pexp(3),pexp(4),pexp(5)
+d,Mg,dexp(1),dexp(2),dexp(3),dexp(4),dexp(5)
+f,Mg,fexp(1),fexp(2),fexp(3),fexp(4)
+g,Mg,gexp(1),gexp(2),gexp(3)
+h,Mg,hexp(1),hexp(2)
+i,Mg,iexp(1)
+}
+
+{hf                        
+wf,4,1,0       
+occ,2,0,0,0,0,0,0,0
+!open,1.3
+closed,2,0,0,0,0,0,0,0
+!sym,
+}              
+
+_CC_NORM_MAX=2.0
+{rccsd(t)
+maxit,100
+core
+}
+eval=energy
+
+endproc
+
+{minimize,eval,spar(1),spar(2),ppar(1),ppar(2),dpar(1),dpar(2),fpar(1),fpar(2),gpar(1),gpar(2),hpar(1),hpar(2),ipar(1)
+method,bfgs,proc=opt_basis,thresh=5e-6,vstep=1e-3
+maxit,1000}
+
+

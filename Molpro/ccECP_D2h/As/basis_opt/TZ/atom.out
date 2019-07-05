@@ -1,0 +1,979 @@
+
+ Primary working directories    : /global/cscratch1/sd/aannabe
+ Secondary working directories  : /global/cscratch1/sd/aannabe
+ Wavefunction directory         : /global/homes/a/aannabe/wfu/
+ Main file repository           : /global/cscratch1/sd/aannabe/
+
+ SHA1      : 19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ NAME      : 2015.1.36
+ ARCHNAME  : linux/x86_64
+ FC        : /opt/cray/pe/craype/2.5.14/bin/ftn
+ BLASLIB   : -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64 -Wl,-_start-group -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -Wl,-_end-group -liomp5
+ id        : lbl
+
+ Nodes     nprocs
+ nid00496     3
+ Number of processes for MPI-2 version of Molpro:   nprocs(total)=    4   nprocs(compute)=    3   nprocs(helper)=    1
+
+ Using customized tuning parameters: mindgm=7; mindgv=16; mindgc=1; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=sf  
+
+ ***,As
+ memory,512,m
+ gthresh,twoint=1.e-12
+ 
+                                                                                 !print,basis,orbitals
+ 
+ angstrom
+ geometry={
+ 1                                                                               ! Number of atoms
+ As 0.0 0.0 0.0
+ }
+ 
+ spar=[0.115290, 4.751167]
+ ppar=[0.099650, 6.053211]
+ dpar=[0.166124, 2.415679]
+ fpar=[0.430730, 2.000000]
+ 
+ proc opt_basis
+ 
+                                                                                 !Calculate the exponents
+ N=2                                                                             !TZ
+ do i=1,N
+ sexp(i)=spar(1)*spar(2)^(i-1)
+ pexp(i)=ppar(1)*ppar(2)^(i-1)
+ dexp(i)=dpar(1)*dpar(2)^(i-1)
+ fexp(i)=fpar(1)*fpar(2)^(i-1)
+ enddo
+ 
+ 
+ basis={
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/As/ccECP/As.ccECP.molpro
+ 
+ s,As, 50.230536, 22.441775, 10.026436, 4.479567, 2.001361, 0.894159, 0.399488, 0.178482, 0.079741
+ c,1.9,-0.000538, 0.003660, -0.023992, 0.158076, -0.419346, -0.100519, 0.450020, 0.605104, 0.190009
+ p,As, 22.695464, 10.529662, 4.885284, 2.266549, 1.051576, 0.487883, 0.226356, 0.105019, 0.048724
+ c,1.9, 0.000322, -0.003120, 0.029849, -0.127882, -0.004461, 0.248666, 0.457083, 0.351483, 0.091636
+ 
+ 
+ s,As,sexp(1),sexp(2)
+ p,As,pexp(1),pexp(2)
+ d,As,dexp(1),dexp(2)
+ f,As,fexp(1)
+ }
+ 
+ {hf
+  wf,5,8,3
+  occ,1,1,1,0,1,0,0,0
+  closed,1,0,0,0,0,0,0,0
+ }
+ 
+ _CC_NORM_MAX=2.0
+ {rcisd
+ maxit,50
+ core
+ }
+ eval=energy
+ 
+ endproc
+ 
+ {minimize,eval,spar(1),spar(2),ppar(1),ppar(2),dpar(1),dpar(2),fpar(1)          !,fpar(2)
+ method,bfgs,proc=opt_basis,thresh=3e-5,vstep=5e-4
+ maxit,100}
+ 
+ 
+
+ Variables initialized (889), CPU time= 0.01 sec
+ Commands  initialized (702), CPU time= 0.02 sec, 572 directives.
+ Default parameters read. Elapsed time= 0.78 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2015.1 linked Dec 29 2018 15:55:43
+
+
+ **********************************************************************************************************************************
+ LABEL *   As                                                                            
+  64 bit mpp version                                                                     DATE: 04-Jun-19          TIME: 09:17:55  
+ **********************************************************************************************************************************
+
+ SHA1:             19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ **********************************************************************************************************************************
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-12  ONEINT  =  1.00D-12  TWOINT  =  1.00D-12  PREFAC  =  1.00D-14  LOCALI  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  0.00D+00  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-02  STEP    =  1.00D-03
+ ORBITAL =  1.00D-05  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  GRID    =  1.00D-06  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01  THROCCDE=  1.00D-01
+
+
+ ZUNIT=ANG
+ 
+
+Geometry recognized as XYZ
+
+ SETTING SPAR(1)        =         0.11529000                                  
+ SETTING SPAR(2)        =         4.75116700                                  
+ SETTING PPAR(1)        =         0.09965000                                  
+ SETTING PPAR(2)        =         6.05321100                                  
+ SETTING DPAR(1)        =         0.16612400                                  
+ SETTING DPAR(2)        =         2.41567900                                  
+ SETTING FPAR(1)        =         0.43073000                                  
+ SETTING FPAR(2)        =         2.00000000                                  
+
+ Variable memory set to  512000000 words,  buffer space   230000 words
+
+
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+ Minimize EVAL with respect to:        SPAR(1)   SPAR(2)   PPAR(1)   PPAR(2)   DPAR(1)   
+                                       DPAR(2)   FPAR(1)   
+ Method BFGS will be used
+ Variables are optimized in the space of (x/x0)
+
+
+ Minimization using procedure=OPT_BASIS
+
+ *** Long output written to logfile /global/u1/a/aannabe/docs/accurate/ccECP_D2h/As/basis_opt/TZ/atom.log ***
+
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700668  -0.0859698329   -0.23D-06
+ estrong  -0.0859332463  -0.0859332463    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ BFGS update of inverse hessian 
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700887  -0.0859698548   -0.23D-06
+ estrong  -0.0859332085  -0.0859332085   -0.28D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700417  -0.0859698078   -0.23D-06
+ estrong  -0.0859332809  -0.0859332809    0.28D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700733  -0.0859698395   -0.23D-06
+ estrong  -0.0859332419  -0.0859332419    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700600  -0.0859698261   -0.23D-06
+ estrong  -0.0859332506  -0.0859332506    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700641  -0.0859698301   -0.23D-06
+ estrong  -0.0859332433  -0.0859332433   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700593  -0.0859698256   -0.23D-06
+ estrong  -0.0859332392  -0.0859332392   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700701  -0.0859698362   -0.23D-06
+ estrong  -0.0859332495  -0.0859332495    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700627  -0.0859698288   -0.23D-06
+ estrong  -0.0859332425  -0.0859332425    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700755  -0.0859698418   -0.23D-06
+ estrong  -0.0859332503  -0.0859332503    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700517  -0.0859698177   -0.23D-06
+ estrong  -0.0859332360  -0.0859332360    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700738  -0.0859698400   -0.23D-06
+ estrong  -0.0859332466  -0.0859332466    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700488  -0.0859698149   -0.23D-06
+ estrong  -0.0859332351  -0.0859332351    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700551  -0.0859698214   -0.23D-06
+ estrong  -0.0859332255  -0.0859332255    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700738  -0.0859698397   -0.23D-06
+ estrong  -0.0859332626  -0.0859332626    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Results for BFGS iteration    1       Current function value  =         -6.151846113
+                                     Previous function value =          0.000000000
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115290       -0.0000470
+ BFGS       SPAR(2)                   4.751167       -0.0000134
+ BFGS       PPAR(1)                   0.099650       -0.0000045
+ BFGS       PPAR(2)                   6.053211       -0.0000074
+ BFGS       DPAR(1)                   0.166124       -0.0000241
+ BFGS       DPAR(2)                   2.415679       -0.0000251
+ BFGS       FPAR(1)                   0.430730        0.0000183
+
+ BFGS update of inverse hessian 
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701011  -0.0859698673   -0.23D-06
+ estrong  -0.0859332192  -0.0859332192    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701200  -0.0859698862   -0.23D-06
+ estrong  -0.0859331782  -0.0859331782   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700791  -0.0859698452   -0.23D-06
+ estrong  -0.0859332569  -0.0859332569    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701073  -0.0859698735   -0.23D-06
+ estrong  -0.0859332144  -0.0859332144   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700948  -0.0859698609   -0.23D-06
+ estrong  -0.0859332238  -0.0859332238   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700979  -0.0859698639   -0.23D-06
+ estrong  -0.0859332156  -0.0859332156    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700942  -0.0859698606   -0.23D-06
+ estrong  -0.0859332127  -0.0859332127    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701043  -0.0859698705   -0.23D-06
+ estrong  -0.0859332222  -0.0859332222    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700972  -0.0859698634   -0.23D-06
+ estrong  -0.0859332155  -0.0859332155    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701032  -0.0859698696   -0.23D-06
+ estrong  -0.0859332166  -0.0859332166    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700927  -0.0859698587   -0.23D-06
+ estrong  -0.0859332155  -0.0859332155    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700993  -0.0859698655   -0.23D-06
+ estrong  -0.0859332106  -0.0859332106    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700921  -0.0859698582   -0.23D-06
+ estrong  -0.0859332169  -0.0859332169    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700914  -0.0859698577   -0.23D-06
+ estrong  -0.0859332002  -0.0859332002    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701063  -0.0859698723   -0.23D-06
+ estrong  -0.0859332336  -0.0859332336    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ Results for BFGS iteration    2       Current function value  =         -6.151846147
+                                     Previous function value =         -6.151846113
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115344       -0.0000409
+ BFGS       SPAR(2)                   4.751802       -0.0000125
+ BFGS       PPAR(1)                   0.099654       -0.0000034
+ BFGS       PPAR(2)                   6.053658       -0.0000071
+ BFGS       DPAR(1)                   0.166164       -0.0000108
+ BFGS       DPAR(2)                   2.416286       -0.0000073
+ BFGS       FPAR(1)                   0.430651        0.0000145
+
+ BFGS update of inverse hessian 
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701605  -0.0859699268   -0.23D-06
+ estrong  -0.0859330573  -0.0859330573    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701679  -0.0859699341   -0.23D-06
+ estrong  -0.0859330044  -0.0859330044    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701500  -0.0859699162   -0.23D-06
+ estrong  -0.0859331068  -0.0859331068    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701651  -0.0859699314   -0.23D-06
+ estrong  -0.0859330509  -0.0859330509    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701558  -0.0859699220   -0.23D-06
+ estrong  -0.0859330634  -0.0859330634    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701554  -0.0859699214   -0.23D-06
+ estrong  -0.0859330517  -0.0859330517   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701556  -0.0859699220   -0.23D-06
+ estrong  -0.0859330527  -0.0859330527    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701632  -0.0859699295   -0.23D-06
+ estrong  -0.0859330597  -0.0859330597    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701571  -0.0859699233   -0.23D-06
+ estrong  -0.0859330541  -0.0859330541    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701496  -0.0859699160   -0.23D-06
+ estrong  -0.0859330416  -0.0859330416    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701652  -0.0859699313   -0.23D-06
+ estrong  -0.0859330667  -0.0859330667    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701416  -0.0859699079   -0.23D-06
+ estrong  -0.0859330316  -0.0859330316    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701685  -0.0859699347   -0.23D-06
+ estrong  -0.0859330720  -0.0859330720    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701571  -0.0859699235   -0.23D-06
+ estrong  -0.0859330445  -0.0859330445    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701594  -0.0859699254   -0.23D-06
+ estrong  -0.0859330654  -0.0859330654    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ Results for BFGS iteration    3       Current function value  =         -6.151846207
+                                     Previous function value =         -6.151846147
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115547       -0.0000179
+ BFGS       SPAR(2)                   4.754320       -0.0000094
+ BFGS       PPAR(1)                   0.099669        0.0000005
+ BFGS       PPAR(2)                   6.055475       -0.0000061
+ BFGS       DPAR(1)                   0.166254        0.0000153
+ BFGS       DPAR(2)                   2.417315        0.0000268
+ BFGS       FPAR(1)                   0.430378        0.0000019
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Minimization of EVAL using the BFGS method has converged after    3 iterations
+
+
+ Running procedure=OPT_BASIS
+ SETTING N              =         2.00000000                                  
+
+ DO I                   =         1.00000000   
+ SETTING SEXP(1)        =         0.11554660                                  
+ SETTING PEXP(1)        =         0.09966932                                  
+ SETTING DEXP(1)        =         0.16625447                                  
+ SETTING FEXP(1)        =         0.43037818                                  
+
+ DO I                   =         2.00000000   
+ SETTING SEXP(2)        =         0.54934551                                  
+ SETTING PEXP(2)        =         0.60354507                                  
+ SETTING DEXP(2)        =         0.40188949                                  
+ SETTING FEXP(2)        =         0.86075636                                  
+ SETTING BASIS          =    USERDEF
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.11554660
+ Set= 1  SEXP(2)             =       0.54934551
+ Set= 1  PEXP(1)             =       0.09966932
+ Set= 1  PEXP(2)             =       0.60354507
+ Set= 1  DEXP(1)             =       0.16625447
+ Set= 1  DEXP(2)             =       0.40188949
+ Set= 1  FEXP(1)             =       0.43037818
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Atom
+ Symmetry elements: X,Y,Z
+ Rotational constants:       0.0000000      0.0000000      0.0000000 GHz  (calculated with average atomic masses)
+
+ Point group  D2h 
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  AS      5.00    0.000000000    0.000000000    0.000000000
+
+ NUCLEAR CHARGE:                    5
+ NUMBER OF PRIMITIVE AOS:          66
+ NUMBER OF SYMMETRY AOS:           61
+ NUMBER OF CONTRACTIONS:           29   (   7Ag  +   5B3u +   5B2u +   2B1g +   5B1u +   2B2g +   2B3g +   1Au  )
+ NUMBER OF CORE ORBITALS:           0   (   0Ag  +   0B3u +   0B2u +   0B1g +   0B1u +   0B2g +   0B3g +   0Au  )
+ NUMBER OF VALENCE ORBITALS:        4   (   1Ag  +   1B3u +   1B2u +   0B1g +   1B1u +   0B2g +   0B3g +   0Au  )
+
+
+ NUCLEAR REPULSION ENERGY    0.00000000
+
+
+ Maximum number of basis and dump records reached. Truncating dump files before previous basis set!
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 2 3 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 2:   1 1 1 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 3:   1 1 1 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 5:   1 1 1 2 3
+
+ Eigenvalues of metric
+
+         1 0.407E-01 0.281E+00 0.281E+00 0.412E+00 0.172E+01 0.172E+01 0.255E+01
+         2 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         3 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         4 0.281E+00 0.172E+01
+         5 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         6 0.281E+00 0.172E+01
+         7 0.281E+00 0.172E+01
+         8 0.100E+01
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-12
+ AO integral compression algorithm  1   Integral accuracy      1.0D-12
+
+     0.786 MB (compressed) written to integral file (100.0%)
+
+     Node minimum: 0.262 MB, node maximum: 0.262 MB
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:       5166.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:       5166      RECORD LENGTH: 524288
+
+ Memory used in sort:       0.56 MW
+
+ SORT1 READ       26095. AND WROTE        4307. INTEGRALS IN      1 RECORDS. CPU TIME:     0.01 SEC, REAL TIME:     0.13 SEC
+ SORT2 READ       11782. AND WROTE       14291. INTEGRALS IN      3 RECORDS. CPU TIME:     0.00 SEC, REAL TIME:     0.03 SEC
+
+ Node minimum:        4230.  Node maximum:        5166. integrals
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      62       73.23       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029   
+                                          RHF     BASIS   
+
+ PROGRAMS   *        TOTAL       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF       INT
+ CPU TIMES  *        38.88      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22      0.07      0.44
+ REAL TIME  *       169.55 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+
+ PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       4+    1-    SPACE SYMMETRY=8    SPIN SYMMETRY: Quartet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.60 (CLOSED) -0.30 (OPEN) 
+
+ Number of closed-shell orbitals:    1 (   1   0   0   0   0   0   0   0 )
+ Number of open-shell orbitals:      3 (   0   1   1   0   1   0   0   0 )
+
+
+ Molecular orbitals read from record     2100.2  Type=RHF/CANONICAL (state 1.8)
+ Present occupation:       1   1   1   0   1   0   0   0
+ Present closed-shells:    1   0   0   0   0   0   0   0
+ Wavefunction symmetry:    8   Quartet 
+
+ Orbital overlap <old|new>:  < 1.1| 1.1> = 1.000000   < 1.2| 1.2> = 1.000000   < 1.3| 1.3> = 1.000000   < 1.5| 1.5> = 1.000000
+
+ Molecular orbital dump at record        2129.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00        -6.06587628      7.093047    0.00000    0.00000    0.00000    0    start
+    2      0.000D+00      0.131D-06        -6.06587628      7.093047    0.00000    0.00000    0.00000    0    orth
+
+ Final alpha occupancy:   1   1   1   0   1   0   0   0
+ Final beta  occupancy:   1   0   0   0   0   0   0   0
+
+ !RHF STATE 1.8 Energy                 -6.065876280141
+ Nuclear energy                         0.00000000
+ One-electron energy                   -9.61239962
+ Two-electron energy                    3.54652334
+ Virial quotient                       -2.63811657
+ !RHF STATE 1.8 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+
+ Orbital energies:
+
+         1.1          2.1          3.1
+     -0.703881     0.339552     0.339552
+
+         1.2          2.2          3.2
+     -0.370531     0.502631     1.437245
+
+         1.3          2.3          3.3
+     -0.370531     0.502631     1.437245
+
+         1.4          2.4
+      0.339552     1.401981
+
+         1.5          2.5          3.5
+     -0.370531     0.502631     1.437245
+
+         1.6          2.6
+      0.339552     1.401981
+
+         1.7          2.7
+      0.339552     1.401981
+
+         1.8
+      1.437245
+
+ HOMO      1.2    -0.370531 =     -10.0827eV
+ LUMO      2.1     0.339552 =       9.2397eV
+ LUMO-HOMO         0.710083 =      19.3223eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF
+ CPU TIMES  *        38.92      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22      0.07
+ REAL TIME  *       170.02 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+ SETTING _CC_NORM_MAX   =         2.00000000                                  
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.11554660
+ Set= 1  SEXP(2)             =       0.54934551
+ Set= 1  PEXP(1)             =       0.09966932
+ Set= 1  PEXP(2)             =       0.60354507
+ Set= 1  DEXP(1)             =       0.16625447
+ Set= 1  DEXP(2)             =       0.40188949
+ Set= 1  FEXP(1)             =       0.43037818
+
+ PROGRAM * CISD (Restricted open-shell CI(SD))     Authors: C. Hampel, H.-J. Werner, 1991, M. Deegan, P.J. Knowles, 1992
+
+
+ Convergence thresholds:  THRVAR = 1.00D-08  THRDEN = 1.00D-06
+
+ Number of closed-shell orbitals:   1 (   1   0   0   0   0   0   0   0 )
+ Number of active  orbitals:        3 (   0   1   1   0   1   0   0   0 )
+ Number of external orbitals:      25 (   6   4   4   2   4   2   2   1 )
+
+ Number of N-1 electron functions:               5
+ Number of N-2 electron functions:              10
+ Number of singly external CSFs:                27
+ Number of doubly external CSFs:               730
+ Total number of CSFs:                         757
+
+ Molecular orbitals read from record     2129.2  Type=RHF/CANONICAL (state 1.8)
+
+ Integral transformation finished. Total CPU:   0.00 sec, npass=  1  Memory used:   0.07 MW
+
+ Starting RMP2 calculation
+
+ Wavefunction is spin-projected
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.03664837    -0.07319001    -6.13906629    -0.07319001    -0.00049054  0.79D-06  0.28D-03  1  1     0.00
+   2      1.03735975    -0.07373678    -6.13961306    -0.00054678    -0.00000110  0.18D-08  0.54D-06  2  2     0.00
+   3      1.03737838    -0.07374535    -6.13962163    -0.00000856    -0.00000000  0.24D-11  0.64D-09  3  3     0.00
+   4      1.03737864    -0.07374550    -6.13962178    -0.00000016    -0.00000000  0.16D-13  0.83D-12  4  4     0.00
+
+ Norm of t1 vector:      0.00564295      S-energy:    -0.00005748      T1 diagnostic:  0.00013683
+ Norm of t2 vector:      0.19325321      P-energy:    -0.07368802
+                                         Alpha-Beta:  -0.05440510
+                                         Alpha-Alpha: -0.01928292
+                                         Beta-Beta:    0.00000000
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+  Reference energy                     -6.065876280141
+  RHF-RMP2 correlation energy          -0.073745504064
+ !RHF-RMP2 energy                      -6.139621784205
+ (NB above energy spin projected)
+
+ Starting RCISD calculation
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.04620225    -0.08161458    -6.14749086    -0.08161458    -0.00323701  0.40D-04  0.16D-02  1  1     0.01
+   2      1.05191307    -0.08556722    -6.15144350    -0.00395265    -0.00007167  0.25D-06  0.35D-04  2  2     0.01
+   3      1.05283234    -0.08594726    -6.15182354    -0.00038003    -0.00000234  0.24D-06  0.11D-05  3  3     0.02
+   4      1.05291948    -0.08596925    -6.15184553    -0.00002200    -0.00000005  0.10D-07  0.17D-07  4  4     0.02
+   5      1.05293078    -0.08596993    -6.15184621    -0.00000067    -0.00000000  0.31D-09  0.43D-09  5  5     0.02
+
+ Norm of t1 vector:      0.00865137      S-energy:    -0.00003710      T1 diagnostic:  0.00255316
+ Norm of t2 vector:      0.22990418      P-energy:    -0.08593306
+                                         Alpha-Beta:  -0.06608162
+                                         Alpha-Alpha: -0.01985144
+                                         Beta-Beta:    0.00000000
+
+ Doubles amplitudes (print threshold =  0.500E-01):
+
+         I         J         SYM. A    SYM. B    A         B      T(IJ, AB) [Alpha-Beta]
+
+         3         1         1         3         1         1      0.05658096
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+ 
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701605  -0.0859699268   -0.23D-06
+ estrong  -0.0859330573  -0.0859330573    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ RESULTS
+ =======
+
+  Reference energy                     -6.065876280141
+  RCISD singles energy                 -0.000036869498
+  RCISD pair energy                    -0.085933057256
+  RCISD correlation energy             -0.085969926754
+ 
+ !RHF-RCISD energy                     -6.151846206895
+
+ Program statistics:
+
+ Available memory in ccsd:               511999717
+ Min. memory needed in ccsd:                  6624
+ Max. memory used in ccsd:                    7190
+ Max. memory used in cckext:                 38252 ( 5 integral passes)
+ Max. memory used in cckint:                 67626 ( 1 integral passes)
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD
+ CPU TIMES  *        39.06      0.13      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22
+ REAL TIME  *       171.09 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+ SETTING EVAL           =        -6.15184621  AU                              
+
+ BFGS final minimum    =        -6.151846207       maximum gradient =            0.27E-04
+
+           variable                 value           gradient
+ BFGS       SPAR(1)                 0.115547       -0.0000179
+ BFGS       SPAR(2)                 4.754320       -0.0000094
+ BFGS       PPAR(1)                 0.099669        0.0000005
+ BFGS       PPAR(2)                 6.055475       -0.0000061
+ BFGS       DPAR(1)                 0.166254        0.0000153
+ BFGS       DPAR(2)                 2.417315        0.0000268
+ BFGS       FPAR(1)                 0.430378        0.0000019
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL  MINIMIZE        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD
+ CPU TIMES  *        39.07      0.14      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22
+ REAL TIME  *       171.15 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+ MINIMIZE/USERDEF energy=     -6.151846206895
+
+        RCISD           HF-SCF          RCISD           HF-SCF          RCISD           HF-SCF          RCISD           HF-SCF  
+     -6.15184621     -6.06587628     -6.15184621     -6.06587628     -6.15184620     -6.06587628     -6.15184621     -6.06587628
+ **********************************************************************************************************************************
+ Molpro calculation terminated
+ Variable memory released

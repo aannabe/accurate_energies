@@ -1,0 +1,1450 @@
+
+ Primary working directories    : /global/cscratch1/sd/aannabe
+ Secondary working directories  : /global/cscratch1/sd/aannabe
+ Wavefunction directory         : /global/homes/a/aannabe/wfu/
+ Main file repository           : /global/cscratch1/sd/aannabe/
+
+ SHA1      : 2873118e99aab1bc19f5b6fc1784693c06d15c95
+ NAME      : 2015.1.8
+ ARCHNAME  : linux/x86_64
+ FC        : /opt/cray/pe/craype/2.5.5/bin/ftn
+ BLASLIB   : -Wl,-_start-group /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_intel_ilp64.a /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_intel_thread.a /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_core.a -Wl,-_end-group
+ id        : lbl
+
+ Nodes     nprocs
+ nid00456     3
+ Number of processes for MPI-2 version of Molpro:   nprocs(total)=    4   nprocs(compute)=    3   nprocs(helper)=    1
+
+ Using customized tuning parameters: mindgm=8; mindgv=16; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=sf  
+
+ ***,N
+ memory,256,m
+                                                                                 !gthresh,twoint=1.e-12
+ 
+                                                                                 !print,basis,orbitals
+ 
+ angstrom
+ geometry={
+ 1                                                                               ! Number of atoms
+ N 0.0 0.0 0.0
+ }
+ 
+ spar=[0.097733,2.050935]
+ ppar=[0.108661,2.336960]
+ dpar=[0.232115,2.272929]
+ fpar=[0.454829,2.001193]
+ gpar=[0.857291,2.074551]
+ hpar=[1.645592,2.248006]
+ ipar=[2.399750,2.300000]
+ 
+ proc opt_basis
+ 
+                                                                                 !Calculate the exponents
+ N=5                                                                             !6Z
+ do i=1,N
+ sexp(i)=spar(1)*spar(2)^(i-1)
+ pexp(i)=ppar(1)*ppar(2)^(i-1)
+ dexp(i)=dpar(1)*dpar(2)^(i-1)
+ enddo
+ do i=1,N-1
+ fexp(i)=fpar(1)*fpar(2)^(i-1)
+ enddo
+ do i=1,N-2
+ gexp(i)=gpar(1)*gpar(2)^(i-1)
+ enddo
+ do i=1,N-3
+ hexp(i)=hpar(1)*hpar(2)^(i-1)
+ enddo
+ do i=1,N-4
+ iexp(i)=ipar(1)*ipar(2)^(i-1)
+ enddo
+ 
+ basis={
+ ecp,N,2,1,0
+ 6
+ 1,  12.91881,    3.25000
+ 1,  9.22825 ,    1.75000
+ 3,  12.96581,    41.98612
+ 3,  8.05477 ,    16.14945
+ 2,  12.54876,   -26.09522
+ 2,  7.53360 ,   -10.32626
+ 2
+ 2,  9.41609,     34.77692
+ 2,  8.16694,     15.20330
+ 
+ s,N,42.693822,19.963207,9.3345971,4.9278187,2.040920,0.967080,0.476131,0.211443,0.098869
+ c,1.9,-0.0009357,0.0063295,0.0105038,-0.1653735,-0.0005352,0.2452063,0.4582128,0.3641224,0.0620406
+ p,N,18.925871,9.225603,4.581431,2.300164,1.154825,0.582039,0.290535,0.145867,0.073234
+ c,1.9,0.0073505,0.0292844,0.0652168,0.1405153,0.2328188,0.2989556,0.2802507,0.1527995,0.0355475
+ 
+ s,N,sexp(1),sexp(2),sexp(3),sexp(4),sexp(5)
+ p,N,pexp(1),pexp(2),pexp(3),pexp(4),pexp(5)
+ d,N,dexp(1),dexp(2),dexp(3),dexp(4),dexp(5)
+ f,N,fexp(1),fexp(2),fexp(3),fexp(4)
+ g,N,gexp(1),gexp(2),gexp(3)
+ h,N,hexp(1),hexp(2)
+ i,N,iexp(1)
+ }
+ 
+ {hf
+ wf,5,8,3
+ occ,1,1,1,0,1,0,0,0
+                                                                                 !open,1.3
+ closed,1,0,0,0,0,0,0,0
+                                                                                 !sym,
+ }
+ 
+                                                                                 !_CC_NORM_MAX=2.0
+ {rccsd(t)
+ maxit,100
+ core
+ }
+ eval=energy
+ 
+ endproc
+ 
+ {minimize,eval,spar(1),spar(2),ppar(1),ppar(2),dpar(1),dpar(2),fpar(1),fpar(2),gpar(1),gpar(2),hpar(1),hpar(2),ipar(1)
+ method,bfgs,proc=opt_basis,thresh=5e-6,vstep=5e-5
+ maxit,1000}
+ 
+ 
+
+ Variables initialized (889), CPU time= 0.00 sec
+ Commands  initialized (702), CPU time= 0.02 sec, 572 directives.
+ Default parameters read. Elapsed time= 0.15 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2015.1 linked Sep  7 2016 23:09:38
+
+
+ **********************************************************************************************************************************
+ LABEL *   N                                                                             
+  64 bit mpp version                                                                     DATE: 23-May-18          TIME: 12:34:54  
+ **********************************************************************************************************************************
+
+ SHA1:             2873118e99aab1bc19f5b6fc1784693c06d15c95
+ **********************************************************************************************************************************
+ ZUNIT=ANG
+ 
+
+Geometry recognized as XYZ
+
+ SETTING SPAR(1)        =         0.09773300                                  
+ SETTING SPAR(2)        =         2.05093500                                  
+ SETTING PPAR(1)        =         0.10866100                                  
+ SETTING PPAR(2)        =         2.33696000                                  
+ SETTING DPAR(1)        =         0.23211500                                  
+ SETTING DPAR(2)        =         2.27292900                                  
+ SETTING FPAR(1)        =         0.45482900                                  
+ SETTING FPAR(2)        =         2.00119300                                  
+ SETTING GPAR(1)        =         0.85729100                                  
+ SETTING GPAR(2)        =         2.07455100                                  
+ SETTING HPAR(1)        =         1.64559200                                  
+ SETTING HPAR(2)        =         2.24800600                                  
+ SETTING IPAR(1)        =         2.39975000                                  
+ SETTING IPAR(2)        =         2.30000000                                  
+
+ Variable memory set to  256000000 words,  buffer space   230000 words
+
+
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+ Minimize EVAL with respect to:        SPAR(1)   SPAR(2)   PPAR(1)   PPAR(2)   DPAR(1)   
+                                       DPAR(2)   FPAR(1)   FPAR(2)   GPAR(1)   GPAR(2)   
+                                       HPAR(1)   HPAR(2)   IPAR(1)   
+ Method BFGS will be used
+ Variables are optimized in the space of (x/x0)
+
+
+ Minimization using procedure=OPT_BASIS
+
+ *** Long output written to logfile /global/u1/a/aannabe/docs/totals/N/basis_opt/6z/atom.log ***
+
+
+ BFGS update of inverse hessian 
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Results for BFGS iteration  1       Current function value  =         -9.764252834
+                                     Previous function value =          0.000000000
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097733       -0.0000823
+ BFGS       SPAR(2)                   2.050935       -0.0003061
+ BFGS       PPAR(1)                   0.108661        0.0000563
+ BFGS       PPAR(2)                   2.336960        0.0001980
+ BFGS       DPAR(1)                   0.232115       -0.0000193
+ BFGS       DPAR(2)                   2.272929       -0.0000379
+ BFGS       FPAR(1)                   0.454829        0.0000352
+ BFGS       FPAR(2)                   2.001193       -0.0000890
+ BFGS       GPAR(1)                   0.857291        0.0000897
+ BFGS       GPAR(2)                   2.074551        0.0000031
+ BFGS       HPAR(1)                   1.645592        0.0001612
+ BFGS       HPAR(2)                   2.248006        0.0000365
+ BFGS       IPAR(1)                   2.399750        0.0000666
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  2       Current function value  =         -9.764254744
+                                     Previous function value =         -9.764252834
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097813       -0.0000789
+ BFGS       SPAR(2)                   2.057213       -0.0002943
+ BFGS       PPAR(1)                   0.108600        0.0000568
+ BFGS       PPAR(2)                   2.332333        0.0001931
+ BFGS       DPAR(1)                   0.232160       -0.0000201
+ BFGS       DPAR(2)                   2.273789       -0.0000393
+ BFGS       FPAR(1)                   0.454669        0.0000358
+ BFGS       FPAR(2)                   2.002973       -0.0000863
+ BFGS       GPAR(1)                   0.856522        0.0000890
+ BFGS       GPAR(2)                   2.074487        0.0000027
+ BFGS       HPAR(1)                   1.642939        0.0001605
+ BFGS       HPAR(2)                   2.247186        0.0000362
+ BFGS       IPAR(1)                   2.398153        0.0000664
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  3       Current function value  =         -9.764284040
+                                     Previous function value =         -9.764254744
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100645        0.0000282
+ BFGS       SPAR(2)                   2.278900        0.0000893
+ BFGS       PPAR(1)                   0.106333       -0.0000161
+ BFGS       PPAR(2)                   2.166630       -0.0001807
+ BFGS       DPAR(1)                   0.233875       -0.0000142
+ BFGS       DPAR(2)                   2.306586       -0.0000074
+ BFGS       FPAR(1)                   0.448697        0.0000494
+ BFGS       FPAR(2)                   2.066380       -0.0000082
+ BFGS       GPAR(1)                   0.828525        0.0000648
+ BFGS       GPAR(2)                   2.072464       -0.0000111
+ BFGS       HPAR(1)                   1.546003        0.0001306
+ BFGS       HPAR(2)                   2.217296        0.0000248
+ BFGS       IPAR(1)                   2.339696        0.0000570
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  4       Current function value  =         -9.764285288
+                                     Previous function value =         -9.764284040
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100255        0.0000171
+ BFGS       SPAR(2)                   2.248705        0.0000409
+ BFGS       PPAR(1)                   0.106642       -0.0000020
+ BFGS       PPAR(2)                   2.191666       -0.0001205
+ BFGS       DPAR(1)                   0.233681       -0.0000201
+ BFGS       DPAR(2)                   2.302485       -0.0000241
+ BFGS       FPAR(1)                   0.449277        0.0000482
+ BFGS       FPAR(2)                   2.058332       -0.0000166
+ BFGS       GPAR(1)                   0.831667        0.0000674
+ BFGS       GPAR(2)                   2.072923       -0.0000096
+ BFGS       HPAR(1)                   1.556685        0.0001341
+ BFGS       HPAR(2)                   2.220681        0.0000261
+ BFGS       IPAR(1)                   2.346078        0.0000581
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  5       Current function value  =         -9.764285957
+                                     Previous function value =         -9.764285288
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100143        0.0000136
+ BFGS       SPAR(2)                   2.240593        0.0000269
+ BFGS       PPAR(1)                   0.106717        0.0000030
+ BFGS       PPAR(2)                   2.201342       -0.0000976
+ BFGS       DPAR(1)                   0.233699       -0.0000215
+ BFGS       DPAR(2)                   2.302253       -0.0000267
+ BFGS       FPAR(1)                   0.449112        0.0000477
+ BFGS       FPAR(2)                   2.056930       -0.0000181
+ BFGS       GPAR(1)                   0.831604        0.0000674
+ BFGS       GPAR(2)                   2.073300       -0.0000095
+ BFGS       HPAR(1)                   1.556143        0.0001338
+ BFGS       HPAR(2)                   2.220662        0.0000260
+ BFGS       IPAR(1)                   2.345649        0.0000581
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  6       Current function value  =         -9.764289583
+                                     Previous function value =         -9.764285957
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099790        0.0000012
+ BFGS       SPAR(2)                   2.218162       -0.0000188
+ BFGS       PPAR(1)                   0.106879        0.0000214
+ BFGS       PPAR(2)                   2.243712       -0.0000003
+ BFGS       DPAR(1)                   0.234124       -0.0000234
+ BFGS       DPAR(2)                   2.306123       -0.0000239
+ BFGS       FPAR(1)                   0.446901        0.0000461
+ BFGS       FPAR(2)                   2.057138       -0.0000179
+ BFGS       GPAR(1)                   0.826484        0.0000635
+ BFGS       GPAR(2)                   2.075768       -0.0000107
+ BFGS       HPAR(1)                   1.536014        0.0001267
+ BFGS       HPAR(2)                   2.215562        0.0000233
+ BFGS       IPAR(1)                   2.332743        0.0000560
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  7       Current function value  =         -9.764294643
+                                     Previous function value =         -9.764289583
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099621       -0.0000061
+ BFGS       SPAR(2)                   2.213979       -0.0000415
+ BFGS       PPAR(1)                   0.106791        0.0000348
+ BFGS       PPAR(2)                   2.290039        0.0000989
+ BFGS       DPAR(1)                   0.235141       -0.0000208
+ BFGS       DPAR(2)                   2.317693       -0.0000023
+ BFGS       FPAR(1)                   0.442066        0.0000445
+ BFGS       FPAR(2)                   2.067292       -0.0000080
+ BFGS       GPAR(1)                   0.813127        0.0000523
+ BFGS       GPAR(2)                   2.079884       -0.0000155
+ BFGS       HPAR(1)                   1.485503        0.0001083
+ BFGS       HPAR(2)                   2.201996        0.0000159
+ BFGS       IPAR(1)                   2.300888        0.0000503
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  8       Current function value  =         -9.764301043
+                                     Previous function value =         -9.764294643
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099809        0.0000005
+ BFGS       SPAR(2)                   2.243000       -0.0000117
+ BFGS       PPAR(1)                   0.106263        0.0000385
+ BFGS       PPAR(2)                   2.333967        0.0001830
+ BFGS       DPAR(1)                   0.237033       -0.0000150
+ BFGS       DPAR(2)                   2.340253        0.0000361
+ BFGS       FPAR(1)                   0.433327        0.0000416
+ BFGS       FPAR(2)                   2.093213        0.0000145
+ BFGS       GPAR(1)                   0.787348        0.0000295
+ BFGS       GPAR(2)                   2.086447       -0.0000264
+ BFGS       HPAR(1)                   1.389287        0.0000690
+ BFGS       HPAR(2)                   2.175741       -0.0000008
+ BFGS       IPAR(1)                   2.240512        0.0000377
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration  9       Current function value  =         -9.764303893
+                                     Previous function value =         -9.764301043
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100230        0.0000189
+ BFGS       SPAR(2)                   2.283231        0.0000589
+ BFGS       PPAR(1)                   0.105700        0.0000292
+ BFGS       PPAR(2)                   2.332011        0.0001634
+ BFGS       DPAR(1)                   0.238195       -0.0000129
+ BFGS       DPAR(2)                   2.353900        0.0000522
+ BFGS       FPAR(1)                   0.428089        0.0000391
+ BFGS       FPAR(2)                   2.113102        0.0000294
+ BFGS       GPAR(1)                   0.771045        0.0000149
+ BFGS       GPAR(2)                   2.090127       -0.0000337
+ BFGS       HPAR(1)                   1.329102        0.0000406
+ BFGS       HPAR(2)                   2.159331       -0.0000136
+ BFGS       IPAR(1)                   2.202791        0.0000289
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 10       Current function value  =         -9.764304684
+                                     Previous function value =         -9.764303893
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100443        0.0000292
+ BFGS       SPAR(2)                   2.300435        0.0000987
+ BFGS       PPAR(1)                   0.105459        0.0000201
+ BFGS       PPAR(2)                   2.314110        0.0001156
+ BFGS       DPAR(1)                   0.238418       -0.0000123
+ BFGS       DPAR(2)                   2.355236        0.0000516
+ BFGS       FPAR(1)                   0.427125        0.0000385
+ BFGS       FPAR(2)                   2.118106        0.0000328
+ BFGS       GPAR(1)                   0.767925        0.0000124
+ BFGS       GPAR(2)                   2.091136       -0.0000346
+ BFGS       HPAR(1)                   1.317793        0.0000349
+ BFGS       HPAR(2)                   2.156669       -0.0000162
+ BFGS       IPAR(1)                   2.195497        0.0000272
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 11       Current function value  =         -9.764305248
+                                     Previous function value =         -9.764304684
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100491        0.0000325
+ BFGS       SPAR(2)                   2.304306        0.0001108
+ BFGS       PPAR(1)                   0.105337        0.0000144
+ BFGS       PPAR(2)                   2.300306        0.0000823
+ BFGS       DPAR(1)                   0.238490       -0.0000117
+ BFGS       DPAR(2)                   2.353297        0.0000479
+ BFGS       FPAR(1)                   0.426763        0.0000380
+ BFGS       FPAR(2)                   2.118452        0.0000325
+ BFGS       GPAR(1)                   0.767325        0.0000120
+ BFGS       GPAR(2)                   2.092381       -0.0000342
+ BFGS       HPAR(1)                   1.315445        0.0000338
+ BFGS       HPAR(2)                   2.156970       -0.0000166
+ BFGS       IPAR(1)                   2.193512        0.0000267
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 12       Current function value  =         -9.764306757
+                                     Previous function value =         -9.764305248
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100443        0.0000338
+ BFGS       SPAR(2)                   2.302521        0.0001144
+ BFGS       PPAR(1)                   0.105031        0.0000023
+ BFGS       PPAR(2)                   2.271007        0.0000149
+ BFGS       DPAR(1)                   0.238836       -0.0000088
+ BFGS       DPAR(2)                   2.346521        0.0000380
+ BFGS       FPAR(1)                   0.424904        0.0000354
+ BFGS       FPAR(2)                   2.117467        0.0000292
+ BFGS       GPAR(1)                   0.764424        0.0000092
+ BFGS       GPAR(2)                   2.097875       -0.0000336
+ BFGS       HPAR(1)                   1.303598        0.0000282
+ BFGS       HPAR(2)                   2.157489       -0.0000187
+ BFGS       IPAR(1)                   2.184001        0.0000246
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 13       Current function value  =         -9.764308671
+                                     Previous function value =         -9.764306757
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.100165        0.0000281
+ BFGS       SPAR(2)                   2.286173        0.0000892
+ BFGS       PPAR(1)                   0.104640       -0.0000096
+ BFGS       PPAR(2)                   2.243368       -0.0000456
+ BFGS       DPAR(1)                   0.239544       -0.0000042
+ BFGS       DPAR(2)                   2.336245        0.0000242
+ BFGS       FPAR(1)                   0.421032        0.0000302
+ BFGS       FPAR(2)                   2.114595        0.0000220
+ BFGS       GPAR(1)                   0.758156        0.0000024
+ BFGS       GPAR(2)                   2.108205       -0.0000338
+ BFGS       HPAR(1)                   1.277895        0.0000156
+ BFGS       HPAR(2)                   2.157121       -0.0000236
+ BFGS       IPAR(1)                   2.164166        0.0000200
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 14       Current function value  =         -9.764310358
+                                     Previous function value =         -9.764308671
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099675        0.0000165
+ BFGS       SPAR(2)                   2.255685        0.0000412
+ BFGS       PPAR(1)                   0.104340       -0.0000136
+ BFGS       PPAR(2)                   2.232513       -0.0000639
+ BFGS       DPAR(1)                   0.240397       -0.0000013
+ BFGS       DPAR(2)                   2.325580        0.0000066
+ BFGS       FPAR(1)                   0.416246        0.0000235
+ BFGS       FPAR(2)                   2.109818        0.0000114
+ BFGS       GPAR(1)                   0.750553       -0.0000064
+ BFGS       GPAR(2)                   2.120647       -0.0000348
+ BFGS       HPAR(1)                   1.246361       -0.0000006
+ BFGS       HPAR(2)                   2.156349       -0.0000300
+ BFGS       IPAR(1)                   2.139999        0.0000143
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 15       Current function value  =         -9.764311112
+                                     Previous function value =         -9.764310358
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099260        0.0000052
+ BFGS       SPAR(2)                   2.228611       -0.0000024
+ BFGS       PPAR(1)                   0.104310       -0.0000071
+ BFGS       PPAR(2)                   2.241404       -0.0000340
+ BFGS       DPAR(1)                   0.240839       -0.0000021
+ BFGS       DPAR(2)                   2.319828       -0.0000071
+ BFGS       FPAR(1)                   0.413582        0.0000192
+ BFGS       FPAR(2)                   2.105055        0.0000028
+ BFGS       GPAR(1)                   0.746980       -0.0000108
+ BFGS       GPAR(2)                   2.128202       -0.0000350
+ BFGS       HPAR(1)                   1.230765       -0.0000087
+ BFGS       HPAR(2)                   2.157002       -0.0000330
+ BFGS       IPAR(1)                   2.127476        0.0000113
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 16       Current function value  =         -9.764311228
+                                     Previous function value =         -9.764311112
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099150        0.0000015
+ BFGS       SPAR(2)                   2.221396       -0.0000159
+ BFGS       PPAR(1)                   0.104374       -0.0000022
+ BFGS       PPAR(2)                   2.249889       -0.0000108
+ BFGS       DPAR(1)                   0.240877       -0.0000032
+ BFGS       DPAR(2)                   2.319620       -0.0000094
+ BFGS       FPAR(1)                   0.413235        0.0000186
+ BFGS       FPAR(2)                   2.103633        0.0000009
+ BFGS       GPAR(1)                   0.746962       -0.0000109
+ BFGS       GPAR(2)                   2.129825       -0.0000345
+ BFGS       HPAR(1)                   1.230075       -0.0000088
+ BFGS       HPAR(2)                   2.158110       -0.0000328
+ BFGS       IPAR(1)                   2.126350        0.0000111
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 17       Current function value  =         -9.764311278
+                                     Previous function value =         -9.764311228
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099129        0.0000007
+ BFGS       SPAR(2)                   2.220617       -0.0000184
+ BFGS       PPAR(1)                   0.104405       -0.0000002
+ BFGS       PPAR(2)                   2.253722       -0.0000013
+ BFGS       DPAR(1)                   0.240883       -0.0000035
+ BFGS       DPAR(2)                   2.320331       -0.0000088
+ BFGS       FPAR(1)                   0.413118        0.0000187
+ BFGS       FPAR(2)                   2.103482        0.0000008
+ BFGS       GPAR(1)                   0.747145       -0.0000106
+ BFGS       GPAR(2)                   2.130852       -0.0000339
+ BFGS       HPAR(1)                   1.230410       -0.0000083
+ BFGS       HPAR(2)                   2.159213       -0.0000324
+ BFGS       IPAR(1)                   2.126049        0.0000110
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 18       Current function value  =         -9.764311449
+                                     Previous function value =         -9.764311278
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.099081       -0.0000004
+ BFGS       SPAR(2)                   2.220555       -0.0000220
+ BFGS       PPAR(1)                   0.104471        0.0000038
+ BFGS       PPAR(2)                   2.262712        0.0000199
+ BFGS       DPAR(1)                   0.240945       -0.0000040
+ BFGS       DPAR(2)                   2.322760       -0.0000061
+ BFGS       FPAR(1)                   0.412434        0.0000186
+ BFGS       FPAR(2)                   2.103300        0.0000006
+ BFGS       GPAR(1)                   0.747659       -0.0000098
+ BFGS       GPAR(2)                   2.136005       -0.0000311
+ BFGS       HPAR(1)                   1.230764       -0.0000069
+ BFGS       HPAR(2)                   2.164308       -0.0000309
+ BFGS       IPAR(1)                   2.123733        0.0000107
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 19       Current function value  =         -9.764311762
+                                     Previous function value =         -9.764311449
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098994       -0.0000014
+ BFGS       SPAR(2)                   2.221987       -0.0000242
+ BFGS       PPAR(1)                   0.104530        0.0000078
+ BFGS       PPAR(2)                   2.272728        0.0000427
+ BFGS       DPAR(1)                   0.241136       -0.0000040
+ BFGS       DPAR(2)                   2.326393       -0.0000013
+ BFGS       FPAR(1)                   0.410623        0.0000178
+ BFGS       FPAR(2)                   2.102843       -0.0000011
+ BFGS       GPAR(1)                   0.748392       -0.0000083
+ BFGS       GPAR(2)                   2.148427       -0.0000249
+ BFGS       HPAR(1)                   1.229885       -0.0000046
+ BFGS       HPAR(2)                   2.175951       -0.0000279
+ BFGS       IPAR(1)                   2.117137        0.0000097
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 20       Current function value  =         -9.764312337
+                                     Previous function value =         -9.764311762
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098824       -0.0000014
+ BFGS       SPAR(2)                   2.226630       -0.0000223
+ BFGS       PPAR(1)                   0.104548        0.0000106
+ BFGS       PPAR(2)                   2.282011        0.0000620
+ BFGS       DPAR(1)                   0.241622       -0.0000025
+ BFGS       DPAR(2)                   2.331875        0.0000070
+ BFGS       FPAR(1)                   0.406309        0.0000140
+ BFGS       FPAR(2)                   2.101821       -0.0000081
+ BFGS       GPAR(1)                   0.749372       -0.0000056
+ BFGS       GPAR(2)                   2.176409       -0.0000115
+ BFGS       HPAR(1)                   1.225559       -0.0000009
+ BFGS       HPAR(2)                   2.201387       -0.0000219
+ BFGS       IPAR(1)                   2.100885        0.0000069
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 21       Current function value  =         -9.764312914
+                                     Previous function value =         -9.764312337
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098642        0.0000010
+ BFGS       SPAR(2)                   2.233947       -0.0000126
+ BFGS       PPAR(1)                   0.104457        0.0000079
+ BFGS       PPAR(2)                   2.280182        0.0000531
+ BFGS       DPAR(1)                   0.242269        0.0000010
+ BFGS       DPAR(2)                   2.335870        0.0000149
+ BFGS       FPAR(1)                   0.400791        0.0000065
+ BFGS       FPAR(2)                   2.100828       -0.0000215
+ BFGS       GPAR(1)                   0.749926       -0.0000028
+ BFGS       GPAR(2)                   2.210649        0.0000044
+ BFGS       HPAR(1)                   1.217943        0.0000023
+ BFGS       HPAR(2)                   2.231915       -0.0000151
+ BFGS       IPAR(1)                   2.079583        0.0000030
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 22       Current function value  =         -9.764313199
+                                     Previous function value =         -9.764312914
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098578        0.0000043
+ BFGS       SPAR(2)                   2.239531       -0.0000010
+ BFGS       PPAR(1)                   0.104318        0.0000011
+ BFGS       PPAR(2)                   2.268179        0.0000208
+ BFGS       DPAR(1)                   0.242628        0.0000040
+ BFGS       DPAR(2)                   2.335584        0.0000170
+ BFGS       FPAR(1)                   0.397852        0.0000018
+ BFGS       FPAR(2)                   2.101080       -0.0000291
+ BFGS       GPAR(1)                   0.749655       -0.0000019
+ BFGS       GPAR(2)                   2.227550        0.0000119
+ BFGS       HPAR(1)                   1.212153        0.0000028
+ BFGS       HPAR(2)                   2.246753       -0.0000123
+ BFGS       IPAR(1)                   2.067765        0.0000007
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 23       Current function value  =         -9.764313265
+                                     Previous function value =         -9.764313199
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098590        0.0000056
+ BFGS       SPAR(2)                   2.240548        0.0000034
+ BFGS       PPAR(1)                   0.104248       -0.0000030
+ BFGS       PPAR(2)                   2.259848       -0.0000000
+ BFGS       DPAR(1)                   0.242650        0.0000048
+ BFGS       DPAR(2)                   2.333502        0.0000145
+ BFGS       FPAR(1)                   0.397699        0.0000020
+ BFGS       FPAR(2)                   2.102007       -0.0000277
+ BFGS       GPAR(1)                   0.749212       -0.0000026
+ BFGS       GPAR(2)                   2.227186        0.0000114
+ BFGS       HPAR(1)                   1.210475        0.0000018
+ BFGS       HPAR(2)                   2.246542       -0.0000127
+ BFGS       IPAR(1)                   2.066802        0.0000004
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 24       Current function value  =         -9.764313284
+                                     Previous function value =         -9.764313265
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098588        0.0000056
+ BFGS       SPAR(2)                   2.240114        0.0000035
+ BFGS       PPAR(1)                   0.104233       -0.0000039
+ BFGS       PPAR(2)                   2.257476       -0.0000053
+ BFGS       DPAR(1)                   0.242626        0.0000047
+ BFGS       DPAR(2)                   2.332271        0.0000125
+ BFGS       FPAR(1)                   0.397814        0.0000026
+ BFGS       FPAR(2)                   2.102847       -0.0000258
+ BFGS       GPAR(1)                   0.749037       -0.0000029
+ BFGS       GPAR(2)                   2.225629        0.0000105
+ BFGS       HPAR(1)                   1.210025        0.0000013
+ BFGS       HPAR(2)                   2.245652       -0.0000131
+ BFGS       IPAR(1)                   2.067144        0.0000004
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 25       Current function value  =         -9.764313330
+                                     Previous function value =         -9.764313284
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098561        0.0000056
+ BFGS       SPAR(2)                   2.239181        0.0000032
+ BFGS       PPAR(1)                   0.104218       -0.0000052
+ BFGS       PPAR(2)                   2.253866       -0.0000128
+ BFGS       DPAR(1)                   0.242577        0.0000043
+ BFGS       DPAR(2)                   2.329483        0.0000075
+ BFGS       FPAR(1)                   0.397795        0.0000040
+ BFGS       FPAR(2)                   2.105692       -0.0000206
+ BFGS       GPAR(1)                   0.748808       -0.0000036
+ BFGS       GPAR(2)                   2.223436        0.0000092
+ BFGS       HPAR(1)                   1.208876        0.0000005
+ BFGS       HPAR(2)                   2.245905       -0.0000133
+ BFGS       IPAR(1)                   2.066981        0.0000003
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 26       Current function value  =         -9.764313405
+                                     Previous function value =         -9.764313330
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098485        0.0000054
+ BFGS       SPAR(2)                   2.238304        0.0000022
+ BFGS       PPAR(1)                   0.104220       -0.0000061
+ BFGS       PPAR(2)                   2.251015       -0.0000181
+ BFGS       DPAR(1)                   0.242523        0.0000033
+ BFGS       DPAR(2)                   2.325498       -0.0000003
+ BFGS       FPAR(1)                   0.397243        0.0000060
+ BFGS       FPAR(2)                   2.111437       -0.0000120
+ BFGS       GPAR(1)                   0.748742       -0.0000041
+ BFGS       GPAR(2)                   2.222724        0.0000084
+ BFGS       HPAR(1)                   1.206855       -0.0000001
+ BFGS       HPAR(2)                   2.250309       -0.0000127
+ BFGS       IPAR(1)                   2.064968       -0.0000002
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 27       Current function value  =         -9.764313503
+                                     Previous function value =         -9.764313405
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098344        0.0000049
+ BFGS       SPAR(2)                   2.238287        0.0000011
+ BFGS       PPAR(1)                   0.104259       -0.0000051
+ BFGS       PPAR(2)                   2.251138       -0.0000159
+ BFGS       DPAR(1)                   0.242475        0.0000018
+ BFGS       DPAR(2)                   2.321058       -0.0000097
+ BFGS       FPAR(1)                   0.395854        0.0000081
+ BFGS       FPAR(2)                   2.120608       -0.0000000
+ BFGS       GPAR(1)                   0.749104       -0.0000041
+ BFGS       GPAR(2)                   2.225285        0.0000092
+ BFGS       HPAR(1)                   1.204147        0.0000002
+ BFGS       HPAR(2)                   2.261412       -0.0000106
+ BFGS       IPAR(1)                   2.060195       -0.0000011
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 28       Current function value  =         -9.764313561
+                                     Previous function value =         -9.764313503
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098221        0.0000045
+ BFGS       SPAR(2)                   2.239303        0.0000003
+ BFGS       PPAR(1)                   0.104318       -0.0000030
+ BFGS       PPAR(2)                   2.254996       -0.0000060
+ BFGS       DPAR(1)                   0.242473        0.0000008
+ BFGS       DPAR(2)                   2.319484       -0.0000140
+ BFGS       FPAR(1)                   0.394386        0.0000091
+ BFGS       FPAR(2)                   2.127242        0.0000073
+ BFGS       GPAR(1)                   0.749758       -0.0000035
+ BFGS       GPAR(2)                   2.230130        0.0000114
+ BFGS       HPAR(1)                   1.202519        0.0000014
+ BFGS       HPAR(2)                   2.273019       -0.0000081
+ BFGS       IPAR(1)                   2.055377       -0.0000019
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 29       Current function value  =         -9.764313581
+                                     Previous function value =         -9.764313561
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098171        0.0000043
+ BFGS       SPAR(2)                   2.240235        0.0000001
+ BFGS       PPAR(1)                   0.104354       -0.0000014
+ BFGS       PPAR(2)                   2.258414        0.0000019
+ BFGS       DPAR(1)                   0.242497        0.0000005
+ BFGS       DPAR(2)                   2.320379       -0.0000130
+ BFGS       FPAR(1)                   0.393642        0.0000089
+ BFGS       FPAR(2)                   2.128784        0.0000081
+ BFGS       GPAR(1)                   0.750232       -0.0000029
+ BFGS       GPAR(2)                   2.233424        0.0000130
+ BFGS       HPAR(1)                   1.202335        0.0000023
+ BFGS       HPAR(2)                   2.278720       -0.0000068
+ BFGS       IPAR(1)                   2.053176       -0.0000022
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 30       Current function value  =         -9.764313590
+                                     Previous function value =         -9.764313581
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098151        0.0000042
+ BFGS       SPAR(2)                   2.240708       -0.0000000
+ BFGS       PPAR(1)                   0.104371       -0.0000006
+ BFGS       PPAR(2)                   2.260179        0.0000059
+ BFGS       DPAR(1)                   0.242516        0.0000006
+ BFGS       DPAR(2)                   2.321610       -0.0000111
+ BFGS       FPAR(1)                   0.393305        0.0000084
+ BFGS       FPAR(2)                   2.128547        0.0000070
+ BFGS       GPAR(1)                   0.750485       -0.0000026
+ BFGS       GPAR(2)                   2.234780        0.0000137
+ BFGS       HPAR(1)                   1.202420        0.0000028
+ BFGS       HPAR(2)                   2.281031       -0.0000062
+ BFGS       IPAR(1)                   2.052424       -0.0000023
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 31       Current function value  =         -9.764313607
+                                     Previous function value =         -9.764313590
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098118        0.0000040
+ BFGS       SPAR(2)                   2.241225       -0.0000002
+ BFGS       PPAR(1)                   0.104394        0.0000000
+ BFGS       PPAR(2)                   2.261864        0.0000095
+ BFGS       DPAR(1)                   0.242529        0.0000008
+ BFGS       DPAR(2)                   2.323567       -0.0000077
+ BFGS       FPAR(1)                   0.392842        0.0000075
+ BFGS       FPAR(2)                   2.128003        0.0000050
+ BFGS       GPAR(1)                   0.750840       -0.0000022
+ BFGS       GPAR(2)                   2.235518        0.0000142
+ BFGS       HPAR(1)                   1.202456        0.0000033
+ BFGS       HPAR(2)                   2.283988       -0.0000055
+ BFGS       IPAR(1)                   2.051772       -0.0000024
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 32       Current function value  =         -9.764313644
+                                     Previous function value =         -9.764313607
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.098031        0.0000038
+ BFGS       SPAR(2)                   2.241789       -0.0000007
+ BFGS       PPAR(1)                   0.104442        0.0000013
+ BFGS       PPAR(2)                   2.263753        0.0000138
+ BFGS       DPAR(1)                   0.242513        0.0000012
+ BFGS       DPAR(2)                   2.327129       -0.0000015
+ BFGS       FPAR(1)                   0.391890        0.0000060
+ BFGS       FPAR(2)                   2.127664        0.0000023
+ BFGS       GPAR(1)                   0.751591       -0.0000016
+ BFGS       GPAR(2)                   2.234583        0.0000141
+ BFGS       HPAR(1)                   1.202269        0.0000038
+ BFGS       HPAR(2)                   2.290094       -0.0000042
+ BFGS       IPAR(1)                   2.051076       -0.0000024
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 33       Current function value  =         -9.764313707
+                                     Previous function value =         -9.764313644
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097856        0.0000031
+ BFGS       SPAR(2)                   2.241942       -0.0000023
+ BFGS       PPAR(1)                   0.104521        0.0000022
+ BFGS       PPAR(2)                   2.264280        0.0000153
+ BFGS       DPAR(1)                   0.242427        0.0000016
+ BFGS       DPAR(2)                   2.331903        0.0000072
+ BFGS       FPAR(1)                   0.390304        0.0000040
+ BFGS       FPAR(2)                   2.128554        0.0000000
+ BFGS       GPAR(1)                   0.752792       -0.0000009
+ BFGS       GPAR(2)                   2.229570        0.0000122
+ BFGS       HPAR(1)                   1.201326        0.0000041
+ BFGS       HPAR(2)                   2.300214       -0.0000023
+ BFGS       IPAR(1)                   2.050652       -0.0000024
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 34       Current function value  =         -9.764313783
+                                     Previous function value =         -9.764313707
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097603        0.0000023
+ BFGS       SPAR(2)                   2.241369       -0.0000046
+ BFGS       PPAR(1)                   0.104618        0.0000024
+ BFGS       PPAR(2)                   2.261745        0.0000105
+ BFGS       DPAR(1)                   0.242233        0.0000019
+ BFGS       DPAR(2)                   2.336101        0.0000151
+ BFGS       FPAR(1)                   0.388365        0.0000024
+ BFGS       FPAR(2)                   2.131791        0.0000010
+ BFGS       GPAR(1)                   0.754265       -0.0000007
+ BFGS       GPAR(2)                   2.218900        0.0000075
+ BFGS       HPAR(1)                   1.199508        0.0000036
+ BFGS       HPAR(2)                   2.312792       -0.0000003
+ BFGS       IPAR(1)                   2.051169       -0.0000021
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 35       Current function value  =         -9.764313822
+                                     Previous function value =         -9.764313783
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097449        0.0000019
+ BFGS       SPAR(2)                   2.240279       -0.0000060
+ BFGS       PPAR(1)                   0.104660        0.0000013
+ BFGS       PPAR(2)                   2.257419        0.0000015
+ BFGS       DPAR(1)                   0.242067        0.0000016
+ BFGS       DPAR(2)                   2.336159        0.0000155
+ BFGS       FPAR(1)                   0.387453        0.0000025
+ BFGS       FPAR(2)                   2.135141        0.0000049
+ BFGS       GPAR(1)                   0.754914       -0.0000012
+ BFGS       GPAR(2)                   2.210005        0.0000033
+ BFGS       HPAR(1)                   1.197926        0.0000027
+ BFGS       HPAR(2)                   2.318722        0.0000004
+ BFGS       IPAR(1)                   2.052241       -0.0000019
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 36       Current function value  =         -9.764313832
+                                     Previous function value =         -9.764313822
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097429        0.0000019
+ BFGS       SPAR(2)                   2.239778       -0.0000061
+ BFGS       PPAR(1)                   0.104651        0.0000007
+ BFGS       PPAR(2)                   2.255120       -0.0000034
+ BFGS       DPAR(1)                   0.242017        0.0000013
+ BFGS       DPAR(2)                   2.334379        0.0000123
+ BFGS       FPAR(1)                   0.387489        0.0000031
+ BFGS       FPAR(2)                   2.136320        0.0000072
+ BFGS       GPAR(1)                   0.754800       -0.0000017
+ BFGS       GPAR(2)                   2.207345        0.0000019
+ BFGS       HPAR(1)                   1.197243        0.0000020
+ BFGS       HPAR(2)                   2.318267        0.0000001
+ BFGS       IPAR(1)                   2.052802       -0.0000019
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 37       Current function value  =         -9.764313837
+                                     Previous function value =         -9.764313832
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097437        0.0000020
+ BFGS       SPAR(2)                   2.239829       -0.0000057
+ BFGS       PPAR(1)                   0.104639        0.0000003
+ BFGS       PPAR(2)                   2.254354       -0.0000051
+ BFGS       DPAR(1)                   0.242007        0.0000011
+ BFGS       DPAR(2)                   2.333071        0.0000098
+ BFGS       FPAR(1)                   0.387612        0.0000033
+ BFGS       FPAR(2)                   2.136428        0.0000077
+ BFGS       GPAR(1)                   0.754639       -0.0000019
+ BFGS       GPAR(2)                   2.206830        0.0000016
+ BFGS       HPAR(1)                   1.196930        0.0000017
+ BFGS       HPAR(2)                   2.317150       -0.0000002
+ BFGS       IPAR(1)                   2.053025       -0.0000019
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 38       Current function value  =         -9.764313845
+                                     Previous function value =         -9.764313837
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097440        0.0000023
+ BFGS       SPAR(2)                   2.240291       -0.0000048
+ BFGS       PPAR(1)                   0.104624       -0.0000002
+ BFGS       PPAR(2)                   2.253718       -0.0000064
+ BFGS       DPAR(1)                   0.241985        0.0000007
+ BFGS       DPAR(2)                   2.331010        0.0000059
+ BFGS       FPAR(1)                   0.387711        0.0000033
+ BFGS       FPAR(2)                   2.136122        0.0000076
+ BFGS       GPAR(1)                   0.754515       -0.0000021
+ BFGS       GPAR(2)                   2.205952        0.0000010
+ BFGS       HPAR(1)                   1.196514        0.0000013
+ BFGS       HPAR(2)                   2.315899       -0.0000005
+ BFGS       IPAR(1)                   2.053488       -0.0000019
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 39       Current function value  =         -9.764313858
+                                     Previous function value =         -9.764313845
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097410        0.0000027
+ BFGS       SPAR(2)                   2.241632       -0.0000030
+ BFGS       PPAR(1)                   0.104617       -0.0000003
+ BFGS       PPAR(2)                   2.253594       -0.0000066
+ BFGS       DPAR(1)                   0.241938        0.0000001
+ BFGS       DPAR(2)                   2.328464        0.0000010
+ BFGS       FPAR(1)                   0.387510        0.0000025
+ BFGS       FPAR(2)                   2.135299        0.0000061
+ BFGS       GPAR(1)                   0.754643       -0.0000023
+ BFGS       GPAR(2)                   2.204230        0.0000002
+ BFGS       HPAR(1)                   1.195804        0.0000009
+ BFGS       HPAR(2)                   2.316140       -0.0000006
+ BFGS       IPAR(1)                   2.054099       -0.0000018
+
+ BFGS update of inverse hessian 
+
+ Results for BFGS iteration 40       Current function value  =         -9.764313871
+                                     Previous function value =         -9.764313858
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.097340        0.0000032
+ BFGS       SPAR(2)                   2.243687       -0.0000010
+ BFGS       PPAR(1)                   0.104628        0.0000002
+ BFGS       PPAR(2)                   2.254586       -0.0000044
+ BFGS       DPAR(1)                   0.241874       -0.0000005
+ BFGS       DPAR(2)                   2.326652       -0.0000028
+ BFGS       FPAR(1)                   0.386912        0.0000008
+ BFGS       FPAR(2)                   2.133874        0.0000027
+ BFGS       GPAR(1)                   0.755148       -0.0000021
+ BFGS       GPAR(2)                   2.201999       -0.0000008
+ BFGS       HPAR(1)                   1.195033        0.0000008
+ BFGS       HPAR(2)                   2.318743       -0.0000002
+ BFGS       IPAR(1)                   2.054702       -0.0000017
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Minimization of EVAL using the BFGS method has converged after  40 iterations
+
+
+ Running procedure=OPT_BASIS
+ SETTING N              =         5.00000000                                  
+
+ DO I                   =         1.00000000   
+ SETTING SEXP(1)        =         0.09734013                                  
+ SETTING PEXP(1)        =         0.10462755                                  
+ SETTING DEXP(1)        =         0.24187435                                  
+
+ DO I                   =         2.00000000   
+ SETTING SEXP(2)        =         0.21840083                                  
+ SETTING PEXP(2)        =         0.23589184                                  
+ SETTING DEXP(2)        =         0.56275747                                  
+
+ DO I                   =         3.00000000   
+ SETTING SEXP(3)        =         0.49002319                                  
+ SETTING PEXP(3)        =         0.53183852                                  
+ SETTING DEXP(3)        =         1.30934084                                  
+
+ DO I                   =         4.00000000   
+ SETTING SEXP(4)        =         1.09945886                                  
+ SETTING PEXP(4)        =         1.19907587                                  
+ SETTING DEXP(4)        =         3.04638059                                  
+
+ DO I                   =         5.00000000   
+ SETTING SEXP(5)        =         2.46684199                                  
+ SETTING PEXP(5)        =         2.70342010                                  
+ SETTING DEXP(5)        =         7.08786774                                  
+
+ DO I                   =         1.00000000   
+ SETTING FEXP(1)        =         0.38691204                                  
+
+ DO I                   =         2.00000000   
+ SETTING FEXP(2)        =         0.82562166                                  
+
+ DO I                   =         3.00000000   
+ SETTING FEXP(3)        =         1.76177283                                  
+
+ DO I                   =         4.00000000   
+ SETTING FEXP(4)        =         3.75940176                                  
+
+ DO I                   =         1.00000000   
+ SETTING GEXP(1)        =         0.75514798                                  
+
+ DO I                   =         2.00000000   
+ SETTING GEXP(2)        =         1.66283509                                  
+
+ DO I                   =         3.00000000   
+ SETTING GEXP(3)        =         3.66156119                                  
+
+ DO I                   =         1.00000000   
+ SETTING HEXP(1)        =         1.19503265                                  
+
+ DO I                   =         2.00000000   
+ SETTING HEXP(2)        =         2.77097379                                  
+
+ DO I                   =         1.00000000   
+ SETTING IEXP(1)        =         2.05470244                                  
+ SETTING BASIS          =    USERDEF
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.09734013
+ Set= 1  SEXP(2)             =       0.21840083
+ Set= 1  SEXP(3)             =       0.49002319
+ Set= 1  SEXP(4)             =       1.09945886
+ Set= 1  SEXP(5)             =       2.46684199
+ Set= 1  PEXP(1)             =       0.10462755
+ Set= 1  PEXP(2)             =       0.23589184
+ Set= 1  PEXP(3)             =       0.53183852
+ Set= 1  PEXP(4)             =       1.19907587
+ Set= 1  PEXP(5)             =       2.70342010
+ Set= 1  DEXP(1)             =       0.24187435
+ Set= 1  DEXP(2)             =       0.56275747
+ Set= 1  DEXP(3)             =       1.30934084
+ Set= 1  DEXP(4)             =       3.04638059
+ Set= 1  DEXP(5)             =       7.08786774
+ Set= 1  FEXP(1)             =       0.38691204
+ Set= 1  FEXP(2)             =       0.82562166
+ Set= 1  FEXP(3)             =       1.76177283
+ Set= 1  FEXP(4)             =       3.75940176
+ Set= 1  GEXP(1)             =       0.75514798
+ Set= 1  GEXP(2)             =       1.66283509
+ Set= 1  GEXP(3)             =       3.66156119
+ Set= 1  HEXP(1)             =       1.19503265
+ Set= 1  HEXP(2)             =       2.77097379
+ Set= 1  IEXP(1)             =       2.05470244
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Atom
+ Symmetry elements: X,Y,Z
+ Rotational constants:       0.0000000      0.0000000      0.0000000 GHz  (calculated with average atomic masses)
+
+ Point group  D2h 
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  N       5.00    0.000000000    0.000000000    0.000000000
+
+ NUCLEAR CHARGE:                    5
+ NUMBER OF PRIMITIVE AOS:         241
+ NUMBER OF SYMMETRY AOS:          171
+ NUMBER OF CONTRACTIONS:          139   (  29Ag  +  20B3u +  20B2u +  14B1g +  20B1u +  14B2g +  14B3g +   8Au  )
+ NUMBER OF CORE ORBITALS:           0   (   0Ag  +   0B3u +   0B2u +   0B1g +   0B1u +   0B2g +   0B3g +   0Au  )
+ NUMBER OF VALENCE ORBITALS:        4   (   1Ag  +   1B3u +   1B2u +   0B1g +   1B1u +   0B2g +   0B3g +   0Au  )
+
+
+ NUCLEAR REPULSION ENERGY    0.00000000
+
+
+ Maximum number of basis and dump records reached. Truncating dump files before previous basis set!
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 1 1 1 2 3 2 3   2 3 2 3 2 3 4 5 6 4   5 6 4 5 6 7 8 910
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 2:   1 1 1 1 1 1 2 3 2 3   2 3 2 3 4 5 6 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 3:   1 1 1 1 1 1 2 3 2 3   2 3 2 3 4 5 6 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 4:   1 1 1 1 1 2 3 2 3 2   3 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 5:   1 1 1 1 1 1 2 3 2 3   2 3 2 3 4 5 6 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 6:   1 1 1 1 1 2 3 2 3 2   3 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 7:   1 1 1 1 1 2 3 2 3 2   3 4 5 6
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 8:   1 1 1 1 2 3 2 3
+
+ Eigenvalues of metric
+
+         1 0.417E-03 0.479E-02 0.377E-01 0.388E-01 0.388E-01 0.168E+00 0.168E+00 0.168E+00
+         2 0.944E-03 0.148E-01 0.603E-01 0.603E-01 0.898E-01 0.325E+00 0.325E+00 0.401E+00
+         3 0.944E-03 0.148E-01 0.603E-01 0.603E-01 0.898E-01 0.325E+00 0.325E+00 0.401E+00
+         4 0.388E-01 0.168E+00 0.168E+00 0.171E+00 0.575E+00 0.790E+00 0.790E+00 0.100E+01
+         5 0.944E-03 0.148E-01 0.603E-01 0.603E-01 0.898E-01 0.325E+00 0.325E+00 0.401E+00
+         6 0.388E-01 0.168E+00 0.168E+00 0.171E+00 0.575E+00 0.790E+00 0.790E+00 0.100E+01
+         7 0.388E-01 0.168E+00 0.168E+00 0.171E+00 0.575E+00 0.790E+00 0.790E+00 0.100E+01
+         8 0.603E-01 0.325E+00 0.428E+00 0.428E+00 0.112E+01 0.157E+01 0.157E+01 0.249E+01
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-11
+ AO integral compression algorithm  1   Integral accuracy      1.0D-11
+
+     31.195 MB (compressed) written to integral file ( 41.4%)
+
+     Node minimum: 8.651 MB, node maximum: 12.845 MB
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:    2051364.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:    2051364      RECORD LENGTH: 524288
+
+ Memory used in sort:       2.61 MW
+
+ SORT1 READ     9405658. AND WROTE     1368489. INTEGRALS IN      4 RECORDS. CPU TIME:     0.40 SEC, REAL TIME:     0.45 SEC
+ SORT2 READ     4069250. AND WROTE     6117204. INTEGRALS IN    147 RECORDS. CPU TIME:     0.13 SEC, REAL TIME:     0.25 SEC
+
+ Node minimum:     2032684.  Node maximum:     2051364. integrals
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.24       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      62       77.15       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029   
+                                          RHF     BASIS   
+
+ PROGRAMS   *        TOTAL       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT
+ CPU TIMES  *      2923.01      1.85      0.52      0.23      1.85      0.49      0.10      1.83      0.48      0.11      1.80
+ REAL TIME  *      5443.90 SEC
+ DISK USED  *       380.65 MB      
+ SF USED    *        35.69 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+
+ PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       4+    1-    SPACE SYMMETRY=8    SPIN SYMMETRY: Quartet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.60 (CLOSED) -0.30 (OPEN) 
+
+ Number of closed-shell orbitals:    1 (   1   0   0   0   0   0   0   0 )
+ Number of open-shell orbitals:      3 (   0   1   1   0   1   0   0   0 )
+
+
+ Molecular orbitals read from record     2100.2  Type=RHF/CANONICAL (state 1.8)
+ Present occupation:       1   1   1   0   1   0   0   0
+ Present closed-shells:    1   0   0   0   0   0   0   0
+ Wavefunction symmetry:    8   Quartet 
+
+ Orbital overlap <old|new>:  < 1.1| 1.1> = 1.000000   < 1.2| 1.2> = 1.000000   < 1.3| 1.3> = 1.000000   < 1.5| 1.5> = 1.000000
+
+ Molecular orbital dump at record        2129.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00        -9.63386562     12.074800    0.00000    0.00000    0.00000    0    start
+    2      0.000D+00      0.190D-03        -9.63386627     12.074785    0.00000    0.00000    0.00000    1    diag,B
+    3      0.474D-03      0.260D-04        -9.63386630     12.074763    0.00000    0.00000    0.00000    2    diag,B
+    4      0.757D-04      0.462D-05        -9.63386630     12.074758    0.00000    0.00000    0.00000    3    diag,B
+    5      0.128D-04      0.978D-06        -9.63386630     12.074763    0.00000    0.00000    0.00000    4    diag,B
+    6      0.236D-05      0.206D-06        -9.63386630     12.074766    0.00000    0.00000    0.00000    0    orth
+
+ Final alpha occupancy:   1   1   1   0   1   0   0   0
+ Final beta  occupancy:   1   0   0   0   0   0   0   0
+
+ !RHF STATE 1.8 Energy                 -9.633866299083
+ Nuclear energy                         0.00000000
+ One-electron energy                  -15.67124920
+ Two-electron energy                    6.03738290
+ Virial quotient                       -1.41103824
+ !RHF STATE 1.8 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+
+ Orbital energies:
+
+         1.1          2.1          3.1
+     -0.943673     0.190284     0.637580
+
+         1.2          2.2          3.2
+     -0.569713     0.264435     1.048637
+
+         1.3          2.3          3.3
+     -0.569713     0.264435     1.048637
+
+         1.4          2.4
+      0.637580     1.884895
+
+         1.5          2.5          3.5
+     -0.569713     0.264435     1.048637
+
+         1.6          2.6
+      0.637580     1.884895
+
+         1.7          2.7
+      0.637580     1.884895
+
+         1.8          2.8
+      1.453022     3.885297
+
+ HOMO      1.2    -0.569713 =     -15.5027eV
+ LUMO      2.1     0.190284 =       5.1779eV
+ LUMO-HOMO         0.759997 =      20.6806eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.24       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       79.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF
+ CPU TIMES  *      2923.11      0.10      1.85      0.52      0.23      1.85      0.49      0.10      1.83      0.48      0.11
+ REAL TIME  *      5444.12 SEC
+ DISK USED  *       380.65 MB      
+ SF USED    *        35.69 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.09734013
+ Set= 1  SEXP(2)             =       0.21840083
+ Set= 1  SEXP(3)             =       0.49002319
+ Set= 1  SEXP(4)             =       1.09945886
+ Set= 1  SEXP(5)             =       2.46684199
+ Set= 1  PEXP(1)             =       0.10462755
+ Set= 1  PEXP(2)             =       0.23589184
+ Set= 1  PEXP(3)             =       0.53183852
+ Set= 1  PEXP(4)             =       1.19907587
+ Set= 1  PEXP(5)             =       2.70342010
+ Set= 1  DEXP(1)             =       0.24187435
+ Set= 1  DEXP(2)             =       0.56275747
+ Set= 1  DEXP(3)             =       1.30934084
+ Set= 1  DEXP(4)             =       3.04638059
+ Set= 1  DEXP(5)             =       7.08786774
+ Set= 1  FEXP(1)             =       0.38691204
+ Set= 1  FEXP(2)             =       0.82562166
+ Set= 1  FEXP(3)             =       1.76177283
+ Set= 1  FEXP(4)             =       3.75940176
+ Set= 1  GEXP(1)             =       0.75514798
+ Set= 1  GEXP(2)             =       1.66283509
+ Set= 1  GEXP(3)             =       3.66156119
+ Set= 1  HEXP(1)             =       1.19503265
+ Set= 1  HEXP(2)             =       2.77097379
+ Set= 1  IEXP(1)             =       2.05470244
+
+ PROGRAM * CCSD (Restricted open-shell coupled cluster)     Authors: C. Hampel, H.-J. Werner, 1991, M. Deegan, P.J. Knowles, 1992
+
+
+ Convergence thresholds:  THRVAR = 1.00D-08  THRDEN = 1.00D-06
+
+ CCSD(T)     terms to be evaluated (factor= 1.000)
+
+
+ Number of closed-shell orbitals:   1 (   1   0   0   0   0   0   0   0 )
+ Number of active  orbitals:        3 (   0   1   1   0   1   0   0   0 )
+ Number of external orbitals:     135 (  28  19  19  14  19  14  14   8 )
+
+ Memory could be reduced to 3.75 Mwords without degradation in triples
+
+ Number of N-1 electron functions:               5
+ Number of N-2 electron functions:              10
+ Number of singly external CSFs:               116
+ Number of doubly external CSFs:             17168
+ Total number of CSFs:                       17284
+
+ Molecular orbitals read from record     2129.2  Type=RHF/CANONICAL (state 1.8)
+
+ Integral transformation finished. Total CPU:   0.05 sec, npass=  1  Memory used:   0.59 MW
+
+ Starting RMP2 calculation
+
+ Wavefunction is spin-projected
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.02834790    -0.11333149    -9.74719779    -0.11333149    -0.00025450  0.18D-05  0.83D-04  1  1     0.07
+   2      1.02856853    -0.11360646    -9.74747276    -0.00027497    -0.00000052  0.44D-08  0.19D-06  2  2     0.07
+   3      1.02857561    -0.11361255    -9.74747885    -0.00000608    -0.00000000  0.25D-11  0.27D-09  3  3     0.07
+   4      1.02857568    -0.11361258    -9.74747888    -0.00000004    -0.00000000  0.44D-14  0.37D-12  4  4     0.07
+
+ Norm of t1 vector:      0.03731760      S-energy:    -0.00246388      T1 diagnostic:  0.00152662
+ Norm of t2 vector:      0.16487290      P-energy:    -0.11114870
+                                         Alpha-Beta:  -0.08033694
+                                         Alpha-Alpha: -0.03081176
+                                         Beta-Beta:    0.00000000
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+  Reference energy                     -9.633866299083
+  RHF-RMP2 correlation energy          -0.113612584620
+ !RHF-RMP2 energy                      -9.747478883702
+ (NB above energy spin projected)
+
+ Starting RCCSD calculation
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.03630697    -0.12293015    -9.75679645    -0.12293015    -0.00336733  0.16D-03  0.94D-03  1  1     0.11
+   2      1.04009467    -0.12659724    -9.76046354    -0.00366709    -0.00012886  0.20D-04  0.36D-04  2  2     0.15
+   3      1.04101545    -0.12714193    -9.76100823    -0.00054469    -0.00000613  0.79D-06  0.16D-05  3  3     0.19
+   4      1.04116255    -0.12719176    -9.76105806    -0.00004984    -0.00000023  0.71D-07  0.52D-07  4  4     0.23
+   5      1.04118397    -0.12719881    -9.76106511    -0.00000704    -0.00000001  0.52D-08  0.12D-08  5  5     0.26
+   6      1.04118513    -0.12719865    -9.76106495     0.00000016    -0.00000000  0.25D-09  0.85D-10  6  6     0.31
+
+ Norm of t1 vector:      0.05165122      S-energy:    -0.00328129      T1 diagnostic:  0.00396270
+                                                                       D1 diagnostic:  0.00655096
+ Norm of t2 vector:      0.19625819      P-energy:    -0.12391735
+                                         Alpha-Beta:  -0.09151063
+                                         Alpha-Alpha: -0.03240673
+                                         Beta-Beta:    0.00000000
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+
+ Memory could be reduced to 3.83 Mwords without degradation in triples
+ 
+
+ RESULTS
+ =======
+
+  Reference energy                     -9.633866299083
+  RCCSD singles energy                 -0.003281294690
+  RCCSD pair energy                    -0.123917354944
+  RCCSD correlation energy             -0.127198649634
+  Triples (T) contribution             -0.003248922140
+  Total correlation energy             -0.130447571774
+ 
+  RHF-RCCSD energy                     -9.761064948716
+  RHF-RCCSD[T] energy                  -9.764297344011
+  RHF-RCCSD-T energy                   -9.764317572959
+ !RHF-RCCSD(T) energy                  -9.764313870856
+
+ Program statistics:
+
+ Available memory in ccsd:               255999705
+ Min. memory needed in ccsd:                129605
+ Max. memory used in ccsd:                  143757
+ Max. memory used in cckext:                147477 ( 6 integral passes)
+ Max. memory used in cckint:                592955 ( 1 integral passes)
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.24       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       79.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)
+ CPU TIMES  *      2923.62      0.50      0.10      1.85      0.52      0.23      1.85      0.49      0.10      1.83      0.48
+ REAL TIME  *      5445.17 SEC
+ DISK USED  *       380.65 MB      
+ SF USED    *        35.69 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+ SETTING EVAL           =        -9.76431387  AU                              
+
+ BFGS final minimum    =        -9.764313871       maximum gradient =           -0.44E-05
+
+           variable                 value           gradient
+ BFGS       SPAR(1)                 0.097340        0.0000032
+ BFGS       SPAR(2)                 2.243687       -0.0000010
+ BFGS       PPAR(1)                 0.104628        0.0000002
+ BFGS       PPAR(2)                 2.254586       -0.0000044
+ BFGS       DPAR(1)                 0.241874       -0.0000005
+ BFGS       DPAR(2)                 2.326652       -0.0000028
+ BFGS       FPAR(1)                 0.386912        0.0000008
+ BFGS       FPAR(2)                 2.133874        0.0000027
+ BFGS       GPAR(1)                 0.755148       -0.0000021
+ BFGS       GPAR(2)                 2.201999       -0.0000008
+ BFGS       HPAR(1)                 1.195033        0.0000008
+ BFGS       HPAR(2)                 2.318743       -0.0000002
+ BFGS       IPAR(1)                 2.054702       -0.0000017
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.24       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       79.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL  MINIMIZE        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)        HF       INT  RCCSD(T)
+ CPU TIMES  *      2923.62      0.51      0.10      1.85      0.52      0.23      1.85      0.49      0.10      1.83      0.48
+ REAL TIME  *      5445.20 SEC
+ DISK USED  *       380.65 MB      
+ SF USED    *        35.69 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+ MINIMIZE/USERDEF energy=     -9.764313870856
+
+        RCCSD(T)        HF-SCF          RCCSD(T)        HF-SCF          RCCSD(T)        HF-SCF          RCCSD(T)        HF-SCF  
+     -9.76431387     -9.63386630     -9.76431387     -9.63386630     -9.76431387     -9.63386630     -9.76431387     -9.63386630
+ **********************************************************************************************************************************
+ Variable memory released

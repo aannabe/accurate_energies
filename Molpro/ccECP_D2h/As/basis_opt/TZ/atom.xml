@@ -1,0 +1,2559 @@
+<?xml version="1.0"?>
+<molpro xmlns="http://www.molpro.net/schema/molpro-output"
+  xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+  xmlns:cml="http://www.xml-cml.org/schema"
+  xmlns:stm="http://www.xml-cml.org/schema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+ <!--
+
+ Primary working directories    : /global/cscratch1/sd/aannabe
+ Secondary working directories  : /global/cscratch1/sd/aannabe
+ Wavefunction directory         : /global/homes/a/aannabe/wfu/
+ Main file repository           : /global/cscratch1/sd/aannabe/
+
+ SHA1      : 19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ NAME      : 2015.1.36
+ ARCHNAME  : linux/x86_64
+ FC        : /opt/cray/pe/craype/2.5.14/bin/ftn
+ BLASLIB   : -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64 -Wl,-_start-group -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -Wl,-_end-group -liomp5
+ id        : lbl
+
+ Nodes     nprocs
+ nid00496     3
+ Number of processes for MPI-2 version of Molpro:   nprocs(total)=    4   nprocs(compute)=    3   nprocs(helper)=    1
+
+ Using customized tuning parameters: mindgm=7; mindgv=16; mindgc=1; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=sf  
+
+ --><job>
+  <!--
+ ***,As
+ memory,512,m
+ gthresh,twoint=1.e-12
+ 
+                                                                                 !print,basis,orbitals
+ 
+ angstrom
+ geometry={
+ 1                                                                               ! Number of atoms
+ As 0.0 0.0 0.0
+ }
+ 
+ spar=[0.115290, 4.751167]
+ ppar=[0.099650, 6.053211]
+ dpar=[0.166124, 2.415679]
+ fpar=[0.430730, 2.000000]
+ 
+ proc opt_basis
+ 
+                                                                                 !Calculate the exponents
+ N=2                                                                             !TZ
+ do i=1,N
+ sexp(i)=spar(1)*spar(2)^(i-1)
+ pexp(i)=ppar(1)*ppar(2)^(i-1)
+ dexp(i)=dpar(1)*dpar(2)^(i-1)
+ fexp(i)=fpar(1)*fpar(2)^(i-1)
+ enddo
+ 
+ 
+ basis={
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/As/ccECP/As.ccECP.molpro
+ 
+ s,As, 50.230536, 22.441775, 10.026436, 4.479567, 2.001361, 0.894159, 0.399488, 0.178482, 0.079741
+ c,1.9,-0.000538, 0.003660, -0.023992, 0.158076, -0.419346, -0.100519, 0.450020, 0.605104, 0.190009
+ p,As, 22.695464, 10.529662, 4.885284, 2.266549, 1.051576, 0.487883, 0.226356, 0.105019, 0.048724
+ c,1.9, 0.000322, -0.003120, 0.029849, -0.127882, -0.004461, 0.248666, 0.457083, 0.351483, 0.091636
+ 
+ 
+ s,As,sexp(1),sexp(2)
+ p,As,pexp(1),pexp(2)
+ d,As,dexp(1),dexp(2)
+ f,As,fexp(1)
+ }
+ 
+ {hf
+  wf,5,8,3
+  occ,1,1,1,0,1,0,0,0
+  closed,1,0,0,0,0,0,0,0
+ }
+ 
+ _CC_NORM_MAX=2.0
+ {rcisd
+ maxit,50
+ core
+ }
+ eval=energy
+ 
+ endproc
+ 
+ {minimize,eval,spar(1),spar(2),ppar(1),ppar(2),dpar(1),dpar(2),fpar(1)          !,fpar(2)
+ method,bfgs,proc=opt_basis,thresh=3e-5,vstep=5e-4
+ maxit,100}
+ 
+ 
+
+ Variables initialized (889), CPU time= 0.01 sec
+ Commands  initialized (702), CPU time= 0.02 sec, 572 directives.
+ Default parameters read. Elapsed time= 0.78 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2015.1 linked Dec 29 2018 15:55:43
+
+
+ **********************************************************************************************************************************
+ LABEL *   As                                                                            
+  64 bit mpp version                                                                     DATE: 04-Jun-19          TIME: 09:17:55  
+ **********************************************************************************************************************************
+
+ SHA1:             19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ **********************************************************************************************************************************
+  -->
+  <!--
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-12  ONEINT  =  1.00D-12  TWOINT  =  1.00D-12  PREFAC  =  1.00D-14  LOCALI  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  0.00D+00  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-02  STEP    =  1.00D-03
+ ORBITAL =  1.00D-05  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  GRID    =  1.00D-06  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01  THROCCDE=  1.00D-01
+
+
+ ZUNIT=ANG
+ 
+
+Geometry recognized as XYZ
+
+ SETTING SPAR(1)        =         0.11529000                                  
+ SETTING SPAR(2)        =         4.75116700                                  
+ SETTING PPAR(1)        =         0.09965000                                  
+ SETTING PPAR(2)        =         6.05321100                                  
+ SETTING DPAR(1)        =         0.16612400                                  
+ SETTING DPAR(2)        =         2.41567900                                  
+ SETTING FPAR(1)        =         0.43073000                                  
+ SETTING FPAR(2)        =         2.00000000                                  
+
+ Variable memory set to  512000000 words,  buffer space   230000 words
+
+  --><jobstep command="MINIMIZE" commandset="MINIMIZE">
+   <!--
+
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+ Minimize EVAL with respect to:        SPAR(1)   SPAR(2)   PPAR(1)   PPAR(2)   DPAR(1)   
+                                       DPAR(2)   FPAR(1)   
+ Method BFGS will be used
+ Variables are optimized in the space of (x/x0)
+
+
+ Minimization using procedure=OPT_BASIS
+
+ *** Long output written to logfile /global/u1/a/aannabe/docs/accurate/ccECP_D2h/As/basis_opt/TZ/atom.log ***
+
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><cml:molecule>
+     <cml:symmetry pointGroup="D2h"/>
+     <cml:atomArray>
+      <cml:atom id="a1" elementType="As" x3="0.0" y3="0.0" z3="0.0"/>
+     </cml:atomArray>
+     <cml:bondArray>
+     </cml:bondArray>
+    </cml:molecule><!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:17:55" end="09:18:01" cpu="2.1" system="1.43" real="7.97"/>
+    <storage units="megabyte" memory="4097.84" sf="0.0" df="68.83" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737436293476718E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961990948707"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700668  -0.0859698329   -0.23D-06
+ estrong  -0.0859332463  -0.0859332463    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365865444955232E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332463483555E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698328928511E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184611303225"/><!--
+    -->
+    <time start="09:18:01" end="09:18:02" cpu="0.12" system="0.06" real="0.94"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="69.03" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+
+ BFGS update of inverse hessian 
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013991"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:02" end="09:18:04" cpu="0.5" system="0.18" real="2.02"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="69.03" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013992"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737438558501186E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962013599004"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700887  -0.0859698548   -0.23D-06
+ estrong  -0.0859332085  -0.0859332085   -0.28D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013992"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366463283632407E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933208498093E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698548264562E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184613496638"/><!--
+    -->
+    <time start="09:18:04" end="09:18:06" cpu="0.09" system="0.05" real="1.2"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="76.55" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013884"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:06" end="09:18:07" cpu="0.51" system="0.16" real="1.93"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="76.55" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013884"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737433999795932E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961968011844"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700417  -0.0859698078   -0.23D-06
+ estrong  -0.0859332809  -0.0859332809    0.28D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013884"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365268362827464E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332809487133E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.85969807784996E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184608792384"/><!--
+    -->
+    <time start="09:18:07" end="09:18:09" cpu="0.29" system="0.05" real="1.35"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="84.07" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013858"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:09" end="09:18:11" cpu="0.47" system="0.15" real="1.8"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="84.07" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013858"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737436660997303E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961994623831"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700733  -0.0859698395   -0.23D-06
+ estrong  -0.0859332419  -0.0859332419    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013858"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365975355499509E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332419393772E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698394749272E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184611961351"/><!--
+    -->
+    <time start="09:18:11" end="09:18:12" cpu="0.09" system="0.04" real="1.16"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="91.59" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014023"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:12" end="09:18:14" cpu="0.67" system="0.16" real="1.91"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="91.59" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014023"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737435923405363E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961987248076"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700600  -0.0859698261   -0.23D-06
+ estrong  -0.0859332506  -0.0859332506    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014023"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.3657553008099E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332505884838E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698261185648E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184610625879"/><!--
+    -->
+    <time start="09:18:14" end="09:18:15" cpu="0.09" system="0.04" real="1.37"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="99.11" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014013"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:15" end="09:18:17" cpu="0.53" system="0.22" real="1.66"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="99.11" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014013"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737440320974118E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962031223754"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700641  -0.0859698301   -0.23D-06
+ estrong  -0.0859332433  -0.0859332433   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014013"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365867507613193E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332433349266E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698300856879E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184611022582"/><!--
+    -->
+    <time start="09:18:17" end="09:18:18" cpu="0.11" system="0.06" real="1.12"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="106.63" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013866"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:18" end="09:18:20" cpu="0.61" system="0.16" real="2.29"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="106.63" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013867"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737432177209349E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396194978596"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700593  -0.0859698256   -0.23D-06
+ estrong  -0.0859332392  -0.0859332392   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013867"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365863444833081E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332392390676E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698255835509E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184610572222"/><!--
+    -->
+    <time start="09:18:20" end="09:18:21" cpu="0.23" system="0.06" real="1.21"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="114.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013986"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:21" end="09:18:23" cpu="0.48" system="0.17" real="1.68"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="114.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013986"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737436352987494E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961991543861"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700701  -0.0859698362   -0.23D-06
+ estrong  -0.0859332495  -0.0859332495    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013986"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365867657634023E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332494578747E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698362236381E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.1518461163635"/><!--
+    -->
+    <time start="09:18:23" end="09:18:24" cpu="0.09" system="0.04" real="1.18"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="121.68" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013893"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:24" end="09:18:26" cpu="0.56" system="0.17" real="1.88"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="121.68" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013893"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737436225803477E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961990271928"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700627  -0.0859698288   -0.23D-06
+ estrong  -0.0859332425  -0.0859332425    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013893"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365863272794725E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332425172653E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698288445448E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184610898347"/><!--
+    -->
+    <time start="09:18:26" end="09:18:27" cpu="0.24" system="0.04" real="1.21"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="129.2" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:27" end="09:18:29" cpu="0.48" system="0.17" real="1.86"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="129.2" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737440429229031E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396203230623"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700755  -0.0859698418   -0.23D-06
+ estrong  -0.0859332503  -0.0859332503    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365914451553179E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332503415706E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698417867259E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184612192613"/><!--
+    -->
+    <time start="09:18:29" end="09:18:30" cpu="0.11" system="0.04" real="1.07"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="136.72" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:30" end="09:18:33" cpu="0.65" system="0.21" real="2.61"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="136.72" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737432085387137E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961948867811"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700517  -0.0859698177   -0.23D-06
+ estrong  -0.0859332360  -0.0859332360    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365816297429461E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332360325534E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698176622963E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184609780169"/><!--
+    -->
+    <time start="09:18:33" end="09:18:34" cpu="0.12" system="0.05" real="1.11"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="144.24" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:34" end="09:18:40" cpu="0.92" system="0.2" real="6.09"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="144.24" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737440309553517E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962031109475"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700738  -0.0859698400   -0.23D-06
+ estrong  -0.0859332466  -0.0859332466    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365933474858332E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332466268224E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698399743082E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184612011371"/><!--
+    -->
+    <time start="09:18:40" end="09:18:41" cpu="0.12" system="0.04" real="1.23"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="151.76" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013939"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:41" end="09:18:43" cpu="0.52" system="0.15" real="1.88"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="151.76" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737432169382226E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961949707762"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700488  -0.0859698149   -0.23D-06
+ estrong  -0.0859332351  -0.0859332351    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365797359336562E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332351303951E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698148663288E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184609500572"/><!--
+    -->
+    <time start="09:18:43" end="09:18:44" cpu="0.12" system="0.03" real="1.05"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="159.28" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:44" end="09:18:46" cpu="0.46" system="0.17" real="2.0"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="159.28" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737439231161282E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962020325553"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700551  -0.0859698214   -0.23D-06
+ estrong  -0.0859332255  -0.0859332255    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365959743499622E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332254641172E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698214384672E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184610157787"/><!--
+    -->
+    <time start="09:18:46" end="09:18:47" cpu="0.08" system="0.05" real="1.03"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="166.81" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:47" end="09:18:49" cpu="0.63" system="0.15" real="1.97"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="166.81" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737433304234818E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13961961056288"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700738  -0.0859698397   -0.23D-06
+ estrong  -0.0859332626  -0.0859332626    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801394"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365771171801782E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332626236672E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698397408474E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184611988025"/><!--
+    -->
+    <time start="09:18:49" end="09:18:51" cpu="0.11" system="0.05" real="1.45"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="174.33" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Results for BFGS iteration    1       Current function value  =         -6.151846113
+                                     Previous function value =          0.000000000
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115290       -0.0000470
+ BFGS       SPAR(2)                   4.751167       -0.0000134
+ BFGS       PPAR(1)                   0.099650       -0.0000045
+ BFGS       PPAR(2)                   6.053211       -0.0000074
+ BFGS       DPAR(1)                   0.166124       -0.0000241
+ BFGS       DPAR(2)                   2.415679       -0.0000251
+ BFGS       FPAR(1)                   0.430730        0.0000183
+
+ BFGS update of inverse hessian 
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013982"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:51" end="09:18:53" cpu="0.55" system="0.17" real="2.14"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="174.33" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737441826078417E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962046274765"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701011  -0.0859698673   -0.23D-06
+ estrong  -0.0859332192  -0.0859332192    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366481083570319E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332191920709E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698673004279E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614744024"/><!--
+    -->
+    <time start="09:18:53" end="09:18:54" cpu="0.1" system="0.06" real="1.24"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="181.85" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014031"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:54" end="09:18:56" cpu="0.66" system="0.16" real="2.2"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="181.85" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801403"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737444064527128E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962068659302"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701200  -0.0859698862   -0.23D-06
+ estrong  -0.0859331782  -0.0859331782   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.0658762801403"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.367079877776622E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859331781889754E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698861767531E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184616631706"/><!--
+    -->
+    <time start="09:18:56" end="09:18:57" cpu="0.14" system="0.05" real="1.09"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="189.37" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013928"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:18:57" end="09:18:59" cpu="0.57" system="0.18" real="2.13"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="189.37" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013928"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737439559004835E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962023603977"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700791  -0.0859698452   -0.23D-06
+ estrong  -0.0859332569  -0.0859332569    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013928"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.365883000220391E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332569485302E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698452485523E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184612538783"/><!--
+    -->
+    <time start="09:18:59" end="09:19:01" cpu="0.15" system="0.07" real="1.17"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="196.89" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013901"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:01" end="09:19:02" cpu="0.73" system="0.16" real="1.86"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="196.89" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013901"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737442189509245E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962049908994"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701073  -0.0859698735   -0.23D-06
+ estrong  -0.0859332144  -0.0859332144   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013901"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366590899657515E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332143766471E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698734666128E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184615360562"/><!--
+    -->
+    <time start="09:19:02" end="09:19:04" cpu="0.09" system="0.05" real="1.25"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="204.41" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014063"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:04" end="09:19:06" cpu="0.55" system="0.15" real="1.78"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="204.41" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014062"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737441460164716E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962042615709"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700948  -0.0859698609   -0.23D-06
+ estrong  -0.0859332238  -0.0859332238   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014062"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366370987851389E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332238457852E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698609445703E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614108519"/><!--
+    -->
+    <time start="09:19:06" end="09:19:07" cpu="0.19" system="0.04" real="1.14"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="211.94" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014054"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:07" end="09:19:09" cpu="0.75" system="0.19" real="1.92"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="211.94" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014054"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737445850254383E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962086516598"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700979  -0.0859698639   -0.23D-06
+ estrong  -0.0859332156  -0.0859332156    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014054"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366483131993833E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332156137738E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698639269731E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614406751"/><!--
+    -->
+    <time start="09:19:09" end="09:19:10" cpu="0.19" system="0.05" real="1.23"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="219.46" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013908"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:10" end="09:19:12" cpu="0.65" system="0.17" real="1.89"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="219.46" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013908"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737437713189704E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962005145805"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700942  -0.0859698606   -0.23D-06
+ estrong  -0.0859332127  -0.0859332127    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013908"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366479052055502E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332126534323E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698605586379E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614069771"/><!--
+    -->
+    <time start="09:19:12" end="09:19:13" cpu="0.1" system="0.05" real="0.91"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="226.98" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014028"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:13" end="09:19:15" cpu="0.68" system="0.19" real="1.97"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="226.98" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014028"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.73744188420475E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962046856075"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701043  -0.0859698705   -0.23D-06
+ estrong  -0.0859332222  -0.0859332222    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014028"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366483274778506E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332221776016E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698705050794E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184615064536"/><!--
+    -->
+    <time start="09:19:15" end="09:19:20" cpu="0.12" system="0.05" real="5.36"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="234.5" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013934"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:20" end="09:19:22" cpu="0.5" system="0.19" real="1.79"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="234.5" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013934"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737441759850281E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962045612437"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700972  -0.0859698634   -0.23D-06
+ estrong  -0.0859332155  -0.0859332155    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013934"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366478887285637E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332154913295E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.85969863380058E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.1518461435194"/><!--
+    -->
+    <time start="09:19:22" end="09:19:23" cpu="0.16" system="0.05" real="1.13"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="242.02" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013982"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:23" end="09:19:25" cpu="0.6" system="0.17" real="2.03"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="242.02" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737445889849391E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962086912475"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701032  -0.0859698696   -0.23D-06
+ estrong  -0.0859332166  -0.0859332166    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366529965741963E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332165604781E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698695570523E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614969686"/><!--
+    -->
+    <time start="09:19:25" end="09:19:26" cpu="0.11" system="0.04" real="1.15"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="249.54" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013982"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:26" end="09:19:28" cpu="0.49" system="0.19" real="1.78"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="249.54" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737437690200512E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962004915986"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700927  -0.0859698587   -0.23D-06
+ estrong  -0.0859332155  -0.0859332155    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366432014784618E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933215524725E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698587262035E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184613886601"/><!--
+    -->
+    <time start="09:19:28" end="09:19:29" cpu="0.08" system="0.05" real="1.2"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="257.07" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013982"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:29" end="09:19:31" cpu="0.5" system="0.19" real="1.92"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="257.07" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737445751940908E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396208553339"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700993  -0.0859698655   -0.23D-06
+ estrong  -0.0859332106  -0.0859332106    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366549059215987E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332105647996E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698654707212E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184614561053"/><!--
+    -->
+    <time start="09:19:31" end="09:19:32" cpu="0.09" system="0.04" real="0.96"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="264.59" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013982"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:32" end="09:19:34" cpu="0.67" system="0.17" real="1.86"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="264.59" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737437792311503E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962005937096"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700921  -0.0859698582   -0.23D-06
+ estrong  -0.0859332169  -0.0859332169    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366413006468724E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933216892035E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698581926818E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184613833249"/><!--
+    -->
+    <time start="09:19:34" end="09:19:35" cpu="0.16" system="0.05" real="1.52"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="272.11" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:35" end="09:19:37" cpu="0.52" system="0.18" real="2.06"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="272.11" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737444785676684E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962075870748"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859700914  -0.0859698577   -0.23D-06
+ estrong  -0.0859332002  -0.0859332002    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366575443142836E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332001972987E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.85969857741613E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184613788142"/><!--
+    -->
+    <time start="09:19:37" end="09:19:39" cpu="0.1" system="0.04" real="1.24"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="279.63" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:39" end="09:19:43" cpu="0.58" system="0.29" real="4.2"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="279.63" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737438814981777E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962016163799"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701063  -0.0859698723   -0.23D-06
+ estrong  -0.0859332336  -0.0859332336    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628013981"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.366386703860161E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859332335835407E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859698722539267E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184615239374"/><!--
+    -->
+    <time start="09:19:43" end="09:19:44" cpu="0.13" system="0.04" real="1.04"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+
+ Results for BFGS iteration    2       Current function value  =         -6.151846147
+                                     Previous function value =         -6.151846113
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115344       -0.0000409
+ BFGS       SPAR(2)                   4.751802       -0.0000125
+ BFGS       PPAR(1)                   0.099654       -0.0000034
+ BFGS       PPAR(2)                   6.053658       -0.0000071
+ BFGS       DPAR(1)                   0.166164       -0.0000108
+ BFGS       DPAR(2)                   2.416286       -0.0000073
+ BFGS       FPAR(1)                   0.430651        0.0000145
+
+ BFGS update of inverse hessian 
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:44" end="09:19:46" cpu="0.98" system="0.19" real="2.25"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.73745504064011E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396217842051"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701605  -0.0859699268   -0.23D-06
+ estrong  -0.0859330573  -0.0859330573    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368694975848155E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330572559196E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699267535044E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.1518462068946"/><!--
+    -->
+    <time start="09:19:46" end="09:19:47" cpu="0.1" system="0.06" real="1.04"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014148"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:47" end="09:19:49" cpu="0.79" system="0.2" real="2.03"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014148"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737457179242528E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962199806574"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701679  -0.0859699341   -0.23D-06
+ estrong  -0.0859330044  -0.0859330044    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014148"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.369297311833827E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330044128731E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699341440565E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184621428554"/><!--
+    -->
+    <time start="09:19:49" end="09:19:51" cpu="0.1" system="0.05" real="1.41"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014067"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:51" end="09:19:52" cpu="0.57" system="0.19" real="1.8"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014067"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737452873305274E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396215674712"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701500  -0.0859699162   -0.23D-06
+ estrong  -0.0859331068  -0.0859331068    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014067"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368093350693044E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859331068410874E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699161761567E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184619631683"/><!--
+    -->
+    <time start="09:19:52" end="09:19:54" cpu="0.15" system="0.05" real="1.41"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:19:54" end="09:20:01" cpu="0.6" system="0.21" real="7.69"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737455388588752E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962181899923"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701651  -0.0859699314   -0.23D-06
+ estrong  -0.0859330509  -0.0859330509    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.36880449124102E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330509054667E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699313545908E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184621149495"/><!--
+    -->
+    <time start="09:20:01" end="09:20:03" cpu="0.1" system="0.05" real="1.1"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014185"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:03" end="09:20:04" cpu="0.48" system="0.19" real="1.65"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014185"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737454690237533E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396217491656"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701558  -0.0859699220   -0.23D-06
+ estrong  -0.0859330634  -0.0859330634    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014185"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368585179592457E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933063448015E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699219659743E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620210782"/><!--
+    -->
+    <time start="09:20:04" end="09:20:06" cpu="0.22" system="0.04" real="1.59"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014182"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:06" end="09:20:07" cpu="0.54" system="0.18" real="1.58"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014182"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.73745905089283E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962218523111"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701554  -0.0859699214   -0.23D-06
+ estrong  -0.0859330517  -0.0859330517   -0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014182"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.36869706497758E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330517194559E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699214259536E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620156778"/><!--
+    -->
+    <time start="09:20:07" end="09:20:08" cpu="0.24" system="0.05" real="1.01"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:08" end="09:20:10" cpu="0.56" system="0.21" real="2.02"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737450941662181E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962137430658"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701556  -0.0859699220   -0.23D-06
+ estrong  -0.0859330527  -0.0859330527    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014036"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368692903498918E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933052673795E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699219641449E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620210451"/><!--
+    -->
+    <time start="09:20:10" end="09:20:12" cpu="0.21" system="0.05" real="1.25"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014156"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:12" end="09:20:13" cpu="0.55" system="0.17" real="1.61"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014156"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737455093238929E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962178946545"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701632  -0.0859699295   -0.23D-06
+ estrong  -0.0859330597  -0.0859330597    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014156"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368697172386245E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330597450094E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699294622481E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620960381"/><!--
+    -->
+    <time start="09:20:13" end="09:20:14" cpu="0.28" system="0.03" real="1.1"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014062"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:14" end="09:20:17" cpu="0.58" system="0.2" real="2.38"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014063"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737454979944779E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396217781351"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701571  -0.0859699233   -0.23D-06
+ estrong  -0.0859330541  -0.0859330541    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014063"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368692774216639E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330540523629E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699233297845E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620347041"/><!--
+    -->
+    <time start="09:20:17" end="09:20:18" cpu="0.08" system="0.07" real="1.04"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:18" end="09:20:20" cpu="0.5" system="0.2" real="1.79"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737458962020159E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962217634311"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701496  -0.0859699160   -0.23D-06
+ estrong  -0.0859330416  -0.0859330416    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368743735379012E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330415933207E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699159668586E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184619610795"/><!--
+    -->
+    <time start="09:20:20" end="09:20:21" cpu="0.12" system="0.05" real="1.17"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:21" end="09:20:23" cpu="0.48" system="0.19" real="1.95"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.73745104749802E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396213848909"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701652  -0.0859699313   -0.23D-06
+ estrong  -0.0859330667  -0.0859330667    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.36864602926262E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330666540309E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699312569571E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184621139805"/><!--
+    -->
+    <time start="09:20:23" end="09:20:24" cpu="0.08" system="0.07" real="0.99"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:24" end="09:20:26" cpu="0.58" system="0.17" real="2.29"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737458791345941E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962215927569"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701416  -0.0859699079   -0.23D-06
+ estrong  -0.0859330316  -0.0859330316    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368763001730998E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330315789592E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699078791323E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184618802022"/><!--
+    -->
+    <time start="09:20:26" end="09:20:27" cpu="0.1" system="0.06" real="1.15"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:27" end="09:20:29" cpu="0.52" system="0.15" real="1.99"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737451182153169E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962139835641"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701685  -0.0859699347   -0.23D-06
+ estrong  -0.0859330720  -0.0859330720    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368626848127468E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330720188433E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.85969934703656E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184621484475"/><!--
+    -->
+    <time start="09:20:29" end="09:20:30" cpu="0.22" system="0.06" real="0.97"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:30" end="09:20:32" cpu="0.72" system="0.2" real="2.35"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737458070541503E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962208719524"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701571  -0.0859699235   -0.23D-06
+ estrong  -0.0859330445  -0.0859330445    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368789629172639E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330445432198E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.85969923506137E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620364723"/><!--
+    -->
+    <time start="09:20:32" end="09:20:34" cpu="0.18" system="0.09" real="1.19"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+    -->
+    <time start="09:20:34" end="09:20:36" cpu="0.6" system="0.2" real="2.06"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.737451959230909E-01"/><!--
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.13962147606418"/><!--
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701594  -0.0859699254   -0.23D-06
+ estrong  -0.0859330654  -0.0859330654    0.14D-16
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368600302645405E-04"/><!--
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.85933065363089E-01"/><!--
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699253933535E-01"/><!--
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.15184620553445"/><!--
+    -->
+    <time start="09:20:36" end="09:20:42" cpu="4.18" system="0.05" real="5.93"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+
+ Results for BFGS iteration    3       Current function value  =         -6.151846207
+                                     Previous function value =         -6.151846147
+ Current variables and gradients:
+ BFGS       SPAR(1)                   0.115547       -0.0000179
+ BFGS       SPAR(2)                   4.754320       -0.0000094
+ BFGS       PPAR(1)                   0.099669        0.0000005
+ BFGS       PPAR(2)                   6.055475       -0.0000061
+ BFGS       DPAR(1)                   0.166254        0.0000153
+ BFGS       DPAR(2)                   2.417315        0.0000268
+ BFGS       FPAR(1)                   0.430378        0.0000019
+
+ PROGRAM * MINIMIZE (General minimization)     Authors: H.-J. Werner, P.J. Knowles, K.A. Peterson
+
+
+ Minimization of EVAL using the BFGS method has converged after    3 iterations
+
+
+ Running procedure=OPT_BASIS
+ SETTING N              =         2.00000000                                  
+
+ DO I                   =         1.00000000   
+ SETTING SEXP(1)        =         0.11554660                                  
+ SETTING PEXP(1)        =         0.09966932                                  
+ SETTING DEXP(1)        =         0.16625447                                  
+ SETTING FEXP(1)        =         0.43037818                                  
+
+ DO I                   =         2.00000000   
+ SETTING SEXP(2)        =         0.54934551                                  
+ SETTING PEXP(2)        =         0.60354507                                  
+ SETTING DEXP(2)        =         0.40188949                                  
+ SETTING FEXP(2)        =         0.86075636                                  
+ SETTING BASIS          =    USERDEF
+   --><jobstep command="HF-SCF" commandset="SCFPRO">
+    <!--
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.11554660
+ Set= 1  SEXP(2)             =       0.54934551
+ Set= 1  PEXP(1)             =       0.09966932
+ Set= 1  PEXP(2)             =       0.60354507
+ Set= 1  DEXP(1)             =       0.16625447
+ Set= 1  DEXP(2)             =       0.40188949
+ Set= 1  FEXP(1)             =       0.43037818
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Atom
+ Symmetry elements: X,Y,Z
+ Rotational constants:       0.0000000      0.0000000      0.0000000 GHz  (calculated with average atomic masses)
+
+ Point group  D2h 
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  AS      5.00    0.000000000    0.000000000    0.000000000
+
+ NUCLEAR CHARGE:                    5
+ NUMBER OF PRIMITIVE AOS:          66
+ NUMBER OF SYMMETRY AOS:           61
+ NUMBER OF CONTRACTIONS:           29   (   7Ag  +   5B3u +   5B2u +   2B1g +   5B1u +   2B2g +   2B3g +   1Au  )
+ NUMBER OF CORE ORBITALS:           0   (   0Ag  +   0B3u +   0B2u +   0B1g +   0B1u +   0B2g +   0B3g +   0Au  )
+ NUMBER OF VALENCE ORBITALS:        4   (   1Ag  +   1B3u +   1B2u +   0B1g +   1B1u +   0B2g +   0B3g +   0Au  )
+
+
+ NUCLEAR REPULSION ENERGY    0.00000000
+
+
+ Maximum number of basis and dump records reached. Truncating dump files before previous basis set!
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 2 3 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 2:   1 1 1 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 3:   1 1 1 2 3
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 5:   1 1 1 2 3
+
+ Eigenvalues of metric
+
+         1 0.407E-01 0.281E+00 0.281E+00 0.412E+00 0.172E+01 0.172E+01 0.255E+01
+         2 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         3 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         4 0.281E+00 0.172E+01
+         5 0.307E-01 0.615E+00 0.100E+01 0.100E+01 0.235E+01
+         6 0.281E+00 0.172E+01
+         7 0.281E+00 0.172E+01
+         8 0.100E+01
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-12
+ AO integral compression algorithm  1   Integral accuracy      1.0D-12
+
+     0.786 MB (compressed) written to integral file (100.0%)
+
+     Node minimum: 0.262 MB, node maximum: 0.262 MB
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:       5166.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:       5166      RECORD LENGTH: 524288
+
+ Memory used in sort:       0.56 MW
+
+ SORT1 READ       26095. AND WROTE        4307. INTEGRALS IN      1 RECORDS. CPU TIME:     0.01 SEC, REAL TIME:     0.13 SEC
+ SORT2 READ       11782. AND WROTE       14291. INTEGRALS IN      3 RECORDS. CPU TIME:     0.00 SEC, REAL TIME:     0.03 SEC
+
+ Node minimum:        4230.  Node maximum:        5166. integrals
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      62       73.23       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029   
+                                          RHF     BASIS   
+
+ PROGRAMS   *        TOTAL       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF       INT
+ CPU TIMES  *        38.88      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22      0.07      0.44
+ REAL TIME  *       169.55 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+
+
+ PROGRAM * RHF-SCF (OPEN SHELL)       Authors: W. Meyer, H.-J. Werner
+
+
+ NUMBER OF ELECTRONS:       4+    1-    SPACE SYMMETRY=8    SPIN SYMMETRY: Quartet 
+ CONVERGENCE THRESHOLDS:    1.00E-05 (Density)    1.00E-07 (Energy)
+ MAX. NUMBER OF ITERATIONS:       60
+ INTERPOLATION TYPE:            DIIS
+ INTERPOLATION STEPS:              2 (START)      1 (STEP)
+ LEVEL SHIFTS:                 -0.60 (CLOSED) -0.30 (OPEN) 
+
+ Number of closed-shell orbitals:    1 (   1   0   0   0   0   0   0   0 )
+ Number of open-shell orbitals:      3 (   0   1   1   0   1   0   0   0 )
+
+
+ Molecular orbitals read from record     2100.2  Type=RHF/CANONICAL (state 1.8)
+ Present occupation:       1   1   1   0   1   0   0   0
+ Present closed-shells:    1   0   0   0   0   0   0   0
+ Wavefunction symmetry:    8   Quartet 
+
+ Orbital overlap <old|new>:  < 1.1| 1.1> = 1.000000   < 1.2| 1.2> = 1.000000   < 1.3| 1.3> = 1.000000   < 1.5| 1.5> = 1.000000
+
+ Molecular orbital dump at record        2129.2
+
+ ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
+    1      0.000D+00      0.000D+00        -6.06587628      7.093047    0.00000    0.00000    0.00000    0    start
+    2      0.000D+00      0.131D-06        -6.06587628      7.093047    0.00000    0.00000    0.00000    0    orth
+
+ Final alpha occupancy:   1   1   1   0   1   0   0   0
+ Final beta  occupancy:   1   0   0   0   0   0   0   0
+
+ !RHF STATE 1.8 Energy                 -6.065876280141
+    --><property name="Energy" method="RHF" principal="true" stateSymmetry="8" stateNumber="1"
+      value="-6.06587628014109"/><!--
+ Nuclear energy                         0.00000000
+ One-electron energy                   -9.61239962
+ Two-electron energy                    3.54652334
+ Virial quotient                       -2.63811657
+ !RHF STATE 1.8 Dipole moment           0.00000000     0.00000000     0.00000000
+ Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
+    --><property name="Dipole moment" method="RHF" principal="true" stateSymmetry="8"
+      stateNumber="1" value="0.0 0.0 0.0"/><!--
+
+ Orbital energies:
+
+         1.1          2.1          3.1
+     -0.703881     0.339552     0.339552
+
+         1.2          2.2          3.2
+     -0.370531     0.502631     1.437245
+
+         1.3          2.3          3.3
+     -0.370531     0.502631     1.437245
+
+         1.4          2.4
+      0.339552     1.401981
+
+         1.5          2.5          3.5
+     -0.370531     0.502631     1.437245
+
+         1.6          2.6
+      0.339552     1.401981
+
+         1.7          2.7
+      0.339552     1.401981
+
+         1.8
+      1.437245
+
+ HOMO      1.2    -0.370531 =     -10.0827eV
+ LUMO      2.1     0.339552 =       9.2397eV
+ LUMO-HOMO         0.710083 =      19.3223eV
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF
+ CPU TIMES  *        38.92      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22      0.07
+ REAL TIME  *       170.02 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+    -->
+    <time start="09:20:42" end="09:20:43" cpu="0.5" system="0.21" real="1.84"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+ SETTING _CC_NORM_MAX   =         2.00000000                                  
+   --><jobstep command="RCISD" commandset="CCSD">
+    <!--
+
+
+ Current variables in basis input:
+
+ Set= 1  SEXP(1)             =       0.11554660
+ Set= 1  SEXP(2)             =       0.54934551
+ Set= 1  PEXP(1)             =       0.09966932
+ Set= 1  PEXP(2)             =       0.60354507
+ Set= 1  DEXP(1)             =       0.16625447
+ Set= 1  DEXP(2)             =       0.40188949
+ Set= 1  FEXP(1)             =       0.43037818
+
+ PROGRAM * CISD (Restricted open-shell CI(SD))     Authors: C. Hampel, H.-J. Werner, 1991, M. Deegan, P.J. Knowles, 1992
+
+
+ Convergence thresholds:  THRVAR = 1.00D-08  THRDEN = 1.00D-06
+
+ Number of closed-shell orbitals:   1 (   1   0   0   0   0   0   0   0 )
+ Number of active  orbitals:        3 (   0   1   1   0   1   0   0   0 )
+ Number of external orbitals:      25 (   6   4   4   2   4   2   2   1 )
+
+ Number of N-1 electron functions:               5
+ Number of N-2 electron functions:              10
+ Number of singly external CSFs:                27
+ Number of doubly external CSFs:               730
+ Total number of CSFs:                         757
+
+ Molecular orbitals read from record     2129.2  Type=RHF/CANONICAL (state 1.8)
+
+ Integral transformation finished. Total CPU:   0.00 sec, npass=  1  Memory used:   0.07 MW
+
+ Starting RMP2 calculation
+
+ Wavefunction is spin-projected
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.03664837    -0.07319001    -6.13906629    -0.07319001    -0.00049054  0.79D-06  0.28D-03  1  1     0.00
+   2      1.03735975    -0.07373678    -6.13961306    -0.00054678    -0.00000110  0.18D-08  0.54D-06  2  2     0.00
+   3      1.03737838    -0.07374535    -6.13962163    -0.00000856    -0.00000000  0.24D-11  0.64D-09  3  3     0.00
+   4      1.03737864    -0.07374550    -6.13962178    -0.00000016    -0.00000000  0.16D-13  0.83D-12  4  4     0.00
+
+ Norm of t1 vector:      0.00564295      S-energy:    -0.00005748      T1 diagnostic:  0.00013683
+ Norm of t2 vector:      0.19325321      P-energy:    -0.07368802
+                                         Alpha-Beta:  -0.05440510
+                                         Alpha-Alpha: -0.01928292
+                                         Beta-Beta:    0.00000000
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+  Reference energy                     -6.065876280141
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+  RHF-RMP2 correlation energy          -0.073745504064
+    --><property name="energy" method="RHF-RMP2 correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.73745504064011E-01"/><!--
+ !RHF-RMP2 energy                      -6.139621784205
+    --><property name="energy" method="RHF-RMP2" principal="true" stateSymmetry="8"
+      stateNumber="1" value="-6.1396217842051"/><!--
+ (NB above energy spin projected)
+
+ Starting RCISD calculation
+
+ ITER.      SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE        DEN1      VAR(S)    VAR(P)  DIIS     TIME
+   1      1.04620225    -0.08161458    -6.14749086    -0.08161458    -0.00323701  0.40D-04  0.16D-02  1  1     0.01
+   2      1.05191307    -0.08556722    -6.15144350    -0.00395265    -0.00007167  0.25D-06  0.35D-04  2  2     0.01
+   3      1.05283234    -0.08594726    -6.15182354    -0.00038003    -0.00000234  0.24D-06  0.11D-05  3  3     0.02
+   4      1.05291948    -0.08596925    -6.15184553    -0.00002200    -0.00000005  0.10D-07  0.17D-07  4  4     0.02
+   5      1.05293078    -0.08596993    -6.15184621    -0.00000067    -0.00000000  0.31D-09  0.43D-09  5  5     0.02
+
+ Norm of t1 vector:      0.00865137      S-energy:    -0.00003710      T1 diagnostic:  0.00255316
+ Norm of t2 vector:      0.22990418      P-energy:    -0.08593306
+                                         Alpha-Beta:  -0.06608162
+                                         Alpha-Alpha: -0.01985144
+                                         Beta-Beta:    0.00000000
+
+ Doubles amplitudes (print threshold =  0.500E-01):
+
+         I         J         SYM. A    SYM. B    A         B      T(IJ, AB) [Alpha-Beta]
+
+         3         1         1         3         1         1      0.05658096
+
+ Spin contamination <S**2-Sz**2-Sz>     0.00000000
+ 
+
+ ?Inconsistent energies:
+
+ ecorr    -0.0859701605  -0.0859699268   -0.23D-06
+ estrong  -0.0859330573  -0.0859330573    0.00D+00
+ eclose    0.0000000000   0.0000000000    0.00D+00
+ eweak     0.0000000000   0.0000000000    0.00D+00
+ edist     0.0000000000   0.0000000000    0.00D+00
+
+ RESULTS
+ =======
+
+  Reference energy                     -6.065876280141
+    --><property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+      value="-6.06587628014109"/><!--
+  RCISD singles energy                 -0.000036869498
+    --><property name="energy" method="RCISD singles" stateSymmetry="1" stateNumber="1"
+      value="-0.368694975847877E-04"/><!--
+  RCISD pair energy                    -0.085933057256
+    --><property name="energy" method="RCISD pair" stateSymmetry="1" stateNumber="1"
+      value="-0.859330572559196E-01"/><!--
+  RCISD correlation energy             -0.085969926754
+    --><property name="energy" method="RCISD correlation" stateSymmetry="1" stateNumber="1"
+      value="-0.859699267535044E-01"/><!--
+ 
+ !RHF-RCISD energy                     -6.151846206895
+    --><property name="energy" method="RHF-RCISD" principal="true" stateSymmetry="1"
+      stateNumber="1" value="-6.1518462068946"/><!--
+
+ Program statistics:
+
+ Available memory in ccsd:               511999717
+ Min. memory needed in ccsd:                  6624
+ Max. memory used in ccsd:                    7190
+ Max. memory used in cckext:                 38252 ( 5 integral passes)
+ Max. memory used in cckint:                 67626 ( 1 integral passes)
+
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL     RCISD        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD
+ CPU TIMES  *        39.06      0.13      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22
+ REAL TIME  *       171.09 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+    -->
+    <time start="09:20:43" end="09:20:45" cpu="0.14" system="0.04" real="1.07"/>
+    <storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/>
+   </jobstep><!--
+ SETTING EVAL           =        -6.15184621  AU                              
+
+ BFGS final minimum    =        -6.151846207       maximum gradient =            0.27E-04
+
+           variable                 value           gradient
+ BFGS       SPAR(1)                 0.115547       -0.0000179
+ BFGS       SPAR(2)                 4.754320       -0.0000094
+ BFGS       PPAR(1)                 0.099669        0.0000005
+ BFGS       PPAR(2)                 6.055475       -0.0000061
+ BFGS       DPAR(1)                 0.166254        0.0000153
+ BFGS       DPAR(2)                 2.417315        0.0000268
+ BFGS       FPAR(1)                 0.430378        0.0000019
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19       19.87       500      610      700      900      950      970     1029      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                           T        V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+              2      63       75.72       200      700     1000      520     2100     1001     2101     1002     2102     1003   
+                                        OPTIONS   GEOM     BASIS   MCVARS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2103     1004     2104     1005     2105     1006     2106     1007     2107     1008   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2108     1009     2109     1010     2110     1011     2111     1012     2112     1013   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2113     1014     2114     1015     2115     1016     2116     1017     2117     1018   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2118     1019     2119     1020     2120     1021     2121     1022     2122     1023   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2123     1024     2124     1025     2125     1026     2126     1027     2127     1028   
+                                          RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS     RHF     BASIS   
+                                         2128     1029     2129   
+                                          RHF     BASIS     RHF  
+
+ PROGRAMS   *        TOTAL  MINIMIZE        HF       INT     RCISD        HF       INT     RCISD        HF       INT     RCISD
+ CPU TIMES  *        39.07      0.14      0.04      0.45      4.18      0.06      0.53      0.18      0.03      0.67      0.22
+ REAL TIME  *       171.15 SEC
+ DISK USED  *       299.89 MB      
+ SF USED    *         0.10 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
+ **********************************************************************************************************************************
+   --><time start="09:17:55" end="09:20:45" cpu="39.07" system="11.97" real="171.15"/><!--
+   --><storage units="megabyte" memory="4097.84" sf="0.1" df="287.15" eaf="12.73" ga="0.0"/><!--
+  --></jobstep><!--
+
+ MINIMIZE/USERDEF energy=     -6.151846206895
+
+        RCISD           HF-SCF          RCISD           HF-SCF          RCISD           HF-SCF          RCISD           HF-SCF  
+     -6.15184621     -6.06587628     -6.15184621     -6.06587628     -6.15184620     -6.06587628     -6.15184621     -6.06587628
+ **********************************************************************************************************************************
+ Molpro calculation terminated
+ Variable memory released
+  --><stm:metadataList>
+   <stm:metadata name="dc:date" content="2019-06-04T09:20:45-07:00"/>
+   <stm:metadata name="dc:creator" content="aannabe"/>
+   <stm:metadata name="dc:title" content="As"/>
+   <stm:metadata name="cmlm:insilico" content="Molpro"/>
+  </stm:metadataList><!--
+  --><platform>
+   <version major="2015" minor="1" SHA="19cd028119e0e09f93f0674bd8af7968d9b3eff6"
+     integer_bits="64" parallelism="mpp">
+    2015.1
+    <date year="2019" month="6" day="4" hour="9" minute="17" second="55">
+     2019-06-04T09:17:55
+    </date>
+   </version>
+   <licence id="lbl"/>
+   <parallel processes="3" nodes="1" all_processes="3" openmp="1"/>
+   <machine hostname="" architecture="">
+     64 bit mpp version
+    <sysinfo name="cpu MHz" content="2301.000"/>
+    <sysinfo name="MemTotal" content="131899768 kB"/>
+    <sysinfo name="vendor_id" content="GenuineIntel"/>
+    <sysinfo name="cpu family" content="6"/>
+    <sysinfo name="model name" content="Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz"/>
+    <sysinfo name="flags"
+      content="fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb invpcid_single pln pts dtherm spec_ctrl kaiser tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm xsaveopt cqm_llc cqm_occup_llc"/>
+    <sysinfo name="MemTotal" content="131899768 kB"/>
+    <sysinfo name="cache size" content="40960 KB"/>
+    <sysinfo name="ncpu" content="64"/>
+   </machine>
+  </platform><!--
+  -->
+  <input>
+   <p> ***,As </p>
+   <p> memory,512,m </p>
+   <p> gthresh,twoint=1.e-12 </p>
+   <p>                                                                                 !print,basis,orbitals </p>
+   <p> angstrom </p>
+   <p> geometry={ </p>
+   <p> 1                                                                               ! Number of atoms </p>
+   <p> As 0.0 0.0 0.0 </p>
+   <p> } </p>
+   <p> spar=[0.115290, 4.751167] </p>
+   <p> ppar=[0.099650, 6.053211] </p>
+   <p> dpar=[0.166124, 2.415679] </p>
+   <p> fpar=[0.430730, 2.000000] </p>
+   <p> proc opt_basis </p>
+   <p>                                                                                 !Calculate the exponents </p>
+   <p> N=2                                                                             !TZ </p>
+   <p> do i=1,N </p>
+   <p> sexp(i)=spar(1)*spar(2)^(i-1) </p>
+   <p> pexp(i)=ppar(1)*ppar(2)^(i-1) </p>
+   <p> dexp(i)=dpar(1)*dpar(2)^(i-1) </p>
+   <p> fexp(i)=fpar(1)*fpar(2)^(i-1) </p>
+   <p> enddo </p>
+   <p> basis={ </p>
+   <include file="/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/As/ccECP/As.ccECP.molpro"/>
+   <p> s,As, 50.230536, 22.441775, 10.026436, 4.479567, 2.001361, 0.894159, 0.399488, 0.178482, 0.079741 </p>
+   <p> c,1.9,-0.000538, 0.003660, -0.023992, 0.158076, -0.419346, -0.100519, 0.450020, 0.605104, 0.190009 </p>
+   <p> p,As, 22.695464, 10.529662, 4.885284, 2.266549, 1.051576, 0.487883, 0.226356, 0.105019, 0.048724 </p>
+   <p> c,1.9, 0.000322, -0.003120, 0.029849, -0.127882, -0.004461, 0.248666, 0.457083, 0.351483, 0.091636 </p>
+   <p> s,As,sexp(1),sexp(2) </p>
+   <p> p,As,pexp(1),pexp(2) </p>
+   <p> d,As,dexp(1),dexp(2) </p>
+   <p> f,As,fexp(1) </p>
+   <p> } </p>
+   <p> {hf </p>
+   <p>  wf,5,8,3 </p>
+   <p>  occ,1,1,1,0,1,0,0,0 </p>
+   <p>  closed,1,0,0,0,0,0,0,0 </p>
+   <p> } </p>
+   <p> _CC_NORM_MAX=2.0 </p>
+   <p> {rcisd </p>
+   <p> maxit,50 </p>
+   <p> core </p>
+   <p> } </p>
+   <p> eval=energy </p>
+   <p> endproc </p>
+   <p> {minimize,eval,spar(1),spar(2),ppar(1),ppar(2),dpar(1),dpar(2),fpar(1)          !,fpar(2) </p>
+   <p> method,bfgs,proc=opt_basis,thresh=3e-5,vstep=5e-4 </p>
+   <p> maxit,100} </p>
+  </input>
+  <!--
+ --></job><!--
+--></molpro>

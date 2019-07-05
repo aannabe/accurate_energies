@@ -13,8 +13,15 @@ F 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals/pps/F.pp
-include,/global/homes/a/aannabe/docs/totals/basis/aug-cc-pVnZ/F_qz.basis
+!include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/pps/F.pp
+!include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/aug-cc-pVnZ/F_QZ.basis
+!include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/cc-pVnZ/F_QZ.basis
+
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.ccECP.molpro
+!include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.cc-pCVQZ.molpro
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.aug-cc-pVQZ.molpro
+
+
 }
 
 {hf                        
@@ -34,6 +41,6 @@ core
 posthf(i)=energy
 
 table,scf,posthf,ekin,pot
-save,4.csv
+save,4.csv,new
 
 

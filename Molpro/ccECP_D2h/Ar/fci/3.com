@@ -13,8 +13,8 @@ Ar 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals/pps/Ar.pp
-include,/global/homes/a/aannabe/docs/totals/basis/cc-pVnZ/Ar_tz.basis
+include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/pps/Ar.pp
+include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/cc-pVnZ/Ar_tz.basis
 }
 
 {hf                        

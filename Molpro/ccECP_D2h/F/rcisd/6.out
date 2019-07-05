@@ -4,18 +4,19 @@
  Wavefunction directory         : /global/homes/a/aannabe/wfu/
  Main file repository           : /global/cscratch1/sd/aannabe/
 
- SHA1      : 2873118e99aab1bc19f5b6fc1784693c06d15c95
- NAME      : 2015.1.8
+ SHA1      : 19cd028119e0e09f93f0674bd8af7968d9b3eff6
+ NAME      : 2015.1.36
  ARCHNAME  : linux/x86_64
- FC        : /opt/cray/pe/craype/2.5.5/bin/ftn
- BLASLIB   : -Wl,-_start-group /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_intel_ilp64.a /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_intel_thread.a /opt/intel/compilers_and_libraries_2016.3.210/linux/mkl/lib/intel64/libmkl_core.a -Wl,-_end-group
+ FC        : /opt/cray/pe/craype/2.5.14/bin/ftn
+ BLASLIB   : -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mkl/lib/intel64 -Wl,-_start-group -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -Wl,-_end-group -liomp5
  id        : lbl
 
  Nodes     nprocs
- nid00458     1
+ nid00465     3
+ Number of processes for MPI-2 version of Molpro:   nprocs(total)=    4   nprocs(compute)=    3   nprocs(helper)=    1
 
- Using customized tuning parameters: mindgm=8; mindgv=16; mindgc=4; mindgr=1; noblas=0; minvec=7
- default implementation of scratch files=df  
+ Using customized tuning parameters: mindgm=7; mindgv=16; mindgc=1; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=sf  
 
  ***,F
  memory,512,m
@@ -31,8 +32,15 @@
  }
  
  basis={
- Including file /global/homes/a/aannabe/docs/totals/pps/F.pp
- Including file /global/homes/a/aannabe/docs/totals/basis/aug-cc-pVnZ/F_6z.basis
+                                                                  !include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/pps/F.pp
+                                              !include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/aug-cc-pVnZ/F_6Z.basis
+                                                  !include,/global/homes/a/aannabe/docs/accurate/ccECP_D2h/basis/cc-pVnZ/F_6Z.basis
+ 
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.ccECP.molpro
+                                    !include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.cc-pCV6Z.molpro
+ Including file /global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.aug-cc-pV6Z.molpro
+ 
+ 
  }
  
  {hf
@@ -56,9 +64,9 @@
  
  
 
- Variables initialized (889), CPU time= 0.00 sec
- Commands  initialized (702), CPU time= 0.01 sec, 572 directives.
- Default parameters read. Elapsed time= 0.37 sec
+ Variables initialized (889), CPU time= 0.01 sec
+ Commands  initialized (702), CPU time= 0.02 sec, 572 directives.
+ Default parameters read. Elapsed time= 0.29 sec
 
  Checking input...
  Passed
@@ -67,15 +75,15 @@
 
                                          ***  PROGRAM SYSTEM MOLPRO  ***
                                        Copyright, TTI GmbH Stuttgart, 2015
-                                    Version 2015.1 linked Sep  7 2016 23:09:38
+                                    Version 2015.1 linked Dec 29 2018 15:55:43
 
 
  **********************************************************************************************************************************
  LABEL *   F                                                                             
-  64 bit serial version                                                                  DATE: 12-Jun-18          TIME: 13:46:42  
+  64 bit mpp version                                                                     DATE: 01-Feb-19          TIME: 16:15:15  
  **********************************************************************************************************************************
 
- SHA1:             2873118e99aab1bc19f5b6fc1784693c06d15c95
+ SHA1:             19cd028119e0e09f93f0674bd8af7968d9b3eff6
  **********************************************************************************************************************************
 
  THRESHOLDS:
@@ -136,29 +144,30 @@ Geometry recognized as XYZ
           p POTENTIAL
 
  POWERS             1              3              2
- EXPONENTIALS   11.39544       10.49202       10.28681    
- COEFFICIENTS   7.000000       79.76808      -49.49901    
+ EXPONENTIALS   12.08758       12.83806       12.31235    
+ COEFFICIENTS   7.000000       84.61309      -53.02752    
 
           s - p POTENTIAL
 
  POWERS             2
- EXPONENTIALS   11.39035    
- COEFFICIENTS   51.39347    
+ EXPONENTIALS   14.78076    
+ COEFFICIENTS   78.90177    
 
 
  BASIS DATA
 
    Nr Sym  Nuc  Type         Exponents   Contraction coefficients
 
-    1.1 Ag    1  1s          71.173909    -0.000057
-                             33.399038     0.000363
-                             15.672819     0.009533
-                              7.354620    -0.127065
-                              3.451226     0.011527
-                              1.619521     0.290584
-                              0.759976     0.448567
-                              0.356626     0.312306
-                              0.167350     0.065625
+    1.1 Ag    1  1s          84.048652    -0.000003
+                             41.094617    -0.000354
+                             20.092738     0.018409
+                              9.824112    -0.127766
+                              4.803386    -0.070287
+                              2.348560     0.157160
+                              1.148301     0.376901
+                              0.561449     0.409517
+                              0.274514     0.197089
+                              0.134220     0.024348
     2.1 Ag    1  1s           0.093224     1.000000
     3.1 Ag    1  1s           0.233059     1.000000
     4.1 Ag    1  1s           0.592958     1.000000
@@ -197,15 +206,16 @@ Geometry recognized as XYZ
    37.1 Ag    1  7i4+         3.576219     1.000000
    38.1 Ag    1  7i2+         3.576219     1.000000
    39.1 Ag    1  7i0          3.576219     1.000000
-    1.2 B3u   1  2px         27.863051     0.003758
-                             13.662475     0.043495
-                              6.699310     0.093050
-                              3.284965     0.177293
-                              1.610762     0.261759
-                              0.789827     0.289687
-                              0.387287     0.243341
-                              0.189904     0.125496
-                              0.093118     0.026843
+    1.2 B3u   1  2px         31.642619     0.002967
+                             16.243233     0.029805
+                              8.338204     0.066949
+                              4.280284     0.133779
+                              2.197215     0.214831
+                              1.127906     0.266486
+                              0.578992     0.261895
+                              0.297216     0.192022
+                              0.152571     0.082847
+                              0.078320     0.013305
     2.2 B3u   1  2px          0.059586     1.000000
     3.2 B3u   1  2px          0.148966     1.000000
     4.2 B3u   1  2px          0.395349     1.000000
@@ -231,15 +241,16 @@ Geometry recognized as XYZ
    24.2 B3u   1  6h1+         4.954963     1.000000
    25.2 B3u   1  6h3+         4.954963     1.000000
    26.2 B3u   1  6h5+         4.954963     1.000000
-    1.3 B2u   1  2py         27.863051     0.003758
-                             13.662475     0.043495
-                              6.699310     0.093050
-                              3.284965     0.177293
-                              1.610762     0.261759
-                              0.789827     0.289687
-                              0.387287     0.243341
-                              0.189904     0.125496
-                              0.093118     0.026843
+    1.3 B2u   1  2py         31.642619     0.002967
+                             16.243233     0.029805
+                              8.338204     0.066949
+                              4.280284     0.133779
+                              2.197215     0.214831
+                              1.127906     0.266486
+                              0.578992     0.261895
+                              0.297216     0.192022
+                              0.152571     0.082847
+                              0.078320     0.013305
     2.3 B2u   1  2py          0.059586     1.000000
     3.3 B2u   1  2py          0.148966     1.000000
     4.3 B2u   1  2py          0.395349     1.000000
@@ -285,15 +296,16 @@ Geometry recognized as XYZ
    18.4 B1g   1  7i2-         3.576219     1.000000
    19.4 B1g   1  7i6-         3.576219     1.000000
    20.4 B1g   1  7i4-         3.576219     1.000000
-    1.5 B1u   1  2pz         27.863051     0.003758
-                             13.662475     0.043495
-                              6.699310     0.093050
-                              3.284965     0.177293
-                              1.610762     0.261759
-                              0.789827     0.289687
-                              0.387287     0.243341
-                              0.189904     0.125496
-                              0.093118     0.026843
+    1.5 B1u   1  2pz         31.642619     0.002967
+                             16.243233     0.029805
+                              8.338204     0.066949
+                              4.280284     0.133779
+                              2.197215     0.214831
+                              1.127906     0.266486
+                              0.578992     0.261895
+                              0.297216     0.192022
+                              0.152571     0.082847
+                              0.078320     0.013305
     2.5 B1u   1  2pz          0.059586     1.000000
     3.5 B1u   1  2pz          0.148966     1.000000
     4.5 B1u   1  2pz          0.395349     1.000000
@@ -372,8 +384,8 @@ Geometry recognized as XYZ
    11.8 Au    1  6h2-         4.954963     1.000000
 
  NUCLEAR CHARGE:                    7
- NUMBER OF PRIMITIVE AOS:         325
- NUMBER OF SYMMETRY AOS:          220
+ NUMBER OF PRIMITIVE AOS:         329
+ NUMBER OF SYMMETRY AOS:          224
  NUMBER OF CONTRACTIONS:          188   (  39Ag  +  26B3u +  26B2u +  20B1g +  26B1u +  20B2g +  20B3g +  11Au  )
  NUMBER OF CORE ORBITALS:           0   (   0Ag  +   0B3u +   0B2u +   0B1g +   0B1u +   0B2g +   0B3g +   0Au  )
  NUMBER OF VALENCE ORBITALS:        4   (   1Ag  +   1B3u +   1B2u +   0B1g +   1B1u +   0B2g +   0B3g +   0Au  )
@@ -392,11 +404,11 @@ Geometry recognized as XYZ
 
  Eigenvalues of metric
 
-         1 0.413E-04 0.449E-02 0.233E-01 0.233E-01 0.316E-01 0.115E+00 0.115E+00 0.138E+00
-         2 0.151E-02 0.119E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
-         3 0.151E-02 0.119E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
+         1 0.299E-04 0.448E-02 0.233E-01 0.233E-01 0.315E-01 0.115E+00 0.115E+00 0.137E+00
+         2 0.153E-02 0.118E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
+         3 0.153E-02 0.118E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
          4 0.233E-01 0.115E+00 0.161E+00 0.161E+00 0.340E+00 0.499E+00 0.499E+00 0.533E+00
-         5 0.151E-02 0.119E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
+         5 0.153E-02 0.118E-01 0.490E-01 0.650E-01 0.650E-01 0.191E+00 0.254E+00 0.254E+00
          6 0.233E-01 0.115E+00 0.161E+00 0.161E+00 0.340E+00 0.499E+00 0.499E+00 0.533E+00
          7 0.233E-01 0.115E+00 0.161E+00 0.161E+00 0.340E+00 0.499E+00 0.499E+00 0.533E+00
          8 0.650E-01 0.254E+00 0.317E+00 0.317E+00 0.687E+00 0.913E+00 0.913E+00 0.150E+01
@@ -405,18 +417,20 @@ Geometry recognized as XYZ
  Contracted 2-electron integrals neglected if value below      1.0D-12
  AO integral compression algorithm  1   Integral accuracy      1.0D-12
 
-     122.683 MB (compressed) written to integral file ( 48.4%)
+     123.208 MB (compressed) written to integral file ( 48.4%)
+
+     Node minimum: 34.079 MB, node maximum: 47.186 MB
 
 
- NUMBER OF SORTED TWO-ELECTRON INTEGRALS:   20212815.     BUFFER LENGTH:  32768
- NUMBER OF SEGMENTS:   2  SEGMENT LENGTH:   15998787      RECORD LENGTH: 524288
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:    6759612.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:   1  SEGMENT LENGTH:    6759612      RECORD LENGTH: 524288
 
- Memory used in sort:      16.56 MW
+ Memory used in sort:       7.32 MW
 
- SORT1 READ    31710950. AND WROTE    13213985. INTEGRALS IN     39 RECORDS. CPU TIME:     1.19 SEC, REAL TIME:     1.40 SEC
- SORT2 READ    13213985. AND WROTE    20212815. INTEGRALS IN    468 RECORDS. CPU TIME:     0.78 SEC, REAL TIME:     1.06 SEC
+ SORT1 READ    31710950. AND WROTE     4430629. INTEGRALS IN     13 RECORDS. CPU TIME:     1.90 SEC, REAL TIME:     2.49 SEC
+ SORT2 READ    13213985. AND WROTE    20212815. INTEGRALS IN    540 RECORDS. CPU TIME:     0.42 SEC, REAL TIME:     0.77 SEC
 
- FILE SIZES:   FILE 1:   142.6 MBYTE,  FILE 4:   163.6 MBYTE,   TOTAL:    306.2 MBYTE
+ Node minimum:     6726180.  Node maximum:     6759612. integrals
 
  OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
  OPERATOR EKIN    FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
@@ -425,15 +439,16 @@ Geometry recognized as XYZ
 
  **********************************************************************************************************************************
  DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
-              1      20       98.81       500      610      700      900      950      970     1000      129      960     1100   
+              1      19       20.19       500      610      700      900      950      970     1000      129      960     1100   
                                           VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
-                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
-                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
 
  PROGRAMS   *        TOTAL       INT
- CPU TIMES  *        11.39     11.27
- REAL TIME  *        17.83 SEC
- DISK USED  *       306.53 MB      
+ CPU TIMES  *         6.43      6.17
+ REAL TIME  *        41.47 SEC
+ DISK USED  *       276.02 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
  **********************************************************************************************************************************
 
 
@@ -460,30 +475,30 @@ Geometry recognized as XYZ
  Molecular orbital dump at record        2100.2
 
  ITERATION    DDIFF          GRAD             ENERGY        2-EL.EN.            DIPOLE MOMENTS         DIIS   ORB.
-    1      0.000D+00      0.000D+00       -23.90137940     33.727011    0.00000    0.00000    0.00000    0    start
-    2      0.000D+00      0.965D-02       -23.90748774     34.273252    0.00000    0.00000    0.00000    1    diag,B
-    3      0.232D-02      0.221D-02       -23.90786316     34.234139    0.00000    0.00000    0.00000    2    diag,B
-    4      0.808D-03      0.584D-03       -23.90795489     34.247385    0.00000    0.00000    0.00000    3    diag,B
-    5      0.276D-03      0.200D-03       -23.90796740     34.248534    0.00000    0.00000    0.00000    4    diag,B
-    6      0.138D-03      0.330D-04       -23.90796771     34.247949    0.00000    0.00000    0.00000    5    diag,B
-    7      0.252D-04      0.766D-05       -23.90796773     34.247724    0.00000    0.00000    0.00000    6    fixocc
-    8      0.683D-05      0.130D-05       -23.90796773     34.247707    0.00000    0.00000    0.00000    0    orth
+    1      0.000D+00      0.000D+00       -23.93030086     33.589407    0.00000    0.00000    0.00000    0    start
+    2      0.000D+00      0.946D-02       -23.93742229     34.203274    0.00000    0.00000    0.00000    1    diag,B
+    3      0.278D-02      0.237D-02       -23.93781267     34.165770    0.00000    0.00000    0.00000    2    diag,B
+    4      0.786D-03      0.641D-03       -23.93791273     34.179145    0.00000    0.00000    0.00000    3    diag,B
+    5      0.298D-03      0.192D-03       -23.93792423     34.180794    0.00000    0.00000    0.00000    4    diag,B
+    6      0.131D-03      0.329D-04       -23.93792455     34.180253    0.00000    0.00000    0.00000    5    diag,B
+    7      0.259D-04      0.732D-05       -23.93792456     34.180056    0.00000    0.00000    0.00000    6    fixocc
+    8      0.688D-05      0.120D-05       -23.93792456     34.180037    0.00000    0.00000    0.00000    0    orth
 
  Final alpha occupancy:   1   1   1   0   1   0   0   0
  Final beta  occupancy:   1   1   0   0   1   0   0   0
 
- !RHF STATE 1.3 Energy                -23.907967728265
+ !RHF STATE 1.3 Energy                -23.937924562710
  Nuclear energy                         0.00000000
- One-electron energy                  -41.03182102
- Two-electron energy                   17.12385329
- Virial quotient                       -1.29006710
+ One-electron energy                  -41.02794312
+ Two-electron energy                   17.09001855
+ Virial quotient                       -1.28416331
  !RHF STATE 1.3 Dipole moment           0.00000000     0.00000000     0.00000000
  Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
  
 
- !RHF expec          <1.3|EKIN|1.3>    18.532344286227
+ !RHF expec          <1.3|EKIN|1.3>    18.640872596779
  
- !RHF expec           <1.3|POT|1.3>    -8.840899364502
+ !RHF expec           <1.3|POT|1.3>    -8.770602030026
 
  ELECTRON ORBITALS
  =================
@@ -496,8 +511,8 @@ Geometry recognized as XYZ
                                    1 5g4+    1 5g2+    1 5g0     1 5g4+    1 5g2+    1 5g0     1 5g4+    1 5g2+    1 5g0     1 5g4+ 
                                    1 5g2+    1 7i6+    1 7i4+    1 7i2+    1 7i0     1 7i6+    1 7i4+    1 7i2+    1 7i0  
 
-   1.1   2    -1.5590   -7.9872  1.002556  0.000530 -0.001506 -0.000289 -0.001693  0.000277  0.000170  0.000382  0.000662  0.001346
-                                 0.002332  0.000468  0.000811  0.000018  0.000031  0.000269  0.000466  0.000131  0.000226 -0.000005
+   1.1   2    -1.5943   -8.0495  1.000170  0.000047 -0.000131 -0.000004 -0.000120  0.000018  0.000019  0.000370  0.000641  0.001353
+                                 0.002344  0.000464  0.000803 -0.000007 -0.000013  0.000251  0.000435  0.000143  0.000247 -0.000005
                                 -0.000010 -0.000008 -0.000003 -0.000005 -0.000004 -0.000000 -0.000000 -0.000000 -0.000000 -0.000001
                                 -0.000000 -0.000000 -0.000000 -0.000000 -0.000000 -0.000000 -0.000000 -0.000000 -0.000000
 
@@ -505,47 +520,49 @@ Geometry recognized as XYZ
                                    1 4f3+    1 4f1+    1 4f3+    1 4f1+    1 4f3+    1 4f1+    1 4f3+    1 6h1+    1 6h3+    1 6h5+ 
                                    1 6h1+    1 6h3+    1 6h5+    1 6h1+    1 6h3+    1 6h5+ 
 
-   1.2   2    -0.7074   -6.3245  1.000045  0.000123 -0.000306  0.000116 -0.000041  0.000072 -0.000053 -0.000161 -0.000625 -0.000485
-                                -0.001878 -0.000448 -0.001737 -0.000168 -0.000651 -0.000063 -0.000242  0.000001  0.000004  0.000008
+   1.2   2    -0.7061   -6.3118  0.999974 -0.000013 -0.000137  0.000026  0.000068  0.000011  0.000004 -0.000162 -0.000628 -0.000487
+                                -0.001885 -0.000449 -0.001738 -0.000169 -0.000656 -0.000061 -0.000237  0.000001  0.000004  0.000009
                                  0.000001  0.000003  0.000007  0.000000  0.000001  0.000002
 
                                    1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 2py     1 4f1-    1 4f3-    1 4f1- 
                                    1 4f3-    1 4f1-    1 4f3-    1 4f1-    1 4f3-    1 4f1-    1 4f3-    1 6h1-    1 6h3-    1 6h5- 
                                    1 6h1-    1 6h3-    1 6h5-    1 6h1-    1 6h3-    1 6h5- 
 
-   1.3   +    -0.8366   -6.5434  1.023872 -0.002986 -0.033075 -0.019700  0.007640  0.003601  0.000707 -0.000707 -0.000913 -0.002826
-                                -0.003648 -0.002888 -0.003728 -0.001130 -0.001459 -0.000413 -0.000533  0.000021  0.000023  0.000031
+   1.3   +    -0.8350   -6.5297  1.023671 -0.003164 -0.032895 -0.019608  0.007812  0.003578  0.000684 -0.000711 -0.000918 -0.002839
+                                -0.003665 -0.002891 -0.003732 -0.001137 -0.001468 -0.000404 -0.000521  0.000021  0.000023  0.000031
                                  0.000021  0.000023  0.000030  0.000006  0.000007  0.000009
 
                                    1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 2pz     1 4f0     1 4f2+    1 4f0  
                                    1 4f2+    1 4f0     1 4f2+    1 4f0     1 4f2+    1 4f0     1 4f2+    1 6h2+    1 6h4+    1 6h0  
                                    1 6h2+    1 6h4+    1 6h0     1 6h2+    1 6h4+    1 6h0  
 
-   1.5   2    -0.7074   -6.3245  1.000045  0.000123 -0.000306  0.000116 -0.000041  0.000072 -0.000053 -0.000395 -0.000511 -0.001188
-                                -0.001533 -0.001099 -0.001418 -0.000412 -0.000532 -0.000153 -0.000198  0.000006  0.000005  0.000005
+   1.5   2    -0.7061   -6.3118  0.999974 -0.000013 -0.000137  0.000026  0.000068  0.000011  0.000004 -0.000397 -0.000513 -0.001192
+                                -0.001539 -0.001099 -0.001419 -0.000415 -0.000535 -0.000150 -0.000193  0.000006  0.000005  0.000005
                                  0.000005  0.000004  0.000004  0.000001  0.000001  0.000001
 
- HOMO      1.2    -0.707377 =     -19.2487eV
- LUMO      2.3     0.133029 =       3.6199eV
- LUMO-HOMO         0.840406 =      22.8686eV
+ HOMO      1.2    -0.706060 =     -19.2129eV
+ LUMO      2.3     0.133083 =       3.6214eV
+ LUMO-HOMO         0.839144 =      22.8343eV
 
 
  **********************************************************************************************************************************
  DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
-              1      20       98.81       500      610      700      900      950      970     1000      129      960     1100   
+              1      19       20.19       500      610      700      900      950      970     1000      129      960     1100   
                                           VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
-                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
-                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER   
 
               2       4        2.92       700     1000      520     2100   
                                          GEOM     BASIS   MCVARS     RHF  
 
  PROGRAMS   *        TOTAL        HF       INT
- CPU TIMES  *        12.04      0.65     11.27
- REAL TIME  *        18.89 SEC
- DISK USED  *       306.53 MB      
+ CPU TIMES  *         6.90      0.47      6.17
+ REAL TIME  *        42.30 SEC
+ DISK USED  *       347.43 MB      
+ SF USED    *         0.02 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
  **********************************************************************************************************************************
- SETTING SCF(I)         =       -23.90796773  AU                              
+ SETTING SCF(I)         =       -23.93792456  AU                              
  SETTING _CC_NORM_MAX   =         2.00000000                                  
 
 
@@ -578,14 +595,14 @@ Geometry recognized as XYZ
 
  Molecular orbitals read from record     2100.2  Type=RHF/CANONICAL (state 1.3)
 
- Integral transformation finished. Total CPU:   0.15 sec, npass=  1  Memory used:   0.14 MW
+ Integral transformation finished. Total CPU:   0.09 sec, npass=  1  Memory used:   0.14 MW
 
  Number of p-space configurations:   1
 
  Reference wavefunction optimized for reference space (refopt=1)
 
  State     Reference Energy 
-   1         -23.90796773
+   1         -23.93792456
 
  Number of blocks in overlap matrix:    15   Smallest eigenvalue:  0.10D+01
  Number of N-2 electron functions:      15
@@ -601,12 +618,12 @@ Geometry recognized as XYZ
  Energy denominators for pairs finished in 1 passes.    Storage:   32095 words, CPU-time:      0.00 seconds.
 
   ITER. STATE  ROOT     SQ.NORM     CORR.ENERGY   TOTAL ENERGY   ENERGY CHANGE       DEN1      VAR(S)    VAR(P)      TIME
-    1     1     1     1.00000000     0.00000000   -23.90796773    -0.00000000    -0.26575251  0.77D-02  0.35D-01     0.18
-    2     1     1     1.03613542    -0.24498845   -24.15295618    -0.24498845    -0.00234373  0.26D-03  0.21D-03     0.47
-    3     1     1     1.03734650    -0.24751911   -24.15548683    -0.00253066    -0.00008863  0.88D-05  0.13D-04     0.78
-    4     1     1     1.03811782    -0.24762802   -24.15559575    -0.00010891    -0.00000392  0.68D-06  0.42D-06     1.10
-    5     1     1     1.03820503    -0.24763262   -24.15560035    -0.00000460    -0.00000014  0.28D-07  0.18D-07     1.40
-    6     1     1     1.03820468    -0.24763278   -24.15560051    -0.00000016    -0.00000001  0.15D-08  0.94D-09     1.75
+    1     1     1     1.00000000     0.00000000   -23.93792456     0.00000000    -0.26192608  0.75D-02  0.34D-01     0.11
+    2     1     1     1.03561211    -0.24198898   -24.17991354    -0.24198898    -0.00222392  0.25D-03  0.20D-03     0.28
+    3     1     1     1.03677278    -0.24439117   -24.18231574    -0.00240220    -0.00008279  0.85D-05  0.13D-04     0.42
+    4     1     1     1.03751579    -0.24449290   -24.18241746    -0.00010173    -0.00000370  0.66D-06  0.40D-06     0.58
+    5     1     1     1.03759775    -0.24449724   -24.18242180    -0.00000434    -0.00000013  0.27D-07  0.17D-07     0.72
+    6     1     1     1.03759794    -0.24449739   -24.18242195    -0.00000015    -0.00000001  0.15D-08  0.90D-09     0.88
 
 
  =====================================
@@ -616,93 +633,94 @@ Geometry recognized as XYZ
        I      S      P
 
  I   0.0%
- S   0.0%   0.6%
- P   0.0%   0.0%   2.9%
+ S   1.1%   2.3%
+ P   0.0%   1.1%   2.3%
 
- Initialization:  10.3%
- Other:           86.3%
+ Initialization:  12.5%
+ Other:           80.7%
 
- Total CPU:        1.8 seconds
+ Total CPU:        0.9 seconds
  =====================================
 
 
 
  Reference coefficients greater than 0.0500000
  =============================================
- 22/2           0.9814281
+ 22/2           0.9817151
 
 
 
  RESULTS FOR STATE 1.3
  =====================
 
- Coefficient of reference function:   C(0) = 0.98142814 (fixed)   0.98142814 (relaxed)
+ Coefficient of reference function:   C(0) = 0.98171505 (fixed)   0.98171505 (relaxed)
 
  Energy contributions of configuration classes
 
  CLASS          SQ.NORM        ECORR1        ECORR2
  +++++++++++++++++++++++++++++++++++++++++++++++++++
  Internals    0.00000000    0.00000000    0.00000000
- Singles      0.00698952   -0.02606533   -0.02677507
- Pairs        0.03121517   -0.22156746   -0.22085772
- Total        1.03820468   -0.24763278   -0.24763278
+ Singles      0.00687140   -0.02594948   -0.02663012
+ Pairs        0.03072655   -0.21854791   -0.21786727
+ Total        1.03759794   -0.24449739   -0.24449739
  +++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
- Reference energy                     -23.90796773
+ Reference energy                     -23.93792456
  Nuclear energy                         0.00000000
- Kinetic energy                        18.74927842
- One electron energy                  -40.78968015
- Two electron energy                   16.63407964
- Virial quotient                       -1.28834828
- Correlation energy                    -0.24763278
- !CI(SD) STATE 1.3 Energy             -24.155600512664
+ Kinetic energy                        18.85181858
+ One electron energy                  -40.78701748
+ Two electron energy                   16.60459552
+ Virial quotient                       -1.28276335
+ Correlation energy                    -0.24449739
+ !CI(SD) STATE 1.3 Energy             -24.182421954035
 
  Properties without orbital relaxation:
 
  !CI(SD) STATE 1.3 Dipole moment        0.00000000     0.00000000     0.00000000
  Dipole moment /Debye                   0.00000000     0.00000000     0.00000000
 
- Cluster corrected energies           -24.16506124 (Davidson, fixed reference)
- Cluster corrected energies           -24.16506124 (Davidson, relaxed reference)
+ Cluster corrected energies           -24.19161455 (Davidson, fixed reference)
+ Cluster corrected energies           -24.19161455 (Davidson, relaxed reference)
 
- Cluster corrected energies           -24.16198690 (Pople, fixed reference)
- Cluster corrected energies           -24.16198690 (Pople, relaxed reference)
+ Cluster corrected energies           -24.18862613 (Pople, fixed reference)
+ Cluster corrected energies           -24.18862613 (Pople, relaxed reference)
 
  
 
- !CI(SD) expec       <1.3|EKIN|1.3>    18.749278422101
+ !CI(SD) expec       <1.3|EKIN|1.3>    18.851818584596
  
- !CI(SD) expec        <1.3|POT|1.3>    -8.839548692178
+ !CI(SD) expec        <1.3|POT|1.3>    -8.767624383747
 
 
  **********************************************************************************************************************************
  DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
-              1      21       99.47       500      610      700      900      950      970     1000      129      960     1100   
+              1      20       20.85       500      610      700      900      950      970     1000      129      960     1100   
                                           VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
-                                         1400     1410     1420     1200     1210     1080     1600     1650     1300     1700   
-                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
-                                         1380   
-                                         JKOP   
+                                         1400     1410     1420     1200     1210     1080     1600     1650     1700     1380   
+                                         EKIN       V       ECP      H0       H01     AOSYM     SMH    MOLCAS    OPER     JKOP   
 
               2       4        2.92       700     1000      520     2100   
                                          GEOM     BASIS   MCVARS     RHF  
 
  PROGRAMS   *        TOTAL        CI        HF       INT
- CPU TIMES  *        13.84      1.79      0.65     11.27
- REAL TIME  *        23.15 SEC
- DISK USED  *       306.53 MB      
+ CPU TIMES  *         7.86      0.95      0.47      6.17
+ REAL TIME  *        45.28 SEC
+ DISK USED  *       347.43 MB      
+ SF USED    *         4.58 MB      
+ GA USED    *         0.00 MB       (max)       0.00 MB       (current)
  **********************************************************************************************************************************
- SETTING POSTHF(I)      =       -24.15560051  AU                              
+ SETTING POSTHF(I)      =       -24.18242195  AU                              
                                                                                                                                                                                                                                                                 
 
         SCF            POSTHF        EKIN          POT
-    -23.90796773   -24.15560051   18.74927842   -8.83954869
+    -23.93792456   -24.18242195   18.85181858   -8.76762438
                                                   
 
- CI/USERDEF energy=    -24.155600512664
+ CI/USERDEF energy=    -24.182421954035
 
         CI              HF-SCF  
-    -24.15560051    -23.90796773
+    -24.18242195    -23.93792456
  **********************************************************************************************************************************
+ Molpro calculation terminated
  Variable memory released
