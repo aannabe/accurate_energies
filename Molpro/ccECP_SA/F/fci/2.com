@@ -13,8 +13,15 @@ F 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/accurate/ccECP_Kh/pps/F.pp
-include,/global/homes/a/aannabe/docs/accurate/ccECP_Kh/basis/aug-cc-pVnZ/F_dz.basis
+!include,/global/homes/a/aannabe/docs/accurate/ccECP_Kh/pps/F.pp
+!!include,/global/homes/a/aannabe/docs/accurate/ccECP_Kh/basis/aug-cc-pVnZ/F_DZ.basis
+!include,/global/homes/a/aannabe/docs/accurate/ccECP_Kh/basis/cc-pVnZ/F_DZ.basis
+
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.ccECP.molpro
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.cc-pVDZ.molpro
+!include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/F/ccECP/F.aug-cc-pVDZ.molpro
+
+
 }
 
 {rhf

@@ -1,0 +1,63 @@
+***,Ga
+memory,8,g
+gthresh,twoint=1.e-12
+
+gprint,basis,orbitals
+gexpec,ekin,pot
+
+angstrom
+geometry={                 
+1	! Number of atoms
+
+Ga 0.0 0.0 0.0
+}
+
+basis={
+
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Ga/ccECP/Ga.ccECP.molpro
+
+!include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Ga/ccECP/Ga.cc-pVQZ.molpro
+!include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Ga/ccECP/Ga.cc-pCVQZ.molpro
+include,/global/homes/a/aannabe/repos/pseudopotentiallibrary/recipes/Ga/ccECP/Ga.aug-cc-pVQZ.molpro
+
+
+}
+
+                      
+{rhf
+ start,atden
+ wf,3,2,1
+ occ,1,1,0,0,0,0,0,0
+ open,1.2
+ save,4202.2
+}
+{multi
+ start,4202.2
+ occ,1,1,1,0,1,0,0
+ closed,1,0,0,0,0,0,0,0
+ wf,3,2,1;state,1
+ wf,3,3,1;state,1
+ wf,3,5,1;state,1
+ natorb,ci,print
+ orbital,5202.2
+}
+{rhf,nitord=1,maxit=0
+ start,5202.2
+ wf,3,2,1
+ occ,1,1,0,0,0,0,0,0
+ open,1.2
+}
+
+scf(i)=energy
+
+_CC_NORM_MAX=2.0
+{uccsd(t)
+maxit,100
+core
+}
+posthf(i)=energy
+
+table,scf,posthf,ekin,pot
+save,4.csv,new
+
+
