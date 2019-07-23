@@ -1,0 +1,13 @@
+#! /bin/bash
+
+#SBATCH -J qwalk           # Job name
+#SBATCH -o qwalk.o%j       # Name of stdout output file
+#SBATCH -e qwalk.e%j       # Name of stderr error file
+#!SBATCH -p normal          # Queue name
+#SBATCH -p development          # Queue name
+#SBATCH -N 1               # Total # of nodes
+#SBATCH -n 64              # Total # of mpi tasks
+#SBATCH -t 2:00:00        # Run time (hh:mm:ss)
+
+
+ibrun /home1/04843/gwang18/software/qwalk/src/qwalk-Linux_lapack fe.linear0

@@ -1,0 +1,2495 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host gwang18-Lenovo-Y50-70
+under operating system Linux at Mon Jun 25 13:16:13 EDT 2018
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/sda7      411134224 55940180 334286576  15% /
+GAMESS temporary binary files will be written to /home/gwang18/research/qwalk/ecpcorrelation/si/hf
+GAMESS supplementary output files will be written to /home/gwang18/research/qwalk/ecpcorrelation/si/hf
+Copying input file si.inp to your run's scratch directory...
+cp si.inp /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.F05
+unset echo
+/home/gwang18/gamess/ddikick.x /home/gwang18/gamess/gamess.00.x si -ddi 1 1 gwang18-Lenovo-Y50-70 -scr /home/gwang18/research/qwalk/ecpcorrelation/si/hf
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/gwang18/gamess/gamess.00.x si 
+
+          ******************************************************
+          *         GAMESS VERSION =  5 DEC 2014 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+
+ EXECUTION OF GAMESS BEGUN Mon Jun 25 13:16:13 2018
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD> $CONTRL                                                                        
+ INPUT CARD>     SCFTYP=ROHF                                                                
+ INPUT CARD>     MULT=3                                                                     
+ INPUT CARD>     ICHARG=0                                                                   
+ INPUT CARD>     RUNTYP=ENERGY                                                              
+ INPUT CARD>     MAXIT=150                                                                  
+ INPUT CARD>     PP=READ                                                                    
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $CONTRL                                                                        
+ INPUT CARD>     ISPHER=1                                                                   
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $SYSTEM                                                                        
+ INPUT CARD>     KDIAG=3                                                                    
+ INPUT CARD>     mwords=125                                                                 
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $GUESS                                                                         
+ INPUT CARD>    GUESS=HUCKEL                                                                
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>C1                                                                              
+ INPUT CARD>Si 14 0. 0. 0.                                                                  
+ INPUT CARD>s  10                                                                           
+ INPUT CARD>1  73.28107903  -0.000049                                                       
+ INPUT CARD>2  33.32468352  0.000247                                                        
+ INPUT CARD>3  15.15445114  -0.000773                                                       
+ INPUT CARD>4  6.89150999   0.001491                                                        
+ INPUT CARD>5  3.13392478   0.040107                                                        
+ INPUT CARD>6  1.42515712   -0.280533                                                       
+ INPUT CARD>7  0.64809239   -0.037926                                                       
+ INPUT CARD>8  0.29472101   0.452751                                                        
+ INPUT CARD>9  0.13402483   0.553855                                                        
+ INPUT CARD>10 0.06094800   0.181179                                                        
+ INPUT CARD>s  1                                                                            
+ INPUT CARD>1  0.568798    1.000000                                                         
+ INPUT CARD>s  1                                                                            
+ INPUT CARD>1  0.254303    1.000000                                                         
+ INPUT CARD>s  1                                                                            
+ INPUT CARD>1  0.113696    1.000000                                                         
+ INPUT CARD>s  1                                                                            
+ INPUT CARD>1  0.050832    1.000000                                                         
+ INPUT CARD>p  10                                                                           
+ INPUT CARD>1  24.59158468  0.000059                                                        
+ INPUT CARD>2  11.96715628  -0.000277                                                       
+ INPUT CARD>3  5.82365192   0.001636                                                        
+ INPUT CARD>4  2.83400007   -0.001433                                                       
+  125000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+                                                                                 
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ SI         14.0     0.0000000000        0.0000000000        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 SI    
+
+   1 SI      0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ SI        
+
+      1   S       1            73.2810790   -0.000048999985
+      1   S       2            33.3246835    0.000246999924
+      1   S       3            15.1544511   -0.000772999763
+      1   S       4             6.8915100    0.001490999542
+      1   S       5             3.1339248    0.040106987692
+      1   S       6             1.4251571   -0.280532913911
+      1   S       7             0.6480924   -0.037925988361
+      1   S       8             0.2947210    0.452750861062
+      1   S       9             0.1340248    0.553854830036
+      1   S      10             0.0609480    0.181178944401
+
+      2   S      11             0.5687980    1.000000000000
+
+      3   S      12             0.2543030    1.000000000000
+
+      4   S      13             0.1136960    1.000000000000
+
+      5   S      14             0.0508320    1.000000000000
+
+      6   P      15            24.5915847    0.000059000055
+      6   P      16            11.9671563   -0.000277000258
+      6   P      17             5.8236519    0.001636001522
+      6   P      18             2.8340001   -0.001433001333
+      6   P      19             1.3791271   -0.056507052560
+      6   P      20             0.6711332    0.074555069347
+      6   P      21             0.3265978    0.277896258485
+      6   P      22             0.1589343    0.411768383006
+      6   P      23             0.0773432    0.306844285411
+      6   P      24             0.0376380    0.085952079948
+
+      7   P      25             0.7187180    1.000000000000
+
+      8   P      26             0.2990110    1.000000000000
+
+      9   P      27             0.1243990    1.000000000000
+
+     10   P      28             0.0517540    1.000000000000
+
+     11   D      29             1.7124520    1.000000000000
+
+     12   D      30             0.6935460    1.000000000000
+
+     13   D      31             0.2808870    1.000000000000
+
+     14   D      32             0.1137600    1.000000000000
+
+     15   F      33             0.7225240    1.000000000000
+
+     16   F      34             0.3495070    1.000000000000
+
+     17   F      35             0.1690670    1.000000000000
+
+     18   G      36             0.7361520    1.000000000000
+
+     19   G      37             0.2869760    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   19
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =  104
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =   14
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    3
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    8
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    6
+ TOTAL NUMBER OF ATOMS                        =    1
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+ NOTE THIS RUN IS USING CORE POTENTIALS, AND THE NUMBER OF ELECTRONS,
+ OCCUPIED ORBITALS, AND NUCLEAR REPULSION ENERGY WILL BE ADJUSTED BELOW
+ AFTER REMOVAL OF THE CORE CHARGES.
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=ROHF         RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=NONE         TDDFT =NONE    
+ MULT  =       3     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =READ         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =     150     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=   125000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=   125000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    3  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          --------------
+          ECP POTENTIALS
+          --------------
+
+ PARAMETERS FOR "SI-QMC  " ON ATOM    1 WITH ZCORE  10 AND LMAX  2 ARE
+ FOR L= 2      COEFF    N           ZETA
+    1        4.00000    1        3.54632
+    2       14.18529    3        4.10257
+    3      -14.55032    2        3.03190
+ FOR L= 0      COEFF    N           ZETA
+    1        6.03326    2        7.40541
+    2       23.08201    2        2.38741
+ FOR L= 1      COEFF    N           ZETA
+    1        3.34089    2        2.17524
+    2       10.10972    2        1.94079
+
+ THE ECP RUN REMOVES   10 CORE ELECTRONS, AND THE SAME NUMBER OF PROTONS.
+ NUMBER OF ELECTRONS KEPT IN THE CALCULATION IS =    4
+ NUMBER OF OCCUPIED ORBITALS (ALPHA) KEPT IS    =    3
+ NUMBER OF OCCUPIED ORBITALS (BETA ) KEPT IS    =    1
+ THE ADJUSTED NUCLEAR REPULSION ENERGY=        0.0000000000
+          ECP ANGULAR INTS.........     0.04 SECONDS
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          SOSCF IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1   104     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS   79
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   79
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.04 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO ORDINARY INTEGRALS=      0.00
+ TIME TO DO      ECP INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  80.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES     78296 WORDS.
+
+ STATISTICS FOR GENERATION OF SYMMETRY ORBITAL -Q- MATRIX
+ NUMBER OF CARTESIAN ATOMIC ORBITALS=        104
+ NUMBER OF SPHERICAL CONTAMINANTS DROPPED=    25
+ NUMBER OF LINEARLY DEPENDENT MOS DROPPED=     0
+ TOTAL NUMBER OF MOS IN VARIATION SPACE=      79
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.  ALPHA SET(S).
+     3 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A       13=A   
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BETA SET(S).
+     1 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  28.57%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES  139915 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  121
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  220
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  496
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 1057
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 2074
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 3781
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 9301
+ II,JST,KST,LST = 13  1  1  1 NREC =         2 INTLOC = 5254
+ II,JST,KST,LST = 14  1  1  1 NREC =         3 INTLOC = 9160
+ II,JST,KST,LST = 15  1  1  1 NREC =         5 INTLOC = 9547
+ II,JST,KST,LST = 16  1  1  1 NREC =        10 INTLOC =13688
+ II,JST,KST,LST = 17  1  1  1 NREC =        20 INTLOC =  974
+ II,JST,KST,LST = 18  1  1  1 NREC =        34 INTLOC = 9469
+ II,JST,KST,LST = 19  1  1  1 NREC =        70 INTLOC = 1606
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =             1915935
+        128 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.47 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.6 SECONDS, CPU UTILIZATION IS  85.00%
+
+          ---------------------------
+                 ROHF SCF CALCULATION
+          ---------------------------
+
+     NUCLEAR ENERGY =         0.0000000000
+     MAXIT =150     NPUNCH=  2     MULT=  3
+     EXTRAP=T  DAMP=F  SHIFT=F  RSTRCT=F  DIIS=F  SOSCF=T
+     DENSITY MATRIX CONV=  1.00E-05
+     ROHF CANONICALIZATION PARAMETERS
+             C-C     O-O     V-V
+     ALPHA -0.5000  0.5000  1.5000
+     BETA   1.5000  0.5000 -0.5000
+     SOSCF WILL OPTIMIZE     230 ORBITAL ROTATION ANGLES. SOGTOL= 2.500E-01
+     MEMORY REQUIRED FOR UHF/ROHF ITERS=    130130 WORDS.
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    ORB. GRAD 
+   1  0       -3.6627926166    -3.6627926166   1.734636462   0.000000000
+          ---------------START SECOND ORDER SCF---------------
+   2  1       -3.6655988502    -0.0028062336   0.025208538   0.002463110
+   3  2       -3.6656264420    -0.0000275919   0.008242956   0.000524329
+   4  3       -3.6656287222    -0.0000022802   0.000351200   0.000028675
+   5  4       -3.6656287308    -0.0000000086   0.000043395   0.000002953
+   6  5       -3.6656287308    -0.0000000001   0.000001953   0.000000115
+   7  6       -3.6656287308    -0.0000000000   0.000000000   0.000000000
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       0.2 SECONDS (       0.0 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.0 SECONDS (       0.0 SEC/ITER)
+
+ FINAL ROHF ENERGY IS       -3.6656287308 AFTER   7 ITERATIONS
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     3 (    2) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     7 (    5) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    6) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    7) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    10 (    7) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    11 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    8) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    13 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    14 (   10) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    15 (   11) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (   11) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (   12) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    18 (   12) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    19 (   13) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    20 (   14) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    21 (   14) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    22 (   15) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    23 (   15) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    24 (   16) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    25 (   16) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    26 (   17) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    27 (   17) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    28 (   18) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    29 (   19) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    30 (   20) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    31 (   21) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    32 (   21) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    33 (   22) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    34 (   22) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    35 (   23) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    36 (   23) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    37 (   24) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    38 (   24) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    39 (   25) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    40 (   26) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    41 (   26) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    42 (   27) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    43 (   27) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    44 (   28) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    45 (   28) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    46 (   29) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    47 (   30) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    48 (   30) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    49 (   31) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    50 (   31) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    51 (   32) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    52 (   33) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    53 (   34) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    54 (   34) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    55 (   35) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    56 (   36) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    57 (   36) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    58 (   37) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    59 (   37) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    60 (   38) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    61 (   38) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    62 (   39) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    63 (   40) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    64 (   40) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    65 (   41) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    66 (   41) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    67 (   42) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    68 (   42) HAS LZ(WEIGHT)=-3.00( 50.0%)  3.00( 50.0%) 
+ MO    69 (   43) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    70 (   43) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    71 (   44) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    72 (   45) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    73 (   45) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    74 (   46) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    75 (   46) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    76 (   47) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    77 (   48) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    78 (   48) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    79 (   49) HAS LZ(WEIGHT)= 0.00(100.0%) 
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                   -0.3791    -0.1091    -0.1091    -0.0327     0.0989
+                     A          A          A          A          A   
+    1  SI 1  S    0.999810   0.000000   0.000000   0.000000  -0.797192
+    2  SI 1  S   -0.000264   0.000000   0.000000   0.000000  -0.378266
+    3  SI 1  S    0.000718   0.000000   0.000000   0.000000   1.174761
+    4  SI 1  S   -0.000503   0.000000   0.000000   0.000000  -2.232371
+    5  SI 1  S    0.000203   0.000000   0.000000   0.000000   2.564078
+    6  SI 1  X    0.000000   1.000466   0.000000   0.000000   0.000000
+    7  SI 1  Y    0.000000   0.000000   1.000466   0.000000   0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000   0.714438   0.000000
+    9  SI 1  X    0.000000   0.000060   0.000000   0.000000   0.000000
+   10  SI 1  Y    0.000000   0.000000   0.000060   0.000000   0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000  -0.015800   0.000000
+   12  SI 1  X    0.000000  -0.000378   0.000000   0.000000   0.000000
+   13  SI 1  Y    0.000000   0.000000  -0.000378   0.000000   0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000   0.047232   0.000000
+   15  SI 1  X    0.000000  -0.000034   0.000000   0.000000   0.000000
+   16  SI 1  Y    0.000000   0.000000  -0.000034   0.000000   0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000  -0.038773   0.000000
+   18  SI 1  X    0.000000  -0.000173   0.000000   0.000000   0.000000
+   19  SI 1  Y    0.000000   0.000000  -0.000173   0.000000   0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000   0.347180   0.000000
+   21  SI 1 XX    0.000221   0.000000   0.000000   0.000000   0.000172
+   22  SI 1 YY    0.000221   0.000000   0.000000   0.000000   0.000172
+   23  SI 1 ZZ   -0.000442   0.000000   0.000000   0.000000  -0.000344
+   24  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   26  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   27  SI 1 XX    0.000139   0.000000   0.000000   0.000000  -0.001512
+   28  SI 1 YY    0.000139   0.000000   0.000000   0.000000  -0.001512
+   29  SI 1 ZZ   -0.000278   0.000000   0.000000   0.000000   0.003025
+   30  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   31  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   32  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   33  SI 1 XX   -0.000654   0.000000   0.000000   0.000000   0.002456
+   34  SI 1 YY   -0.000654   0.000000   0.000000   0.000000   0.002456
+   35  SI 1 ZZ    0.001308   0.000000   0.000000   0.000000  -0.004912
+   36  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   38  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   39  SI 1 XX    0.004307   0.000000   0.000000   0.000000   0.004638
+   40  SI 1 YY    0.004307   0.000000   0.000000   0.000000   0.004638
+   41  SI 1 ZZ   -0.008614   0.000000   0.000000   0.000000  -0.009276
+   42  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   44  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   45  SI 1 XXX   0.000000  -0.000001   0.000000   0.000000   0.000000
+   46  SI 1 YYY   0.000000   0.000000  -0.000001   0.000000   0.000000
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.001616   0.000000
+   48  SI 1 XXY   0.000000   0.000000  -0.000001   0.000000   0.000000
+   49  SI 1 XXZ   0.000000   0.000000   0.000000   0.001084   0.000000
+   50  SI 1 YYX   0.000000  -0.000001   0.000000   0.000000   0.000000
+   51  SI 1 YYZ   0.000000   0.000000   0.000000   0.001084   0.000000
+   52  SI 1 ZZX   0.000000   0.000003   0.000000   0.000000   0.000000
+   53  SI 1 ZZY   0.000000   0.000000   0.000003   0.000000   0.000000
+   54  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   55  SI 1 XXX   0.000000  -0.000088   0.000000   0.000000   0.000000
+   56  SI 1 YYY   0.000000   0.000000  -0.000088   0.000000   0.000000
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.004136   0.000000
+   58  SI 1 XXY   0.000000   0.000000  -0.000040   0.000000   0.000000
+   59  SI 1 XXZ   0.000000   0.000000   0.000000   0.002774   0.000000
+   60  SI 1 YYX   0.000000  -0.000040   0.000000   0.000000   0.000000
+   61  SI 1 YYZ   0.000000   0.000000   0.000000   0.002774   0.000000
+   62  SI 1 ZZX   0.000000   0.000158   0.000000   0.000000   0.000000
+   63  SI 1 ZZY   0.000000   0.000000   0.000158   0.000000   0.000000
+   64  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   65  SI 1 XXX   0.000000   0.000040   0.000000   0.000000   0.000000
+   66  SI 1 YYY   0.000000   0.000000   0.000040   0.000000   0.000000
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.009624   0.000000
+   68  SI 1 XXY   0.000000   0.000000   0.000018   0.000000   0.000000
+   69  SI 1 XXZ   0.000000   0.000000   0.000000   0.006456   0.000000
+   70  SI 1 YYX   0.000000   0.000018   0.000000   0.000000   0.000000
+   71  SI 1 YYZ   0.000000   0.000000   0.000000   0.006456   0.000000
+   72  SI 1 ZZX   0.000000  -0.000071   0.000000   0.000000   0.000000
+   73  SI 1 ZZY   0.000000   0.000000  -0.000071   0.000000   0.000000
+   74  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   75  SI 1XXXX   0.000003   0.000000   0.000000   0.000000   0.000007
+   76  SI 1YYYY   0.000003   0.000000   0.000000   0.000000   0.000007
+   77  SI 1ZZZZ   0.000008   0.000000   0.000000   0.000000   0.000018
+   78  SI 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   81  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   82  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   83  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   84  SI 1XXYY   0.000002   0.000000   0.000000   0.000000   0.000004
+   85  SI 1XXZZ  -0.000007   0.000000   0.000000   0.000000  -0.000016
+   86  SI 1YYZZ  -0.000007   0.000000   0.000000   0.000000  -0.000016
+   87  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   90  SI 1XXXX  -0.000028   0.000000   0.000000   0.000000  -0.000022
+   91  SI 1YYYY  -0.000028   0.000000   0.000000   0.000000  -0.000022
+   92  SI 1ZZZZ  -0.000074   0.000000   0.000000   0.000000  -0.000059
+   93  SI 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   94  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   96  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   98  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   99  SI 1XXYY  -0.000016   0.000000   0.000000   0.000000  -0.000013
+  100  SI 1XXZZ   0.000065   0.000000   0.000000   0.000000   0.000052
+  101  SI 1YYZZ   0.000065   0.000000   0.000000   0.000000   0.000052
+  102  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  103  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+
+                      6          7          8          9         10
+                    0.1533     0.1533     0.1777     0.1986     0.1986
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    2  SI 1  S   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    3  SI 1  S   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    4  SI 1  S   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    5  SI 1  S   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    6  SI 1  X   -0.000000  -1.235001   0.000000   0.000000   0.000000
+    7  SI 1  Y   -1.235001  -0.000000   0.000000   0.000000   0.000000
+    8  SI 1  Z   -0.000000  -0.000000  -1.384692   0.000000   0.000000
+    9  SI 1  X   -0.000000  -0.094678   0.000000   0.000000   0.000000
+   10  SI 1  Y   -0.094678  -0.000000   0.000000   0.000000   0.000000
+   11  SI 1  Z   -0.000000  -0.000000  -0.100114   0.000000   0.000000
+   12  SI 1  X   -0.000000   0.595940   0.000000   0.000000   0.000000
+   13  SI 1  Y    0.595940  -0.000000   0.000000   0.000000   0.000000
+   14  SI 1  Z   -0.000000  -0.000000   0.690202   0.000000   0.000000
+   15  SI 1  X   -0.000000  -0.752410   0.000000   0.000000   0.000000
+   16  SI 1  Y   -0.752410  -0.000000   0.000000   0.000000   0.000000
+   17  SI 1  Z   -0.000000  -0.000000  -0.896236   0.000000   0.000000
+   18  SI 1  X   -0.000000   1.930055   0.000000   0.000000   0.000000
+   19  SI 1  Y    1.930055  -0.000000   0.000000   0.000000   0.000000
+   20  SI 1  Z   -0.000000  -0.000000   1.945992   0.000000   0.000000
+   21  SI 1 XX   -0.000000  -0.000000   0.000000   0.000000   0.008224
+   22  SI 1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.008224
+   23  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   24  SI 1 XY   -0.000000  -0.000000   0.000000   0.009496   0.000000
+   25  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   26  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   27  SI 1 XX   -0.000000  -0.000000   0.000000   0.000000   0.111771
+   28  SI 1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.111771
+   29  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   30  SI 1 XY   -0.000000  -0.000000   0.000000   0.129062   0.000000
+   31  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   32  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   33  SI 1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.011095
+   34  SI 1 YY   -0.000000  -0.000000   0.000000   0.000000   0.011095
+   35  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   36  SI 1 XY   -0.000000  -0.000000   0.000000  -0.012811   0.000000
+   37  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   38  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   39  SI 1 XX   -0.000000  -0.000000   0.000000   0.000000   0.835092
+   40  SI 1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.835092
+   41  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   42  SI 1 XY   -0.000000  -0.000000   0.000000   0.964281   0.000000
+   43  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   44  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   45  SI 1 XXX  -0.000000  -0.001248   0.000000   0.000000   0.000000
+   46  SI 1 YYY  -0.001248  -0.000000   0.000000   0.000000   0.000000
+   47  SI 1 ZZZ  -0.000000  -0.000000   0.003148   0.000000   0.000000
+   48  SI 1 XXY  -0.000558  -0.000000   0.000000   0.000000   0.000000
+   49  SI 1 XXZ  -0.000000  -0.000000  -0.002112   0.000000   0.000000
+   50  SI 1 YYX  -0.000000  -0.000558   0.000000   0.000000   0.000000
+   51  SI 1 YYZ  -0.000000  -0.000000  -0.002112   0.000000   0.000000
+   52  SI 1 ZZX  -0.000000   0.002233   0.000000   0.000000   0.000000
+   53  SI 1 ZZY   0.002233  -0.000000   0.000000   0.000000   0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   55  SI 1 XXX  -0.000000   0.003031   0.000000   0.000000   0.000000
+   56  SI 1 YYY   0.003031  -0.000000   0.000000   0.000000   0.000000
+   57  SI 1 ZZZ  -0.000000  -0.000000  -0.005664   0.000000   0.000000
+   58  SI 1 XXY   0.001355  -0.000000   0.000000   0.000000   0.000000
+   59  SI 1 XXZ  -0.000000  -0.000000   0.003799   0.000000   0.000000
+   60  SI 1 YYX  -0.000000   0.001355   0.000000   0.000000   0.000000
+   61  SI 1 YYZ  -0.000000  -0.000000   0.003799   0.000000   0.000000
+   62  SI 1 ZZX  -0.000000  -0.005422   0.000000   0.000000   0.000000
+   63  SI 1 ZZY  -0.005422  -0.000000   0.000000   0.000000   0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   65  SI 1 XXX  -0.000000  -0.005783   0.000000   0.000000   0.000000
+   66  SI 1 YYY  -0.005783  -0.000000   0.000000   0.000000   0.000000
+   67  SI 1 ZZZ  -0.000000  -0.000000   0.015181   0.000000   0.000000
+   68  SI 1 XXY  -0.002586  -0.000000   0.000000   0.000000   0.000000
+   69  SI 1 XXZ  -0.000000  -0.000000  -0.010184   0.000000   0.000000
+   70  SI 1 YYX  -0.000000  -0.002586   0.000000   0.000000   0.000000
+   71  SI 1 YYZ  -0.000000  -0.000000  -0.010184   0.000000   0.000000
+   72  SI 1 ZZX  -0.000000   0.010345   0.000000   0.000000   0.000000
+   73  SI 1 ZZY   0.010345  -0.000000   0.000000   0.000000   0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   75  SI 1XXXX  -0.000000  -0.000000   0.000000   0.000000   0.000328
+   76  SI 1YYYY  -0.000000  -0.000000   0.000000   0.000000  -0.000328
+   77  SI 1ZZZZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   78  SI 1XXXY  -0.000000  -0.000000   0.000000   0.000248   0.000000
+   79  SI 1XXXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   80  SI 1YYYX  -0.000000  -0.000000   0.000000   0.000248   0.000000
+   81  SI 1YYYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   82  SI 1ZZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   83  SI 1ZZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   84  SI 1XXYY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   85  SI 1XXZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000576
+   86  SI 1YYZZ  -0.000000  -0.000000   0.000000   0.000000   0.000576
+   87  SI 1XXYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   88  SI 1YYXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000   0.000000  -0.000665   0.000000
+   90  SI 1XXXX  -0.000000  -0.000000   0.000000   0.000000  -0.001478
+   91  SI 1YYYY  -0.000000  -0.000000   0.000000   0.000000   0.001478
+   92  SI 1ZZZZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   93  SI 1XXXY  -0.000000  -0.000000   0.000000  -0.001117   0.000000
+   94  SI 1XXXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   95  SI 1YYYX  -0.000000  -0.000000   0.000000  -0.001117   0.000000
+   96  SI 1YYYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   97  SI 1ZZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   98  SI 1ZZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   99  SI 1XXYY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  100  SI 1XXZZ  -0.000000  -0.000000   0.000000   0.000000   0.002595
+  101  SI 1YYZZ  -0.000000  -0.000000   0.000000   0.000000  -0.002595
+  102  SI 1XXYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  103  SI 1YYXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000   0.000000   0.002997   0.000000
+
+                     11         12         13         14         15
+                    0.2286     0.2286     0.2389     0.5890     0.5893
+                     A          A          A          A          A   
+    1  SI 1  S    0.000000   0.000000   0.033504  -0.000000   0.000000
+    2  SI 1  S    0.000000   0.000000   0.004300  -0.000000   0.000000
+    3  SI 1  S    0.000000   0.000000   0.035814  -0.000000   0.000000
+    4  SI 1  S    0.000000   0.000000  -0.107718  -0.000000   0.000000
+    5  SI 1  S    0.000000   0.000000   0.053371  -0.000000   0.000000
+    6  SI 1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    7  SI 1  Y    0.000000   0.000000  -0.000000  -0.000000   0.069503
+    8  SI 1  Z    0.000000   0.000000  -0.000000   0.100304   0.000000
+    9  SI 1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   10  SI 1  Y    0.000000   0.000000  -0.000000  -0.000000   0.015504
+   11  SI 1  Z    0.000000   0.000000  -0.000000   0.019386   0.000000
+   12  SI 1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   13  SI 1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.109648
+   14  SI 1  Z    0.000000   0.000000  -0.000000  -0.135345   0.000000
+   15  SI 1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   16  SI 1  Y    0.000000   0.000000  -0.000000  -0.000000   0.070873
+   17  SI 1  Z    0.000000   0.000000  -0.000000   0.084581   0.000000
+   18  SI 1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   19  SI 1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.065613
+   20  SI 1  Z    0.000000   0.000000  -0.000000  -0.079916   0.000000
+   21  SI 1 XX    0.000000   0.000000  -0.001468  -0.000000   0.000000
+   22  SI 1 YY    0.000000   0.000000  -0.001468  -0.000000   0.000000
+   23  SI 1 ZZ    0.000000   0.000000   0.002936  -0.000000   0.000000
+   24  SI 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   25  SI 1 XZ    0.004722   0.000000  -0.000000  -0.000000   0.000000
+   26  SI 1 YZ    0.000000   0.004722  -0.000000  -0.000000   0.000000
+   27  SI 1 XX    0.000000   0.000000  -0.065721  -0.000000   0.000000
+   28  SI 1 YY    0.000000   0.000000  -0.065721  -0.000000   0.000000
+   29  SI 1 ZZ    0.000000   0.000000   0.131442  -0.000000   0.000000
+   30  SI 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   31  SI 1 XZ    0.130695   0.000000  -0.000000  -0.000000   0.000000
+   32  SI 1 YZ    0.000000   0.130695  -0.000000  -0.000000   0.000000
+   33  SI 1 XX    0.000000   0.000000   0.051861  -0.000000   0.000000
+   34  SI 1 YY    0.000000   0.000000   0.051861  -0.000000   0.000000
+   35  SI 1 ZZ    0.000000   0.000000  -0.103723  -0.000000   0.000000
+   36  SI 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   37  SI 1 XZ   -0.079455   0.000000  -0.000000  -0.000000   0.000000
+   38  SI 1 YZ    0.000000  -0.079455  -0.000000  -0.000000   0.000000
+   39  SI 1 XX    0.000000   0.000000  -0.516046  -0.000000   0.000000
+   40  SI 1 YY    0.000000   0.000000  -0.516046  -0.000000   0.000000
+   41  SI 1 ZZ    0.000000   0.000000   1.032091  -0.000000   0.000000
+   42  SI 1 XY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   43  SI 1 XZ    1.014590   0.000000  -0.000000  -0.000000   0.000000
+   44  SI 1 YZ    0.000000   1.014590  -0.000000  -0.000000   0.000000
+   45  SI 1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   46  SI 1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.085637
+   47  SI 1 ZZZ   0.000000   0.000000  -0.000000   0.139828   0.000000
+   48  SI 1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.038298
+   49  SI 1 XXZ   0.000000   0.000000  -0.000000  -0.093799   0.000000
+   50  SI 1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   51  SI 1 YYZ   0.000000   0.000000  -0.000000  -0.093799   0.000000
+   52  SI 1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   53  SI 1 ZZY   0.000000   0.000000  -0.000000  -0.000000   0.153191
+   54  SI 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   55  SI 1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   56  SI 1 YYY   0.000000   0.000000  -0.000000  -0.000000   0.269762
+   57  SI 1 ZZZ   0.000000   0.000000  -0.000000  -0.442276   0.000000
+   58  SI 1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.120641
+   59  SI 1 XXZ   0.000000   0.000000  -0.000000   0.296688   0.000000
+   60  SI 1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   61  SI 1 YYZ   0.000000   0.000000  -0.000000   0.296688   0.000000
+   62  SI 1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   63  SI 1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.482565
+   64  SI 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   65  SI 1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   66  SI 1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.772325
+   67  SI 1 ZZZ   0.000000   0.000000  -0.000000   1.261959   0.000000
+   68  SI 1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.345394
+   69  SI 1 XXZ   0.000000   0.000000  -0.000000  -0.846548   0.000000
+   70  SI 1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   71  SI 1 YYZ   0.000000   0.000000  -0.000000  -0.846548   0.000000
+   72  SI 1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   73  SI 1 ZZY   0.000000   0.000000  -0.000000  -0.000000   1.381577
+   74  SI 1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   75  SI 1XXXX   0.000000   0.000000  -0.000411  -0.000000   0.000000
+   76  SI 1YYYY   0.000000   0.000000  -0.000411  -0.000000   0.000000
+   77  SI 1ZZZZ   0.000000   0.000000  -0.001097  -0.000000   0.000000
+   78  SI 1XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   79  SI 1XXXZ   0.000858   0.000000  -0.000000  -0.000000   0.000000
+   80  SI 1YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   81  SI 1YYYZ   0.000000   0.000858  -0.000000  -0.000000   0.000000
+   82  SI 1ZZZX  -0.001144   0.000000  -0.000000  -0.000000   0.000000
+   83  SI 1ZZZY   0.000000  -0.001144  -0.000000  -0.000000   0.000000
+   84  SI 1XXYY   0.000000   0.000000  -0.000241  -0.000000   0.000000
+   85  SI 1XXZZ   0.000000   0.000000   0.000964  -0.000000   0.000000
+   86  SI 1YYZZ   0.000000   0.000000   0.000964  -0.000000   0.000000
+   87  SI 1XXYZ   0.000000   0.000384  -0.000000  -0.000000   0.000000
+   88  SI 1YYXZ   0.000384   0.000000  -0.000000  -0.000000   0.000000
+   89  SI 1ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   90  SI 1XXXX   0.000000   0.000000   0.001613  -0.000000   0.000000
+   91  SI 1YYYY   0.000000   0.000000   0.001613  -0.000000   0.000000
+   92  SI 1ZZZZ   0.000000   0.000000   0.004300  -0.000000   0.000000
+   93  SI 1XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   94  SI 1XXXZ  -0.003479   0.000000  -0.000000  -0.000000   0.000000
+   95  SI 1YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   96  SI 1YYYZ   0.000000  -0.003479  -0.000000  -0.000000   0.000000
+   97  SI 1ZZZX   0.004639   0.000000  -0.000000  -0.000000   0.000000
+   98  SI 1ZZZY   0.000000   0.004639  -0.000000  -0.000000   0.000000
+   99  SI 1XXYY   0.000000   0.000000   0.000944  -0.000000   0.000000
+  100  SI 1XXZZ   0.000000   0.000000  -0.003777  -0.000000   0.000000
+  101  SI 1YYZZ   0.000000   0.000000  -0.003777  -0.000000   0.000000
+  102  SI 1XXYZ   0.000000  -0.001556  -0.000000  -0.000000   0.000000
+  103  SI 1YYXZ  -0.001556   0.000000  -0.000000  -0.000000   0.000000
+  104  SI 1ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+
+                     16         17         18         19         20
+                    0.5893     0.5905     0.5905     0.5915     0.5922
+                     A          A          A          A          A   
+    1  SI 1  S    0.000000   0.000000   0.000000   0.098511  -0.000000
+    2  SI 1  S    0.000000   0.000000   0.000000   1.553952  -0.000000
+    3  SI 1  S    0.000000   0.000000   0.000000  -5.562404  -0.000000
+    4  SI 1  S    0.000000   0.000000   0.000000   6.066688  -0.000000
+    5  SI 1  S    0.000000   0.000000   0.000000  -2.386173  -0.000000
+    6  SI 1  X    0.069503   0.000000   0.000000   0.000000  -0.000000
+    7  SI 1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+    9  SI 1  X    0.015504   0.000000   0.000000   0.000000  -0.000000
+   10  SI 1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   12  SI 1  X   -0.109648   0.000000   0.000000   0.000000  -0.000000
+   13  SI 1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   15  SI 1  X    0.070873   0.000000   0.000000   0.000000  -0.000000
+   16  SI 1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   18  SI 1  X   -0.065613   0.000000   0.000000   0.000000  -0.000000
+   19  SI 1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   21  SI 1 XX    0.000000   0.000000   0.000000  -0.000694  -0.000000
+   22  SI 1 YY    0.000000   0.000000   0.000000  -0.000694  -0.000000
+   23  SI 1 ZZ    0.000000   0.000000   0.000000   0.001387  -0.000000
+   24  SI 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   25  SI 1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   26  SI 1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   27  SI 1 XX    0.000000   0.000000   0.000000   0.000125  -0.000000
+   28  SI 1 YY    0.000000   0.000000   0.000000   0.000125  -0.000000
+   29  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000250  -0.000000
+   30  SI 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   31  SI 1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   32  SI 1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   33  SI 1 XX    0.000000   0.000000   0.000000   0.001304  -0.000000
+   34  SI 1 YY    0.000000   0.000000   0.000000   0.001304  -0.000000
+   35  SI 1 ZZ    0.000000   0.000000   0.000000  -0.002607  -0.000000
+   36  SI 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   37  SI 1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   38  SI 1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   39  SI 1 XX    0.000000   0.000000   0.000000  -0.007773  -0.000000
+   40  SI 1 YY    0.000000   0.000000   0.000000  -0.007773  -0.000000
+   41  SI 1 ZZ    0.000000   0.000000   0.000000   0.015546  -0.000000
+   42  SI 1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   44  SI 1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   45  SI 1 XXX  -0.085637   0.000000   0.000000   0.000000  -0.110395
+   46  SI 1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   48  SI 1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   49  SI 1 XXZ   0.000000   0.000000   0.121104   0.000000  -0.000000
+   50  SI 1 YYX  -0.038298   0.000000   0.000000   0.000000   0.148111
+   51  SI 1 YYZ   0.000000   0.000000  -0.121104   0.000000  -0.000000
+   52  SI 1 ZZX   0.153191   0.000000   0.000000   0.000000  -0.000000
+   53  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   54  SI 1 XYZ   0.000000   0.139839   0.000000   0.000000  -0.000000
+   55  SI 1 XXX   0.269762   0.000000   0.000000   0.000000   0.337885
+   56  SI 1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   58  SI 1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   59  SI 1 XXZ   0.000000   0.000000  -0.377330   0.000000  -0.000000
+   60  SI 1 YYX   0.120641   0.000000   0.000000   0.000000  -0.453320
+   61  SI 1 YYZ   0.000000   0.000000   0.377330   0.000000  -0.000000
+   62  SI 1 ZZX  -0.482565   0.000000   0.000000   0.000000  -0.000000
+   63  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   64  SI 1 XYZ   0.000000  -0.435703   0.000000   0.000000  -0.000000
+   65  SI 1 XXX  -0.772325   0.000000   0.000000   0.000000  -0.991057
+   66  SI 1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   68  SI 1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   69  SI 1 XXZ   0.000000   0.000000   1.090104   0.000000  -0.000000
+   70  SI 1 YYX  -0.345394   0.000000   0.000000   0.000000   1.329643
+   71  SI 1 YYZ   0.000000   0.000000  -1.090104   0.000000  -0.000000
+   72  SI 1 ZZX   1.381577   0.000000   0.000000   0.000000  -0.000000
+   73  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   74  SI 1 XYZ   0.000000   1.258744   0.000000   0.000000  -0.000000
+   75  SI 1XXXX   0.000000   0.000000   0.000000  -0.000011  -0.000000
+   76  SI 1YYYY   0.000000   0.000000   0.000000  -0.000011  -0.000000
+   77  SI 1ZZZZ   0.000000   0.000000   0.000000  -0.000028  -0.000000
+   78  SI 1XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   81  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   82  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   83  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   84  SI 1XXYY   0.000000   0.000000   0.000000  -0.000006  -0.000000
+   85  SI 1XXZZ   0.000000   0.000000   0.000000   0.000025  -0.000000
+   86  SI 1YYZZ   0.000000   0.000000   0.000000   0.000025  -0.000000
+   87  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   90  SI 1XXXX   0.000000   0.000000   0.000000   0.000036  -0.000000
+   91  SI 1YYYY   0.000000   0.000000   0.000000   0.000036  -0.000000
+   92  SI 1ZZZZ   0.000000   0.000000   0.000000   0.000095  -0.000000
+   93  SI 1XXXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   94  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   96  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   98  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   99  SI 1XXYY   0.000000   0.000000   0.000000   0.000021  -0.000000
+  100  SI 1XXZZ   0.000000   0.000000   0.000000  -0.000084  -0.000000
+  101  SI 1YYZZ   0.000000   0.000000   0.000000  -0.000084  -0.000000
+  102  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  103  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+
+                     21         22         23         24         25
+                    0.5922     0.7128     0.7128     0.7166     0.7166
+                     A          A          A          A          A   
+    1  SI 1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    2  SI 1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    3  SI 1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    4  SI 1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    5  SI 1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    6  SI 1  X    0.000000   0.000000  -1.128918  -0.000000  -0.000000
+    7  SI 1  Y    0.000000  -1.128918   0.000000  -0.000000  -0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    9  SI 1  X    0.000000   0.000000  -0.350565  -0.000000  -0.000000
+   10  SI 1  Y    0.000000  -0.350565   0.000000  -0.000000  -0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   12  SI 1  X    0.000000   0.000000   2.849592  -0.000000  -0.000000
+   13  SI 1  Y    0.000000   2.849592   0.000000  -0.000000  -0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   15  SI 1  X    0.000000   0.000000  -2.359779  -0.000000  -0.000000
+   16  SI 1  Y    0.000000  -2.359779   0.000000  -0.000000  -0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  SI 1  X    0.000000   0.000000   1.445908  -0.000000  -0.000000
+   19  SI 1  Y    0.000000   1.445908   0.000000  -0.000000  -0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   21  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   0.108298
+   22  SI 1 YY    0.000000   0.000000   0.000000  -0.000000  -0.108298
+   23  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   24  SI 1 XY    0.000000   0.000000   0.000000   0.125052  -0.000000
+   25  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   26  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   27  SI 1 XX    0.000000   0.000000   0.000000  -0.000000  -0.068102
+   28  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.068102
+   29  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   30  SI 1 XY    0.000000   0.000000   0.000000  -0.078638  -0.000000
+   31  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   32  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   33  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   1.236381
+   34  SI 1 YY    0.000000   0.000000   0.000000  -0.000000  -1.236381
+   35  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   36  SI 1 XY    0.000000   0.000000   0.000000   1.427650  -0.000000
+   37  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   38  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   39  SI 1 XX    0.000000   0.000000   0.000000  -0.000000  -0.942942
+   40  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.942942
+   41  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   42  SI 1 XY    0.000000   0.000000   0.000000  -1.088815  -0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   44  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   45  SI 1 XXX   0.000000   0.000000  -0.003726  -0.000000  -0.000000
+   46  SI 1 YYY  -0.110395  -0.003726   0.000000  -0.000000  -0.000000
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   48  SI 1 XXY   0.148111  -0.001666   0.000000  -0.000000  -0.000000
+   49  SI 1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   50  SI 1 YYX   0.000000   0.000000  -0.001666  -0.000000  -0.000000
+   51  SI 1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   52  SI 1 ZZX   0.000000   0.000000   0.006665  -0.000000  -0.000000
+   53  SI 1 ZZY   0.000000   0.006665   0.000000  -0.000000  -0.000000
+   54  SI 1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   55  SI 1 XXX   0.000000   0.000000   0.007815  -0.000000  -0.000000
+   56  SI 1 YYY   0.337885   0.007815   0.000000  -0.000000  -0.000000
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   58  SI 1 XXY  -0.453320   0.003495   0.000000  -0.000000  -0.000000
+   59  SI 1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   60  SI 1 YYX   0.000000   0.000000   0.003495  -0.000000  -0.000000
+   61  SI 1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   62  SI 1 ZZX   0.000000   0.000000  -0.013981  -0.000000  -0.000000
+   63  SI 1 ZZY   0.000000  -0.013981   0.000000  -0.000000  -0.000000
+   64  SI 1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   65  SI 1 XXX   0.000000   0.000000  -0.023786  -0.000000  -0.000000
+   66  SI 1 YYY  -0.991057  -0.023786   0.000000  -0.000000  -0.000000
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   68  SI 1 XXY   1.329643  -0.010637   0.000000  -0.000000  -0.000000
+   69  SI 1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   70  SI 1 YYX   0.000000   0.000000  -0.010637  -0.000000  -0.000000
+   71  SI 1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   72  SI 1 ZZX   0.000000   0.000000   0.042549  -0.000000  -0.000000
+   73  SI 1 ZZY   0.000000   0.042549   0.000000  -0.000000  -0.000000
+   74  SI 1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   75  SI 1XXXX   0.000000   0.000000   0.000000  -0.000000  -0.001009
+   76  SI 1YYYY   0.000000   0.000000   0.000000  -0.000000   0.001009
+   77  SI 1ZZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   78  SI 1XXXY   0.000000   0.000000   0.000000  -0.000763  -0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000  -0.000763  -0.000000
+   81  SI 1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   82  SI 1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   83  SI 1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   84  SI 1XXYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   85  SI 1XXZZ   0.000000   0.000000   0.000000  -0.000000   0.001772
+   86  SI 1YYZZ   0.000000   0.000000   0.000000  -0.000000  -0.001772
+   87  SI 1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000   0.002046  -0.000000
+   90  SI 1XXXX   0.000000   0.000000   0.000000  -0.000000   0.000342
+   91  SI 1YYYY   0.000000   0.000000   0.000000  -0.000000  -0.000342
+   92  SI 1ZZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   93  SI 1XXXY   0.000000   0.000000   0.000000   0.000259  -0.000000
+   94  SI 1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000   0.000259  -0.000000
+   96  SI 1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   98  SI 1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   99  SI 1XXYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  100  SI 1XXZZ   0.000000   0.000000   0.000000  -0.000000  -0.000601
+  101  SI 1YYZZ   0.000000   0.000000   0.000000  -0.000000   0.000601
+  102  SI 1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  103  SI 1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000  -0.000694  -0.000000
+
+                     26         27         28         29         30
+                    0.7311     0.7311     0.7337     0.7363     1.3710
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000  -0.000000   0.000000  -0.013760  -0.000999
+    2  SI 1  S   -0.000000  -0.000000   0.000000  -0.005744  -0.000867
+    3  SI 1  S   -0.000000  -0.000000   0.000000   0.006642   0.001691
+    4  SI 1  S   -0.000000  -0.000000   0.000000   0.009917  -0.000295
+    5  SI 1  S   -0.000000  -0.000000   0.000000   0.001047   0.000415
+    6  SI 1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    7  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000000
+    8  SI 1  Z   -0.000000  -0.000000  -1.179611   0.000000   0.000000
+    9  SI 1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   10  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   11  SI 1  Z   -0.000000  -0.000000  -0.370512   0.000000   0.000000
+   12  SI 1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   13  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   14  SI 1  Z   -0.000000  -0.000000   2.913075   0.000000   0.000000
+   15  SI 1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   16  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   17  SI 1  Z   -0.000000  -0.000000  -2.263622   0.000000   0.000000
+   18  SI 1  X   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   19  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   20  SI 1  Z   -0.000000  -0.000000   1.396238   0.000000   0.000000
+   21  SI 1 XX   -0.000000  -0.000000   0.000000  -0.063345  -0.000442
+   22  SI 1 YY   -0.000000  -0.000000   0.000000  -0.063345  -0.000442
+   23  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.126690   0.000884
+   24  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   25  SI 1 XZ    0.126303  -0.000000   0.000000   0.000000   0.000000
+   26  SI 1 YZ   -0.000000   0.126303   0.000000   0.000000   0.000000
+   27  SI 1 XX   -0.000000  -0.000000   0.000000   0.041005   0.007631
+   28  SI 1 YY   -0.000000  -0.000000   0.000000   0.041005   0.007631
+   29  SI 1 ZZ   -0.000000  -0.000000   0.000000  -0.082010  -0.015262
+   30  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   31  SI 1 XZ   -0.081248  -0.000000   0.000000   0.000000   0.000000
+   32  SI 1 YZ   -0.000000  -0.081248   0.000000   0.000000   0.000000
+   33  SI 1 XX   -0.000000  -0.000000   0.000000  -0.717846  -0.007162
+   34  SI 1 YY   -0.000000  -0.000000   0.000000  -0.717846  -0.007162
+   35  SI 1 ZZ   -0.000000  -0.000000   0.000000   1.435692   0.014324
+   36  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   37  SI 1 XZ    1.434264  -0.000000   0.000000   0.000000   0.000000
+   38  SI 1 YZ   -0.000000   1.434264   0.000000   0.000000   0.000000
+   39  SI 1 XX   -0.000000  -0.000000   0.000000   0.514262   0.004458
+   40  SI 1 YY   -0.000000  -0.000000   0.000000   0.514262   0.004458
+   41  SI 1 ZZ   -0.000000  -0.000000   0.000000  -1.028525  -0.008916
+   42  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   43  SI 1 XZ   -1.045028  -0.000000   0.000000   0.000000   0.000000
+   44  SI 1 YZ   -0.000000  -1.045028   0.000000   0.000000   0.000000
+   45  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   46  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   47  SI 1 ZZZ  -0.000000  -0.000000   0.007153   0.000000   0.000000
+   48  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   49  SI 1 XXZ  -0.000000  -0.000000  -0.004799   0.000000   0.000000
+   50  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   51  SI 1 YYZ  -0.000000  -0.000000  -0.004799   0.000000   0.000000
+   52  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   53  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   55  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   56  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   57  SI 1 ZZZ  -0.000000  -0.000000  -0.015634   0.000000   0.000000
+   58  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   59  SI 1 XXZ  -0.000000  -0.000000   0.010488   0.000000   0.000000
+   60  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   61  SI 1 YYZ  -0.000000  -0.000000   0.010488   0.000000   0.000000
+   62  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   63  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   65  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   66  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   67  SI 1 ZZZ  -0.000000  -0.000000   0.046312   0.000000   0.000000
+   68  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   69  SI 1 XXZ  -0.000000  -0.000000  -0.031067   0.000000   0.000000
+   70  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   71  SI 1 YYZ  -0.000000  -0.000000  -0.031067   0.000000   0.000000
+   72  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   73  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   75  SI 1XXXX  -0.000000  -0.000000   0.000000   0.001009  -0.053968
+   76  SI 1YYYY  -0.000000  -0.000000   0.000000   0.001009  -0.053968
+   77  SI 1ZZZZ  -0.000000  -0.000000   0.000000   0.002690  -0.143915
+   78  SI 1XXXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   79  SI 1XXXZ  -0.002225  -0.000000   0.000000   0.000000   0.000000
+   80  SI 1YYYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   81  SI 1YYYZ  -0.000000  -0.002225   0.000000   0.000000   0.000000
+   82  SI 1ZZZX   0.002967  -0.000000   0.000000   0.000000   0.000000
+   83  SI 1ZZZY  -0.000000   0.002967   0.000000   0.000000   0.000000
+   84  SI 1XXYY  -0.000000  -0.000000   0.000000   0.000591  -0.031600
+   85  SI 1XXZZ  -0.000000  -0.000000   0.000000  -0.002362   0.126402
+   86  SI 1YYZZ  -0.000000  -0.000000   0.000000  -0.002362   0.126402
+   87  SI 1XXYZ  -0.000000  -0.000995   0.000000   0.000000   0.000000
+   88  SI 1YYXZ  -0.000995  -0.000000   0.000000   0.000000   0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   90  SI 1XXXX  -0.000000  -0.000000   0.000000  -0.000151   0.402238
+   91  SI 1YYYY  -0.000000  -0.000000   0.000000  -0.000151   0.402238
+   92  SI 1ZZZZ  -0.000000  -0.000000   0.000000  -0.000403   1.072634
+   93  SI 1XXXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   94  SI 1XXXZ   0.000448  -0.000000   0.000000   0.000000   0.000000
+   95  SI 1YYYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   96  SI 1YYYZ  -0.000000   0.000448   0.000000   0.000000   0.000000
+   97  SI 1ZZZX  -0.000597  -0.000000   0.000000   0.000000   0.000000
+   98  SI 1ZZZY  -0.000000  -0.000597   0.000000   0.000000   0.000000
+   99  SI 1XXYY  -0.000000  -0.000000   0.000000  -0.000089   0.235526
+  100  SI 1XXZZ  -0.000000  -0.000000   0.000000   0.000354  -0.942105
+  101  SI 1YYZZ  -0.000000  -0.000000   0.000000   0.000354  -0.942105
+  102  SI 1XXYZ  -0.000000   0.000200   0.000000   0.000000   0.000000
+  103  SI 1YYXZ   0.000200  -0.000000   0.000000   0.000000   0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+
+                     31         32         33         34         35
+                    1.3720     1.3720     1.3753     1.3753     1.3807
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    2  SI 1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    3  SI 1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    4  SI 1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    5  SI 1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    6  SI 1  X   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    7  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    8  SI 1  Z   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    9  SI 1  X   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   10  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   11  SI 1  Z   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   12  SI 1  X   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   13  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   14  SI 1  Z   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   15  SI 1  X   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   16  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   17  SI 1  Z   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   18  SI 1  X   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   19  SI 1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   20  SI 1  Z   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   21  SI 1 XX   -0.000000  -0.000000   0.000000   0.000513  -0.000000
+   22  SI 1 YY   -0.000000  -0.000000   0.000000  -0.000513  -0.000000
+   23  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   24  SI 1 XY   -0.000000  -0.000000   0.000592   0.000000  -0.000000
+   25  SI 1 XZ   -0.000000   0.000815   0.000000   0.000000  -0.000000
+   26  SI 1 YZ    0.000815  -0.000000   0.000000   0.000000  -0.000000
+   27  SI 1 XX   -0.000000  -0.000000   0.000000  -0.008459  -0.000000
+   28  SI 1 YY   -0.000000  -0.000000   0.000000   0.008459  -0.000000
+   29  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   30  SI 1 XY   -0.000000  -0.000000  -0.009767   0.000000  -0.000000
+   31  SI 1 XZ   -0.000000  -0.013902   0.000000   0.000000  -0.000000
+   32  SI 1 YZ   -0.013902  -0.000000   0.000000   0.000000  -0.000000
+   33  SI 1 XX   -0.000000  -0.000000   0.000000   0.008173  -0.000000
+   34  SI 1 YY   -0.000000  -0.000000   0.000000  -0.008173  -0.000000
+   35  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   36  SI 1 XY   -0.000000  -0.000000   0.009437   0.000000  -0.000000
+   37  SI 1 XZ   -0.000000   0.013145   0.000000   0.000000  -0.000000
+   38  SI 1 YZ    0.013145  -0.000000   0.000000   0.000000  -0.000000
+   39  SI 1 XX   -0.000000  -0.000000   0.000000  -0.005046  -0.000000
+   40  SI 1 YY   -0.000000  -0.000000   0.000000   0.005046  -0.000000
+   41  SI 1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   42  SI 1 XY   -0.000000  -0.000000  -0.005827   0.000000  -0.000000
+   43  SI 1 XZ   -0.000000  -0.008164   0.000000   0.000000  -0.000000
+   44  SI 1 YZ   -0.008164  -0.000000   0.000000   0.000000  -0.000000
+   45  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   46  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   47  SI 1 ZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   48  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   49  SI 1 XXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   50  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   51  SI 1 YYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   52  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   53  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   55  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   56  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   57  SI 1 ZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   58  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   59  SI 1 XXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   60  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   61  SI 1 YYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   62  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   63  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   65  SI 1 XXX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   66  SI 1 YYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   67  SI 1 ZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   68  SI 1 XXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   69  SI 1 XXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   70  SI 1 YYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   71  SI 1 YYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   72  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   73  SI 1 ZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   75  SI 1XXXX  -0.000000  -0.000000   0.000000   0.080236  -0.000000
+   76  SI 1YYYY  -0.000000  -0.000000   0.000000  -0.080236  -0.000000
+   77  SI 1ZZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   78  SI 1XXXY  -0.000000  -0.000000   0.060653   0.000000  -0.000000
+   79  SI 1XXXZ  -0.000000   0.128922   0.000000   0.000000  -0.000000
+   80  SI 1YYYX  -0.000000  -0.000000   0.060653   0.000000  -0.000000
+   81  SI 1YYYZ   0.128922  -0.000000   0.000000   0.000000   0.113100
+   82  SI 1ZZZX  -0.000000  -0.171896   0.000000   0.000000  -0.000000
+   83  SI 1ZZZY  -0.171896  -0.000000   0.000000   0.000000  -0.000000
+   84  SI 1XXYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   85  SI 1XXZZ  -0.000000  -0.000000   0.000000  -0.140945  -0.000000
+   86  SI 1YYZZ  -0.000000  -0.000000   0.000000   0.140945  -0.000000
+   87  SI 1XXYZ   0.057656  -0.000000   0.000000   0.000000  -0.151740
+   88  SI 1YYXZ  -0.000000   0.057656   0.000000   0.000000  -0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000  -0.162749   0.000000  -0.000000
+   90  SI 1XXXX  -0.000000  -0.000000   0.000000  -0.599538  -0.000000
+   91  SI 1YYYY  -0.000000  -0.000000   0.000000   0.599538  -0.000000
+   92  SI 1ZZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   93  SI 1XXXY  -0.000000  -0.000000  -0.453208   0.000000  -0.000000
+   94  SI 1XXXZ  -0.000000  -0.961500   0.000000   0.000000  -0.000000
+   95  SI 1YYYX  -0.000000  -0.000000  -0.453208   0.000000  -0.000000
+   96  SI 1YYYZ  -0.961500  -0.000000   0.000000   0.000000  -0.847721
+   97  SI 1ZZZX  -0.000000   1.281999   0.000000   0.000000  -0.000000
+   98  SI 1ZZZY   1.281999  -0.000000   0.000000   0.000000  -0.000000
+   99  SI 1XXYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  100  SI 1XXZZ  -0.000000  -0.000000   0.000000   1.053161  -0.000000
+  101  SI 1YYZZ  -0.000000  -0.000000   0.000000  -1.053161  -0.000000
+  102  SI 1XXYZ  -0.429996  -0.000000   0.000000   0.000000   1.137337
+  103  SI 1YYXZ  -0.000000  -0.429996   0.000000   0.000000  -0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000   1.216085   0.000000  -0.000000
+
+                     36         37         38         39         40
+                    1.3807     1.3882     1.3882     1.5563     1.5571
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    2  SI 1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    3  SI 1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    4  SI 1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    5  SI 1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    6  SI 1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.118373
+    7  SI 1  Y   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    8  SI 1  Z   -0.000000  -0.000000  -0.000000  -0.140818   0.000000
+    9  SI 1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.013450
+   10  SI 1  Y   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   11  SI 1  Z   -0.000000  -0.000000  -0.000000  -0.016710   0.000000
+   12  SI 1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.062381
+   13  SI 1  Y   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   14  SI 1  Z   -0.000000  -0.000000  -0.000000   0.077702   0.000000
+   15  SI 1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.049020
+   16  SI 1  Y   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   17  SI 1  Z   -0.000000  -0.000000  -0.000000   0.060869   0.000000
+   18  SI 1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.029613
+   19  SI 1  Y   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   20  SI 1  Z   -0.000000  -0.000000  -0.000000   0.036732   0.000000
+   21  SI 1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   22  SI 1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   23  SI 1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   24  SI 1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   25  SI 1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   26  SI 1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   27  SI 1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   28  SI 1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   29  SI 1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   30  SI 1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   31  SI 1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   32  SI 1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   33  SI 1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   34  SI 1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   35  SI 1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   36  SI 1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   37  SI 1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   38  SI 1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   39  SI 1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   40  SI 1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   41  SI 1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   42  SI 1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   43  SI 1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   44  SI 1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   45  SI 1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.148930
+   46  SI 1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   47  SI 1 ZZZ  -0.000000  -0.000000  -0.000000  -0.243727   0.000000
+   48  SI 1 XXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   49  SI 1 XXZ  -0.000000  -0.000000  -0.000000   0.163497   0.000000
+   50  SI 1 YYX  -0.000000  -0.000000  -0.000000  -0.000000   0.066603
+   51  SI 1 YYZ  -0.000000  -0.000000  -0.000000   0.163497   0.000000
+   52  SI 1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.266413
+   53  SI 1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   55  SI 1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -1.063677
+   56  SI 1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   57  SI 1 ZZZ  -0.000000  -0.000000  -0.000000   1.737107   0.000000
+   58  SI 1 XXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   59  SI 1 XXZ  -0.000000  -0.000000  -0.000000  -1.165287   0.000000
+   60  SI 1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.475691
+   61  SI 1 YYZ  -0.000000  -0.000000  -0.000000  -1.165287   0.000000
+   62  SI 1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000   1.902764
+   63  SI 1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   65  SI 1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.625015
+   66  SI 1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   67  SI 1 ZZZ  -0.000000  -0.000000  -0.000000  -1.019420   0.000000
+   68  SI 1 XXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   69  SI 1 XXZ  -0.000000  -0.000000  -0.000000   0.683848   0.000000
+   70  SI 1 YYX  -0.000000  -0.000000  -0.000000  -0.000000   0.279515
+   71  SI 1 YYZ  -0.000000  -0.000000  -0.000000   0.683848   0.000000
+   72  SI 1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -1.118061
+   73  SI 1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   75  SI 1XXXX  -0.000000  -0.000000   0.105322  -0.000000   0.000000
+   76  SI 1YYYY  -0.000000  -0.000000   0.105322  -0.000000   0.000000
+   77  SI 1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   78  SI 1XXXY  -0.000000  -0.159232  -0.000000  -0.000000   0.000000
+   79  SI 1XXXZ   0.113100  -0.000000  -0.000000  -0.000000   0.000000
+   80  SI 1YYYX  -0.000000   0.159232  -0.000000  -0.000000   0.000000
+   81  SI 1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   82  SI 1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   83  SI 1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   84  SI 1XXYY  -0.000000  -0.000000  -0.185010  -0.000000   0.000000
+   85  SI 1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   86  SI 1YYZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   87  SI 1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   88  SI 1YYXZ  -0.151740  -0.000000  -0.000000  -0.000000   0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   90  SI 1XXXX  -0.000000  -0.000000  -0.792754  -0.000000   0.000000
+   91  SI 1YYYY  -0.000000  -0.000000  -0.792754  -0.000000   0.000000
+   92  SI 1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   93  SI 1XXXY  -0.000000   1.198532  -0.000000  -0.000000   0.000000
+   94  SI 1XXXZ  -0.847721  -0.000000  -0.000000  -0.000000   0.000000
+   95  SI 1YYYX  -0.000000  -1.198532  -0.000000  -0.000000   0.000000
+   96  SI 1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   97  SI 1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   98  SI 1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   99  SI 1XXYY  -0.000000  -0.000000   1.392568  -0.000000   0.000000
+  100  SI 1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  101  SI 1YYZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  102  SI 1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  103  SI 1YYXZ   1.137337  -0.000000  -0.000000  -0.000000   0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+
+                     41         42         43         44         45
+                    1.5571     1.5598     1.5598     1.5642     1.5642
+                     A          A          A          A          A   
+    1  SI 1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    2  SI 1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    3  SI 1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    4  SI 1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    5  SI 1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    6  SI 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+    7  SI 1  Y   -0.118373   0.000000   0.000000  -0.000000   0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+    9  SI 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   10  SI 1  Y   -0.013450   0.000000   0.000000  -0.000000   0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   12  SI 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   13  SI 1  Y    0.062381   0.000000   0.000000  -0.000000   0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   15  SI 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   16  SI 1  Y    0.049020   0.000000   0.000000  -0.000000   0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   18  SI 1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   19  SI 1  Y    0.029613   0.000000   0.000000  -0.000000   0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   21  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   0.000000
+   22  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   23  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   24  SI 1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   25  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   26  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   27  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   0.000000
+   28  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   29  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   30  SI 1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   31  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   32  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   33  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   0.000000
+   34  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   35  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   36  SI 1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   37  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   38  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   39  SI 1 XX    0.000000   0.000000   0.000000  -0.000000   0.000000
+   40  SI 1 YY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   41  SI 1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   42  SI 1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   44  SI 1 YZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   45  SI 1 XXX   0.000000   0.000000   0.000000   0.189117   0.000000
+   46  SI 1 YYY   0.148930   0.000000   0.000000  -0.000000   0.189117
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   48  SI 1 XXY   0.066603   0.000000   0.000000  -0.000000  -0.253727
+   49  SI 1 XXZ   0.000000   0.000000  -0.209293  -0.000000   0.000000
+   50  SI 1 YYX   0.000000   0.000000   0.000000  -0.253727   0.000000
+   51  SI 1 YYZ   0.000000   0.000000   0.209293  -0.000000   0.000000
+   52  SI 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   53  SI 1 ZZY  -0.266413   0.000000   0.000000  -0.000000   0.000000
+   54  SI 1 XYZ   0.000000  -0.241671   0.000000  -0.000000   0.000000
+   55  SI 1 XXX   0.000000   0.000000   0.000000  -1.372106   0.000000
+   56  SI 1 YYY  -1.063677   0.000000   0.000000  -0.000000  -1.372106
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   58  SI 1 XXY  -0.475691   0.000000   0.000000  -0.000000   1.840874
+   59  SI 1 XXZ   0.000000   0.000000   1.503821  -0.000000   0.000000
+   60  SI 1 YYX   0.000000   0.000000   0.000000   1.840874   0.000000
+   61  SI 1 YYZ   0.000000   0.000000  -1.503821  -0.000000   0.000000
+   62  SI 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   63  SI 1 ZZY   1.902764   0.000000   0.000000  -0.000000   0.000000
+   64  SI 1 XYZ   0.000000   1.736463   0.000000  -0.000000   0.000000
+   65  SI 1 XXX   0.000000   0.000000   0.000000   0.813987   0.000000
+   66  SI 1 YYY   0.625015   0.000000   0.000000  -0.000000   0.813987
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   68  SI 1 XXY   0.279515   0.000000   0.000000  -0.000000  -1.092078
+   69  SI 1 XXZ   0.000000   0.000000  -0.886844  -0.000000   0.000000
+   70  SI 1 YYX   0.000000   0.000000   0.000000  -1.092078   0.000000
+   71  SI 1 YYZ   0.000000   0.000000   0.886844  -0.000000   0.000000
+   72  SI 1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   73  SI 1 ZZY  -1.118061   0.000000   0.000000  -0.000000   0.000000
+   74  SI 1 XYZ   0.000000  -1.024039   0.000000  -0.000000   0.000000
+   75  SI 1XXXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   76  SI 1YYYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   77  SI 1ZZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   78  SI 1XXXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   81  SI 1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   82  SI 1ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   83  SI 1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   84  SI 1XXYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   85  SI 1XXZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   86  SI 1YYZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   87  SI 1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   90  SI 1XXXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   91  SI 1YYYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   92  SI 1ZZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   93  SI 1XXXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   94  SI 1XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   96  SI 1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   98  SI 1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   99  SI 1XXYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  100  SI 1XXZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  101  SI 1YYZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  102  SI 1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  103  SI 1YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+
+                     46         47         48         49         50
+                    2.0282     2.0315     2.0315     2.0396     2.0396
+                     A          A          A          A          A   
+    1  SI 1  S   -0.841770   0.000000   0.000000   0.000000   0.000000
+    2  SI 1  S   -0.679714   0.000000   0.000000   0.000000   0.000000
+    3  SI 1  S    1.236296   0.000000   0.000000   0.000000   0.000000
+    4  SI 1  S   -0.036841   0.000000   0.000000   0.000000   0.000000
+    5  SI 1  S    0.224338   0.000000   0.000000   0.000000   0.000000
+    6  SI 1  X   -0.000000   0.000000   0.000000   0.000000   0.000000
+    7  SI 1  Y   -0.000000   0.000000   0.000000   0.000000   0.000000
+    8  SI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+    9  SI 1  X   -0.000000   0.000000   0.000000   0.000000   0.000000
+   10  SI 1  Y   -0.000000   0.000000   0.000000   0.000000   0.000000
+   11  SI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   12  SI 1  X   -0.000000   0.000000   0.000000   0.000000   0.000000
+   13  SI 1  Y   -0.000000   0.000000   0.000000   0.000000   0.000000
+   14  SI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   15  SI 1  X   -0.000000   0.000000   0.000000   0.000000   0.000000
+   16  SI 1  Y   -0.000000   0.000000   0.000000   0.000000   0.000000
+   17  SI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   18  SI 1  X   -0.000000   0.000000   0.000000   0.000000   0.000000
+   19  SI 1  Y   -0.000000   0.000000   0.000000   0.000000   0.000000
+   20  SI 1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   21  SI 1 XX    0.011428   0.000000   0.000000   0.000000  -0.020490
+   22  SI 1 YY    0.011428   0.000000   0.000000   0.000000   0.020490
+   23  SI 1 ZZ   -0.022855   0.000000   0.000000   0.000000   0.000000
+   24  SI 1 XY   -0.000000   0.000000   0.000000  -0.023659   0.000000
+   25  SI 1 XZ   -0.000000   0.000000  -0.023064   0.000000   0.000000
+   26  SI 1 YZ   -0.000000  -0.023064   0.000000   0.000000   0.000000
+   27  SI 1 XX    0.767481   0.000000   0.000000   0.000000  -1.334766
+   28  SI 1 YY    0.767481   0.000000   0.000000   0.000000   1.334766
+   29  SI 1 ZZ   -1.534963   0.000000   0.000000   0.000000   0.000000
+   30  SI 1 XY   -0.000000   0.000000   0.000000  -1.541255   0.000000
+   31  SI 1 XZ   -0.000000   0.000000  -1.542294   0.000000   0.000000
+   32  SI 1 YZ   -0.000000  -1.542294   0.000000   0.000000   0.000000
+   33  SI 1 XX   -0.816755   0.000000   0.000000   0.000000   1.429097
+   34  SI 1 YY   -0.816755   0.000000   0.000000   0.000000  -1.429097
+   35  SI 1 ZZ    1.633509   0.000000   0.000000   0.000000   0.000000
+   36  SI 1 XY   -0.000000   0.000000   0.000000   1.650179   0.000000
+   37  SI 1 XZ   -0.000000   0.000000   1.643898   0.000000   0.000000
+   38  SI 1 YZ   -0.000000   1.643898   0.000000   0.000000   0.000000
+   39  SI 1 XX    0.319019   0.000000   0.000000   0.000000  -0.561006
+   40  SI 1 YY    0.319019   0.000000   0.000000   0.000000   0.561006
+   41  SI 1 ZZ   -0.638038   0.000000   0.000000   0.000000   0.000000
+   42  SI 1 XY   -0.000000   0.000000   0.000000  -0.647794   0.000000
+   43  SI 1 XZ   -0.000000   0.000000  -0.643252   0.000000   0.000000
+   44  SI 1 YZ   -0.000000  -0.643252   0.000000   0.000000   0.000000
+   45  SI 1 XXX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   46  SI 1 YYY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   47  SI 1 ZZZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   48  SI 1 XXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   49  SI 1 XXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   50  SI 1 YYX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   51  SI 1 YYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   52  SI 1 ZZX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   53  SI 1 ZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   54  SI 1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   55  SI 1 XXX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   56  SI 1 YYY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   57  SI 1 ZZZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   58  SI 1 XXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   59  SI 1 XXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   60  SI 1 YYX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   61  SI 1 YYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   62  SI 1 ZZX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   63  SI 1 ZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   64  SI 1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   65  SI 1 XXX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   66  SI 1 YYY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   67  SI 1 ZZZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   68  SI 1 XXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   69  SI 1 XXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   70  SI 1 YYX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   71  SI 1 YYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   72  SI 1 ZZX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   73  SI 1 ZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   74  SI 1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   75  SI 1XXXX  -0.001191   0.000000   0.000000   0.000000   0.001149
+   76  SI 1YYYY  -0.001191   0.000000   0.000000   0.000000  -0.001149
+   77  SI 1ZZZZ  -0.003175   0.000000   0.000000   0.000000   0.000000
+   78  SI 1XXXY  -0.000000   0.000000   0.000000   0.000869   0.000000
+   79  SI 1XXXZ  -0.000000   0.000000   0.002611   0.000000   0.000000
+   80  SI 1YYYX  -0.000000   0.000000   0.000000   0.000869   0.000000
+   81  SI 1YYYZ  -0.000000   0.002611   0.000000   0.000000   0.000000
+   82  SI 1ZZZX  -0.000000   0.000000  -0.003482   0.000000   0.000000
+   83  SI 1ZZZY  -0.000000  -0.003482   0.000000   0.000000   0.000000
+   84  SI 1XXYY  -0.000697   0.000000   0.000000   0.000000   0.000000
+   85  SI 1XXZZ   0.002789   0.000000   0.000000   0.000000  -0.002019
+   86  SI 1YYZZ   0.002789   0.000000   0.000000   0.000000   0.002019
+   87  SI 1XXYZ  -0.000000   0.001168   0.000000   0.000000   0.000000
+   88  SI 1YYXZ  -0.000000   0.000000   0.001168   0.000000   0.000000
+   89  SI 1ZZXY  -0.000000   0.000000   0.000000  -0.002331   0.000000
+   90  SI 1XXXX  -0.002741   0.000000   0.000000   0.000000   0.002616
+   91  SI 1YYYY  -0.002741   0.000000   0.000000   0.000000  -0.002616
+   92  SI 1ZZZZ  -0.007309   0.000000   0.000000   0.000000   0.000000
+   93  SI 1XXXY  -0.000000   0.000000   0.000000   0.001977   0.000000
+   94  SI 1XXXZ  -0.000000   0.000000   0.005983   0.000000   0.000000
+   95  SI 1YYYX  -0.000000   0.000000   0.000000   0.001977   0.000000
+   96  SI 1YYYZ  -0.000000   0.005983   0.000000   0.000000   0.000000
+   97  SI 1ZZZX  -0.000000   0.000000  -0.007978   0.000000   0.000000
+   98  SI 1ZZZY  -0.000000  -0.007978   0.000000   0.000000   0.000000
+   99  SI 1XXYY  -0.001605   0.000000   0.000000   0.000000   0.000000
+  100  SI 1XXZZ   0.006420   0.000000   0.000000   0.000000  -0.004595
+  101  SI 1YYZZ   0.006420   0.000000   0.000000   0.000000   0.004595
+  102  SI 1XXYZ  -0.000000   0.002676   0.000000   0.000000   0.000000
+  103  SI 1YYXZ  -0.000000   0.000000   0.002676   0.000000   0.000000
+  104  SI 1ZZXY  -0.000000   0.000000   0.000000  -0.005305   0.000000
+
+                     51         52         53         54         55
+                    2.0922     2.3329     2.3378     2.3378     3.4907
+                     A          A          A          A          A   
+    1  SI 1  S   -8.423904  -0.000000   0.000000   0.000000  -0.000000
+    2  SI 1  S   -6.831719  -0.000000   0.000000   0.000000  -0.000000
+    3  SI 1  S   12.394768  -0.000000   0.000000   0.000000  -0.000000
+    4  SI 1  S   -0.316740  -0.000000   0.000000   0.000000  -0.000000
+    5  SI 1  S    2.180855  -0.000000   0.000000   0.000000  -0.000000
+    6  SI 1  X   -0.000000  -0.000000   0.000000  15.575827  -0.000000
+    7  SI 1  Y   -0.000000  -0.000000  15.575827   0.000000  -0.000000
+    8  SI 1  Z   -0.000000  15.662914   0.000000   0.000000  -0.029774
+    9  SI 1  X   -0.000000  -0.000000   0.000000   2.195994  -0.000000
+   10  SI 1  Y   -0.000000  -0.000000   2.195994   0.000000  -0.000000
+   11  SI 1  Z   -0.000000   2.192503   0.000000   0.000000  -0.016386
+   12  SI 1  X   -0.000000  -0.000000   0.000000  -9.243157  -0.000000
+   13  SI 1  Y   -0.000000  -0.000000  -9.243157   0.000000  -0.000000
+   14  SI 1  Z   -0.000000  -9.250690   0.000000   0.000000   0.030533
+   15  SI 1  X   -0.000000  -0.000000   0.000000  -5.576016  -0.000000
+   16  SI 1  Y   -0.000000  -0.000000  -5.576016   0.000000  -0.000000
+   17  SI 1  Z   -0.000000  -5.638947   0.000000   0.000000   0.006717
+   18  SI 1  X   -0.000000  -0.000000   0.000000  -4.149148  -0.000000
+   19  SI 1  Y   -0.000000  -0.000000  -4.149148   0.000000  -0.000000
+   20  SI 1  Z   -0.000000  -4.162858   0.000000   0.000000   0.008268
+   21  SI 1 XX   -0.000642  -0.000000   0.000000   0.000000  -0.000000
+   22  SI 1 YY   -0.000642  -0.000000   0.000000   0.000000  -0.000000
+   23  SI 1 ZZ    0.001284  -0.000000   0.000000   0.000000  -0.000000
+   24  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   25  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   26  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   27  SI 1 XX   -0.076792  -0.000000   0.000000   0.000000  -0.000000
+   28  SI 1 YY   -0.076792  -0.000000   0.000000   0.000000  -0.000000
+   29  SI 1 ZZ    0.153585  -0.000000   0.000000   0.000000  -0.000000
+   30  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   31  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   32  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   33  SI 1 XX    0.082060  -0.000000   0.000000   0.000000  -0.000000
+   34  SI 1 YY    0.082060  -0.000000   0.000000   0.000000  -0.000000
+   35  SI 1 ZZ   -0.164120  -0.000000   0.000000   0.000000  -0.000000
+   36  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   37  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   38  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   39  SI 1 XX   -0.034480  -0.000000   0.000000   0.000000  -0.000000
+   40  SI 1 YY   -0.034480  -0.000000   0.000000   0.000000  -0.000000
+   41  SI 1 ZZ    0.068960  -0.000000   0.000000   0.000000  -0.000000
+   42  SI 1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   43  SI 1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   44  SI 1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   45  SI 1 XXX  -0.000000  -0.000000   0.000000  -0.005663  -0.000000
+   46  SI 1 YYY  -0.000000  -0.000000  -0.005663   0.000000  -0.000000
+   47  SI 1 ZZZ  -0.000000   0.011307   0.000000   0.000000   1.729667
+   48  SI 1 XXY  -0.000000  -0.000000  -0.002533   0.000000  -0.000000
+   49  SI 1 XXZ  -0.000000  -0.007585   0.000000   0.000000  -1.160296
+   50  SI 1 YYX  -0.000000  -0.000000   0.000000  -0.002533  -0.000000
+   51  SI 1 YYZ  -0.000000  -0.007585   0.000000   0.000000  -1.160296
+   52  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.010131  -0.000000
+   53  SI 1 ZZY  -0.000000  -0.000000   0.010131   0.000000  -0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   55  SI 1 XXX  -0.000000  -0.000000   0.000000  -0.000508  -0.000000
+   56  SI 1 YYY  -0.000000  -0.000000  -0.000508   0.000000  -0.000000
+   57  SI 1 ZZZ  -0.000000   0.001161   0.000000   0.000000  -1.725563
+   58  SI 1 XXY  -0.000000  -0.000000  -0.000227   0.000000  -0.000000
+   59  SI 1 XXZ  -0.000000  -0.000779   0.000000   0.000000   1.157543
+   60  SI 1 YYX  -0.000000  -0.000000   0.000000  -0.000227  -0.000000
+   61  SI 1 YYZ  -0.000000  -0.000779   0.000000   0.000000   1.157543
+   62  SI 1 ZZX  -0.000000  -0.000000   0.000000   0.000908  -0.000000
+   63  SI 1 ZZY  -0.000000  -0.000000   0.000908   0.000000  -0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   65  SI 1 XXX  -0.000000  -0.000000   0.000000   0.002729  -0.000000
+   66  SI 1 YYY  -0.000000  -0.000000   0.002729   0.000000  -0.000000
+   67  SI 1 ZZZ  -0.000000  -0.005471   0.000000   0.000000   0.660786
+   68  SI 1 XXY  -0.000000  -0.000000   0.001221   0.000000  -0.000000
+   69  SI 1 XXZ  -0.000000   0.003670   0.000000   0.000000  -0.443269
+   70  SI 1 YYX  -0.000000  -0.000000   0.000000   0.001221  -0.000000
+   71  SI 1 YYZ  -0.000000   0.003670   0.000000   0.000000  -0.443269
+   72  SI 1 ZZX  -0.000000  -0.000000   0.000000  -0.004882  -0.000000
+   73  SI 1 ZZY  -0.000000  -0.000000  -0.004882   0.000000  -0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   75  SI 1XXXX   0.000126  -0.000000   0.000000   0.000000  -0.000000
+   76  SI 1YYYY   0.000126  -0.000000   0.000000   0.000000  -0.000000
+   77  SI 1ZZZZ   0.000336  -0.000000   0.000000   0.000000  -0.000000
+   78  SI 1XXXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   79  SI 1XXXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   80  SI 1YYYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   81  SI 1YYYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   82  SI 1ZZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   83  SI 1ZZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   84  SI 1XXYY   0.000074  -0.000000   0.000000   0.000000  -0.000000
+   85  SI 1XXZZ  -0.000295  -0.000000   0.000000   0.000000  -0.000000
+   86  SI 1YYZZ  -0.000295  -0.000000   0.000000   0.000000  -0.000000
+   87  SI 1XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   88  SI 1YYXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   90  SI 1XXXX   0.000230  -0.000000   0.000000   0.000000  -0.000000
+   91  SI 1YYYY   0.000230  -0.000000   0.000000   0.000000  -0.000000
+   92  SI 1ZZZZ   0.000614  -0.000000   0.000000   0.000000  -0.000000
+   93  SI 1XXXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   94  SI 1XXXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   95  SI 1YYYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   96  SI 1YYYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   97  SI 1ZZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   98  SI 1ZZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   99  SI 1XXYY   0.000135  -0.000000   0.000000   0.000000  -0.000000
+  100  SI 1XXZZ  -0.000539  -0.000000   0.000000   0.000000  -0.000000
+  101  SI 1YYZZ  -0.000539  -0.000000   0.000000   0.000000  -0.000000
+  102  SI 1XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  103  SI 1YYXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+
+                     56         57         58         59         60
+                    3.4930     3.4930     3.4999     3.4999     3.5115
+                     A          A          A          A          A   
+    1  SI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    2  SI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    3  SI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    4  SI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    5  SI 1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    6  SI 1  X   -0.024590   0.000000   0.000000   0.000000   0.000000
+    7  SI 1  Y    0.000000  -0.024590   0.000000   0.000000   0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+    9  SI 1  X   -0.013397   0.000000   0.000000   0.000000   0.000000
+   10  SI 1  Y    0.000000  -0.013397   0.000000   0.000000   0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   12  SI 1  X    0.024832   0.000000   0.000000   0.000000   0.000000
+   13  SI 1  Y    0.000000   0.024832   0.000000   0.000000   0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   15  SI 1  X    0.005186   0.000000   0.000000   0.000000   0.000000
+   16  SI 1  Y    0.000000   0.005186   0.000000   0.000000   0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   18  SI 1  X    0.006664   0.000000   0.000000   0.000000   0.000000
+   19  SI 1  Y    0.000000   0.006664   0.000000   0.000000   0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   21  SI 1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   22  SI 1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   23  SI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   24  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   26  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   27  SI 1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   28  SI 1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   29  SI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   30  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   31  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   32  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   33  SI 1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   34  SI 1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   35  SI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   36  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   38  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   39  SI 1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   40  SI 1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   41  SI 1 ZZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   42  SI 1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   44  SI 1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   45  SI 1 XXX  -1.059257   0.000000   0.000000   0.000000   1.367978
+   46  SI 1 YYY   0.000000  -1.059257   0.000000   0.000000   0.000000
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   48  SI 1 XXY   0.000000  -0.473714   0.000000   0.000000   0.000000
+   49  SI 1 XXZ   0.000000   0.000000   0.000000   1.498235   0.000000
+   50  SI 1 YYX  -0.473714   0.000000   0.000000   0.000000  -1.835335
+   51  SI 1 YYZ   0.000000   0.000000   0.000000  -1.498235   0.000000
+   52  SI 1 ZZX   1.894857   0.000000   0.000000   0.000000   0.000000
+   53  SI 1 ZZY   0.000000   1.894857   0.000000   0.000000   0.000000
+   54  SI 1 XYZ   0.000000   0.000000   1.730013   0.000000   0.000000
+   55  SI 1 XXX   1.057062   0.000000   0.000000   0.000000  -1.368412
+   56  SI 1 YYY   0.000000   1.057062   0.000000   0.000000   0.000000
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   58  SI 1 XXY   0.000000   0.472733   0.000000   0.000000   0.000000
+   59  SI 1 XXZ   0.000000   0.000000   0.000000  -1.496468   0.000000
+   60  SI 1 YYX   0.472733   0.000000   0.000000   0.000000   1.835918
+   61  SI 1 YYZ   0.000000   0.000000   0.000000   1.496468   0.000000
+   62  SI 1 ZZX  -1.890930   0.000000   0.000000   0.000000   0.000000
+   63  SI 1 ZZY   0.000000  -1.890930   0.000000   0.000000   0.000000
+   64  SI 1 XYZ   0.000000   0.000000  -1.727973   0.000000   0.000000
+   65  SI 1 XXX  -0.404783   0.000000   0.000000   0.000000   0.523967
+   66  SI 1 YYY   0.000000  -0.404783   0.000000   0.000000   0.000000
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  SI 1 XXY   0.000000  -0.181024   0.000000   0.000000   0.000000
+   69  SI 1 XXZ   0.000000   0.000000   0.000000   0.573021   0.000000
+   70  SI 1 YYX  -0.181024   0.000000   0.000000   0.000000  -0.702976
+   71  SI 1 YYZ   0.000000   0.000000   0.000000  -0.573021   0.000000
+   72  SI 1 ZZX   0.724097   0.000000   0.000000   0.000000   0.000000
+   73  SI 1 ZZY   0.000000   0.724097   0.000000   0.000000   0.000000
+   74  SI 1 XYZ   0.000000   0.000000   0.661668   0.000000   0.000000
+   75  SI 1XXXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   76  SI 1YYYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   77  SI 1ZZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   78  SI 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   81  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   82  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   83  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   84  SI 1XXYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   85  SI 1XXZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   86  SI 1YYZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   87  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   90  SI 1XXXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   91  SI 1YYYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   92  SI 1ZZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   93  SI 1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   94  SI 1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   96  SI 1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   98  SI 1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   99  SI 1XXYY   0.000000   0.000000   0.000000   0.000000   0.000000
+  100  SI 1XXZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  101  SI 1YYZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  102  SI 1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  103  SI 1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     61         62         63         64         65
+                    3.5115     3.9097     3.9113     3.9113     3.9162
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000   0.000180  -0.000000  -0.000000  -0.000000
+    2  SI 1  S   -0.000000   0.000124  -0.000000  -0.000000  -0.000000
+    3  SI 1  S   -0.000000  -0.000252  -0.000000  -0.000000  -0.000000
+    4  SI 1  S   -0.000000   0.000014  -0.000000  -0.000000  -0.000000
+    5  SI 1  S   -0.000000  -0.000045  -0.000000  -0.000000  -0.000000
+    6  SI 1  X   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    7  SI 1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    8  SI 1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    9  SI 1  X   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   10  SI 1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   11  SI 1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   12  SI 1  X   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   13  SI 1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   14  SI 1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   15  SI 1  X   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   16  SI 1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   17  SI 1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   18  SI 1  X   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   19  SI 1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   20  SI 1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   21  SI 1 XX   -0.000000   0.004136  -0.000000  -0.000000  -0.000000
+   22  SI 1 YY   -0.000000   0.004136  -0.000000  -0.000000  -0.000000
+   23  SI 1 ZZ   -0.000000  -0.008272  -0.000000  -0.000000  -0.000000
+   24  SI 1 XY   -0.000000   0.000000  -0.000000  -0.000000  -0.005304
+   25  SI 1 XZ   -0.000000   0.000000  -0.000000  -0.007539  -0.000000
+   26  SI 1 YZ   -0.000000   0.000000  -0.007539  -0.000000  -0.000000
+   27  SI 1 XX   -0.000000  -0.001783  -0.000000  -0.000000  -0.000000
+   28  SI 1 YY   -0.000000  -0.001783  -0.000000  -0.000000  -0.000000
+   29  SI 1 ZZ   -0.000000   0.003565  -0.000000  -0.000000  -0.000000
+   30  SI 1 XY   -0.000000   0.000000  -0.000000  -0.000000   0.002272
+   31  SI 1 XZ   -0.000000   0.000000  -0.000000   0.003244  -0.000000
+   32  SI 1 YZ   -0.000000   0.000000   0.003244  -0.000000  -0.000000
+   33  SI 1 XX   -0.000000   0.001222  -0.000000  -0.000000  -0.000000
+   34  SI 1 YY   -0.000000   0.001222  -0.000000  -0.000000  -0.000000
+   35  SI 1 ZZ   -0.000000  -0.002444  -0.000000  -0.000000  -0.000000
+   36  SI 1 XY   -0.000000   0.000000  -0.000000  -0.000000  -0.001550
+   37  SI 1 XZ   -0.000000   0.000000  -0.000000  -0.002221  -0.000000
+   38  SI 1 YZ   -0.000000   0.000000  -0.002221  -0.000000  -0.000000
+   39  SI 1 XX   -0.000000  -0.001104  -0.000000  -0.000000  -0.000000
+   40  SI 1 YY   -0.000000  -0.001104  -0.000000  -0.000000  -0.000000
+   41  SI 1 ZZ   -0.000000   0.002208  -0.000000  -0.000000  -0.000000
+   42  SI 1 XY   -0.000000   0.000000  -0.000000  -0.000000   0.001416
+   43  SI 1 XZ   -0.000000   0.000000  -0.000000   0.002012  -0.000000
+   44  SI 1 YZ   -0.000000   0.000000   0.002012  -0.000000  -0.000000
+   45  SI 1 XXX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   46  SI 1 YYY   1.367978   0.000000  -0.000000  -0.000000  -0.000000
+   47  SI 1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   48  SI 1 XXY  -1.835335   0.000000  -0.000000  -0.000000  -0.000000
+   49  SI 1 XXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   50  SI 1 YYX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   51  SI 1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   52  SI 1 ZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   53  SI 1 ZZY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   54  SI 1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   55  SI 1 XXX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   56  SI 1 YYY  -1.368412   0.000000  -0.000000  -0.000000  -0.000000
+   57  SI 1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   58  SI 1 XXY   1.835918   0.000000  -0.000000  -0.000000  -0.000000
+   59  SI 1 XXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   60  SI 1 YYX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   61  SI 1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   62  SI 1 ZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   63  SI 1 ZZY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   64  SI 1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   65  SI 1 XXX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   66  SI 1 YYY   0.523967   0.000000  -0.000000  -0.000000  -0.000000
+   67  SI 1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   68  SI 1 XXY  -0.702976   0.000000  -0.000000  -0.000000  -0.000000
+   69  SI 1 XXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   70  SI 1 YYX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   71  SI 1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   72  SI 1 ZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   73  SI 1 ZZY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   74  SI 1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   75  SI 1XXXX  -0.000000   0.447549  -0.000000  -0.000000  -0.000000
+   76  SI 1YYYY  -0.000000   0.447549  -0.000000  -0.000000  -0.000000
+   77  SI 1ZZZZ  -0.000000   1.193463  -0.000000  -0.000000  -0.000000
+   78  SI 1XXXY  -0.000000   0.000000  -0.000000  -0.000000  -0.504355
+   79  SI 1XXXZ  -0.000000   0.000000  -0.000000  -1.069860  -0.000000
+   80  SI 1YYYX  -0.000000   0.000000  -0.000000  -0.000000  -0.504355
+   81  SI 1YYYZ  -0.000000   0.000000  -1.069860  -0.000000  -0.000000
+   82  SI 1ZZZX  -0.000000   0.000000  -0.000000   1.426479  -0.000000
+   83  SI 1ZZZY  -0.000000   0.000000   1.426479  -0.000000  -0.000000
+   84  SI 1XXYY  -0.000000   0.262058  -0.000000  -0.000000  -0.000000
+   85  SI 1XXZZ  -0.000000  -1.048230  -0.000000  -0.000000  -0.000000
+   86  SI 1YYZZ  -0.000000  -1.048230  -0.000000  -0.000000  -0.000000
+   87  SI 1XXYZ  -0.000000   0.000000  -0.478456  -0.000000  -0.000000
+   88  SI 1YYXZ  -0.000000   0.000000  -0.000000  -0.478456  -0.000000
+   89  SI 1ZZXY  -0.000000   0.000000  -0.000000  -0.000000   1.353327
+   90  SI 1XXXX  -0.000000  -0.203502  -0.000000  -0.000000  -0.000000
+   91  SI 1YYYY  -0.000000  -0.203502  -0.000000  -0.000000  -0.000000
+   92  SI 1ZZZZ  -0.000000  -0.542671  -0.000000  -0.000000  -0.000000
+   93  SI 1XXXY  -0.000000   0.000000  -0.000000  -0.000000   0.229462
+   94  SI 1XXXZ  -0.000000   0.000000  -0.000000   0.486537  -0.000000
+   95  SI 1YYYX  -0.000000   0.000000  -0.000000  -0.000000   0.229462
+   96  SI 1YYYZ  -0.000000   0.000000   0.486537  -0.000000  -0.000000
+   97  SI 1ZZZX  -0.000000   0.000000  -0.000000  -0.648717  -0.000000
+   98  SI 1ZZZY  -0.000000   0.000000  -0.648717  -0.000000  -0.000000
+   99  SI 1XXYY  -0.000000  -0.119158  -0.000000  -0.000000  -0.000000
+  100  SI 1XXZZ  -0.000000   0.476633  -0.000000  -0.000000  -0.000000
+  101  SI 1YYZZ  -0.000000   0.476633  -0.000000  -0.000000  -0.000000
+  102  SI 1XXYZ  -0.000000   0.000000   0.217586  -0.000000  -0.000000
+  103  SI 1YYXZ  -0.000000   0.000000  -0.000000   0.217586  -0.000000
+  104  SI 1ZZXY  -0.000000   0.000000  -0.000000  -0.000000  -0.615712
+
+                     66         67         68         69         70
+                    3.9162     3.9244     3.9244     3.9358     3.9358
+                     A          A          A          A          A   
+    1  SI 1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    2  SI 1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    3  SI 1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    4  SI 1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    5  SI 1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    6  SI 1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    7  SI 1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    8  SI 1  Z   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    9  SI 1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   10  SI 1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   11  SI 1  Z   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   12  SI 1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   13  SI 1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   14  SI 1  Z   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   15  SI 1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   16  SI 1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   17  SI 1  Z   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   18  SI 1  X   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   19  SI 1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   20  SI 1  Z   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   21  SI 1 XX   -0.004594  -0.000000  -0.000000   0.000000  -0.000000
+   22  SI 1 YY    0.004594  -0.000000  -0.000000   0.000000  -0.000000
+   23  SI 1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   24  SI 1 XY   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   25  SI 1 XZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   26  SI 1 YZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   27  SI 1 XX    0.001967  -0.000000  -0.000000   0.000000  -0.000000
+   28  SI 1 YY   -0.001967  -0.000000  -0.000000   0.000000  -0.000000
+   29  SI 1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   30  SI 1 XY   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   31  SI 1 XZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   32  SI 1 YZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   33  SI 1 XX   -0.001342  -0.000000  -0.000000   0.000000  -0.000000
+   34  SI 1 YY    0.001342  -0.000000  -0.000000   0.000000  -0.000000
+   35  SI 1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   36  SI 1 XY   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   37  SI 1 XZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   38  SI 1 YZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   39  SI 1 XX    0.001226  -0.000000  -0.000000   0.000000  -0.000000
+   40  SI 1 YY   -0.001226  -0.000000  -0.000000   0.000000  -0.000000
+   41  SI 1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   42  SI 1 XY   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   43  SI 1 XZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   44  SI 1 YZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   45  SI 1 XXX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   46  SI 1 YYY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   47  SI 1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   48  SI 1 XXY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   49  SI 1 XXZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   50  SI 1 YYX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   51  SI 1 YYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   52  SI 1 ZZX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   53  SI 1 ZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   54  SI 1 XYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   55  SI 1 XXX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   56  SI 1 YYY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   57  SI 1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   58  SI 1 XXY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   59  SI 1 XXZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   60  SI 1 YYX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   61  SI 1 YYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   62  SI 1 ZZX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   63  SI 1 ZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   64  SI 1 XYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   65  SI 1 XXX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   66  SI 1 YYY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   67  SI 1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   68  SI 1 XXY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   69  SI 1 XXZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   70  SI 1 YYX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   71  SI 1 YYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   72  SI 1 ZZX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   73  SI 1 ZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   74  SI 1 XYZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   75  SI 1XXXX  -0.667199  -0.000000  -0.000000   0.000000  -0.882727
+   76  SI 1YYYY   0.667199  -0.000000  -0.000000   0.000000  -0.882727
+   77  SI 1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   78  SI 1XXXY  -0.000000  -0.000000  -0.000000   1.334557  -0.000000
+   79  SI 1XXXZ  -0.000000  -0.000000  -0.943614   0.000000  -0.000000
+   80  SI 1YYYX  -0.000000  -0.000000  -0.000000  -1.334557  -0.000000
+   81  SI 1YYYZ  -0.000000  -0.943614  -0.000000   0.000000  -0.000000
+   82  SI 1ZZZX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   83  SI 1ZZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   84  SI 1XXYY  -0.000000  -0.000000  -0.000000   0.000000   1.550616
+   85  SI 1XXZZ   1.172015  -0.000000  -0.000000   0.000000  -0.000000
+   86  SI 1YYZZ  -1.172015  -0.000000  -0.000000   0.000000  -0.000000
+   87  SI 1XXYZ  -0.000000   1.265991  -0.000000   0.000000  -0.000000
+   88  SI 1YYXZ  -0.000000  -0.000000   1.265991   0.000000  -0.000000
+   89  SI 1ZZXY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   90  SI 1XXXX   0.303550  -0.000000  -0.000000   0.000000   0.402293
+   91  SI 1YYYY  -0.303550  -0.000000  -0.000000   0.000000   0.402293
+   92  SI 1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   93  SI 1XXXY  -0.000000  -0.000000  -0.000000  -0.608210  -0.000000
+   94  SI 1XXXZ  -0.000000  -0.000000   0.429614   0.000000  -0.000000
+   95  SI 1YYYX  -0.000000  -0.000000  -0.000000   0.608210  -0.000000
+   96  SI 1YYYZ  -0.000000   0.429614  -0.000000   0.000000  -0.000000
+   97  SI 1ZZZX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   98  SI 1ZZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   99  SI 1XXYY  -0.000000  -0.000000  -0.000000   0.000000  -0.706676
+  100  SI 1XXZZ  -0.533223  -0.000000  -0.000000   0.000000  -0.000000
+  101  SI 1YYZZ   0.533223  -0.000000  -0.000000   0.000000  -0.000000
+  102  SI 1XXYZ  -0.000000  -0.576388  -0.000000   0.000000  -0.000000
+  103  SI 1YYXZ  -0.000000  -0.000000  -0.576388   0.000000  -0.000000
+  104  SI 1ZZXY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+
+                     71         72         73         74         75
+                    5.3932     5.3977     5.3977     5.4111     5.4111
+                     A          A          A          A          A   
+    1  SI 1  S    0.027131   0.000000   0.000000   0.000000   0.000000
+    2  SI 1  S    0.013342   0.000000   0.000000   0.000000   0.000000
+    3  SI 1  S   -0.031024   0.000000   0.000000   0.000000   0.000000
+    4  SI 1  S   -0.001799   0.000000   0.000000   0.000000   0.000000
+    5  SI 1  S   -0.007156   0.000000   0.000000   0.000000   0.000000
+    6  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+    7  SI 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+    8  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+    9  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   10  SI 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   11  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   12  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   13  SI 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   14  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   15  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   16  SI 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   17  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   18  SI 1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   19  SI 1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   20  SI 1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   21  SI 1 XX    0.812652   0.000000   0.000000   0.000000  -1.407647
+   22  SI 1 YY    0.812652   0.000000   0.000000   0.000000   1.407647
+   23  SI 1 ZZ   -1.625304   0.000000   0.000000   0.000000   0.000000
+   24  SI 1 XY    0.000000   0.000000   0.000000  -1.625411   0.000000
+   25  SI 1 XZ    0.000000   0.000000  -1.625335   0.000000   0.000000
+   26  SI 1 YZ    0.000000  -1.625335   0.000000   0.000000   0.000000
+   27  SI 1 XX   -0.933248   0.000000   0.000000   0.000000   1.617724
+   28  SI 1 YY   -0.933248   0.000000   0.000000   0.000000  -1.617724
+   29  SI 1 ZZ    1.866496   0.000000   0.000000   0.000000   0.000000
+   30  SI 1 XY    0.000000   0.000000   0.000000   1.867987   0.000000
+   31  SI 1 XZ    0.000000   0.000000   1.866876   0.000000   0.000000
+   32  SI 1 YZ    0.000000   1.866876   0.000000   0.000000   0.000000
+   33  SI 1 XX    0.529218   0.000000   0.000000   0.000000  -0.919077
+   34  SI 1 YY    0.529218   0.000000   0.000000   0.000000   0.919077
+   35  SI 1 ZZ   -1.058436   0.000000   0.000000   0.000000   0.000000
+   36  SI 1 XY    0.000000   0.000000   0.000000  -1.061258   0.000000
+   37  SI 1 XZ    0.000000   0.000000  -1.059149   0.000000   0.000000
+   38  SI 1 YZ    0.000000  -1.059149   0.000000   0.000000   0.000000
+   39  SI 1 XX   -0.175270   0.000000   0.000000   0.000000   0.304045
+   40  SI 1 YY   -0.175270   0.000000   0.000000   0.000000  -0.304045
+   41  SI 1 ZZ    0.350539   0.000000   0.000000   0.000000   0.000000
+   42  SI 1 XY    0.000000   0.000000   0.000000   0.351081   0.000000
+   43  SI 1 XZ    0.000000   0.000000   0.350668   0.000000   0.000000
+   44  SI 1 YZ    0.000000   0.350668   0.000000   0.000000   0.000000
+   45  SI 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   46  SI 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   47  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   48  SI 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   49  SI 1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   50  SI 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   51  SI 1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   52  SI 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   53  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   54  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   55  SI 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   56  SI 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   57  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   58  SI 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   59  SI 1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   60  SI 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   61  SI 1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   62  SI 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   63  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   64  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   65  SI 1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   66  SI 1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   67  SI 1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  SI 1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   69  SI 1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   70  SI 1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   71  SI 1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   72  SI 1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   73  SI 1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   74  SI 1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   75  SI 1XXXX  -0.002212   0.000000   0.000000   0.000000   0.002114
+   76  SI 1YYYY  -0.002212   0.000000   0.000000   0.000000  -0.002114
+   77  SI 1ZZZZ  -0.005900   0.000000   0.000000   0.000000   0.000000
+   78  SI 1XXXY   0.000000   0.000000   0.000000   0.001598   0.000000
+   79  SI 1XXXZ   0.000000   0.000000   0.004820   0.000000   0.000000
+   80  SI 1YYYX   0.000000   0.000000   0.000000   0.001598   0.000000
+   81  SI 1YYYZ   0.000000   0.004820   0.000000   0.000000   0.000000
+   82  SI 1ZZZX   0.000000   0.000000  -0.006426   0.000000   0.000000
+   83  SI 1ZZZY   0.000000  -0.006426   0.000000   0.000000   0.000000
+   84  SI 1XXYY  -0.001295   0.000000   0.000000   0.000000   0.000000
+   85  SI 1XXZZ   0.005182   0.000000   0.000000   0.000000  -0.003714
+   86  SI 1YYZZ   0.005182   0.000000   0.000000   0.000000   0.003714
+   87  SI 1XXYZ   0.000000   0.002155   0.000000   0.000000   0.000000
+   88  SI 1YYXZ   0.000000   0.000000   0.002155   0.000000   0.000000
+   89  SI 1ZZXY   0.000000   0.000000   0.000000  -0.004288   0.000000
+   90  SI 1XXXX   0.001284   0.000000   0.000000   0.000000  -0.001229
+   91  SI 1YYYY   0.001284   0.000000   0.000000   0.000000   0.001229
+   92  SI 1ZZZZ   0.003425   0.000000   0.000000   0.000000   0.000000
+   93  SI 1XXXY   0.000000   0.000000   0.000000  -0.000929   0.000000
+   94  SI 1XXXZ   0.000000   0.000000  -0.002799   0.000000   0.000000
+   95  SI 1YYYX   0.000000   0.000000   0.000000  -0.000929   0.000000
+   96  SI 1YYYZ   0.000000  -0.002799   0.000000   0.000000   0.000000
+   97  SI 1ZZZX   0.000000   0.000000   0.003732   0.000000   0.000000
+   98  SI 1ZZZY   0.000000   0.003732   0.000000   0.000000   0.000000
+   99  SI 1XXYY   0.000752   0.000000   0.000000   0.000000   0.000000
+  100  SI 1XXZZ  -0.003008   0.000000   0.000000   0.000000   0.002159
+  101  SI 1YYZZ  -0.003008   0.000000   0.000000   0.000000  -0.002159
+  102  SI 1XXYZ   0.000000  -0.001252   0.000000   0.000000   0.000000
+  103  SI 1YYXZ   0.000000   0.000000  -0.001252   0.000000   0.000000
+  104  SI 1ZZXY   0.000000   0.000000   0.000000   0.002494   0.000000
+
+                     76         77         78         79
+                    6.7257     6.7398     6.7398     9.2233
+                     A          A          A          A   
+    1  SI 1  S   -0.000000   0.000000   0.000000  11.476936
+    2  SI 1  S   -0.000000   0.000000   0.000000   4.102451
+    3  SI 1  S   -0.000000   0.000000   0.000000  -9.497278
+    4  SI 1  S   -0.000000   0.000000   0.000000  -4.142789
+    5  SI 1  S   -0.000000   0.000000   0.000000  -1.659719
+    6  SI 1  X   -0.000000   0.000000  48.110653  -0.000000
+    7  SI 1  Y   -0.000000  48.110653   0.000000  -0.000000
+    8  SI 1  Z   48.082060   0.000000   0.000000  -0.000000
+    9  SI 1  X   -0.000000   0.000000   0.091159  -0.000000
+   10  SI 1  Y   -0.000000   0.091159   0.000000  -0.000000
+   11  SI 1  Z    0.087262   0.000000   0.000000  -0.000000
+   12  SI 1  X   -0.000000   0.000000 -20.064241  -0.000000
+   13  SI 1  Y   -0.000000 -20.064241   0.000000  -0.000000
+   14  SI 1  Z  -20.048351   0.000000   0.000000  -0.000000
+   15  SI 1  X   -0.000000   0.000000 -22.280280  -0.000000
+   16  SI 1  Y   -0.000000 -22.280280   0.000000  -0.000000
+   17  SI 1  Z  -22.268983   0.000000   0.000000  -0.000000
+   18  SI 1  X   -0.000000   0.000000 -11.229163  -0.000000
+   19  SI 1  Y   -0.000000 -11.229163   0.000000  -0.000000
+   20  SI 1  Z  -11.222140   0.000000   0.000000  -0.000000
+   21  SI 1 XX   -0.000000   0.000000   0.000000  -0.001627
+   22  SI 1 YY   -0.000000   0.000000   0.000000  -0.001627
+   23  SI 1 ZZ   -0.000000   0.000000   0.000000   0.003255
+   24  SI 1 XY   -0.000000   0.000000   0.000000  -0.000000
+   25  SI 1 XZ   -0.000000   0.000000   0.000000  -0.000000
+   26  SI 1 YZ   -0.000000   0.000000   0.000000  -0.000000
+   27  SI 1 XX   -0.000000   0.000000   0.000000   0.002256
+   28  SI 1 YY   -0.000000   0.000000   0.000000   0.002256
+   29  SI 1 ZZ   -0.000000   0.000000   0.000000  -0.004511
+   30  SI 1 XY   -0.000000   0.000000   0.000000  -0.000000
+   31  SI 1 XZ   -0.000000   0.000000   0.000000  -0.000000
+   32  SI 1 YZ   -0.000000   0.000000   0.000000  -0.000000
+   33  SI 1 XX   -0.000000   0.000000   0.000000  -0.001721
+   34  SI 1 YY   -0.000000   0.000000   0.000000  -0.001721
+   35  SI 1 ZZ   -0.000000   0.000000   0.000000   0.003442
+   36  SI 1 XY   -0.000000   0.000000   0.000000  -0.000000
+   37  SI 1 XZ   -0.000000   0.000000   0.000000  -0.000000
+   38  SI 1 YZ   -0.000000   0.000000   0.000000  -0.000000
+   39  SI 1 XX   -0.000000   0.000000   0.000000   0.000642
+   40  SI 1 YY   -0.000000   0.000000   0.000000   0.000642
+   41  SI 1 ZZ   -0.000000   0.000000   0.000000  -0.001284
+   42  SI 1 XY   -0.000000   0.000000   0.000000  -0.000000
+   43  SI 1 XZ   -0.000000   0.000000   0.000000  -0.000000
+   44  SI 1 YZ   -0.000000   0.000000   0.000000  -0.000000
+   45  SI 1 XXX  -0.000000   0.000000   0.001663  -0.000000
+   46  SI 1 YYY  -0.000000   0.001663   0.000000  -0.000000
+   47  SI 1 ZZZ  -0.003327   0.000000   0.000000  -0.000000
+   48  SI 1 XXY  -0.000000   0.000744   0.000000  -0.000000
+   49  SI 1 XXZ   0.002232   0.000000   0.000000  -0.000000
+   50  SI 1 YYX  -0.000000   0.000000   0.000744  -0.000000
+   51  SI 1 YYZ   0.002232   0.000000   0.000000  -0.000000
+   52  SI 1 ZZX  -0.000000   0.000000  -0.002974  -0.000000
+   53  SI 1 ZZY  -0.000000  -0.002974   0.000000  -0.000000
+   54  SI 1 XYZ  -0.000000   0.000000   0.000000  -0.000000
+   55  SI 1 XXX  -0.000000   0.000000  -0.002039  -0.000000
+   56  SI 1 YYY  -0.000000  -0.002039   0.000000  -0.000000
+   57  SI 1 ZZZ   0.004078   0.000000   0.000000  -0.000000
+   58  SI 1 XXY  -0.000000  -0.000912   0.000000  -0.000000
+   59  SI 1 XXZ  -0.002736   0.000000   0.000000  -0.000000
+   60  SI 1 YYX  -0.000000   0.000000  -0.000912  -0.000000
+   61  SI 1 YYZ  -0.002736   0.000000   0.000000  -0.000000
+   62  SI 1 ZZX  -0.000000   0.000000   0.003648  -0.000000
+   63  SI 1 ZZY  -0.000000   0.003648   0.000000  -0.000000
+   64  SI 1 XYZ  -0.000000   0.000000   0.000000  -0.000000
+   65  SI 1 XXX  -0.000000   0.000000   0.000856  -0.000000
+   66  SI 1 YYY  -0.000000   0.000856   0.000000  -0.000000
+   67  SI 1 ZZZ  -0.001710   0.000000   0.000000  -0.000000
+   68  SI 1 XXY  -0.000000   0.000383   0.000000  -0.000000
+   69  SI 1 XXZ   0.001147   0.000000   0.000000  -0.000000
+   70  SI 1 YYX  -0.000000   0.000000   0.000383  -0.000000
+   71  SI 1 YYZ   0.001147   0.000000   0.000000  -0.000000
+   72  SI 1 ZZX  -0.000000   0.000000  -0.001531  -0.000000
+   73  SI 1 ZZY  -0.000000  -0.001531   0.000000  -0.000000
+   74  SI 1 XYZ  -0.000000   0.000000   0.000000  -0.000000
+   75  SI 1XXXX  -0.000000   0.000000   0.000000   0.000001
+   76  SI 1YYYY  -0.000000   0.000000   0.000000   0.000001
+   77  SI 1ZZZZ  -0.000000   0.000000   0.000000   0.000004
+   78  SI 1XXXY  -0.000000   0.000000   0.000000  -0.000000
+   79  SI 1XXXZ  -0.000000   0.000000   0.000000  -0.000000
+   80  SI 1YYYX  -0.000000   0.000000   0.000000  -0.000000
+   81  SI 1YYYZ  -0.000000   0.000000   0.000000  -0.000000
+   82  SI 1ZZZX  -0.000000   0.000000   0.000000  -0.000000
+   83  SI 1ZZZY  -0.000000   0.000000   0.000000  -0.000000
+   84  SI 1XXYY  -0.000000   0.000000   0.000000   0.000001
+   85  SI 1XXZZ  -0.000000   0.000000   0.000000  -0.000003
+   86  SI 1YYZZ  -0.000000   0.000000   0.000000  -0.000003
+   87  SI 1XXYZ  -0.000000   0.000000   0.000000  -0.000000
+   88  SI 1YYXZ  -0.000000   0.000000   0.000000  -0.000000
+   89  SI 1ZZXY  -0.000000   0.000000   0.000000  -0.000000
+   90  SI 1XXXX  -0.000000   0.000000   0.000000  -0.000001
+   91  SI 1YYYY  -0.000000   0.000000   0.000000  -0.000001
+   92  SI 1ZZZZ  -0.000000   0.000000   0.000000  -0.000003
+   93  SI 1XXXY  -0.000000   0.000000   0.000000  -0.000000
+   94  SI 1XXXZ  -0.000000   0.000000   0.000000  -0.000000
+   95  SI 1YYYX  -0.000000   0.000000   0.000000  -0.000000
+   96  SI 1YYYZ  -0.000000   0.000000   0.000000  -0.000000
+   97  SI 1ZZZX  -0.000000   0.000000   0.000000  -0.000000
+   98  SI 1ZZZY  -0.000000   0.000000   0.000000  -0.000000
+   99  SI 1XXYY  -0.000000   0.000000   0.000000  -0.000001
+  100  SI 1XXZZ  -0.000000   0.000000   0.000000   0.000003
+  101  SI 1YYZZ  -0.000000   0.000000   0.000000   0.000003
+  102  SI 1XXYZ  -0.000000   0.000000   0.000000  -0.000000
+  103  SI 1YYXZ  -0.000000   0.000000   0.000000  -0.000000
+  104  SI 1ZZXY  -0.000000   0.000000   0.000000  -0.000000
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     0.23 TOTAL CPU TIME =        0.7 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  90.24%
+
+     ----------------------------------------------------------------
+     PROPERTY VALUES FOR THE ROHF  SELF-CONSISTENT FIELD WAVEFUNCTION
+     ----------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =      -5.6576927712
+                TWO ELECTRON ENERGY =       1.9920640403
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =      -3.6656287308
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =       1.9920640403
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =      -6.9770562848
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =      -4.9849922445
+               TOTAL KINETIC ENERGY =       1.3193635136
+                 VIRIAL RATIO (V/T) =       3.7783311369
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3
+
+                  2.000000   1.000000   1.000000
+
+    1             2.000000   1.000000   1.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 SI            1.00    2.00    0.00   0.00   0.00   0.00   0.00    3.00
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 SI            1.00    0.00    0.00   0.00   0.00   0.00   0.00    1.00
+
+     ATOMIC SPIN POPULATION (ALPHA MINUS BETA)
+       ATOM         MULL.POP.                    LOW.POP.
+    1 SI            2.000000                     2.000000
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  SI 1  S      1.99956     0.19431
+              2  SI 1  S     -0.00033     0.04586
+              3  SI 1  S      0.00130     0.13088
+              4  SI 1  S     -0.00099     0.16252
+              5  SI 1  S      0.00034     0.12191
+              6  SI 1  X      1.00047     0.14295
+              7  SI 1  Y      1.00047     0.14295
+              8  SI 1  Z      0.00000     0.00000
+              9  SI 1  X      0.00003     0.03757
+             10  SI 1  Y      0.00003     0.03757
+             11  SI 1  Z      0.00000     0.00000
+             12  SI 1  X     -0.00033     0.09392
+             13  SI 1  Y     -0.00033     0.09392
+             14  SI 1  Z      0.00000     0.00000
+             15  SI 1  X     -0.00003     0.13092
+             16  SI 1  Y     -0.00003     0.13092
+             17  SI 1  Z      0.00000     0.00000
+             18  SI 1  X     -0.00013     0.11282
+             19  SI 1  Y     -0.00013     0.11282
+             20  SI 1  Z      0.00000     0.00000
+             21  SI 1 XX      0.00000     0.01492
+             22  SI 1 YY      0.00000     0.01492
+             23  SI 1 ZZ      0.00000     0.01469
+             24  SI 1 XY      0.00000     0.00000
+             25  SI 1 XZ      0.00000     0.00000
+             26  SI 1 YZ      0.00000     0.00000
+             27  SI 1 XX      0.00000     0.08020
+             28  SI 1 YY      0.00000     0.08020
+             29  SI 1 ZZ      0.00000     0.07963
+             30  SI 1 XY      0.00000     0.00000
+             31  SI 1 XZ      0.00000     0.00000
+             32  SI 1 YZ      0.00000     0.00000
+             33  SI 1 XX     -0.00001     0.09588
+             34  SI 1 YY      0.00000     0.09588
+             35  SI 1 ZZ      0.00000     0.09427
+             36  SI 1 XY      0.00000     0.00000
+             37  SI 1 XZ      0.00000     0.00000
+             38  SI 1 YZ      0.00000     0.00000
+             39  SI 1 XX      0.00013     0.04981
+             40  SI 1 YY      0.00000     0.04981
+             41  SI 1 ZZ      0.00000     0.04488
+             42  SI 1 XY      0.00000     0.00000
+             43  SI 1 XZ      0.00000     0.00000
+             44  SI 1 YZ      0.00000     0.00000
+             45  SI 1 XXX     0.00000     0.06032
+             46  SI 1 YYY     0.00000     0.06032
+             47  SI 1 ZZZ     0.00000     0.00000
+             48  SI 1 XXY     0.00000     0.02553
+             49  SI 1 XXZ     0.00000     0.00000
+             50  SI 1 YYX     0.00000     0.02553
+             51  SI 1 YYZ     0.00000     0.00000
+             52  SI 1 ZZX     0.00000     0.02555
+             53  SI 1 ZZY     0.00000     0.02555
+             54  SI 1 XYZ     0.00000     0.00000
+             55  SI 1 XXX     0.00000     0.10000
+             56  SI 1 YYY     0.00000     0.10000
+             57  SI 1 ZZZ     0.00000     0.00000
+             58  SI 1 XXY     0.00000     0.04183
+             59  SI 1 XXZ     0.00000     0.00000
+             60  SI 1 YYX     0.00000     0.04183
+             61  SI 1 YYZ     0.00000     0.00000
+             62  SI 1 ZZX     0.00000     0.04187
+             63  SI 1 ZZY     0.00000     0.04187
+             64  SI 1 XYZ     0.00000     0.00000
+             65  SI 1 XXX     0.00000     0.10070
+             66  SI 1 YYY     0.00000     0.10070
+             67  SI 1 ZZZ    -0.00000     0.00000
+             68  SI 1 XXY     0.00000     0.04301
+             69  SI 1 XXZ    -0.00000     0.00000
+             70  SI 1 YYX     0.00000     0.04301
+             71  SI 1 YYZ     0.00000     0.00000
+             72  SI 1 ZZX     0.00000     0.04301
+             73  SI 1 ZZY     0.00000     0.04301
+             74  SI 1 XYZ     0.00000     0.00000
+             75  SI 1XXXX     0.00000     0.05913
+             76  SI 1YYYY     0.00000     0.05913
+             77  SI 1ZZZZ     0.00000     0.05871
+             78  SI 1XXXY     0.00000     0.00000
+             79  SI 1XXXZ    -0.00000     0.00000
+             80  SI 1YYYX     0.00000     0.00000
+             81  SI 1YYYZ     0.00000     0.00000
+             82  SI 1ZZZX     0.00000     0.00000
+             83  SI 1ZZZY     0.00000     0.00000
+             84  SI 1XXYY     0.00000     0.06204
+             85  SI 1XXZZ     0.00000     0.06183
+             86  SI 1YYZZ     0.00000     0.06183
+             87  SI 1XXYZ     0.00000     0.00000
+             88  SI 1YYXZ     0.00000     0.00000
+             89  SI 1ZZXY     0.00000     0.00000
+             90  SI 1XXXX     0.00000     0.04440
+             91  SI 1YYYY     0.00000     0.04440
+             92  SI 1ZZZZ     0.00000     0.04186
+             93  SI 1XXXY     0.00000     0.00000
+             94  SI 1XXXZ     0.00000     0.00000
+             95  SI 1YYYX     0.00000     0.00000
+             96  SI 1YYYZ     0.00000     0.00000
+             97  SI 1ZZZX     0.00000     0.00000
+             98  SI 1ZZZY     0.00000     0.00000
+             99  SI 1XXYY     0.00000     0.04623
+            100  SI 1XXZZ     0.00000     0.04493
+            101  SI 1YYZZ     0.00000     0.04493
+            102  SI 1XXYZ     0.00000     0.00000
+            103  SI 1YYXZ     0.00000     0.00000
+            104  SI 1ZZXY     0.00000     0.00000
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    4.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 SI            4.000000    0.000000         4.000000   -0.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 SI            2.00    2.00    0.00   0.00   0.00   0.00   0.00    4.00
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 SI                2.000       0.000       2.000
+
+          -----------------------------------------
+          ATOMIC SPIN DENSITY AT THE NUCLEUS (A.U.)
+          -----------------------------------------
+                            SPIN DENS    ALPHA DENS     BETA DENS
+    1  SI           4.0     0.0000000       0.00045       0.00045
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000       -0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        0.8 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.8 SECONDS, CPU UTILIZATION IS  89.29%
+               809342  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Jun 25 13:16:13 2018
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 0.712 + 0.44 = 0.756
+ ----------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node gwang18-Lenovo-Y50-70 were:
+-rw-rw-r-- 1 gwang18 gwang18   135704 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.dat
+-rw------- 1 gwang18 gwang18     1632 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.F05
+-rw-rw-r-- 1 gwang18 gwang18 23042048 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.F08
+-rw-rw-r-- 1 gwang18 gwang18  8507200 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.F10
+-rw------- 1 gwang18 gwang18     1632 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.inp
+-rw-rw-r-- 1 gwang18 gwang18   157912 Jun 25 13:16 /home/gwang18/research/qwalk/ecpcorrelation/si/hf/si.out
+ls: No match.
+ls: No match.
+ls: No match.
+Mon Jun 25 13:16:17 EDT 2018
+0.0u 0.0s 0:03.92 0.5% 0+0k 0+16io 0pf+0w

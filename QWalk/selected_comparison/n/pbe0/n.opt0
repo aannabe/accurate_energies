@@ -1,0 +1,24 @@
+include n.sys
+trialfunc { slater-jastrow
+  wf1 { include n.slater }
+  wf2 { include n.jast3 }
+}
+
+method {
+    vmc
+    storeconfig n.vmc.config.1
+    nconfig 100
+    nsteps 50
+    nblock 100
+    timestep 2.5
+    label VMC_0
+}
+
+
+
+method { OPTIMIZE
+    readconfig n.vmc.config.1
+    wfoutput n.opt1.wfout
+    nconfig 100
+}
+

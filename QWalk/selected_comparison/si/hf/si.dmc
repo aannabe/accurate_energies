@@ -1,0 +1,68 @@
+include si.sys
+trialfunc { include fixed_basis.wf13 }
+
+method {
+    dmc 
+    readconfig si.vmc.config
+    storeconfig si.dmc.config.0
+    timestep 0.1
+    nsteps 10
+    nblock 500
+    tmoves
+    label equil_0.1
+    }
+    
+method {
+    dmc 
+    readconfig si.dmc.config.0
+    storeconfig si.dmc.config.1
+    timestep 0.05
+    nstep 20
+    nblock 500
+    label equil_0.05
+    tmoves
+    }
+    
+method { 
+    dmc
+    readconfig si.dmc.config.1
+    storeconfig si.dmc.config.2
+    timestep 0.02
+    nstep 50
+    nblock 500
+    label dmc_0.02
+    tmoves
+    }
+    
+method { 
+    dmc
+    readconfig si.dmc.config.2
+    storeconfig si.dmc.config.3
+    timestep 0.01
+    nstep 100
+    nblock 500
+    label dmc_0.01
+    tmoves
+    }
+    
+method { 
+    dmc
+    readconfig si.dmc.config.3
+    storeconfig si.dmc.config.4
+    timestep 0.0075
+    nstep 134
+    nblock 500
+    label dmc_0.0075
+    tmoves
+    }
+    
+method { 
+    dmc
+    readconfig si.dmc.config.4
+    storeconfig si.dmc.config.5
+    timestep 0.005
+    nstep 200
+    nblock 500
+    label dmc_0.005
+    tmoves
+    }

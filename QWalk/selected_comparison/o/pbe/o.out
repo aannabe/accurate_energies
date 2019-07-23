@@ -1,0 +1,2699 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host gwang18-Lenovo-Y50-70
+under operating system Linux at Sun Jun 24 23:13:40 EDT 2018
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/sda7      411134224 55938404 334288352  15% /
+GAMESS temporary binary files will be written to /home/gwang18/research/qwalk/ecpcorrelation/o/pbe
+GAMESS supplementary output files will be written to /home/gwang18/research/qwalk/ecpcorrelation/o/pbe
+Copying input file o.inp to your run's scratch directory...
+cp o.inp /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.F05
+unset echo
+/home/gwang18/gamess/ddikick.x /home/gwang18/gamess/gamess.00.x o -ddi 1 1 gwang18-Lenovo-Y50-70 -scr /home/gwang18/research/qwalk/ecpcorrelation/o/pbe
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/gwang18/gamess/gamess.00.x o 
+
+          ******************************************************
+          *         GAMESS VERSION =  5 DEC 2014 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+
+ EXECUTION OF GAMESS BEGUN Sun Jun 24 23:13:40 2018
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD> $CONTRL                                                                        
+ INPUT CARD>     SCFTYP=ROHF                                                                
+ INPUT CARD>     MULT=3                                                                     
+ INPUT CARD>     DFTTYP=PBE                                                                 
+ INPUT CARD>     MAXIT=200                                                                  
+ INPUT CARD>     ICHARG=0                                                                   
+ INPUT CARD>     RUNTYP=ENERGY                                                              
+ INPUT CARD>     PP=READ                                                                    
+ INPUT CARD>     ISPHER=1                                                                   
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $SCF DAMP=.T. SOSCF=.F. SHIFT=.T. RSTRCT=.T. DIIS=.T.  $end                    
+ INPUT CARD>                                                                                
+ INPUT CARD> $DFT                                                                           
+ INPUT CARD>     METHOD=GRID                                                                
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $SYSTEM                                                                        
+ INPUT CARD>     KDIAG=3                                                                    
+ INPUT CARD>     mwords=125                                                                 
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $GUESS                                                                         
+ INPUT CARD>    GUESS=HUCKEL                                                                
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>C1                                                                              
+ INPUT CARD>O 8 0. 0. 0.                                                                    
+ INPUT CARD>s 9                                                                             
+ INPUT CARD>1 54.775216   -0.0012444                                                        
+ INPUT CARD>2 25.616801   0.0107330                                                         
+ INPUT CARD>3 11.980245   0.0018889                                                         
+ INPUT CARD>4 6.992317    -0.1742537                                                        
+ INPUT CARD>5 2.620277    0.0017622                                                         
+ INPUT CARD>6 1.225429    0.3161846                                                         
+ INPUT CARD>7 0.577797    0.4512023                                                         
+ INPUT CARD>8 0.268022    0.3121534                                                         
+ INPUT CARD>9 0.125346    0.0511167                                                         
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 1.351771    1.000000                                                          
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.843157    1.000000                                                          
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.224380    1.000000                                                          
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.089752    1.000000                                                          
+ INPUT CARD>p 9                                                                             
+ INPUT CARD>1 22.217266   0.0104866                                                         
+  125000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+                                                                                 
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ O           8.0     0.0000000000        0.0000000000        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 O     
+
+   1 O       0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ O         
+
+      1   S       1            54.7752160   -0.001244399967
+      1   S       2            25.6168010    0.010732999712
+      1   S       3            11.9802450    0.001888899949
+      1   S       4             6.9923170   -0.174253695322
+      1   S       5             2.6202770    0.001762199953
+      1   S       6             1.2254290    0.316184591512
+      1   S       7             0.5777970    0.451202287887
+      1   S       8             0.2680220    0.312153391620
+      1   S       9             0.1253460    0.051116698628
+
+      2   S      10             1.3517710    1.000000000000
+
+      3   S      11             0.8431570    1.000000000000
+
+      4   S      12             0.2243800    1.000000000000
+
+      5   S      13             0.0897520    1.000000000000
+
+      6   P      14            22.2172660    0.010486599899
+      6   P      15            10.7475500    0.036643499646
+      6   P      16             5.3157850    0.080367399224
+      6   P      17             2.6607610    0.162700998430
+      6   P      18             1.3318160    0.237779097705
+      6   P      19             0.6786260    0.281142197287
+      6   P      20             0.3336730    0.264318897449
+      6   P      21             0.1670170    0.146601398585
+      6   P      22             0.0835980    0.045814499558
+
+      7   P      23             1.1067370    1.000000000000
+
+      8   P      24             0.4523640    1.000000000000
+
+      9   P      25             0.1485620    1.000000000000
+
+     10   P      26             0.0594250    1.000000000000
+
+     11   P      27             0.0522320    1.000000000000
+
+     12   D      28             4.0088670    1.000000000000
+
+     13   D      29             1.3443310    1.000000000000
+
+     14   D      30             0.4557110    1.000000000000
+
+     15   D      31             0.1822840    1.000000000000
+
+     16   F      32             2.7631150    1.000000000000
+
+     17   F      33             0.8762890    1.000000000000
+
+     18   F      34             0.3505160    1.000000000000
+
+     19   G      35             1.7590810    1.000000000000
+
+     20   G      36             0.7036320    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   20
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =  107
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =    8
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    3
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    5
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    3
+ TOTAL NUMBER OF ATOMS                        =    1
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+ NOTE THIS RUN IS USING CORE POTENTIALS, AND THE NUMBER OF ELECTRONS,
+ OCCUPIED ORBITALS, AND NUCLEAR REPULSION ENERGY WILL BE ADJUSTED BELOW
+ AFTER REMOVAL OF THE CORE CHARGES.
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     LEBEDEV GRID-BASED DFT OPTIONS
+     ------------------------------
+     DFTTYP=PBE     
+     NRAD  =      96     NLEB  =     302
+     NRAD0 =      24     NLEB0 =     110
+     SWOFF =    5.00E-03 (PURE SCF -> DFT)
+     SWITCH=    3.00E-04 (COARSE -> TIGHT GRID)
+     THRESH=    0.00E+00 GTHRE=    1.00E+00
+
+ GRIMME'S EMPIRICAL DISPERSION CORRECTION= F
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=ROHF         RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=PBE          TDDFT =NONE    
+ MULT  =       3     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =READ         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =     200     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=   125000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=   125000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    3  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          --------------
+          ECP POTENTIALS
+          --------------
+
+ PARAMETERS FOR "O-QMC   " ON ATOM    1 WITH ZCORE   2 AND LMAX  1 ARE
+ FOR L= 1      COEFF    N           ZETA
+    1        6.00000    1       12.30997
+    2       73.85984    3       14.76962
+    3      -47.87600    2       13.71419
+ FOR L= 0      COEFF    N           ZETA
+    1       85.86406    2       13.65512
+
+ THE ECP RUN REMOVES    2 CORE ELECTRONS, AND THE SAME NUMBER OF PROTONS.
+ NUMBER OF ELECTRONS KEPT IN THE CALCULATION IS =    6
+ NUMBER OF OCCUPIED ORBITALS (ALPHA) KEPT IS    =    4
+ NUMBER OF OCCUPIED ORBITALS (BETA ) KEPT IS    =    2
+ THE ADJUSTED NUCLEAR REPULSION ENERGY=        0.0000000000
+          ECP ANGULAR INTS.........     0.02 SECONDS
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          DAMPING IN EFFECT
+          LEVEL SHIFTING IN EFFECT
+          RESTRICTION OF ORBITAL MIXING IN EFFECT
+          DIIS IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1   107     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS   82
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   82
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO ORDINARY INTEGRALS=      0.00
+ TIME TO DO      ECP INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES     82927 WORDS.
+
+ STATISTICS FOR GENERATION OF SYMMETRY ORBITAL -Q- MATRIX
+ NUMBER OF CARTESIAN ATOMIC ORBITALS=        107
+ NUMBER OF SPHERICAL CONTAMINANTS DROPPED=    25
+ NUMBER OF LINEARLY DEPENDENT MOS DROPPED=     0
+ TOTAL NUMBER OF MOS IN VARIATION SPACE=      82
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.  ALPHA SET(S).
+     4 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A       13=A       14=A   
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BETA SET(S).
+     2 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.1 SECONDS, CPU UTILIZATION IS  60.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES  139935 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  121
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  220
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  496
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 1057
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 2074
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 3781
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 6475
+ II,JST,KST,LST = 13  1  1  1 NREC =         1 INTLOC =14020
+ II,JST,KST,LST = 14  1  1  1 NREC =         2 INTLOC =13402
+ II,JST,KST,LST = 15  1  1  1 NREC =         4 INTLOC = 7141
+ II,JST,KST,LST = 16  1  1  1 NREC =         6 INTLOC =13765
+ II,JST,KST,LST = 17  1  1  1 NREC =        13 INTLOC = 3596
+ II,JST,KST,LST = 18  1  1  1 NREC =        23 INTLOC =12734
+ II,JST,KST,LST = 19  1  1  1 NREC =        40 INTLOC = 6511
+ II,JST,KST,LST = 20  1  1  1 NREC =        79 INTLOC =12670
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =             2144889
+        143 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.45 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.96%
+
+          ---------------------------
+               RO-PBE SCF CALCULATION
+          ---------------------------
+
+     NUCLEAR ENERGY =         0.0000000000
+     MAXIT =200     NPUNCH=  2     MULT=  3
+     EXTRAP=T  DAMP=T  SHIFT=T  RSTRCT=T  DIIS=T  SOSCF=F
+         DENSITY MATRIX CONVERGENCE THRESHOLD=  1.00E-05
+     COARSE -> FINE DFT GRID SWITCH THRESHOLD=  3.00E-04 (SWITCH IN $DFT)
+                   HF -> DFT SWITCH THRESHOLD=  5.00E-03 (SWOFF IN $DFT)
+     ROHF CANONICALIZATION PARAMETERS
+             C-C     O-O     V-V
+     ALPHA -0.5000  0.5000  1.5000
+     BETA   1.5000  0.5000 -0.5000
+     MEMORY REQUIRED FOR UHF/ROHF ITERS=    240885 WORDS.
+
+ DFT CODE IS SWITCHING FROM THE FINE GRID NRAD= 96,  NLEB=  302
+                      TO THE COARSE GRID NRAD0= 24, NLEB0=  110
+
+     EXCHANGE FUNCTIONAL   =PBE       
+     CORRELATION FUNCTIONAL=PBE       
+     DFT THRESHOLD         =.138E-06
+     GRID CHANGE THRESHOLD =.300E-03
+ FOR AN EULER-MACLAURIN QUADRATURE USING  96 RADIAL POINTS:
+ SMALLEST GAUSSIAN PRIMITIVE EXPONENT=        0.0522320000 OF TYPE -P-
+ ON ATOM NUMBER   1 HAS RADIAL NORMALIZATION=  1.000000
+  LARGEST GAUSSIAN PRIMITIVE EXPONENT=       54.7752160000 OF TYPE -S-
+ ON ATOM NUMBER   1 HAS RADIAL NORMALIZATION=  1.000000
+ DFT IS SWITCHED OFF, PERFORMING PURE SCF UNTIL SWOFF THRESHOLD IS REACHED.
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR      VIR. SHIFT       DAMPING
+   1  0      -15.5253219630   -15.5253219630   0.962321380   1.988991299     0.000000000     1.000000000
+          * * *   INITIATING DIIS PROCEDURE   * * *
+   2  1      -15.6827246091    -0.1574026461   0.197858300   0.051066357     0.000000000     1.000000000
+   3  2      -15.6868497337    -0.0041251246   0.111430693   0.043956960     0.000000000     1.000000000
+   4  3      -15.6897476581    -0.0028979244   0.064924144   0.003475452     0.000000000     1.000000000
+   5  4      -15.6897673978    -0.0000197396   0.038379446   0.000978920     0.000000000     1.000000000
+   6  5      -15.6897742992    -0.0000069015   0.011311671   0.000314685     0.000000000     1.000000000
+   7  6      -15.6897755592    -0.0000012600   0.000208248   0.000023951     0.000000000     1.000000000
+ CONVERGED TO SWOFF, SO DFT CALCULATION IS NOW SWITCHED ON.
+ DFT CODE IS SWITCHING BACK TO THE FINE GRID
+          * * *   INITIATING DIIS PROCEDURE   * * *
+   8  7      -15.8774606507    -0.1876850915   0.133642781   0.062365892
+   9  8      -15.8813585351    -0.0038978845   0.049041800   0.017079186
+  10  9      -15.8812573270     0.0001012082   0.035273214   0.021703119
+  11 10      -15.8817375420    -0.0004802150   0.001118987   0.000760286
+  12 11      -15.8817384399    -0.0000008979   0.000230981   0.000013491
+  13 12      -15.8817384408    -0.0000000009   0.000030440   0.000001327
+  14 13      -15.8817384408    -0.0000000000   0.000001398   0.000000254
+  15 14      -15.8817384408     0.0000000000   0.000000088   0.000000010
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       3.0 SECONDS (       0.2 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.1 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RO-PBE ENERGY IS      -15.8817384408 AFTER  15 ITERATIONS
+ DFT EXCHANGE + CORRELATION ENERGY =        -3.3661474570
+ TOTAL ELECTRON NUMBER             =         5.9999997190
+
+          --------------------
+          SPIN SZ   =    1.000
+          S-SQUARED =    2.000
+          --------------------
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     3 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     4 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    6) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     8 (    7) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     9 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    11 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    12 (   10) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    13 (   11) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    14 (   12) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    15 (   13) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    16 (   14) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    17 (   15) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    18 (   16) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    19 (   16) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    20 (   17) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    21 (   18) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    22 (   19) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    23 (   20) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    24 (   20) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    25 (   21) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    26 (   22) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    27 (   23) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    28 (   24) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    29 (   25) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    30 (   26) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    31 (   27) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    32 (   28) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    33 (   29) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    34 (   30) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    35 (   31) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    36 (   32) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    37 (   33) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    38 (   34) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    39 (   35) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    40 (   36) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    41 (   37) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    42 (   38) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    43 (   39) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    44 (   40) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    45 (   41) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    46 (   42) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    47 (   43) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    48 (   44) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    49 (   45) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    50 (   45) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    51 (   46) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    52 (   47) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    53 (   48) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    54 (   49) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    55 (   50) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    56 (   51) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    57 (   52) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    58 (   53) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    59 (   54) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    60 (   55) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    61 (   56) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    62 (   57) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    63 (   58) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    64 (   59) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    65 (   60) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    66 (   61) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    67 (   62) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    68 (   63) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    69 (   64) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    70 (   65) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    71 (   66) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    72 (   67) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    73 (   68) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    74 (   69) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    75 (   70) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    76 (   71) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    77 (   72) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    78 (   73) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    79 (   74) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    80 (   75) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    81 (   75) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    82 (   76) HAS LZ(WEIGHT)= 0.00(100.0%) 
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                   -0.7273    -0.2577    -0.3096    -0.3096     0.2221
+                     A          A          A          A          A   
+    1  O  1  S    1.001931  -0.000000   0.000000   0.000000   0.000000
+    2  O  1  S    0.002359  -0.000000   0.000000   0.000000   0.000000
+    3  O  1  S   -0.009192  -0.000000   0.000000   0.000000   0.000000
+    4  O  1  S   -0.005315  -0.000000   0.000000   0.000000   0.000000
+    5  O  1  S    0.014566  -0.000000   0.000000   0.000000   0.000000
+    6  O  1  X   -0.000000   1.028611   0.000000   0.000000  -0.351745
+    7  O  1  Y   -0.000000  -0.000000   1.077943   0.000000   0.000000
+    8  O  1  Z   -0.000000  -0.000000   0.000000   1.077943   0.000000
+    9  O  1  X   -0.000000  -0.009806   0.000000   0.000000  -0.065142
+   10  O  1  Y   -0.000000  -0.000000  -0.005417   0.000000   0.000000
+   11  O  1  Z   -0.000000  -0.000000   0.000000  -0.005417   0.000000
+   12  O  1  X   -0.000000  -0.033727   0.000000   0.000000   0.168343
+   13  O  1  Y   -0.000000  -0.000000  -0.048783   0.000000   0.000000
+   14  O  1  Z   -0.000000  -0.000000   0.000000  -0.048783   0.000000
+   15  O  1  X   -0.000000   0.001706   0.000000   0.000000  -0.974562
+   16  O  1  Y   -0.000000  -0.000000  -0.051242   0.000000   0.000000
+   17  O  1  Z   -0.000000  -0.000000   0.000000  -0.051242   0.000000
+   18  O  1  X   -0.000000   0.040319   0.000000   0.000000  13.839390
+   19  O  1  Y   -0.000000  -0.000000   0.036732   0.000000   0.000000
+   20  O  1  Z   -0.000000  -0.000000   0.000000   0.036733   0.000000
+   21  O  1  X   -0.000000  -0.015526   0.000000   0.000000 -12.644365
+   22  O  1  Y   -0.000000  -0.000000  -0.030304   0.000000   0.000000
+   23  O  1  Z   -0.000000  -0.000000   0.000000  -0.030305   0.000000
+   24  O  1 XX    0.000692  -0.000000   0.000000   0.000000   0.000000
+   25  O  1 YY   -0.000346  -0.000000   0.000000   0.000000   0.000000
+   26  O  1 ZZ   -0.000346  -0.000000   0.000000   0.000000   0.000000
+   27  O  1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   28  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   29  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   30  O  1 XX   -0.004088  -0.000000   0.000000   0.000000   0.000000
+   31  O  1 YY    0.002044  -0.000000   0.000000   0.000000   0.000000
+   32  O  1 ZZ    0.002044  -0.000000   0.000000   0.000000   0.000000
+   33  O  1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   34  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   35  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   36  O  1 XX   -0.002617  -0.000000   0.000000   0.000000   0.000000
+   37  O  1 YY    0.001308  -0.000000   0.000000   0.000000   0.000000
+   38  O  1 ZZ    0.001308  -0.000000   0.000000   0.000000   0.000000
+   39  O  1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   40  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   41  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   42  O  1 XX   -0.000236  -0.000000   0.000000   0.000000   0.000000
+   43  O  1 YY    0.000118  -0.000000   0.000000   0.000000   0.000000
+   44  O  1 ZZ    0.000118  -0.000000   0.000000   0.000000   0.000000
+   45  O  1 XY   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   46  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   47  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   48  O  1 XXX  -0.000000  -0.001205   0.000000   0.000000   0.001919
+   49  O  1 YYY  -0.000000  -0.000000   0.001939   0.000000   0.000000
+   50  O  1 ZZZ  -0.000000  -0.000000   0.000000   0.001939   0.000000
+   51  O  1 XXY  -0.000000  -0.000000  -0.003469   0.000000   0.000000
+   52  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.003469   0.000000
+   53  O  1 YYX  -0.000000   0.000808   0.000000   0.000000  -0.001287
+   54  O  1 YYZ  -0.000000  -0.000000   0.000000   0.000867   0.000000
+   55  O  1 ZZX  -0.000000   0.000808   0.000000   0.000000  -0.001287
+   56  O  1 ZZY  -0.000000  -0.000000   0.000867   0.000000   0.000000
+   57  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   58  O  1 XXX  -0.000000  -0.003057   0.000000   0.000000   0.003663
+   59  O  1 YYY  -0.000000  -0.000000   0.003167   0.000000   0.000000
+   60  O  1 ZZZ  -0.000000  -0.000000   0.000000   0.003167   0.000000
+   61  O  1 XXY  -0.000000  -0.000000  -0.005665   0.000000   0.000000
+   62  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.005665   0.000000
+   63  O  1 YYX  -0.000000   0.002050   0.000000   0.000000  -0.002457
+   64  O  1 YYZ  -0.000000  -0.000000   0.000000   0.001416   0.000000
+   65  O  1 ZZX  -0.000000   0.002050   0.000000   0.000000  -0.002457
+   66  O  1 ZZY  -0.000000  -0.000000   0.001416   0.000000   0.000000
+   67  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   68  O  1 XXX  -0.000000  -0.001462   0.000000   0.000000  -0.007134
+   69  O  1 YYY  -0.000000  -0.000000   0.001614   0.000000   0.000000
+   70  O  1 ZZZ  -0.000000  -0.000000   0.000000   0.001614   0.000000
+   71  O  1 XXY  -0.000000  -0.000000  -0.002887   0.000000   0.000000
+   72  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.002887   0.000000
+   73  O  1 YYX  -0.000000   0.000981   0.000000   0.000000   0.004786
+   74  O  1 YYZ  -0.000000  -0.000000   0.000000   0.000722   0.000000
+   75  O  1 ZZX  -0.000000   0.000981   0.000000   0.000000   0.004786
+   76  O  1 ZZY  -0.000000  -0.000000   0.000722   0.000000   0.000000
+   77  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   78  O  1XXXX  -0.000645  -0.000000   0.000000   0.000000   0.000000
+   79  O  1YYYY  -0.000242  -0.000000   0.000000   0.000000   0.000000
+   80  O  1ZZZZ  -0.000242  -0.000000   0.000000   0.000000   0.000000
+   81  O  1XXXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   82  O  1XXXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   83  O  1YYYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   84  O  1YYYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   85  O  1ZZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   86  O  1ZZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   87  O  1XXYY   0.000567  -0.000000   0.000000   0.000000   0.000000
+   88  O  1XXZZ   0.000567  -0.000000   0.000000   0.000000   0.000000
+   89  O  1YYZZ  -0.000142  -0.000000   0.000000   0.000000   0.000000
+   90  O  1XXYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   91  O  1YYXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   92  O  1ZZXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   93  O  1XXXX  -0.000247  -0.000000   0.000000   0.000000   0.000000
+   94  O  1YYYY  -0.000093  -0.000000   0.000000   0.000000   0.000000
+   95  O  1ZZZZ  -0.000093  -0.000000   0.000000   0.000000   0.000000
+   96  O  1XXXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   97  O  1XXXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   98  O  1YYYX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+   99  O  1YYYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  100  O  1ZZZX  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  101  O  1ZZZY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  102  O  1XXYY   0.000217  -0.000000   0.000000   0.000000   0.000000
+  103  O  1XXZZ   0.000217  -0.000000   0.000000   0.000000   0.000000
+  104  O  1YYZZ  -0.000054  -0.000000   0.000000   0.000000   0.000000
+  105  O  1XXYZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  106  O  1YYXZ  -0.000000  -0.000000   0.000000   0.000000   0.000000
+  107  O  1ZZXY  -0.000000  -0.000000   0.000000   0.000000   0.000000
+
+                      6          7          8          9         10
+                    0.6054     0.6054    31.6828     6.7375     6.5279
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000   0.000000  10.358313   0.000000   0.000000
+    2  O  1  S   -0.000000   0.000000   3.195433   0.000000   0.000000
+    3  O  1  S   -0.000000   0.000000 -10.176389   0.000000   0.000000
+    4  O  1  S   -0.000000   0.000000  -3.803701   0.000000   0.000000
+    5  O  1  S   -0.000000   0.000000   0.020241   0.000000   0.000000
+    6  O  1  X   -0.000000   0.000000   0.000000   5.262513   0.000000
+    7  O  1  Y    0.749000   0.000000   0.000000   0.000000   5.243690
+    8  O  1  Z   -0.000000   0.749006   0.000000   0.000000   0.000000
+    9  O  1  X   -0.000000   0.000000   0.000000  -4.231483   0.000000
+   10  O  1  Y   -0.154860   0.000000   0.000000   0.000000  -4.245540
+   11  O  1  Z   -0.000000  -0.154865   0.000000   0.000000   0.000000
+   12  O  1  X   -0.000000   0.000000   0.000000  -0.088553   0.000000
+   13  O  1  Y    0.482545   0.000000   0.000000   0.000000  -0.044907
+   14  O  1  Z   -0.000000   0.482554   0.000000   0.000000   0.000000
+   15  O  1  X   -0.000000   0.000000   0.000000  -2.632734   0.000000
+   16  O  1  Y   -3.602485   0.000000   0.000000   0.000000  -2.656372
+   17  O  1  Z   -0.000000  -3.602475   0.000000   0.000000   0.000000
+   18  O  1  X   -0.000000   0.000000   0.000000   4.014840   0.000000
+   19  O  1  Y   13.969815   0.000000   0.000000   0.000000   4.089121
+   20  O  1  Z   -0.000000  13.969497   0.000000   0.000000   0.000000
+   21  O  1  X   -0.000000   0.000000   0.000000  -3.319887   0.000000
+   22  O  1  Y  -11.648478   0.000000   0.000000   0.000000  -3.379905
+   23  O  1  Z   -0.000000 -11.648174   0.000000   0.000000   0.000000
+   24  O  1 XX   -0.000000   0.000000  -0.003415   0.000000   0.000000
+   25  O  1 YY   -0.000000   0.000000   0.001707   0.000000   0.000000
+   26  O  1 ZZ   -0.000000   0.000000   0.001707   0.000000   0.000000
+   27  O  1 XY   -0.000000   0.000000   0.000000   0.000000   0.000000
+   28  O  1 XZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   29  O  1 YZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   30  O  1 XX   -0.000000   0.000000   0.003202   0.000000   0.000000
+   31  O  1 YY   -0.000000   0.000000  -0.001601   0.000000   0.000000
+   32  O  1 ZZ   -0.000000   0.000000  -0.001601   0.000000   0.000000
+   33  O  1 XY   -0.000000   0.000000   0.000000   0.000000   0.000000
+   34  O  1 XZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   35  O  1 YZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   36  O  1 XX   -0.000000   0.000000  -0.001963   0.000000   0.000000
+   37  O  1 YY   -0.000000   0.000000   0.000981   0.000000   0.000000
+   38  O  1 ZZ   -0.000000   0.000000   0.000981   0.000000   0.000000
+   39  O  1 XY   -0.000000   0.000000   0.000000   0.000000   0.000000
+   40  O  1 XZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   41  O  1 YZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   42  O  1 XX   -0.000000   0.000000   0.000800   0.000000   0.000000
+   43  O  1 YY   -0.000000   0.000000  -0.000400   0.000000   0.000000
+   44  O  1 ZZ   -0.000000   0.000000  -0.000400   0.000000   0.000000
+   45  O  1 XY   -0.000000   0.000000   0.000000   0.000000   0.000000
+   46  O  1 XZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   47  O  1 YZ   -0.000000   0.000000   0.000000   0.000000   0.000000
+   48  O  1 XXX  -0.000000   0.000000   0.000000   0.001801   0.000000
+   49  O  1 YYY   0.001849   0.000000   0.000000   0.000000  -0.000604
+   50  O  1 ZZZ  -0.000000   0.001849   0.000000   0.000000   0.000000
+   51  O  1 XXY  -0.003308   0.000000   0.000000   0.000000   0.001081
+   52  O  1 XXZ  -0.000000  -0.003308   0.000000   0.000000   0.000000
+   53  O  1 YYX  -0.000000   0.000000   0.000000  -0.001208   0.000000
+   54  O  1 YYZ  -0.000000   0.000827   0.000000   0.000000   0.000000
+   55  O  1 ZZX  -0.000000   0.000000   0.000000  -0.001208   0.000000
+   56  O  1 ZZY   0.000827   0.000000   0.000000   0.000000  -0.000271
+   57  O  1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   58  O  1 XXX  -0.000000   0.000000   0.000000  -0.011489   0.000000
+   59  O  1 YYY   0.002321   0.000000   0.000000   0.000000   0.006764
+   60  O  1 ZZZ  -0.000000   0.002321   0.000000   0.000000   0.000000
+   61  O  1 XXY  -0.004151   0.000000   0.000000   0.000000  -0.012101
+   62  O  1 XXZ  -0.000000  -0.004151   0.000000   0.000000   0.000000
+   63  O  1 YYX  -0.000000   0.000000   0.000000   0.007707   0.000000
+   64  O  1 YYZ  -0.000000   0.001038   0.000000   0.000000   0.000000
+   65  O  1 ZZX  -0.000000   0.000000   0.000000   0.007707   0.000000
+   66  O  1 ZZY   0.001038   0.000000   0.000000   0.000000   0.003026
+   67  O  1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   68  O  1 XXX  -0.000000   0.000000   0.000000   0.006409   0.000000
+   69  O  1 YYY  -0.012786   0.000000   0.000000   0.000000  -0.003763
+   70  O  1 ZZZ  -0.000000  -0.012786   0.000000   0.000000   0.000000
+   71  O  1 XXY   0.022873   0.000000   0.000000   0.000000   0.006732
+   72  O  1 XXZ  -0.000000   0.022872   0.000000   0.000000   0.000000
+   73  O  1 YYX  -0.000000   0.000000   0.000000  -0.004300   0.000000
+   74  O  1 YYZ  -0.000000  -0.005718   0.000000   0.000000   0.000000
+   75  O  1 ZZX  -0.000000   0.000000   0.000000  -0.004300   0.000000
+   76  O  1 ZZY  -0.005718   0.000000   0.000000   0.000000  -0.001683
+   77  O  1 XYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   78  O  1XXXX  -0.000000   0.000000  -0.000037   0.000000   0.000000
+   79  O  1YYYY  -0.000000   0.000000  -0.000014   0.000000   0.000000
+   80  O  1ZZZZ  -0.000000   0.000000  -0.000014   0.000000   0.000000
+   81  O  1XXXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   82  O  1XXXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   83  O  1YYYX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   84  O  1YYYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   85  O  1ZZZX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   86  O  1ZZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   87  O  1XXYY  -0.000000   0.000000   0.000033   0.000000   0.000000
+   88  O  1XXZZ  -0.000000   0.000000   0.000033   0.000000   0.000000
+   89  O  1YYZZ  -0.000000   0.000000  -0.000008   0.000000   0.000000
+   90  O  1XXYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   91  O  1YYXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   92  O  1ZZXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   93  O  1XXXX  -0.000000   0.000000   0.000030   0.000000   0.000000
+   94  O  1YYYY  -0.000000   0.000000   0.000011   0.000000   0.000000
+   95  O  1ZZZZ  -0.000000   0.000000   0.000011   0.000000   0.000000
+   96  O  1XXXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   97  O  1XXXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+   98  O  1YYYX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   99  O  1YYYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+  100  O  1ZZZX  -0.000000   0.000000   0.000000   0.000000   0.000000
+  101  O  1ZZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+  102  O  1XXYY  -0.000000   0.000000  -0.000027   0.000000   0.000000
+  103  O  1XXZZ  -0.000000   0.000000  -0.000027   0.000000   0.000000
+  104  O  1YYZZ  -0.000000   0.000000   0.000007   0.000000   0.000000
+  105  O  1XXYZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+  106  O  1YYXZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+  107  O  1ZZXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     11         12         13         14         15
+                    6.5279     4.4375     1.9058     2.0104     1.9058
+                     A          A          A          A          A   
+    1  O  1  S    0.000000  -3.276122  -0.000000  -0.000000  -0.000000
+    2  O  1  S    0.000000  -6.170402  -0.000000  -0.000000  -0.000000
+    3  O  1  S    0.000000   9.145196  -0.000000  -0.000000  -0.000000
+    4  O  1  S    0.000000  -0.785919  -0.000000  -0.000000  -0.000000
+    5  O  1  S    0.000000   0.736571  -0.000000  -0.000000  -0.000000
+    6  O  1  X    0.000000   0.000000  -0.000000  -0.960437  -0.000000
+    7  O  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.998668
+    8  O  1  Z    5.243690   0.000000  -0.998668  -0.000000  -0.000000
+    9  O  1  X    0.000000   0.000000  -0.000000  -1.027736  -0.000000
+   10  O  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.970611
+   11  O  1  Z   -4.245539   0.000000  -0.970612  -0.000000  -0.000000
+   12  O  1  X    0.000000   0.000000  -0.000000   3.104652  -0.000000
+   13  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   3.121378
+   14  O  1  Z   -0.044908   0.000000   3.121376  -0.000000  -0.000000
+   15  O  1  X    0.000000   0.000000  -0.000000  -2.528263  -0.000000
+   16  O  1  Y    0.000000   0.000000  -0.000000  -0.000000  -2.602189
+   17  O  1  Z   -2.656369   0.000000  -2.602172  -0.000000  -0.000000
+   18  O  1  X    0.000000   0.000000  -0.000000   7.359080  -0.000000
+   19  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   7.634274
+   20  O  1  Z    4.089104   0.000000   7.634171  -0.000000  -0.000000
+   21  O  1  X    0.000000   0.000000  -0.000000  -5.966159  -0.000000
+   22  O  1  Y    0.000000   0.000000  -0.000000  -0.000000  -6.191640
+   23  O  1  Z   -3.379890   0.000000  -6.191549  -0.000000  -0.000000
+   24  O  1 XX    0.000000   0.023928  -0.000000  -0.000000  -0.000000
+   25  O  1 YY    0.000000  -0.011964  -0.000000  -0.000000  -0.000000
+   26  O  1 ZZ    0.000000  -0.011964  -0.000000  -0.000000  -0.000000
+   27  O  1 XY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   28  O  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   29  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   30  O  1 XX    0.000000  -0.053223  -0.000000  -0.000000  -0.000000
+   31  O  1 YY    0.000000   0.026611  -0.000000  -0.000000  -0.000000
+   32  O  1 ZZ    0.000000   0.026611  -0.000000  -0.000000  -0.000000
+   33  O  1 XY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   34  O  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   35  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   36  O  1 XX    0.000000   0.047589  -0.000000  -0.000000  -0.000000
+   37  O  1 YY    0.000000  -0.023795  -0.000000  -0.000000  -0.000000
+   38  O  1 ZZ    0.000000  -0.023795  -0.000000  -0.000000  -0.000000
+   39  O  1 XY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   40  O  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   41  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   42  O  1 XX    0.000000  -0.020533  -0.000000  -0.000000  -0.000000
+   43  O  1 YY    0.000000   0.010267  -0.000000  -0.000000  -0.000000
+   44  O  1 ZZ    0.000000   0.010267  -0.000000  -0.000000  -0.000000
+   45  O  1 XY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   46  O  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   47  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   48  O  1 XXX   0.000000   0.000000  -0.000000   0.008430  -0.000000
+   49  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.004965
+   50  O  1 ZZZ  -0.000604   0.000000  -0.004965  -0.000000  -0.000000
+   51  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.008881
+   52  O  1 XXZ   0.001081   0.000000   0.008881  -0.000000  -0.000000
+   53  O  1 YYX   0.000000   0.000000  -0.000000  -0.005655  -0.000000
+   54  O  1 YYZ  -0.000271   0.000000  -0.002220  -0.000000  -0.000000
+   55  O  1 ZZX   0.000000   0.000000  -0.000000  -0.005655  -0.000000
+   56  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.002220
+   57  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   58  O  1 XXX   0.000000   0.000000  -0.000000  -0.024304  -0.000000
+   59  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000   0.013918
+   60  O  1 ZZZ   0.006764   0.000000   0.013918  -0.000000  -0.000000
+   61  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.024898
+   62  O  1 XXZ  -0.012101   0.000000  -0.024898  -0.000000  -0.000000
+   63  O  1 YYX   0.000000   0.000000  -0.000000   0.016303  -0.000000
+   64  O  1 YYZ   0.003026   0.000000   0.006225  -0.000000  -0.000000
+   65  O  1 ZZX   0.000000   0.000000  -0.000000   0.016303  -0.000000
+   66  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000   0.006225
+   67  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   68  O  1 XXX   0.000000   0.000000  -0.000000   0.023854  -0.000000
+   69  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.013603
+   70  O  1 ZZZ  -0.003763   0.000000  -0.013603  -0.000000  -0.000000
+   71  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.024334
+   72  O  1 XXZ   0.006732   0.000000   0.024334  -0.000000  -0.000000
+   73  O  1 YYX   0.000000   0.000000  -0.000000  -0.016002  -0.000000
+   74  O  1 YYZ  -0.001683   0.000000  -0.006084  -0.000000  -0.000000
+   75  O  1 ZZX   0.000000   0.000000  -0.000000  -0.016002  -0.000000
+   76  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.006084
+   77  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   78  O  1XXXX   0.000000   0.000895  -0.000000  -0.000000  -0.000000
+   79  O  1YYYY   0.000000   0.000336  -0.000000  -0.000000  -0.000000
+   80  O  1ZZZZ   0.000000   0.000336  -0.000000  -0.000000  -0.000000
+   81  O  1XXXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   82  O  1XXXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   83  O  1YYYX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   84  O  1YYYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   85  O  1ZZZX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   86  O  1ZZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   87  O  1XXYY   0.000000  -0.000786  -0.000000  -0.000000  -0.000000
+   88  O  1XXZZ   0.000000  -0.000786  -0.000000  -0.000000  -0.000000
+   89  O  1YYZZ   0.000000   0.000196  -0.000000  -0.000000  -0.000000
+   90  O  1XXYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   91  O  1YYXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   92  O  1ZZXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   93  O  1XXXX   0.000000  -0.001512  -0.000000  -0.000000  -0.000000
+   94  O  1YYYY   0.000000  -0.000567  -0.000000  -0.000000  -0.000000
+   95  O  1ZZZZ   0.000000  -0.000567  -0.000000  -0.000000  -0.000000
+   96  O  1XXXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   97  O  1XXXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   98  O  1YYYX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   99  O  1YYYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  100  O  1ZZZX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  101  O  1ZZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  102  O  1XXYY   0.000000   0.001328  -0.000000  -0.000000  -0.000000
+  103  O  1XXZZ   0.000000   0.001328  -0.000000  -0.000000  -0.000000
+  104  O  1YYZZ   0.000000  -0.000332  -0.000000  -0.000000  -0.000000
+  105  O  1XXYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  106  O  1YYXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  107  O  1ZZXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+
+                     16         17         18         19         20
+                    3.8451     3.9622     3.9440     3.9440     3.8451
+                     A          A          A          A          A   
+    1  O  1  S    0.000000  -0.064768   0.000000  -0.000000  -0.000000
+    2  O  1  S    0.000000  -0.163683   0.000000  -0.000000  -0.000000
+    3  O  1  S   -0.000000   0.260096   0.000000  -0.000000  -0.000000
+    4  O  1  S    0.000000  -0.071745   0.000000  -0.000000  -0.000000
+    5  O  1  S    0.000000   0.034681   0.000000  -0.000000  -0.000000
+    6  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    7  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    8  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    9  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   10  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   11  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   12  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   13  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   14  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   15  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   16  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   17  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   19  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   20  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   21  O  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   22  O  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   23  O  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   24  O  1 XX    0.000000  -0.024112   0.000000  -0.000000  -0.000000
+   25  O  1 YY   -0.016809   0.012056   0.000000  -0.000000  -0.000000
+   26  O  1 ZZ    0.016809   0.012056   0.000000  -0.000000  -0.000000
+   27  O  1 XY    0.000000   0.000000  -0.024392  -0.000000  -0.000000
+   28  O  1 XZ    0.000000   0.000000   0.000000  -0.024392  -0.000000
+   29  O  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.019410
+   30  O  1 XX   -0.000000   1.383016   0.000000  -0.000000  -0.000000
+   31  O  1 YY    1.194709  -0.691508   0.000000  -0.000000  -0.000000
+   32  O  1 ZZ   -1.194709  -0.691508   0.000000  -0.000000  -0.000000
+   33  O  1 XY    0.000000   0.000000   1.383917  -0.000000  -0.000000
+   34  O  1 XZ    0.000000   0.000000   0.000000   1.383917  -0.000000
+   35  O  1 YZ    0.000000   0.000000   0.000000  -0.000000   1.379532
+   36  O  1 XX    0.000000  -1.227310   0.000000  -0.000000  -0.000000
+   37  O  1 YY   -1.078401   0.613655   0.000000  -0.000000  -0.000000
+   38  O  1 ZZ    1.078401   0.613655   0.000000  -0.000000  -0.000000
+   39  O  1 XY    0.000000   0.000000  -1.231036  -0.000000  -0.000000
+   40  O  1 XZ    0.000000   0.000000   0.000000  -1.231036  -0.000000
+   41  O  1 YZ    0.000000   0.000000   0.000000  -0.000000  -1.245230
+   42  O  1 XX   -0.000000   0.504878   0.000000  -0.000000  -0.000000
+   43  O  1 YY    0.446150  -0.252439   0.000000  -0.000000  -0.000000
+   44  O  1 ZZ   -0.446150  -0.252439   0.000000  -0.000000  -0.000000
+   45  O  1 XY    0.000000   0.000000   0.507029  -0.000000  -0.000000
+   46  O  1 XZ    0.000000   0.000000   0.000000   0.507029  -0.000000
+   47  O  1 YZ    0.000000   0.000000   0.000000  -0.000000   0.515170
+   48  O  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   49  O  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   50  O  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   51  O  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   52  O  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   53  O  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   54  O  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   55  O  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   56  O  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   57  O  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   58  O  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   59  O  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   60  O  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   61  O  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   62  O  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   63  O  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   64  O  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   65  O  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   66  O  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   67  O  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   68  O  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   69  O  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   70  O  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   71  O  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   72  O  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   73  O  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   74  O  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   75  O  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   76  O  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   77  O  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   78  O  1XXXX   0.000000  -0.014934   0.000000  -0.000000  -0.000000
+   79  O  1YYYY   0.006103  -0.005600   0.000000  -0.000000  -0.000000
+   80  O  1ZZZZ  -0.006103  -0.005600   0.000000  -0.000000  -0.000000
+   81  O  1XXXY   0.000000   0.000000  -0.016133  -0.000000  -0.000000
+   82  O  1XXXZ   0.000000   0.000000   0.000000  -0.016133  -0.000000
+   83  O  1YYYX   0.000000   0.000000   0.012100  -0.000000  -0.000000
+   84  O  1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.004613
+   85  O  1ZZZX   0.000000   0.000000   0.000000   0.012100  -0.000000
+   86  O  1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.004613
+   87  O  1XXYY  -0.010720   0.013116   0.000000  -0.000000  -0.000000
+   88  O  1XXZZ   0.010720   0.013116   0.000000  -0.000000  -0.000000
+   89  O  1YYZZ   0.000000  -0.003279   0.000000  -0.000000  -0.000000
+   90  O  1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.012378
+   91  O  1YYXZ   0.000000   0.000000   0.000000   0.005411  -0.000000
+   92  O  1ZZXY   0.000000   0.000000   0.005411  -0.000000  -0.000000
+   93  O  1XXXX   0.000000   0.002800   0.000000  -0.000000  -0.000000
+   94  O  1YYYY  -0.000894   0.001050   0.000000  -0.000000  -0.000000
+   95  O  1ZZZZ   0.000894   0.001050   0.000000  -0.000000  -0.000000
+   96  O  1XXXY   0.000000   0.000000   0.002581  -0.000000  -0.000000
+   97  O  1XXXZ   0.000000   0.000000   0.000000   0.002581  -0.000000
+   98  O  1YYYX   0.000000   0.000000  -0.001936  -0.000000  -0.000000
+   99  O  1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000676
+  100  O  1ZZZX   0.000000   0.000000   0.000000  -0.001936  -0.000000
+  101  O  1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000676
+  102  O  1XXYY   0.001571  -0.002459   0.000000  -0.000000  -0.000000
+  103  O  1XXZZ  -0.001571  -0.002459   0.000000  -0.000000  -0.000000
+  104  O  1YYZZ  -0.000000   0.000615   0.000000  -0.000000  -0.000000
+  105  O  1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.001814
+  106  O  1YYXZ   0.000000   0.000000   0.000000  -0.000866  -0.000000
+  107  O  1ZZXY   0.000000   0.000000  -0.000866  -0.000000  -0.000000
+
+                     21         22         23         24         25
+                    0.8515     3.6819     3.6230     3.6230     3.7087
+                     A          A          A          A          A   
+    1  O  1  S   -0.633286  -0.000000  -0.000000  -0.000000  -0.000000
+    2  O  1  S    0.914817  -0.000000  -0.000000  -0.000000  -0.000000
+    3  O  1  S   -2.316280  -0.000000  -0.000000  -0.000000  -0.000000
+    4  O  1  S    3.488044  -0.000000  -0.000000  -0.000000  -0.000000
+    5  O  1  S   -1.676914  -0.000000  -0.000000  -0.000000  -0.000000
+    6  O  1  X    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    7  O  1  Y    0.000000  -0.000000  -0.000001  -0.000000  -0.000000
+    8  O  1  Z    0.000000  -0.000000  -0.000000  -0.000001   0.039721
+    9  O  1  X    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   10  O  1  Y    0.000000  -0.000000   0.000001  -0.000000  -0.000000
+   11  O  1  Z    0.000000  -0.000000  -0.000000   0.000001  -0.046521
+   12  O  1  X    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   13  O  1  Y    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   14  O  1  Z    0.000000  -0.000000  -0.000000  -0.000000   0.038439
+   15  O  1  X    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   16  O  1  Y    0.000000  -0.000000   0.000001  -0.000000  -0.000000
+   17  O  1  Z    0.000000  -0.000000  -0.000000   0.000001  -0.059514
+   18  O  1  X    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   19  O  1  Y    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   20  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.130229
+   21  O  1  X    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   22  O  1  Y    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   23  O  1  Z    0.000000  -0.000000  -0.000000  -0.000000  -0.106175
+   24  O  1 XX    0.004021  -0.000000  -0.000000  -0.000000  -0.000000
+   25  O  1 YY   -0.002011  -0.000000  -0.000000  -0.000000  -0.000000
+   26  O  1 ZZ   -0.002011  -0.000000  -0.000000  -0.000000  -0.000000
+   27  O  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   28  O  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   29  O  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   30  O  1 XX    0.021377  -0.000000  -0.000000  -0.000000  -0.000000
+   31  O  1 YY   -0.010688  -0.000000  -0.000000  -0.000000  -0.000000
+   32  O  1 ZZ   -0.010688  -0.000000  -0.000000  -0.000000  -0.000000
+   33  O  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   34  O  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   35  O  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   36  O  1 XX   -0.051972  -0.000000  -0.000000  -0.000000  -0.000000
+   37  O  1 YY    0.025986  -0.000000  -0.000000  -0.000000  -0.000000
+   38  O  1 ZZ    0.025986  -0.000000  -0.000000  -0.000000  -0.000000
+   39  O  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   40  O  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   41  O  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   42  O  1 XX    0.045548  -0.000000  -0.000000  -0.000000  -0.000000
+   43  O  1 YY   -0.022774  -0.000000  -0.000000  -0.000000  -0.000000
+   44  O  1 ZZ   -0.022774  -0.000000  -0.000000  -0.000000  -0.000000
+   45  O  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   46  O  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   47  O  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   48  O  1 XXX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   49  O  1 YYY   0.000000  -0.000000   0.055557  -0.000000  -0.000000
+   50  O  1 ZZZ   0.000000  -0.000000  -0.000000   0.055557   0.045152
+   51  O  1 XXY   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   52  O  1 XXZ   0.000000  -0.000000  -0.000000   0.000000  -0.080770
+   53  O  1 YYX   0.000000   0.063057  -0.000000  -0.000000  -0.000000
+   54  O  1 YYZ   0.000000  -0.000000  -0.000000  -0.074537   0.020193
+   55  O  1 ZZX   0.000000  -0.063057  -0.000000  -0.000000  -0.000000
+   56  O  1 ZZY   0.000000  -0.000000  -0.074537  -0.000000  -0.000000
+   57  O  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   58  O  1 XXX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   59  O  1 YYY   0.000000  -0.000000  -1.050082  -0.000000  -0.000000
+   60  O  1 ZZZ   0.000000  -0.000000  -0.000000  -1.050082  -0.813889
+   61  O  1 XXY   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   62  O  1 XXZ   0.000000  -0.000000  -0.000000   0.000000   1.455928
+   63  O  1 YYX   0.000000  -1.151024  -0.000000  -0.000000  -0.000000
+   64  O  1 YYZ   0.000000  -0.000000  -0.000000   1.408832  -0.363982
+   65  O  1 ZZX   0.000000   1.151024  -0.000000  -0.000000  -0.000000
+   66  O  1 ZZY   0.000000  -0.000000   1.408832  -0.000000  -0.000000
+   67  O  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   68  O  1 XXX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   69  O  1 YYY   0.000000  -0.000000   0.558008  -0.000000  -0.000000
+   70  O  1 ZZZ   0.000000  -0.000000  -0.000000   0.558008   0.428049
+   71  O  1 XXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   72  O  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.765717
+   73  O  1 YYX   0.000000   0.607527  -0.000000  -0.000000  -0.000000
+   74  O  1 YYZ   0.000000  -0.000000  -0.000000  -0.748646   0.191429
+   75  O  1 ZZX   0.000000  -0.607527  -0.000000  -0.000000  -0.000000
+   76  O  1 ZZY   0.000000  -0.000000  -0.748646  -0.000000  -0.000000
+   77  O  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   78  O  1XXXX  -0.000637  -0.000000  -0.000000  -0.000000  -0.000000
+   79  O  1YYYY  -0.000239  -0.000000  -0.000000  -0.000000  -0.000000
+   80  O  1ZZZZ  -0.000239  -0.000000  -0.000000  -0.000000  -0.000000
+   81  O  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   82  O  1XXXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   83  O  1YYYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   84  O  1YYYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   85  O  1ZZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   86  O  1ZZZY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   87  O  1XXYY   0.000559  -0.000000  -0.000000  -0.000000  -0.000000
+   88  O  1XXZZ   0.000559  -0.000000  -0.000000  -0.000000  -0.000000
+   89  O  1YYZZ  -0.000140  -0.000000  -0.000000  -0.000000  -0.000000
+   90  O  1XXYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   91  O  1YYXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   92  O  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   93  O  1XXXX   0.001196  -0.000000  -0.000000  -0.000000  -0.000000
+   94  O  1YYYY   0.000449  -0.000000  -0.000000  -0.000000  -0.000000
+   95  O  1ZZZZ   0.000449  -0.000000  -0.000000  -0.000000  -0.000000
+   96  O  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   97  O  1XXXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   98  O  1YYYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   99  O  1YYYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  100  O  1ZZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  101  O  1ZZZY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  102  O  1XXYY  -0.001051  -0.000000  -0.000000  -0.000000  -0.000000
+  103  O  1XXZZ  -0.001051  -0.000000  -0.000000  -0.000000  -0.000000
+  104  O  1YYZZ   0.000263  -0.000000  -0.000000  -0.000000  -0.000000
+  105  O  1XXYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  106  O  1YYXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  107  O  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+                     26         27         28         29         30
+                    3.7186     3.7087     3.6819     0.6483     0.2031
+                     A          A          A          A          A   
+    1  O  1  S    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    2  O  1  S    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    3  O  1  S    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    4  O  1  S    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    5  O  1  S    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    6  O  1  X    0.036685  -0.000000  -0.000000   0.745133   0.000000
+    7  O  1  Y    0.000000   0.039721  -0.000000   0.000000  -0.358158
+    8  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+    9  O  1  X   -0.047960  -0.000000  -0.000000  -0.167260   0.000000
+   10  O  1  Y    0.000000  -0.046521  -0.000000   0.000000  -0.060499
+   11  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   12  O  1  X    0.041710  -0.000000  -0.000000   0.576977   0.000000
+   13  O  1  Y    0.000000   0.038439  -0.000000   0.000000   0.177476
+   14  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   15  O  1  X   -0.062747  -0.000000  -0.000000  -3.635901   0.000000
+   16  O  1  Y    0.000000  -0.059515  -0.000000   0.000000  -0.830039
+   17  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   18  O  1  X    0.137921  -0.000000  -0.000000  13.572743   0.000000
+   19  O  1  Y    0.000000   0.130230  -0.000000   0.000000  13.551433
+   20  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   21  O  1  X   -0.112596  -0.000000  -0.000000 -11.282116   0.000000
+   22  O  1  Y    0.000000  -0.106176  -0.000000   0.000000 -12.518398
+   23  O  1  Z    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   24  O  1 XX    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   25  O  1 YY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   26  O  1 ZZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   27  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   28  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   29  O  1 YZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   30  O  1 XX    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   31  O  1 YY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   32  O  1 ZZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   33  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   34  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   35  O  1 YZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   36  O  1 XX    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   37  O  1 YY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   38  O  1 ZZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   39  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   40  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   41  O  1 YZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   42  O  1 XX    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   43  O  1 YY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   44  O  1 ZZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   45  O  1 XY    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   46  O  1 XZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   47  O  1 YZ    0.000000  -0.000000  -0.000000   0.000000   0.000000
+   48  O  1 XXX  -0.074155  -0.000000  -0.000000  -0.003006   0.000000
+   49  O  1 YYY   0.000000   0.045152  -0.000000   0.000000  -0.001131
+   50  O  1 ZZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   51  O  1 XXY   0.000000  -0.080770  -0.000000   0.000000   0.002023
+   52  O  1 XXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   53  O  1 YYX   0.049745  -0.000000  -0.000000   0.002017   0.000000
+   54  O  1 YYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   55  O  1 ZZX   0.049745  -0.000000  -0.000000   0.002017   0.000000
+   56  O  1 ZZY   0.000000   0.020193  -0.000000   0.000000  -0.000506
+   57  O  1 XYZ   0.000000  -0.000000  -0.072812   0.000000   0.000000
+   58  O  1 XXX   1.329216  -0.000000  -0.000000  -0.005272   0.000000
+   59  O  1 YYY   0.000000  -0.813889  -0.000000   0.000000  -0.001901
+   60  O  1 ZZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   61  O  1 XXY   0.000000   1.455928  -0.000000   0.000000   0.003402
+   62  O  1 XXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   63  O  1 YYX  -0.891666  -0.000000  -0.000000   0.003537   0.000000
+   64  O  1 YYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   65  O  1 ZZX  -0.891666  -0.000000  -0.000000   0.003537   0.000000
+   66  O  1 ZZY   0.000000  -0.363982  -0.000000   0.000000  -0.000851
+   67  O  1 XYZ   0.000000  -0.000000   1.329088   0.000000   0.000000
+   68  O  1 XXX  -0.698359  -0.000000  -0.000000   0.023567   0.000000
+   69  O  1 YYY   0.000000   0.428049  -0.000000   0.000000   0.004953
+   70  O  1 ZZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   71  O  1 XXY   0.000000  -0.765717  -0.000000   0.000000  -0.008860
+   72  O  1 XXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   73  O  1 YYX   0.468473  -0.000000  -0.000000  -0.015809   0.000000
+   74  O  1 YYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   75  O  1 ZZX   0.468473  -0.000000  -0.000000  -0.015809   0.000000
+   76  O  1 ZZY   0.000000   0.191429  -0.000000   0.000000   0.002215
+   77  O  1 XYZ   0.000000  -0.000000  -0.701512   0.000000   0.000000
+   78  O  1XXXX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   79  O  1YYYY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   80  O  1ZZZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   81  O  1XXXY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   82  O  1XXXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   83  O  1YYYX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   84  O  1YYYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   85  O  1ZZZX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   86  O  1ZZZY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   87  O  1XXYY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   88  O  1XXZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   89  O  1YYZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   90  O  1XXYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   91  O  1YYXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   92  O  1ZZXY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   93  O  1XXXX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   94  O  1YYYY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   95  O  1ZZZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   96  O  1XXXY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   97  O  1XXXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   98  O  1YYYX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   99  O  1YYYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  100  O  1ZZZX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  101  O  1ZZZY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  102  O  1XXYY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  103  O  1XXZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  104  O  1YYZZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  105  O  1XXYZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  106  O  1YYXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  107  O  1ZZXY   0.000000  -0.000000  -0.000000   0.000000   0.000000
+
+                     31         32         33         34         35
+                    0.2031     9.3867     9.5223     9.4928     9.4551
+                     A          A          A          A          A   
+    1  O  1  S    0.000000   0.000000   0.001970   0.000000   0.000000
+    2  O  1  S    0.000000   0.000000   0.002567  -0.000000   0.000000
+    3  O  1  S    0.000000  -0.000000  -0.004245   0.000000   0.000000
+    4  O  1  S    0.000000  -0.000000   0.000892   0.000000   0.000000
+    5  O  1  S    0.000000   0.000000  -0.000375   0.000000   0.000000
+    6  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+    7  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+    8  O  1  Z   -0.358146   0.000000   0.000000   0.000000   0.000000
+    9  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   10  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   11  O  1  Z   -0.060508   0.000000   0.000000   0.000000   0.000000
+   12  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   13  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   14  O  1  Z    0.177496   0.000000   0.000000   0.000000   0.000000
+   15  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   16  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   17  O  1  Z   -0.830127   0.000000   0.000000   0.000000   0.000000
+   18  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   19  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   20  O  1  Z   13.551702   0.000000   0.000000   0.000000   0.000000
+   21  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   22  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   23  O  1  Z  -12.518592   0.000000   0.000000   0.000000   0.000000
+   24  O  1 XX    0.000000   0.000000   0.004061  -0.000000   0.000000
+   25  O  1 YY    0.000000  -0.000000  -0.002031  -0.002449   0.000000
+   26  O  1 ZZ    0.000000  -0.000000  -0.002031   0.002449   0.000000
+   27  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   28  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   29  O  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   30  O  1 XX    0.000000  -0.000000   0.014152   0.000000   0.000000
+   31  O  1 YY    0.000000   0.000000  -0.007076  -0.009168   0.000000
+   32  O  1 ZZ    0.000000   0.000000  -0.007076   0.009168   0.000000
+   33  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   34  O  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   35  O  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   36  O  1 XX    0.000000   0.000000  -0.007234  -0.000000   0.000000
+   37  O  1 YY    0.000000  -0.000000   0.003617   0.004664   0.000000
+   38  O  1 ZZ    0.000000  -0.000000   0.003617  -0.004664   0.000000
+   39  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   40  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   41  O  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   42  O  1 XX    0.000000  -0.000000   0.002322   0.000000   0.000000
+   43  O  1 YY    0.000000   0.000000  -0.001161  -0.001500   0.000000
+   44  O  1 ZZ    0.000000   0.000000  -0.001161   0.001500   0.000000
+   45  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   46  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   47  O  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   48  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   49  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   50  O  1 ZZZ  -0.001131   0.000000   0.000000   0.000000   0.000000
+   51  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   52  O  1 XXZ   0.002023   0.000000   0.000000   0.000000   0.000000
+   53  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   54  O  1 YYZ  -0.000506   0.000000   0.000000   0.000000   0.000000
+   55  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   56  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   57  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   58  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   59  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   60  O  1 ZZZ  -0.001901   0.000000   0.000000   0.000000   0.000000
+   61  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   62  O  1 XXZ   0.003402   0.000000   0.000000   0.000000   0.000000
+   63  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   64  O  1 YYZ  -0.000851   0.000000   0.000000   0.000000   0.000000
+   65  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   66  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   67  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   69  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   70  O  1 ZZZ   0.004952   0.000000   0.000000   0.000000   0.000000
+   71  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   72  O  1 XXZ  -0.008860   0.000000   0.000000   0.000000   0.000000
+   73  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   74  O  1 YYZ   0.002215   0.000000   0.000000   0.000000   0.000000
+   75  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   76  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   77  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   78  O  1XXXX   0.000000   0.000000   1.208487  -0.000000   0.000000
+   79  O  1YYYY   0.000000  -0.894170   0.453183   0.675658   0.000000
+   80  O  1ZZZZ   0.000000  -0.894170   0.453183  -0.675658   0.000000
+   81  O  1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   82  O  1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000001
+   83  O  1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   84  O  1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   85  O  1ZZZX   0.000000   0.000000   0.000000   0.000000  -0.955694
+   86  O  1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   87  O  1XXYY   0.000000  -0.000000  -1.061426  -1.186875   0.000000
+   88  O  1XXZZ   0.000000  -0.000000  -1.061426   1.186875   0.000000
+   89  O  1YYZZ   0.000000   1.570717   0.265356  -0.000000   0.000000
+   90  O  1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   91  O  1YYXZ   0.000000   0.000000   0.000000   0.000000   1.282197
+   92  O  1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   93  O  1XXXX   0.000000  -0.000000  -0.558590   0.000000   0.000000
+   94  O  1YYYY   0.000000   0.415774  -0.209471  -0.312695   0.000000
+   95  O  1ZZZZ   0.000000   0.415774  -0.209471   0.312695   0.000000
+   96  O  1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  O  1XXXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   98  O  1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   99  O  1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  100  O  1ZZZX   0.000000   0.000000   0.000000   0.000000   0.443024
+  101  O  1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+  102  O  1XXYY   0.000000   0.000000   0.490615   0.549286   0.000000
+  103  O  1XXZZ   0.000000   0.000000   0.490615  -0.549286   0.000000
+  104  O  1YYZZ   0.000000  -0.730358  -0.122654   0.000000   0.000000
+  105  O  1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  106  O  1YYXZ   0.000000   0.000000   0.000000   0.000000  -0.594378
+  107  O  1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     36         37         38         39         40
+                    9.4928     9.4551     9.5160     9.3867     9.5160
+                     A          A          A          A          A   
+    1  O  1  S    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    2  O  1  S    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    3  O  1  S    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    4  O  1  S    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    5  O  1  S    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    6  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    7  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    8  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+    9  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   10  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   11  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   12  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   13  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   14  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   15  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   16  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   17  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   18  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   19  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   20  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   21  O  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   22  O  1  Y    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   23  O  1  Z    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   24  O  1 XX    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   25  O  1 YY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   26  O  1 ZZ    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   27  O  1 XY    0.000000   0.000000  -0.000000  -0.000000   0.004137
+   28  O  1 XZ    0.000000   0.000000   0.004137  -0.000000   0.000000
+   29  O  1 YZ    0.002828   0.000000  -0.000000  -0.000000   0.000000
+   30  O  1 XX    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   31  O  1 YY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   32  O  1 ZZ    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   33  O  1 XY    0.000000  -0.000000  -0.000000  -0.000000   0.012450
+   34  O  1 XZ    0.000000   0.000000   0.012450  -0.000000   0.000000
+   35  O  1 YZ    0.010586   0.000000  -0.000000   0.000000   0.000000
+   36  O  1 XX    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   37  O  1 YY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   38  O  1 ZZ    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   39  O  1 XY    0.000000   0.000000  -0.000000  -0.000000  -0.006334
+   40  O  1 XZ    0.000000   0.000000  -0.006334  -0.000000   0.000000
+   41  O  1 YZ   -0.005385   0.000000  -0.000000  -0.000000   0.000000
+   42  O  1 XX    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   43  O  1 YY    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   44  O  1 ZZ    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   45  O  1 XY    0.000000   0.000000  -0.000000  -0.000000   0.002021
+   46  O  1 XZ    0.000000   0.000000   0.002021  -0.000000   0.000000
+   47  O  1 YZ    0.001732   0.000000  -0.000000   0.000000   0.000000
+   48  O  1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   49  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   50  O  1 ZZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   51  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   52  O  1 XXZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   53  O  1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   54  O  1 YYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   55  O  1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   56  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   57  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   58  O  1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   59  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   60  O  1 ZZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   61  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   62  O  1 XXZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   63  O  1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   64  O  1 YYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   65  O  1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   66  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   67  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   68  O  1 XXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   69  O  1 YYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   70  O  1 ZZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   71  O  1 XXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   72  O  1 XXZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   73  O  1 YYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   74  O  1 YYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   75  O  1 ZZX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   76  O  1 ZZY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   77  O  1 XYZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   78  O  1XXXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   79  O  1YYYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   80  O  1ZZZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   81  O  1XXXY   0.000000   0.000001  -0.000000  -0.000000   1.444472
+   82  O  1XXXZ   0.000000   0.000000   1.444472  -0.000000   0.000000
+   83  O  1YYYX   0.000000  -0.955694  -0.000000  -0.000000  -1.083353
+   84  O  1YYYZ  -0.510750   0.000000  -0.000000  -1.351858   0.000000
+   85  O  1ZZZX   0.000000   0.000000  -1.083353  -0.000000   0.000000
+   86  O  1ZZZY  -0.510750   0.000000  -0.000000   1.351858   0.000000
+   87  O  1XXYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   88  O  1XXZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   89  O  1YYZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   90  O  1XXYZ   1.370485   0.000000  -0.000000  -0.000000   0.000000
+   91  O  1YYXZ   0.000000   0.000000  -0.484492  -0.000000   0.000000
+   92  O  1ZZXY   0.000000   1.282197  -0.000000  -0.000000  -0.484492
+   93  O  1XXXX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   94  O  1YYYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   95  O  1ZZZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   96  O  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.667853
+   97  O  1XXXZ   0.000000   0.000000  -0.667853  -0.000000   0.000000
+   98  O  1YYYX   0.000000   0.443024  -0.000000  -0.000000   0.500889
+   99  O  1YYYZ   0.236375   0.000000  -0.000000   0.628592   0.000000
+  100  O  1ZZZX   0.000000   0.000000   0.500889  -0.000000   0.000000
+  101  O  1ZZZY   0.236375   0.000000  -0.000000  -0.628592   0.000000
+  102  O  1XXYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  103  O  1XXZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  104  O  1YYZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+  105  O  1XXYZ  -0.634261   0.000000  -0.000000   0.000000   0.000000
+  106  O  1YYXZ   0.000000   0.000000   0.224005  -0.000000   0.000000
+  107  O  1ZZXY   0.000000  -0.594378  -0.000000  -0.000000   0.224005
+
+                     41         42         43         44         45
+                   12.3147    12.1210    12.2951    12.1210    12.2951
+                     A          A          A          A          A   
+    1  O  1  S    0.084821  -0.000000   0.000000  -0.000000   0.000000
+    2  O  1  S    0.109929  -0.000000   0.000000  -0.000000   0.000000
+    3  O  1  S   -0.172657   0.000000   0.000000  -0.000000   0.000000
+    4  O  1  S   -0.009089   0.000000   0.000000  -0.000000   0.000000
+    5  O  1  S   -0.008609   0.000000   0.000000  -0.000000   0.000000
+    6  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+    7  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+    8  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+    9  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   10  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   11  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   12  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   13  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   14  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   15  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   16  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   17  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   18  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   19  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   20  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   21  O  1  X   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   22  O  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   23  O  1  Z   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   24  O  1 XX    1.349884  -0.000000   0.000000  -0.000000   0.000000
+   25  O  1 YY   -0.674942  -1.169309   0.000000  -0.000000   0.000000
+   26  O  1 ZZ   -0.674942   1.169309   0.000000  -0.000000   0.000000
+   27  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000   1.350113
+   28  O  1 XZ   -0.000000  -0.000000   1.350113  -0.000000   0.000000
+   29  O  1 YZ   -0.000000  -0.000000   0.000000   1.350202   0.000000
+   30  O  1 XX   -1.155353   0.000000   0.000000  -0.000000   0.000000
+   31  O  1 YY    0.577676   1.005920   0.000000  -0.000000   0.000000
+   32  O  1 ZZ    0.577676  -1.005920   0.000000  -0.000000   0.000000
+   33  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000  -1.155835
+   34  O  1 XZ   -0.000000  -0.000000  -1.155835  -0.000000   0.000000
+   35  O  1 YZ   -0.000000  -0.000000   0.000000  -1.161536   0.000000
+   36  O  1 XX    0.611732  -0.000000   0.000000  -0.000000   0.000000
+   37  O  1 YY   -0.305866  -0.534593   0.000000  -0.000000   0.000000
+   38  O  1 ZZ   -0.305866   0.534593   0.000000  -0.000000   0.000000
+   39  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000   0.612307
+   40  O  1 XZ   -0.000000  -0.000000   0.612307  -0.000000   0.000000
+   41  O  1 YZ   -0.000000  -0.000000   0.000000   0.617294   0.000000
+   42  O  1 XX   -0.233499   0.000000   0.000000  -0.000000   0.000000
+   43  O  1 YY    0.116749   0.204232   0.000000  -0.000000   0.000000
+   44  O  1 ZZ    0.116749  -0.204232   0.000000  -0.000000   0.000000
+   45  O  1 XY   -0.000000  -0.000000   0.000000  -0.000000  -0.233785
+   46  O  1 XZ   -0.000000  -0.000000  -0.233785  -0.000000   0.000000
+   47  O  1 YZ   -0.000000  -0.000000   0.000000  -0.235827   0.000000
+   48  O  1 XXX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   49  O  1 YYY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   50  O  1 ZZZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   51  O  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   52  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   53  O  1 YYX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   54  O  1 YYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   55  O  1 ZZX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   56  O  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   57  O  1 XYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   58  O  1 XXX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   59  O  1 YYY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   60  O  1 ZZZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   61  O  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   62  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   63  O  1 YYX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   64  O  1 YYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   65  O  1 ZZX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   66  O  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   67  O  1 XYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   68  O  1 XXX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   69  O  1 YYY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   70  O  1 ZZZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   71  O  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   72  O  1 XXZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   73  O  1 YYX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   74  O  1 YYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   75  O  1 ZZX  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   76  O  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   77  O  1 XYZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   78  O  1XXXX  -0.003584  -0.000000   0.000000  -0.000000   0.000000
+   79  O  1YYYY  -0.001344  -0.001360   0.000000  -0.000000   0.000000
+   80  O  1ZZZZ  -0.001344   0.001360   0.000000  -0.000000   0.000000
+   81  O  1XXXY  -0.000000  -0.000000   0.000000  -0.000000  -0.004360
+   82  O  1XXXZ  -0.000000  -0.000000  -0.004360  -0.000000   0.000000
+   83  O  1YYYX  -0.000000  -0.000000   0.000000  -0.000000   0.003270
+   84  O  1YYYZ  -0.000000  -0.000000   0.000000   0.001028   0.000000
+   85  O  1ZZZX  -0.000000  -0.000000   0.003270  -0.000000   0.000000
+   86  O  1ZZZY  -0.000000  -0.000000   0.000000   0.001028   0.000000
+   87  O  1XXYY   0.003148   0.002389   0.000000  -0.000000   0.000000
+   88  O  1XXZZ   0.003148  -0.002389   0.000000  -0.000000   0.000000
+   89  O  1YYZZ  -0.000787  -0.000000   0.000000  -0.000000   0.000000
+   90  O  1XXYZ  -0.000000  -0.000000   0.000000  -0.002759   0.000000
+   91  O  1YYXZ  -0.000000  -0.000000   0.001462  -0.000000   0.000000
+   92  O  1ZZXY  -0.000000  -0.000000   0.000000  -0.000000   0.001462
+   93  O  1XXXX   0.000918  -0.000000   0.000000  -0.000000   0.000000
+   94  O  1YYYY   0.000344   0.000301   0.000000  -0.000000   0.000000
+   95  O  1ZZZZ   0.000344  -0.000301   0.000000  -0.000000   0.000000
+   96  O  1XXXY  -0.000000  -0.000000   0.000000  -0.000000   0.001200
+   97  O  1XXXZ  -0.000000  -0.000000   0.001200  -0.000000   0.000000
+   98  O  1YYYX  -0.000000  -0.000000   0.000000  -0.000000  -0.000900
+   99  O  1YYYZ  -0.000000  -0.000000   0.000000  -0.000228   0.000000
+  100  O  1ZZZX  -0.000000  -0.000000  -0.000900  -0.000000   0.000000
+  101  O  1ZZZY  -0.000000  -0.000000   0.000000  -0.000228   0.000000
+  102  O  1XXYY  -0.000806  -0.000529   0.000000  -0.000000   0.000000
+  103  O  1XXZZ  -0.000806   0.000529   0.000000  -0.000000   0.000000
+  104  O  1YYZZ   0.000202  -0.000000   0.000000  -0.000000   0.000000
+  105  O  1XXYZ  -0.000000  -0.000000   0.000000   0.000611   0.000000
+  106  O  1YYXZ  -0.000000  -0.000000  -0.000403  -0.000000   0.000000
+  107  O  1ZZXY  -0.000000  -0.000000   0.000000  -0.000000  -0.000403
+
+                     46         47         48         49         50
+                   11.3741    11.3934    11.3322    11.2255    11.2255
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    2  O  1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    3  O  1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    4  O  1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    5  O  1  S   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+    6  O  1  X   -0.000000   0.005008   0.000000   0.000000  -0.000000
+    7  O  1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000004
+    8  O  1  Z    0.010535  -0.000000   0.000000   0.000004  -0.000000
+    9  O  1  X   -0.000000   0.009822  -0.000000   0.000000  -0.000000
+   10  O  1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000003
+   11  O  1  Z    0.006476  -0.000000   0.000000  -0.000003  -0.000000
+   12  O  1  X   -0.000000  -0.016633   0.000000   0.000000  -0.000000
+   13  O  1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000001
+   14  O  1  Z   -0.016724  -0.000000   0.000000  -0.000001  -0.000000
+   15  O  1  X   -0.000000   0.007103  -0.000000   0.000000  -0.000000
+   16  O  1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000002
+   17  O  1  Z    0.005257  -0.000000   0.000000  -0.000002  -0.000000
+   18  O  1  X   -0.000000  -0.023277   0.000000   0.000000  -0.000000
+   19  O  1  Y   -0.000000  -0.000000   0.000000   0.000000   0.000002
+   20  O  1  Z   -0.020174  -0.000000   0.000000   0.000002  -0.000000
+   21  O  1  X   -0.000000   0.018748  -0.000000   0.000000  -0.000000
+   22  O  1  Y   -0.000000  -0.000000   0.000000   0.000000  -0.000002
+   23  O  1  Z    0.016252  -0.000000   0.000000  -0.000002  -0.000000
+   24  O  1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   25  O  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   26  O  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   27  O  1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   28  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   29  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   30  O  1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   31  O  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   32  O  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   33  O  1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   34  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   35  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   36  O  1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   37  O  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   38  O  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   39  O  1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   40  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   41  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   42  O  1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   43  O  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   44  O  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   45  O  1 XY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   46  O  1 XZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   47  O  1 YZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   48  O  1 XXX  -0.000000   1.194432  -0.000000   0.000000  -0.000000
+   49  O  1 YYY  -0.000000  -0.000000   0.000000   0.000000  -0.944514
+   50  O  1 ZZZ  -0.731450  -0.000000   0.000000  -0.944514  -0.000000
+   51  O  1 XXY  -0.000000  -0.000000   0.000000   0.000000   0.000006
+   52  O  1 XXZ   1.308465  -0.000000   0.000000   0.000006  -0.000000
+   53  O  1 YYX  -0.000000  -0.801250   1.034520   0.000000  -0.000000
+   54  O  1 YYZ  -0.327122  -0.000000   0.000000   1.267193  -0.000000
+   55  O  1 ZZX  -0.000000  -0.801250  -1.034520   0.000000  -0.000000
+   56  O  1 ZZY  -0.000000  -0.000000   0.000000   0.000000   1.267193
+   57  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   58  O  1 XXX  -0.000000  -0.741497   0.000000   0.000000  -0.000000
+   59  O  1 YYY  -0.000000  -0.000000   0.000000   0.000000   0.589950
+   60  O  1 ZZZ   0.454391  -0.000000   0.000000   0.589950  -0.000000
+   61  O  1 XXY  -0.000000  -0.000000   0.000000   0.000000  -0.000004
+   62  O  1 XXZ  -0.812844  -0.000000   0.000000  -0.000004  -0.000000
+   63  O  1 YYX  -0.000000   0.497411  -0.643662   0.000000  -0.000000
+   64  O  1 YYZ   0.203215  -0.000000   0.000000  -0.791497  -0.000000
+   65  O  1 ZZX  -0.000000   0.497411   0.643662   0.000000  -0.000000
+   66  O  1 ZZY  -0.000000  -0.000000   0.000000   0.000000  -0.791497
+   67  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   68  O  1 XXX  -0.000000   0.297921  -0.000000   0.000000  -0.000000
+   69  O  1 YYY  -0.000000  -0.000000   0.000000   0.000000  -0.237561
+   70  O  1 ZZZ  -0.182606  -0.000000   0.000000  -0.237561  -0.000000
+   71  O  1 XXY  -0.000000  -0.000000   0.000000   0.000000   0.000002
+   72  O  1 XXZ   0.326657  -0.000000   0.000000   0.000002  -0.000000
+   73  O  1 YYX  -0.000000  -0.199851   0.258850   0.000000  -0.000000
+   74  O  1 YYZ  -0.081666  -0.000000   0.000000   0.318721  -0.000000
+   75  O  1 ZZX  -0.000000  -0.199851  -0.258850   0.000000  -0.000000
+   76  O  1 ZZY  -0.000000  -0.000000   0.000000   0.000000   0.318721
+   77  O  1 XYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   78  O  1XXXX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   79  O  1YYYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   80  O  1ZZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   81  O  1XXXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   82  O  1XXXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   83  O  1YYYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   84  O  1YYYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   85  O  1ZZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   86  O  1ZZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   87  O  1XXYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   88  O  1XXZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   89  O  1YYZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   90  O  1XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   91  O  1YYXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   92  O  1ZZXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   93  O  1XXXX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   94  O  1YYYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   95  O  1ZZZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   96  O  1XXXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   97  O  1XXXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   98  O  1YYYX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   99  O  1YYYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  100  O  1ZZZX  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  101  O  1ZZZY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  102  O  1XXYY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  103  O  1XXZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  104  O  1YYZZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  105  O  1XXYZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  106  O  1YYXZ  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+  107  O  1ZZXY  -0.000000  -0.000000   0.000000   0.000000  -0.000000
+
+                     51         52         53         54         55
+                   11.3741    11.3322     0.0471     0.3642     0.3888
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000  -0.000000  -0.398501   0.000000   0.000650
+    2  O  1  S   -0.000000  -0.000000  -0.136014  -0.000000  -0.017346
+    3  O  1  S   -0.000000  -0.000000   0.217281   0.000000   0.042358
+    4  O  1  S   -0.000000  -0.000000  -0.923125  -0.000000  -0.090986
+    5  O  1  S   -0.000000  -0.000000   1.732112  -0.000000   0.089430
+    6  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    7  O  1  Y    0.010535  -0.000000  -0.000000   0.000000   0.000000
+    8  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    9  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   10  O  1  Y    0.006476  -0.000000  -0.000000   0.000000   0.000000
+   11  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   12  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   13  O  1  Y   -0.016724  -0.000000  -0.000000   0.000000   0.000000
+   14  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   15  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   16  O  1  Y    0.005257  -0.000000  -0.000000   0.000000   0.000000
+   17  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   18  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   19  O  1  Y   -0.020174  -0.000000  -0.000000   0.000000   0.000000
+   20  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   21  O  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   22  O  1  Y    0.016252  -0.000000  -0.000000   0.000000   0.000000
+   23  O  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   24  O  1 XX   -0.000000  -0.000000   0.002789   0.000000  -0.005868
+   25  O  1 YY   -0.000000  -0.000000  -0.001394   0.004190   0.002934
+   26  O  1 ZZ   -0.000000  -0.000000  -0.001394  -0.004190   0.002934
+   27  O  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   28  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   29  O  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   30  O  1 XX   -0.000000  -0.000000   0.004296  -0.000000   0.077985
+   31  O  1 YY   -0.000000  -0.000000  -0.002148  -0.068981  -0.038992
+   32  O  1 ZZ   -0.000000  -0.000000  -0.002148   0.068981  -0.038992
+   33  O  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   34  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   35  O  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   36  O  1 XX   -0.000000  -0.000000   0.009056   0.000000  -0.185743
+   37  O  1 YY   -0.000000  -0.000000  -0.004528   0.138380   0.092872
+   38  O  1 ZZ   -0.000000  -0.000000  -0.004528  -0.138380   0.092872
+   39  O  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   40  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   41  O  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   42  O  1 XX   -0.000000  -0.000000  -0.042558  -0.000000   1.107621
+   43  O  1 YY   -0.000000  -0.000000   0.021279  -0.944975  -0.553811
+   44  O  1 ZZ   -0.000000  -0.000000   0.021279   0.944975  -0.553811
+   45  O  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   46  O  1 XZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   47  O  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   48  O  1 XXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   49  O  1 YYY  -0.731450  -0.000000  -0.000000   0.000000   0.000000
+   50  O  1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   51  O  1 XXY   1.308465  -0.000000  -0.000000   0.000000   0.000000
+   52  O  1 XXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   53  O  1 YYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   54  O  1 YYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   55  O  1 ZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   56  O  1 ZZY  -0.327122  -0.000000  -0.000000   0.000000   0.000000
+   57  O  1 XYZ  -0.000000   1.194560  -0.000000   0.000000   0.000000
+   58  O  1 XXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   59  O  1 YYY   0.454391  -0.000000  -0.000000   0.000000   0.000000
+   60  O  1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   61  O  1 XXY  -0.812844  -0.000000  -0.000000   0.000000   0.000000
+   62  O  1 XXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   63  O  1 YYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   64  O  1 YYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   65  O  1 ZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   66  O  1 ZZY   0.203215  -0.000000  -0.000000   0.000000   0.000000
+   67  O  1 XYZ  -0.000000  -0.743237  -0.000000   0.000000   0.000000
+   68  O  1 XXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   69  O  1 YYY  -0.182606  -0.000000  -0.000000   0.000000   0.000000
+   70  O  1 ZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   71  O  1 XXY   0.326657  -0.000000  -0.000000   0.000000   0.000000
+   72  O  1 XXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   73  O  1 YYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   74  O  1 YYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   75  O  1 ZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   76  O  1 ZZY  -0.081666  -0.000000  -0.000000   0.000000   0.000000
+   77  O  1 XYZ  -0.000000   0.298894  -0.000000   0.000000   0.000000
+   78  O  1XXXX  -0.000000  -0.000000  -0.000394   0.000000   0.000021
+   79  O  1YYYY  -0.000000  -0.000000  -0.000148  -0.000050   0.000008
+   80  O  1ZZZZ  -0.000000  -0.000000  -0.000148   0.000050   0.000008
+   81  O  1XXXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   82  O  1XXXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   83  O  1YYYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   84  O  1YYYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   85  O  1ZZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   86  O  1ZZZY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   87  O  1XXYY  -0.000000  -0.000000   0.000346   0.000087  -0.000018
+   88  O  1XXZZ  -0.000000  -0.000000   0.000346  -0.000087  -0.000018
+   89  O  1YYZZ  -0.000000  -0.000000  -0.000086  -0.000000   0.000005
+   90  O  1XXYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   91  O  1YYXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   92  O  1ZZXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   93  O  1XXXX  -0.000000  -0.000000   0.000503   0.000000  -0.006288
+   94  O  1YYYY  -0.000000  -0.000000   0.000189  -0.002617  -0.002358
+   95  O  1ZZZZ  -0.000000  -0.000000   0.000189   0.002617  -0.002358
+   96  O  1XXXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   97  O  1XXXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   98  O  1YYYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   99  O  1YYYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  100  O  1ZZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  101  O  1ZZZY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  102  O  1XXYY  -0.000000  -0.000000  -0.000442   0.004597   0.005523
+  103  O  1XXZZ  -0.000000  -0.000000  -0.000442  -0.004597   0.005523
+  104  O  1YYZZ  -0.000000  -0.000000   0.000111   0.000000  -0.001381
+  105  O  1XXYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  106  O  1YYXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  107  O  1ZZXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+
+                     56         57         58         59         60
+                    0.3856     0.3642     0.3856     3.1634     3.2252
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000  -0.000000  -0.000000   0.000001  -0.002440
+    2  O  1  S   -0.000000  -0.000000  -0.000000   0.000002  -0.007271
+    3  O  1  S   -0.000000  -0.000000  -0.000000  -0.000002   0.011494
+    4  O  1  S   -0.000000  -0.000000  -0.000000   0.000001  -0.003016
+    5  O  1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.001544
+    6  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    7  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    8  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    9  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   10  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   11  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   12  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   13  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   14  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   15  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   16  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   17  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   18  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   19  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   20  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   21  O  1  X   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   22  O  1  Y   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   23  O  1  Z   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   24  O  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.001792
+   25  O  1 YY   -0.000000  -0.000000  -0.000000   0.000000  -0.000896
+   26  O  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.000896
+   27  O  1 XY   -0.000000  -0.000000  -0.005643  -0.000000  -0.000000
+   28  O  1 XZ   -0.005643  -0.000000  -0.000000  -0.000000  -0.000000
+   29  O  1 YZ   -0.000000  -0.004839  -0.000000  -0.000000  -0.000000
+   30  O  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.004252
+   31  O  1 YY   -0.000000  -0.000000  -0.000000   0.000000  -0.002126
+   32  O  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.002126
+   33  O  1 XY   -0.000000  -0.000000   0.077977  -0.000000  -0.000000
+   34  O  1 XZ    0.077977  -0.000000  -0.000000  -0.000000  -0.000000
+   35  O  1 YZ   -0.000000   0.079653  -0.000000  -0.000000  -0.000000
+   36  O  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.019553
+   37  O  1 YY   -0.000000  -0.000000  -0.000000   0.000000  -0.009776
+   38  O  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000  -0.009776
+   39  O  1 XY   -0.000000  -0.000000  -0.180222  -0.000000  -0.000000
+   40  O  1 XZ   -0.180222  -0.000000  -0.000000  -0.000000  -0.000000
+   41  O  1 YZ   -0.000000  -0.159788  -0.000000  -0.000000  -0.000000
+   42  O  1 XX   -0.000000  -0.000000  -0.000000   0.000000  -0.007261
+   43  O  1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.003630
+   44  O  1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.003630
+   45  O  1 XY   -0.000000  -0.000000   1.104843  -0.000000  -0.000000
+   46  O  1 XZ    1.104843  -0.000000  -0.000000  -0.000000  -0.000000
+   47  O  1 YZ   -0.000000   1.091163  -0.000000  -0.000000  -0.000000
+   48  O  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   49  O  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   50  O  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   51  O  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   52  O  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   53  O  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   54  O  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   55  O  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   56  O  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   57  O  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   58  O  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   59  O  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   60  O  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   61  O  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   62  O  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   63  O  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   64  O  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   65  O  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   66  O  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   67  O  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   68  O  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   69  O  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   70  O  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   71  O  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   72  O  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   73  O  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   74  O  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   75  O  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   76  O  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   77  O  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   78  O  1XXXX  -0.000000  -0.000000  -0.000000   0.000000  -0.162384
+   79  O  1YYYY  -0.000000  -0.000000  -0.000000   0.117019  -0.060894
+   80  O  1ZZZZ  -0.000000  -0.000000  -0.000000   0.117019  -0.060894
+   81  O  1XXXY  -0.000000  -0.000000   0.000007  -0.000000  -0.000000
+   82  O  1XXXZ   0.000007  -0.000000  -0.000000  -0.000000  -0.000000
+   83  O  1YYYX  -0.000000  -0.000000  -0.000005  -0.000000  -0.000000
+   84  O  1YYYZ  -0.000000   0.000038  -0.000000  -0.000000  -0.000000
+   85  O  1ZZZX  -0.000005  -0.000000  -0.000000  -0.000000  -0.000000
+   86  O  1ZZZY  -0.000000   0.000038  -0.000000  -0.000000  -0.000000
+   87  O  1XXYY  -0.000000  -0.000000  -0.000000  -0.000000   0.142623
+   88  O  1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.142623
+   89  O  1YYZZ  -0.000000  -0.000000  -0.000000  -0.205559  -0.035656
+   90  O  1XXYZ  -0.000000  -0.000101  -0.000000  -0.000000  -0.000000
+   91  O  1YYXZ  -0.000002  -0.000000  -0.000000  -0.000000  -0.000000
+   92  O  1ZZXY  -0.000000  -0.000000  -0.000002  -0.000000  -0.000000
+   93  O  1XXXX  -0.000000  -0.000000  -0.000000   0.000000   1.083841
+   94  O  1YYYY  -0.000000  -0.000000  -0.000000  -0.800228   0.406440
+   95  O  1ZZZZ  -0.000000  -0.000000  -0.000000  -0.800228   0.406440
+   96  O  1XXXY  -0.000000  -0.000000  -0.006934  -0.000000  -0.000000
+   97  O  1XXXZ  -0.006934  -0.000000  -0.000000  -0.000000  -0.000000
+   98  O  1YYYX  -0.000000  -0.000000   0.005201  -0.000000  -0.000000
+   99  O  1YYYZ  -0.000000   0.001978  -0.000000  -0.000000  -0.000000
+  100  O  1ZZZX   0.005201  -0.000000  -0.000000  -0.000000  -0.000000
+  101  O  1ZZZY  -0.000000   0.001978  -0.000000  -0.000000  -0.000000
+  102  O  1XXYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.951949
+  103  O  1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.951949
+  104  O  1YYZZ  -0.000000  -0.000000  -0.000000   1.405696   0.237987
+  105  O  1XXYZ  -0.000000  -0.005308  -0.000000  -0.000000  -0.000000
+  106  O  1YYXZ   0.002326  -0.000000  -0.000000  -0.000000  -0.000000
+  107  O  1ZZXY  -0.000000  -0.000000   0.002326  -0.000000  -0.000000
+
+                     61         62         63         64         65
+                    3.2113     3.1932     3.2113     3.1932     3.2220
+                     A          A          A          A          A   
+    1  O  1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    2  O  1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    3  O  1  S   -0.000000   0.000000   0.000000   0.000000   0.000000
+    4  O  1  S    0.000000   0.000000   0.000000   0.000000   0.000000
+    5  O  1  S   -0.000000   0.000000   0.000000   0.000000   0.000000
+    6  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+    7  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+    8  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+    9  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   10  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   11  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   12  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   13  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   14  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   15  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   16  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   17  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   18  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   19  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   20  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   21  O  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   22  O  1  Y    0.000000   0.000000   0.000000   0.000000   0.000000
+   23  O  1  Z    0.000000   0.000000   0.000000   0.000000   0.000000
+   24  O  1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  O  1 YY    0.001155   0.000000   0.000000   0.000000   0.000000
+   26  O  1 ZZ   -0.001155   0.000000   0.000000   0.000000   0.000000
+   27  O  1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   28  O  1 XZ    0.000000  -0.000000   0.000000   0.000000   0.001620
+   29  O  1 YZ    0.000000   0.000000   0.001334   0.000000   0.000000
+   30  O  1 XX   -0.000000   0.000000   0.000000   0.000000   0.000000
+   31  O  1 YY    0.003448   0.000000   0.000000   0.000000   0.000000
+   32  O  1 ZZ   -0.003448   0.000000   0.000000   0.000000   0.000000
+   33  O  1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   34  O  1 XZ    0.000000  -0.000000   0.000000   0.000000   0.004445
+   35  O  1 YZ    0.000000   0.000000   0.003982   0.000000   0.000000
+   36  O  1 XX   -0.000000   0.000000   0.000000   0.000000   0.000000
+   37  O  1 YY    0.011041   0.000000   0.000000   0.000000   0.000000
+   38  O  1 ZZ   -0.011041   0.000000   0.000000   0.000000   0.000000
+   39  O  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   40  O  1 XZ    0.000000   0.000000   0.000000   0.000000   0.017477
+   41  O  1 YZ    0.000000   0.000000   0.012749   0.000000   0.000000
+   42  O  1 XX    0.000000   0.000000   0.000000   0.000000   0.000000
+   43  O  1 YY   -0.003999   0.000000   0.000000   0.000000   0.000000
+   44  O  1 ZZ    0.003999   0.000000   0.000000   0.000000   0.000000
+   45  O  1 XY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   46  O  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.006503
+   47  O  1 YZ    0.000000   0.000000  -0.004618   0.000000   0.000000
+   48  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   49  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   50  O  1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   51  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   52  O  1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   53  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   54  O  1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   55  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   56  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   57  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   58  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   59  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   60  O  1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   61  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   62  O  1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   63  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   64  O  1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   65  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   66  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   67  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  O  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   69  O  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   70  O  1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   71  O  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   72  O  1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   73  O  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   74  O  1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   75  O  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   76  O  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   77  O  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   78  O  1XXXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   79  O  1YYYY   0.090274   0.000000   0.000000   0.000000   0.000000
+   80  O  1ZZZZ  -0.090274   0.000000   0.000000   0.000000   0.000000
+   81  O  1XXXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   82  O  1XXXZ   0.000000  -0.000000   0.000000   0.000000  -0.193842
+   83  O  1YYYX   0.000000   0.000000   0.000000   0.126727   0.000000
+   84  O  1YYYZ   0.000000   0.000000   0.068241   0.000000   0.000000
+   85  O  1ZZZX   0.000000   0.126727   0.000000   0.000000   0.145381
+   86  O  1ZZZY   0.000000   0.000000   0.068241   0.000000   0.000000
+   87  O  1XXYY  -0.158577   0.000000   0.000000   0.000000   0.000000
+   88  O  1XXZZ   0.158577   0.000000   0.000000   0.000000   0.000000
+   89  O  1YYZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   90  O  1XXYZ   0.000000   0.000000  -0.183109   0.000000   0.000000
+   91  O  1YYXZ   0.000000  -0.170023   0.000000   0.000000   0.065017
+   92  O  1ZZXY   0.000000   0.000000   0.000000  -0.170023   0.000000
+   93  O  1XXXX  -0.000000   0.000000   0.000000   0.000000   0.000000
+   94  O  1YYYY  -0.605706   0.000000   0.000000   0.000000   0.000000
+   95  O  1ZZZZ   0.605706   0.000000   0.000000   0.000000   0.000000
+   96  O  1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  O  1XXXZ   0.000000   0.000000   0.000000   0.000000   1.295360
+   98  O  1YYYX   0.000000   0.000000   0.000000  -0.856236   0.000000
+   99  O  1YYYZ   0.000000   0.000000  -0.457870   0.000000   0.000000
+  100  O  1ZZZX   0.000000  -0.856236   0.000000   0.000000  -0.971520
+  101  O  1ZZZY   0.000000   0.000000  -0.457870   0.000000   0.000000
+  102  O  1XXYY   1.063995   0.000000   0.000000   0.000000   0.000000
+  103  O  1XXZZ  -1.063995   0.000000   0.000000   0.000000   0.000000
+  104  O  1YYZZ  -0.000000   0.000000   0.000000   0.000000   0.000000
+  105  O  1XXYZ   0.000000   0.000000   1.228595   0.000000   0.000000
+  106  O  1YYXZ   0.000000   1.148761   0.000000   0.000000  -0.434477
+  107  O  1ZZXY   0.000000   0.000000   0.000000   1.148761   0.000000
+
+                     66         67         68         69         70
+                    3.1634     3.2220     0.0502     0.0406     0.0406
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    2  O  1  S   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    3  O  1  S   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    4  O  1  S   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    5  O  1  S   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    6  O  1  X   -0.000000   0.000000  -0.250783  -0.000000  -0.000000
+    7  O  1  Y   -0.000000   0.000000  -0.000000  -0.266843  -0.000000
+    8  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.266840
+    9  O  1  X   -0.000000   0.000000   0.023571  -0.000000  -0.000000
+   10  O  1  Y   -0.000000   0.000000  -0.000000   0.021463  -0.000000
+   11  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000   0.021467
+   12  O  1  X   -0.000000   0.000000  -0.060235  -0.000000  -0.000000
+   13  O  1  Y   -0.000000   0.000000  -0.000000  -0.041156  -0.000000
+   14  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000  -0.041165
+   15  O  1  X   -0.000000   0.000000   0.352041  -0.000000  -0.000000
+   16  O  1  Y   -0.000000   0.000000  -0.000000   0.349098  -0.000000
+   17  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000   0.349138
+   18  O  1  X   -0.000000   0.000000  -5.410046  -0.000000  -0.000000
+   19  O  1  Y   -0.000000   0.000000  -0.000000  -4.638161  -0.000000
+   20  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000  -4.638518
+   21  O  1  X   -0.000000   0.000000   6.094483  -0.000000  -0.000000
+   22  O  1  Y   -0.000000   0.000000  -0.000000   5.364812  -0.000000
+   23  O  1  Z   -0.000000   0.000000  -0.000000  -0.000000   5.365133
+   24  O  1 XX   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   25  O  1 YY   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   26  O  1 ZZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   27  O  1 XY   -0.000000   0.001620  -0.000000  -0.000000  -0.000000
+   28  O  1 XZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   29  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   30  O  1 XX   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   31  O  1 YY   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   32  O  1 ZZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   33  O  1 XY   -0.000000   0.004445  -0.000000  -0.000000  -0.000000
+   34  O  1 XZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   35  O  1 YZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   36  O  1 XX   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   37  O  1 YY   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   38  O  1 ZZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   39  O  1 XY   -0.000000   0.017477  -0.000000  -0.000000  -0.000000
+   40  O  1 XZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   41  O  1 YZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   42  O  1 XX   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   43  O  1 YY   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   44  O  1 ZZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   45  O  1 XY   -0.000000  -0.006503  -0.000000  -0.000000  -0.000000
+   46  O  1 XZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   47  O  1 YZ   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   48  O  1 XXX  -0.000000   0.000000   0.001213  -0.000000  -0.000000
+   49  O  1 YYY  -0.000000   0.000000  -0.000000  -0.000752  -0.000000
+   50  O  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000752
+   51  O  1 XXY  -0.000000   0.000000  -0.000000   0.001346  -0.000000
+   52  O  1 XXZ  -0.000000   0.000000  -0.000000  -0.000000   0.001346
+   53  O  1 YYX  -0.000000   0.000000  -0.000814  -0.000000  -0.000000
+   54  O  1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000336
+   55  O  1 ZZX  -0.000000   0.000000  -0.000814  -0.000000  -0.000000
+   56  O  1 ZZY  -0.000000   0.000000  -0.000000  -0.000336  -0.000000
+   57  O  1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   58  O  1 XXX  -0.000000   0.000000   0.002511  -0.000000  -0.000000
+   59  O  1 YYY  -0.000000   0.000000  -0.000000  -0.001422  -0.000000
+   60  O  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.001422
+   61  O  1 XXY  -0.000000   0.000000  -0.000000   0.002543  -0.000000
+   62  O  1 XXZ  -0.000000   0.000000  -0.000000  -0.000000   0.002543
+   63  O  1 YYX  -0.000000   0.000000  -0.001684  -0.000000  -0.000000
+   64  O  1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000636
+   65  O  1 ZZX  -0.000000   0.000000  -0.001684  -0.000000  -0.000000
+   66  O  1 ZZY  -0.000000   0.000000  -0.000000  -0.000636  -0.000000
+   67  O  1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   68  O  1 XXX  -0.000000   0.000000  -0.003106  -0.000000  -0.000000
+   69  O  1 YYY  -0.000000   0.000000  -0.000000   0.002676  -0.000000
+   70  O  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000   0.002676
+   71  O  1 XXY  -0.000000   0.000000  -0.000000  -0.004786  -0.000000
+   72  O  1 XXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.004786
+   73  O  1 YYX  -0.000000   0.000000   0.002084  -0.000000  -0.000000
+   74  O  1 YYZ  -0.000000   0.000000  -0.000000  -0.000000   0.001196
+   75  O  1 ZZX  -0.000000   0.000000   0.002084  -0.000000  -0.000000
+   76  O  1 ZZY  -0.000000   0.000000  -0.000000   0.001196  -0.000000
+   77  O  1 XYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   78  O  1XXXX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   79  O  1YYYY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   80  O  1ZZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   81  O  1XXXY  -0.000000  -0.193842  -0.000000  -0.000000  -0.000000
+   82  O  1XXXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   83  O  1YYYX  -0.000000   0.145381  -0.000000  -0.000000  -0.000000
+   84  O  1YYYZ  -0.176917   0.000000  -0.000000  -0.000000  -0.000000
+   85  O  1ZZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   86  O  1ZZZY   0.176917   0.000000  -0.000000  -0.000000  -0.000000
+   87  O  1XXYY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   88  O  1XXZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   89  O  1YYZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   90  O  1XXYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   91  O  1YYXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   92  O  1ZZXY  -0.000000   0.065017  -0.000000  -0.000000  -0.000000
+   93  O  1XXXX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   94  O  1YYYY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   95  O  1ZZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   96  O  1XXXY  -0.000000   1.295360  -0.000000  -0.000000  -0.000000
+   97  O  1XXXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   98  O  1YYYX  -0.000000  -0.971520  -0.000000  -0.000000  -0.000000
+   99  O  1YYYZ   1.209831   0.000000  -0.000000  -0.000000  -0.000000
+  100  O  1ZZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  101  O  1ZZZY  -1.209831   0.000000  -0.000000  -0.000000  -0.000000
+  102  O  1XXYY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  103  O  1XXZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  104  O  1YYZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  105  O  1XXYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  106  O  1YYXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  107  O  1ZZXY  -0.000000  -0.434477  -0.000000  -0.000000  -0.000000
+
+                     71         72         73         74         75
+                    1.2010     1.1699     1.1913     1.1699     1.2048
+                     A          A          A          A          A   
+    1  O  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    2  O  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    3  O  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    4  O  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    5  O  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    6  O  1  X   -0.000000   0.000000   0.000000   0.000000  -0.005441
+    7  O  1  Y   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    8  O  1  Z   -0.002053   0.000000  -0.000000  -0.000000   0.000000
+    9  O  1  X   -0.000000   0.000000  -0.000000   0.000000   0.016902
+   10  O  1  Y   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   11  O  1  Z    0.014449   0.000000  -0.000000   0.000000   0.000000
+   12  O  1  X   -0.000000   0.000000   0.000000   0.000000  -0.046904
+   13  O  1  Y   -0.000000   0.000001  -0.000000   0.000000   0.000000
+   14  O  1  Z   -0.041613   0.000000  -0.000000   0.000001   0.000000
+   15  O  1  X   -0.000000   0.000000  -0.000000   0.000000   0.100113
+   16  O  1  Y   -0.000000  -0.000001  -0.000000   0.000000   0.000000
+   17  O  1  Z    0.090933   0.000000  -0.000000  -0.000001   0.000000
+   18  O  1  X   -0.000000   0.000000   0.000000   0.000000  -0.302745
+   19  O  1  Y   -0.000000   0.000001  -0.000000   0.000000   0.000000
+   20  O  1  Z   -0.270407   0.000000  -0.000000   0.000001   0.000000
+   21  O  1  X   -0.000000   0.000000  -0.000000   0.000000   0.246918
+   22  O  1  Y   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   23  O  1  Z    0.220509   0.000000  -0.000000  -0.000000   0.000000
+   24  O  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   25  O  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   26  O  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   27  O  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   28  O  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   29  O  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   30  O  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   31  O  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   32  O  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   33  O  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   34  O  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   35  O  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   36  O  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   37  O  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   38  O  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   39  O  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   40  O  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   41  O  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   42  O  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   43  O  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   44  O  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   45  O  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   46  O  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   47  O  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   48  O  1 XXX  -0.000000   0.000000  -0.000000   0.000000   0.034288
+   49  O  1 YYY  -0.000000  -0.026619  -0.000000   0.000000   0.000000
+   50  O  1 ZZZ  -0.020963   0.000000  -0.000000  -0.026619   0.000000
+   51  O  1 XXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   52  O  1 XXZ   0.037500   0.000000  -0.000000   0.000000   0.000000
+   53  O  1 YYX  -0.000000   0.000000   0.029453   0.000000  -0.023001
+   54  O  1 YYZ  -0.009375   0.000000  -0.000000   0.035714   0.000000
+   55  O  1 ZZX  -0.000000   0.000000  -0.029453   0.000000  -0.023001
+   56  O  1 ZZY  -0.000000   0.035714  -0.000000   0.000000   0.000000
+   57  O  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   58  O  1 XXX  -0.000000   0.000000   0.000000   0.000000  -0.194787
+   59  O  1 YYY  -0.000000   0.146243  -0.000000   0.000000   0.000000
+   60  O  1 ZZZ   0.118784   0.000000  -0.000000   0.146243   0.000000
+   61  O  1 XXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   62  O  1 XXZ  -0.212487   0.000000  -0.000000  -0.000000   0.000000
+   63  O  1 YYX  -0.000000   0.000000  -0.165404   0.000000   0.130667
+   64  O  1 YYZ   0.053122   0.000000  -0.000000  -0.196206   0.000000
+   65  O  1 ZZX  -0.000000   0.000000   0.165404   0.000000   0.130667
+   66  O  1 ZZY  -0.000000  -0.196206  -0.000000   0.000000   0.000000
+   67  O  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   68  O  1 XXX  -0.000000   0.000000  -0.000000   0.000000   1.109519
+   69  O  1 YYY  -0.000000  -0.873295  -0.000000   0.000000   0.000000
+   70  O  1 ZZZ  -0.679193   0.000000  -0.000000  -0.873295   0.000000
+   71  O  1 XXY  -0.000000   0.000001  -0.000000   0.000000   0.000000
+   72  O  1 XXZ   1.214977   0.000000  -0.000000   0.000001   0.000000
+   73  O  1 YYX  -0.000000   0.000000   0.959401   0.000000  -0.744288
+   74  O  1 YYZ  -0.303745   0.000000  -0.000000   1.171648   0.000000
+   75  O  1 ZZX  -0.000000   0.000000  -0.959401   0.000000  -0.744288
+   76  O  1 ZZY  -0.000000   1.171648  -0.000000   0.000000   0.000000
+   77  O  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   78  O  1XXXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   79  O  1YYYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   80  O  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   81  O  1XXXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   82  O  1XXXZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   83  O  1YYYX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   84  O  1YYYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   85  O  1ZZZX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   86  O  1ZZZY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   87  O  1XXYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   88  O  1XXZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   89  O  1YYZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   90  O  1XXYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   91  O  1YYXZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   92  O  1ZZXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   93  O  1XXXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   94  O  1YYYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   95  O  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   96  O  1XXXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   97  O  1XXXZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   98  O  1YYYX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   99  O  1YYYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  100  O  1ZZZX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  101  O  1ZZZY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  102  O  1XXYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  103  O  1XXZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  104  O  1YYZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  105  O  1XXYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  106  O  1YYXZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  107  O  1ZZXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+
+                     76         77         78         79         80
+                    1.2010     1.1913     1.3303     1.2634     1.3190
+                     A          A          A          A          A   
+    1  O  1  S    0.000000  -0.000000   0.012852  -0.000000  -0.000000
+    2  O  1  S    0.000000  -0.000000   0.054241  -0.000000  -0.000000
+    3  O  1  S    0.000000  -0.000000  -0.101558   0.000000  -0.000000
+    4  O  1  S    0.000000  -0.000000   0.084146  -0.000000  -0.000000
+    5  O  1  S    0.000000  -0.000000  -0.051373   0.000000  -0.000000
+    6  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+    7  O  1  Y   -0.002053  -0.000000   0.000000   0.000000  -0.000000
+    8  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+    9  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   10  O  1  Y    0.014449  -0.000000   0.000000   0.000000  -0.000000
+   11  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   12  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   13  O  1  Y   -0.041613  -0.000000   0.000000   0.000000  -0.000000
+   14  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   15  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   16  O  1  Y    0.090933  -0.000000   0.000000   0.000000  -0.000000
+   17  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   18  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   19  O  1  Y   -0.270413  -0.000000   0.000000   0.000000  -0.000000
+   20  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   21  O  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   22  O  1  Y    0.220515  -0.000000   0.000000   0.000000  -0.000000
+   23  O  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   24  O  1 XX    0.000000  -0.000000   0.052014  -0.000000  -0.000000
+   25  O  1 YY    0.000000  -0.000000  -0.026007  -0.044846  -0.000000
+   26  O  1 ZZ    0.000000  -0.000000  -0.026007   0.044846  -0.000000
+   27  O  1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   28  O  1 XZ    0.000000  -0.000000   0.000000   0.000000   0.051828
+   29  O  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   30  O  1 XX    0.000000  -0.000000  -0.052885   0.000000  -0.000000
+   31  O  1 YY    0.000000  -0.000000   0.026443   0.030734  -0.000000
+   32  O  1 ZZ    0.000000  -0.000000   0.026443  -0.030734  -0.000000
+   33  O  1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   34  O  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.050699
+   35  O  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   36  O  1 XX    0.000000  -0.000000   1.428869  -0.000000  -0.000000
+   37  O  1 YY    0.000000  -0.000000  -0.714435  -1.226212  -0.000000
+   38  O  1 ZZ    0.000000  -0.000000  -0.714435   1.226212  -0.000000
+   39  O  1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   40  O  1 XZ    0.000000  -0.000000   0.000000   0.000000   1.427926
+   41  O  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   42  O  1 XX    0.000000  -0.000000  -0.907976   0.000000  -0.000000
+   43  O  1 YY    0.000000  -0.000000   0.453988   0.800012  -0.000000
+   44  O  1 ZZ    0.000000  -0.000000   0.453988  -0.800012  -0.000000
+   45  O  1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   46  O  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.912456
+   47  O  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   48  O  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   49  O  1 YYY  -0.020963  -0.000000   0.000000   0.000000  -0.000000
+   50  O  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   51  O  1 XXY   0.037500  -0.000000   0.000000   0.000000  -0.000000
+   52  O  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   53  O  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   54  O  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   55  O  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   56  O  1 ZZY  -0.009375  -0.000000   0.000000   0.000000  -0.000000
+   57  O  1 XYZ   0.000000   0.034010   0.000000   0.000000  -0.000000
+   58  O  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   59  O  1 YYY   0.118784  -0.000000   0.000000   0.000000  -0.000000
+   60  O  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   61  O  1 XXY  -0.212487  -0.000000   0.000000   0.000000  -0.000000
+   62  O  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   63  O  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   64  O  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   65  O  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   66  O  1 ZZY   0.053122  -0.000000   0.000000   0.000000  -0.000000
+   67  O  1 XYZ   0.000000  -0.190992   0.000000   0.000000  -0.000000
+   68  O  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   69  O  1 YYY  -0.679193  -0.000000   0.000000   0.000000  -0.000000
+   70  O  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   71  O  1 XXY   1.214977  -0.000000   0.000000   0.000000  -0.000000
+   72  O  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   73  O  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   74  O  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   75  O  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   76  O  1 ZZY  -0.303745  -0.000000   0.000000   0.000000  -0.000000
+   77  O  1 XYZ   0.000000   1.107821   0.000000   0.000000  -0.000000
+   78  O  1XXXX   0.000000  -0.000000  -0.003001   0.000000  -0.000000
+   79  O  1YYYY   0.000000  -0.000000  -0.001125  -0.001397  -0.000000
+   80  O  1ZZZZ   0.000000  -0.000000  -0.001125   0.001397  -0.000000
+   81  O  1XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   82  O  1XXXZ   0.000000  -0.000000   0.000000   0.000000  -0.003258
+   83  O  1YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   84  O  1YYYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   85  O  1ZZZX   0.000000  -0.000000   0.000000   0.000000   0.002444
+   86  O  1ZZZY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   87  O  1XXYY   0.000000  -0.000000   0.002636   0.002454  -0.000000
+   88  O  1XXZZ   0.000000  -0.000000   0.002636  -0.002454  -0.000000
+   89  O  1YYZZ   0.000000  -0.000000  -0.000659  -0.000000  -0.000000
+   90  O  1XXYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   91  O  1YYXZ   0.000000  -0.000000   0.000000   0.000000   0.001093
+   92  O  1ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   93  O  1XXXX   0.000000  -0.000000  -0.016374   0.000000  -0.000000
+   94  O  1YYYY   0.000000  -0.000000  -0.006140  -0.006283  -0.000000
+   95  O  1ZZZZ   0.000000  -0.000000  -0.006140   0.006283  -0.000000
+   96  O  1XXXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   97  O  1XXXZ   0.000000  -0.000000   0.000000   0.000000  -0.017982
+   98  O  1YYYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   99  O  1YYYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  100  O  1ZZZX   0.000000  -0.000000   0.000000   0.000000   0.013486
+  101  O  1ZZZY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  102  O  1XXYY   0.000000  -0.000000   0.014382   0.011038  -0.000000
+  103  O  1XXZZ   0.000000  -0.000000   0.014382  -0.011038  -0.000000
+  104  O  1YYZZ   0.000000  -0.000000  -0.003595   0.000000  -0.000000
+  105  O  1XXYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+  106  O  1YYXZ   0.000000  -0.000000   0.000000   0.000000   0.006031
+  107  O  1ZZXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+
+                     81         82
+                    1.3190     1.2634
+                     A          A   
+    1  O  1  S   -0.000000  -0.000000
+    2  O  1  S   -0.000000  -0.000000
+    3  O  1  S   -0.000000  -0.000000
+    4  O  1  S   -0.000000  -0.000000
+    5  O  1  S   -0.000000  -0.000000
+    6  O  1  X   -0.000000  -0.000000
+    7  O  1  Y   -0.000000  -0.000000
+    8  O  1  Z   -0.000000  -0.000000
+    9  O  1  X   -0.000000  -0.000000
+   10  O  1  Y   -0.000000  -0.000000
+   11  O  1  Z   -0.000000  -0.000000
+   12  O  1  X   -0.000000  -0.000000
+   13  O  1  Y   -0.000000  -0.000000
+   14  O  1  Z   -0.000000  -0.000000
+   15  O  1  X   -0.000000  -0.000000
+   16  O  1  Y   -0.000000  -0.000000
+   17  O  1  Z   -0.000000  -0.000000
+   18  O  1  X   -0.000000  -0.000000
+   19  O  1  Y   -0.000000  -0.000000
+   20  O  1  Z   -0.000000  -0.000000
+   21  O  1  X   -0.000000  -0.000000
+   22  O  1  Y   -0.000000  -0.000000
+   23  O  1  Z   -0.000000  -0.000000
+   24  O  1 XX   -0.000000  -0.000000
+   25  O  1 YY   -0.000000  -0.000000
+   26  O  1 ZZ   -0.000000  -0.000000
+   27  O  1 XY    0.051828  -0.000000
+   28  O  1 XZ   -0.000000  -0.000000
+   29  O  1 YZ   -0.000000   0.051783
+   30  O  1 XX   -0.000000  -0.000000
+   31  O  1 YY   -0.000000  -0.000000
+   32  O  1 ZZ   -0.000000  -0.000000
+   33  O  1 XY   -0.050699  -0.000000
+   34  O  1 XZ   -0.000000  -0.000000
+   35  O  1 YZ   -0.000000  -0.035489
+   36  O  1 XX   -0.000000  -0.000000
+   37  O  1 YY   -0.000000  -0.000000
+   38  O  1 ZZ   -0.000000  -0.000000
+   39  O  1 XY    1.427926  -0.000000
+   40  O  1 XZ   -0.000000  -0.000000
+   41  O  1 YZ   -0.000000   1.415907
+   42  O  1 XX   -0.000000  -0.000000
+   43  O  1 YY   -0.000000  -0.000000
+   44  O  1 ZZ   -0.000000  -0.000000
+   45  O  1 XY   -0.912456  -0.000000
+   46  O  1 XZ   -0.000000  -0.000000
+   47  O  1 YZ   -0.000000  -0.923775
+   48  O  1 XXX  -0.000000  -0.000000
+   49  O  1 YYY  -0.000000  -0.000000
+   50  O  1 ZZZ  -0.000000  -0.000000
+   51  O  1 XXY  -0.000000  -0.000000
+   52  O  1 XXZ  -0.000000  -0.000000
+   53  O  1 YYX  -0.000000  -0.000000
+   54  O  1 YYZ  -0.000000  -0.000000
+   55  O  1 ZZX  -0.000000  -0.000000
+   56  O  1 ZZY  -0.000000  -0.000000
+   57  O  1 XYZ  -0.000000  -0.000000
+   58  O  1 XXX  -0.000000  -0.000000
+   59  O  1 YYY  -0.000000  -0.000000
+   60  O  1 ZZZ  -0.000000  -0.000000
+   61  O  1 XXY  -0.000000  -0.000000
+   62  O  1 XXZ  -0.000000  -0.000000
+   63  O  1 YYX  -0.000000  -0.000000
+   64  O  1 YYZ  -0.000000  -0.000000
+   65  O  1 ZZX  -0.000000  -0.000000
+   66  O  1 ZZY  -0.000000  -0.000000
+   67  O  1 XYZ  -0.000000  -0.000000
+   68  O  1 XXX  -0.000000  -0.000000
+   69  O  1 YYY  -0.000000  -0.000000
+   70  O  1 ZZZ  -0.000000  -0.000000
+   71  O  1 XXY  -0.000000  -0.000000
+   72  O  1 XXZ  -0.000000  -0.000000
+   73  O  1 YYX  -0.000000  -0.000000
+   74  O  1 YYZ  -0.000000  -0.000000
+   75  O  1 ZZX  -0.000000  -0.000000
+   76  O  1 ZZY  -0.000000  -0.000000
+   77  O  1 XYZ  -0.000000  -0.000000
+   78  O  1XXXX  -0.000000  -0.000000
+   79  O  1YYYY  -0.000000  -0.000000
+   80  O  1ZZZZ  -0.000000  -0.000000
+   81  O  1XXXY  -0.003258  -0.000000
+   82  O  1XXXZ  -0.000000  -0.000000
+   83  O  1YYYX   0.002444  -0.000000
+   84  O  1YYYZ  -0.000000   0.001056
+   85  O  1ZZZX  -0.000000  -0.000000
+   86  O  1ZZZY  -0.000000   0.001056
+   87  O  1XXYY  -0.000000  -0.000000
+   88  O  1XXZZ  -0.000000  -0.000000
+   89  O  1YYZZ  -0.000000  -0.000000
+   90  O  1XXYZ  -0.000000  -0.002833
+   91  O  1YYXZ  -0.000000  -0.000000
+   92  O  1ZZXY   0.001093  -0.000000
+   93  O  1XXXX  -0.000000  -0.000000
+   94  O  1YYYY  -0.000000  -0.000000
+   95  O  1ZZZZ  -0.000000  -0.000000
+   96  O  1XXXY  -0.017982  -0.000000
+   97  O  1XXXZ  -0.000000  -0.000000
+   98  O  1YYYX   0.013486  -0.000000
+   99  O  1YYYZ  -0.000000   0.004750
+  100  O  1ZZZX  -0.000000  -0.000000
+  101  O  1ZZZY  -0.000000   0.004750
+  102  O  1XXYY  -0.000000  -0.000000
+  103  O  1XXZZ  -0.000000  -0.000000
+  104  O  1YYZZ  -0.000000  -0.000000
+  105  O  1XXYZ  -0.000000  -0.012745
+  106  O  1YYXZ  -0.000000  -0.000000
+  107  O  1ZZXY   0.006031  -0.000000
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     3.16 TOTAL CPU TIME =        3.6 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.7 SECONDS, CPU UTILIZATION IS  99.73%
+
+     ---------------------------------------------------------------------
+     PROPERTIES FOR THE PBE      DFT FUNCTIONAL (ROHF TYPE) DENSITY MATRIX
+     ---------------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =     -26.2572984350
+                TWO ELECTRON ENERGY =      10.3755599942
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =     -15.8817384408
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =      10.3755599942
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =     -38.2190582639
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =     -27.8434982697
+               TOTAL KINETIC ENERGY =      11.9617598289
+                 VIRIAL RATIO (V/T) =       2.3277091890
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3          4
+
+                  2.000000   2.000000   1.000000   1.000000
+
+    1             2.000000   2.000000   1.000000   1.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 O             1.00    3.00    0.00   0.00   0.00   0.00   0.00    4.00
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 O             1.00    1.00    0.00   0.00   0.00   0.00   0.00    2.00
+
+     ATOMIC SPIN POPULATION (ALPHA MINUS BETA)
+       ATOM         MULL.POP.                    LOW.POP.
+    1 O             2.000000                     2.000000
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  O  1  S      2.00372     0.22212
+              2  O  1  S      0.00389     0.14321
+              3  O  1  S     -0.01727     0.18355
+              4  O  1  S     -0.00963     0.14217
+              5  O  1  S      0.01923     0.06049
+              6  O  1  X      2.05632     0.60698
+              7  O  1  Y      1.07688     0.31575
+              8  O  1  Z      1.07688     0.31575
+              9  O  1  X     -0.01777     0.30959
+             10  O  1  Y     -0.00500     0.16606
+             11  O  1  Z     -0.00500     0.16606
+             12  O  1  X     -0.06102     0.22028
+             13  O  1  Y     -0.04370     0.10999
+             14  O  1  Z     -0.04370     0.10999
+             15  O  1  X      0.00224     0.09848
+             16  O  1  Y     -0.03143     0.03776
+             17  O  1  Z     -0.03143     0.03776
+             18  O  1  X      0.03107     0.02849
+             19  O  1  Y      0.01247     0.00880
+             20  O  1  Z      0.01247     0.00880
+             21  O  1  X     -0.01089     0.02161
+             22  O  1  Y     -0.00928     0.00652
+             23  O  1  Z     -0.00928     0.00652
+             24  O  1 XX     -0.00000     0.07764
+             25  O  1 YY     -0.00000     0.07842
+             26  O  1 ZZ      0.00000     0.07842
+             27  O  1 XY      0.00000     0.00000
+             28  O  1 XZ      0.00000     0.00000
+             29  O  1 YZ      0.00000     0.00000
+             30  O  1 XX      0.00001     0.11203
+             31  O  1 YY      0.00003     0.11531
+             32  O  1 ZZ      0.00000     0.11531
+             33  O  1 XY      0.00000     0.00000
+             34  O  1 XZ      0.00000     0.00000
+             35  O  1 YZ      0.00000     0.00000
+             36  O  1 XX      0.00001     0.04747
+             37  O  1 YY      0.00002     0.04928
+             38  O  1 ZZ      0.00000     0.04928
+             39  O  1 XY      0.00000     0.00000
+             40  O  1 XZ      0.00000     0.00000
+             41  O  1 YZ      0.00000     0.00000
+             42  O  1 XX      0.00000     0.00982
+             43  O  1 YY      0.00000     0.01023
+             44  O  1 ZZ      0.00000     0.01023
+             45  O  1 XY      0.00000     0.00000
+             46  O  1 XZ      0.00000     0.00000
+             47  O  1 YZ      0.00000     0.00000
+             48  O  1 XXX     0.00000     0.17906
+             49  O  1 YYY     0.00001     0.09897
+             50  O  1 ZZZ     0.00000     0.09897
+             51  O  1 XXY     0.00001     0.04276
+             52  O  1 XXZ     0.00000     0.04276
+             53  O  1 YYX     0.00000     0.08284
+             54  O  1 YYZ     0.00002     0.04484
+             55  O  1 ZZX     0.00000     0.08284
+             56  O  1 ZZY     0.00000     0.04484
+             57  O  1 XYZ     0.00000     0.00000
+             58  O  1 XXX     0.00002     0.11538
+             59  O  1 YYY     0.00003     0.05877
+             60  O  1 ZZZ     0.00001     0.05877
+             61  O  1 XXY     0.00002     0.02470
+             62  O  1 XXZ     0.00000     0.02470
+             63  O  1 YYX     0.00000     0.05518
+             64  O  1 YYZ     0.00004     0.02700
+             65  O  1 ZZX     0.00000     0.05518
+             66  O  1 ZZY     0.00000     0.02700
+             67  O  1 XYZ     0.00000     0.00000
+             68  O  1 XXX     0.00001     0.07476
+             69  O  1 YYY     0.00001     0.03123
+             70  O  1 ZZZ     0.00000     0.03123
+             71  O  1 XXY     0.00001     0.01287
+             72  O  1 XXZ     0.00000     0.01287
+             73  O  1 YYX     0.00000     0.03468
+             74  O  1 YYZ     0.00002     0.01398
+             75  O  1 ZZX     0.00000     0.03468
+             76  O  1 ZZY     0.00000     0.01398
+             77  O  1 XYZ     0.00000     0.00000
+             78  O  1XXXX     0.00000     0.05323
+             79  O  1YYYY     0.00000     0.05592
+             80  O  1ZZZZ     0.00000     0.05592
+             81  O  1XXXY     0.00000     0.00000
+             82  O  1XXXZ     0.00000     0.00000
+             83  O  1YYYX     0.00000     0.00000
+             84  O  1YYYZ     0.00000     0.00000
+             85  O  1ZZZX     0.00000     0.00000
+             86  O  1ZZZY     0.00000     0.00000
+             87  O  1XXYY     0.00000     0.05938
+             88  O  1XXZZ     0.00000     0.05938
+             89  O  1YYZZ     0.00000     0.06032
+             90  O  1XXYZ     0.00000     0.00000
+             91  O  1YYXZ     0.00000     0.00000
+             92  O  1ZZXY     0.00000     0.00000
+             93  O  1XXXX     0.00000     0.02381
+             94  O  1YYYY     0.00000     0.02514
+             95  O  1ZZZZ     0.00000     0.02514
+             96  O  1XXXY     0.00000     0.00000
+             97  O  1XXXZ     0.00000     0.00000
+             98  O  1YYYX     0.00000     0.00000
+             99  O  1YYYZ     0.00000     0.00000
+            100  O  1ZZZX     0.00000     0.00000
+            101  O  1ZZZY     0.00000     0.00000
+            102  O  1XXYY     0.00000     0.02544
+            103  O  1XXZZ     0.00000     0.02544
+            104  O  1YYZZ     0.00000     0.02593
+            105  O  1XXYZ     0.00000     0.00000
+            106  O  1YYXZ     0.00000     0.00000
+            107  O  1ZZXY     0.00000     0.00000
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    6.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 O             6.000000    0.000000         6.000000    0.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 O             2.00    4.00    0.00   0.00   0.00   0.00   0.00    6.00
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 O                 2.000       0.000       2.000
+
+          -----------------------------------------
+          ATOMIC SPIN DENSITY AT THE NUCLEUS (A.U.)
+          -----------------------------------------
+                            SPIN DENS    ALPHA DENS     BETA DENS
+    1  O            6.0     0.0000000       0.01202       0.01202
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000        0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.02 TOTAL CPU TIME =        3.7 (    0.1 MIN)
+ TOTAL WALL CLOCK TIME=        3.7 SECONDS, CPU UTILIZATION IS  99.73%
+               809237  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Sun Jun 24 23:13:44 2018
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 3.620 + 0.48 = 3.668
+ ----------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node gwang18-Lenovo-Y50-70 were:
+-rw-rw-r-- 1 gwang18 gwang18   144914 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.dat
+-rw------- 1 gwang18 gwang18     1473 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.F05
+-rw-rw-r-- 1 gwang18 gwang18 25742288 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.F08
+-rw-rw-r-- 1 gwang18 gwang18  8441760 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.F10
+-rw------- 1 gwang18 gwang18     1473 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.inp
+-rw-rw-r-- 1 gwang18 gwang18   168366 Jun 24 23:13 /home/gwang18/research/qwalk/ecpcorrelation/o/pbe/o.out
+ls: No match.
+ls: No match.
+ls: No match.
+Sun Jun 24 23:13:47 EDT 2018
+0.0u 0.0s 0:06.76 0.5% 0+0k 0+16io 0pf+0w

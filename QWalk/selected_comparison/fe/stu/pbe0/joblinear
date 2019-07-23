@@ -1,0 +1,23 @@
+#! /bin/bash
+
+#SBATCH -J qwalk           # Job name
+#SBATCH -o qwalk.o%j       # Name of stdout output file
+#SBATCH -e qwalk.e%j       # Name of stderr error file
+#SBATCH -p normal          # Queue name
+#!SBATCH -p development          # Queue name
+#SBATCH -N 1               # Total # of nodes
+#SBATCH -n 64              # Total # of mpi tasks
+#SBATCH -t 25:00:00        # Run time (hh:mm:ss)
+
+
+element=fe
+sed s/OPTIMIZEBASIS//g $element.opt4.wfout > fixed_basis.wf1
+for i in {1..15}
+do
+sed "s/id/$i/g" linear.template > tmp
+sed "s/atom/$element/g" tmp > $element.linear$i
+rm tmp
+ibrun /home1/04843/gwang18/software/qwalk/src/qwalk-Linux_lapack $element.linear$i
+a=$(($i+1))
+mv $element.linear.wfout$i  fixed_basis.wf$a
+done

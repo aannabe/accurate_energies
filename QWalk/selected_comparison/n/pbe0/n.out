@@ -1,0 +1,2535 @@
+----- GAMESS execution script 'rungms' -----
+This job is running on host gwang18-Lenovo-Y50-70
+under operating system Linux at Mon Jun 25 13:21:11 EDT 2018
+Available scratch disk space (Kbyte units) at beginning of the job is
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/sda7      411134224 55940776 334285980  15% /
+GAMESS temporary binary files will be written to /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0
+GAMESS supplementary output files will be written to /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0
+Copying input file n.inp to your run's scratch directory...
+cp n.inp /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.F05
+unset echo
+/home/gwang18/gamess/ddikick.x /home/gwang18/gamess/gamess.00.x n -ddi 1 1 gwang18-Lenovo-Y50-70 -scr /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0
+
+ Distributed Data Interface kickoff program.
+ Initiating 1 compute processes on 1 nodes to run the following command:
+ /home/gwang18/gamess/gamess.00.x n 
+
+          ******************************************************
+          *         GAMESS VERSION =  5 DEC 2014 (R1)          *
+          *             FROM IOWA STATE UNIVERSITY             *
+          * M.W.SCHMIDT, K.K.BALDRIDGE, J.A.BOATZ, S.T.ELBERT, *
+          *   M.S.GORDON, J.H.JENSEN, S.KOSEKI, N.MATSUNAGA,   *
+          *          K.A.NGUYEN, S.J.SU, T.L.WINDUS,           *
+          *       TOGETHER WITH M.DUPUIS, J.A.MONTGOMERY       *
+          *         J.COMPUT.CHEM.  14, 1347-1363(1993)        *
+          **************** 64 BIT LINUX VERSION ****************
+
+  SINCE 1993, STUDENTS AND POSTDOCS WORKING AT IOWA STATE UNIVERSITY
+  AND ALSO IN THEIR VARIOUS JOBS AFTER LEAVING ISU HAVE MADE IMPORTANT
+  CONTRIBUTIONS TO THE CODE:
+     IVANA ADAMOVIC, CHRISTINE AIKENS, YURI ALEXEEV, POOJA ARORA,
+     ANDREY ASADCHEV, ROB BELL, PRADIPTA BANDYOPADHYAY, JONATHAN BENTZ,
+     BRETT BODE, KURT BRORSEN, CALEB CARLIN, GALINA CHABAN, WEI CHEN,
+     CHEOL HO CHOI, PAUL DAY, ALBERT DEFUSCO, NUWAN DESILVA, TIM DUDLEY,
+     DMITRI FEDOROV, GRAHAM FLETCHER, MARK FREITAG, KURT GLAESEMANN,
+     DAN KEMP, GRANT MERRILL, NORIYUKI MINEZAWA, JONATHAN MULLIN,
+     TAKESHI NAGATA, SEAN NEDD, HEATHER NETZLOFF, BOSILJKA NJEGIC, RYAN OLSON,
+     MIKE PAK, SPENCER PRUITT, LUKE ROSKOP, JIM SHOEMAKER, LYUDMILA SLIPCHENKO,
+     TONY SMITH, SAROM SOK, JIE SONG, TETSUYA TAKETSUGU, SIMON WEBB,
+     PENG XU, SOOHAENG YOO, FEDERICO ZAHARIEV
+
+  ADDITIONAL CODE HAS BEEN PROVIDED BY COLLABORATORS IN OTHER GROUPS:
+     IOWA STATE UNIVERSITY:
+          JOE IVANIC, AARON WEST, LAIMUTIS BYTAUTAS, KLAUS RUEDENBERG
+     UNIVERSITY OF TOKYO: KIMIHIKO HIRAO, TAKAHITO NAKAJIMA,
+          TAKAO TSUNEDA, MUNEAKI KAMIYA, SUSUMU YANAGISAWA,
+          KIYOSHI YAGI, MAHITO CHIBA, SEIKEN TOKURA, NAOAKI KAWAKAMI
+     UNIVERSITY OF AARHUS: FRANK JENSEN
+     UNIVERSITY OF IOWA: VISVALDAS KAIRYS, HUI LI
+     NATIONAL INST. OF STANDARDS AND TECHNOLOGY: WALT STEVENS, DAVID GARMER
+     UNIVERSITY OF PISA: BENEDETTA MENNUCCI, JACOPO TOMASI
+     UNIVERSITY OF MEMPHIS: HENRY KURTZ, PRAKASHAN KORAMBATH
+     UNIVERSITY OF ALBERTA: TOBY ZENG, MARIUSZ KLOBUKOWSKI
+     UNIVERSITY OF NEW ENGLAND: MARK SPACKMAN
+     MIE UNIVERSITY: HIROAKI UMEDA
+     NAT. INST. OF ADVANCED INDUSTRIAL SCIENCE AND TECHNOLOGY: KAZUO KITAURA
+     MICHIGAN STATE UNIVERSITY:
+          KAROL KOWALSKI, MARTA WLOCH, JEFFREY GOUR, JESSE LUTZ,
+          WEI LI, PIOTR PIECUCH
+     UNIVERSITY OF SILESIA: MONIKA MUSIAL, STANISLAW KUCHARSKI
+     FACULTES UNIVERSITAIRES NOTRE-DAME DE LA PAIX:
+          OLIVIER QUINET, BENOIT CHAMPAGNE
+     UNIVERSITY OF CALIFORNIA - SANTA BARBARA: BERNARD KIRTMAN
+     INSTITUTE FOR MOLECULAR SCIENCE:
+          KAZUYA ISHIMURA, MICHIO KATOUDA, AND SHIGERU NAGASE
+     UNIVERSITY OF NOTRE DAME: ANNA POMOGAEVA, DAN CHIPMAN
+     KYUSHU UNIVERSITY:
+          HARUYUKI NAKANO,
+          FENG LONG GU, JACEK KORCHOWIEC, MARCIN MAKOWSKI, AND YURIKO AOKI,
+          HIROTOSHI MORI AND EISAKU MIYOSHI
+     PENNSYLVANIA STATE UNIVERSITY:
+          TZVETELIN IORDANOV, CHET SWALINA, JONATHAN SKONE,
+          SHARON HAMMES-SCHIFFER
+     WASEDA UNIVERSITY:
+          MASATO KOBAYASHI, TOMOKO AKAMA, TSUGUKI TOUMA,
+          TAKESHI YOSHIKAWA, YASUHIRO IKABATA, HIROMI NAKAI
+     NANJING UNIVERSITY: SHUHUA LI
+     UNIVERSITY OF NEBRASKA:
+          PEIFENG SU, DEJUN SI, NANDUN THELLAMUREGE, YALI WANG, HUI LI
+     UNIVERSITY OF ZURICH: ROBERTO PEVERATI, KIM BALDRIDGE
+     N. COPERNICUS UNIVERSITY AND JACKSON STATE UNIVERSITY:
+          MARIA BARYSZ
+     UNIVERSITY OF COPENHAGEN: CASPER STEINMANN
+     TOKYO INSTITUTE OF TECHNOLOGY: HIROYA NAKATA
+     NAGOYA UNIVERSITY: YOSHIO NISHIMOTO, STEPHAN IRLE
+
+ EXECUTION OF GAMESS BEGUN Mon Jun 25 13:21:11 2018
+
+            ECHO OF THE FIRST FEW INPUT CARDS -
+ INPUT CARD> $CONTRL                                                                        
+ INPUT CARD>     SCFTYP=ROHF                                                                
+ INPUT CARD>     MULT=4                                                                     
+ INPUT CARD>     DFTTYP=PBE0                                                                
+ INPUT CARD>     ICHARG=0                                                                   
+ INPUT CARD>     RUNTYP=ENERGY                                                              
+ INPUT CARD>     MAXIT=150                                                                  
+ INPUT CARD>     PP=READ                                                                    
+ INPUT CARD>     ISPHER=1                                                                   
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $SCF DAMP=.T. SOSCF=.F. SHIFT=.T. RSTRCT=.T. DIIS=.T.  $end                    
+ INPUT CARD>                                                                                
+ INPUT CARD> $DFT                                                                           
+ INPUT CARD>     METHOD=GRID                                                                
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $SYSTEM                                                                        
+ INPUT CARD>     KDIAG=3                                                                    
+ INPUT CARD>     mwords=125                                                                 
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $GUESS                                                                         
+ INPUT CARD>    GUESS=HUCKEL                                                                
+ INPUT CARD> $END                                                                           
+ INPUT CARD>                                                                                
+ INPUT CARD> $DATA                                                                          
+ INPUT CARD>                                                                                
+ INPUT CARD>C1                                                                              
+ INPUT CARD>N 7 0. 0. 0.                                                                    
+ INPUT CARD>s 9                                                                             
+ INPUT CARD>1 42.693822  -0.0009357                                                         
+ INPUT CARD>2 19.963207  0.0063295                                                          
+ INPUT CARD>3 9.3345971  0.0105038                                                          
+ INPUT CARD>4 4.9278187  -0.1653735                                                         
+ INPUT CARD>5 2.0409200  -0.0005352                                                         
+ INPUT CARD>6 0.9670800  0.2452063                                                          
+ INPUT CARD>7 0.4761310  0.4582128                                                          
+ INPUT CARD>8 0.2114430  0.3641224                                                          
+ INPUT CARD>9 0.0988690  0.0620406                                                          
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 1.625001   1.000000                                                           
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.310826   1.000000                                                           
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.135764   1.000000                                                           
+ INPUT CARD>s 1                                                                             
+ INPUT CARD>1 0.054306   1.000000                                                           
+ INPUT CARD>p 9                                                                             
+ INPUT CARD>1 18.925871  0.0073505                                                          
+  125000000 WORDS OF MEMORY AVAILABLE
+
+
+     RUN TITLE
+     ---------
+                                                                                 
+
+ THE POINT GROUP OF THE MOLECULE IS C1      
+ THE ORDER OF THE PRINCIPAL AXIS IS     0
+
+ ATOM      ATOMIC                      COORDINATES (BOHR)
+           CHARGE         X                   Y                   Z
+ N           7.0     0.0000000000        0.0000000000        0.0000000000
+
+          INTERNUCLEAR DISTANCES (ANGS.)
+          ------------------------------
+
+                1 N     
+
+   1 N       0.0000000  
+
+  * ... LESS THAN  3.000
+
+
+     ATOMIC BASIS SET
+     ----------------
+ THE CONTRACTED PRIMITIVE FUNCTIONS HAVE BEEN UNNORMALIZED
+ THE CONTRACTED BASIS FUNCTIONS ARE NOW NORMALIZED TO UNITY
+
+  SHELL TYPE  PRIMITIVE        EXPONENT          CONTRACTION COEFFICIENT(S)
+
+ N         
+
+      1   S       1            42.6938220   -0.000935699920
+      1   S       2            19.9632070    0.006329499456
+      1   S       3             9.3345971    0.010503799097
+      1   S       4             4.9278187   -0.165373485789
+      1   S       5             2.0409200   -0.000535199954
+      1   S       6             0.9670800    0.245206278929
+      1   S       7             0.4761310    0.458212760625
+      1   S       8             0.2114430    0.364122368711
+      1   S       9             0.0988690    0.062040594669
+
+      2   S      10             1.6250010    1.000000000000
+
+      3   S      11             0.3108260    1.000000000000
+
+      4   S      12             0.1357640    1.000000000000
+
+      5   S      13             0.0543060    1.000000000000
+
+      6   P      14            18.9258710    0.007350499673
+      6   P      15             9.2256030    0.029284398695
+      6   P      16             4.5814310    0.065216797095
+      6   P      17             2.3001640    0.140515293740
+      6   P      18             1.1548250    0.232818789628
+      6   P      19             0.5820390    0.298955586682
+      6   P      20             0.2905350    0.280250687516
+      6   P      21             0.1458670    0.152799493193
+      6   P      22             0.0732340    0.035547498416
+
+      7   P      23             1.0207500    1.000000000000
+
+      8   P      24             0.4131030    1.000000000000
+
+      9   P      25             0.1407360    1.000000000000
+
+     10   P      26             0.0562940    1.000000000000
+
+     11   D      27             3.0284590    1.000000000000
+
+     12   D      28             1.0098950    1.000000000000
+
+     13   D      29             0.3462330    1.000000000000
+
+     14   D      30             0.1384930    1.000000000000
+
+     15   F      31             2.0247470    1.000000000000
+
+     16   F      32             0.6911290    1.000000000000
+
+     17   F      33             0.2764520    1.000000000000
+
+     18   G      34             1.3575120    1.000000000000
+
+     19   G      35             0.5430050    1.000000000000
+
+ TOTAL NUMBER OF BASIS SET SHELLS             =   19
+ NUMBER OF CARTESIAN GAUSSIAN BASIS FUNCTIONS =  104
+ NOTE: THIS RUN WILL RESTRICT THE MO VARIATION SPACE TO SPHERICAL HARMONICS.
+ THE NUMBER OF ORBITALS KEPT IN THE VARIATIONAL SPACE WILL BE PRINTED LATER.
+ NUMBER OF ELECTRONS                          =    7
+ CHARGE OF MOLECULE                           =    0
+ SPIN MULTIPLICITY                            =    4
+ NUMBER OF OCCUPIED ORBITALS (ALPHA)          =    5
+ NUMBER OF OCCUPIED ORBITALS (BETA )          =    2
+ TOTAL NUMBER OF ATOMS                        =    1
+ THE NUCLEAR REPULSION ENERGY IS        0.0000000000
+ NOTE THIS RUN IS USING CORE POTENTIALS, AND THE NUMBER OF ELECTRONS,
+ OCCUPIED ORBITALS, AND NUCLEAR REPULSION ENERGY WILL BE ADJUSTED BELOW
+ AFTER REMOVAL OF THE CORE CHARGES.
+
+ THIS MOLECULE IS RECOGNIZED AS BEING LINEAR,
+ ORBITAL LZ DEGENERACY TOLERANCE ETOLLZ= 1.00E-06
+
+     LEBEDEV GRID-BASED DFT OPTIONS
+     ------------------------------
+     DFTTYP=PBE0    
+     NRAD  =      96     NLEB  =     302
+     NRAD0 =      24     NLEB0 =     110
+     SWOFF =    5.00E-03 (PURE SCF -> DFT)
+     SWITCH=    3.00E-04 (COARSE -> TIGHT GRID)
+     THRESH=    0.00E+00 GTHRE=    1.00E+00
+
+ GRIMME'S EMPIRICAL DISPERSION CORRECTION= F
+
+     $CONTRL OPTIONS
+     ---------------
+ SCFTYP=ROHF         RUNTYP=ENERGY       EXETYP=RUN     
+ MPLEVL=       0     CITYP =NONE         CCTYP =NONE         VBTYP =NONE    
+ DFTTYP=PBE0         TDDFT =NONE    
+ MULT  =       4     ICHARG=       0     NZVAR =       0     COORD =UNIQUE  
+ PP    =READ         RELWFN=NONE         LOCAL =NONE         NUMGRD=       F
+ ISPHER=       1     NOSYM =       0     MAXIT =     150     UNITS =ANGS    
+ PLTORB=       F     MOLPLT=       F     AIMPAC=       F     FRIEND=        
+ NPRINT=       7     IREST =       0     GEOM  =INPUT   
+ NORMF =       0     NORMP =       0     ITOL  =      20     ICUT  =       9
+ INTTYP=BEST         GRDTYP=BEST         QMTTOL= 1.0E-06
+
+     $SYSTEM OPTIONS
+     ---------------
+  REPLICATED MEMORY=   125000000 WORDS (ON EVERY NODE).
+ DISTRIBUTED MEMDDI=           0 MILLION WORDS IN AGGREGATE,
+ MEMDDI DISTRIBUTED OVER   1 PROCESSORS IS           0 WORDS/PROCESSOR.
+ TOTAL MEMORY REQUESTED ON EACH PROCESSOR=   125000000 WORDS.
+ TIMLIM=      525600.00 MINUTES, OR     365.0 DAYS.
+ PARALL= F  BALTYP=  DLB     KDIAG=    3  COREFL= F
+ MXSEQ2=     300 MXSEQ3=     150  mem10=         0
+
+          --------------
+          ECP POTENTIALS
+          --------------
+
+ PARAMETERS FOR "N-QMC   " ON ATOM    1 WITH ZCORE   2 AND LMAX  1 ARE
+ FOR L= 1      COEFF    N           ZETA
+    1        3.25000    1       12.91881
+    2        1.75000    1        9.22825
+    3       41.98612    3       12.96581
+    4       16.14945    3        8.05477
+    5      -26.09522    2       12.54876
+    6      -10.32626    2        7.53360
+ FOR L= 0      COEFF    N           ZETA
+    1       34.77692    2        9.41609
+    2       15.20330    2        8.16694
+
+ THE ECP RUN REMOVES    2 CORE ELECTRONS, AND THE SAME NUMBER OF PROTONS.
+ NUMBER OF ELECTRONS KEPT IN THE CALCULATION IS =    5
+ NUMBER OF OCCUPIED ORBITALS (ALPHA) KEPT IS    =    4
+ NUMBER OF OCCUPIED ORBITALS (BETA ) KEPT IS    =    1
+ THE ADJUSTED NUCLEAR REPULSION ENERGY=        0.0000000000
+          ECP ANGULAR INTS.........     0.01 SECONDS
+
+          ----------------
+          PROPERTIES INPUT
+          ----------------
+
+     MOMENTS            FIELD           POTENTIAL          DENSITY
+ IEMOM =       1   IEFLD =       0   IEPOT =       0   IEDEN =       0
+ WHERE =COMASS     WHERE =NUCLEI     WHERE =NUCLEI     WHERE =NUCLEI  
+ OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH       OUTPUT=BOTH    
+ IEMINT=       0   IEFINT=       0                     IEDINT=       0
+                                                       MORB  =       0
+          EXTRAPOLATION IN EFFECT
+          DAMPING IN EFFECT
+          LEVEL SHIFTING IN EFFECT
+          RESTRICTION OF ORBITAL MIXING IN EFFECT
+          DIIS IN EFFECT
+ ORBITAL PRINTING OPTION: NPREO=     1   104     2     1
+
+     -------------------------------
+     INTEGRAL TRANSFORMATION OPTIONS
+     -------------------------------
+     NWORD  =            0
+     CUTOFF = 1.0E-09     MPTRAN =       0
+     DIRTRF =       F     AOINTS =DUP     
+
+          ----------------------
+          INTEGRAL INPUT OPTIONS
+          ----------------------
+ NOPK  =       1 NORDER=       0 SCHWRZ=       F
+
+     ------------------------------------------
+     THE POINT GROUP IS C1 , NAXIS= 0, ORDER= 1
+     ------------------------------------------
+
+ -- VARIATIONAL SPACE WILL BE RESTRICTED TO PURE SPHERICAL HARMONICS ONLY --
+ AFTER EXCLUDING CONTAMINANT COMBINATIONS FROM THE CARTESIAN GAUSSIAN BASIS
+ SET, THE NUMBER OF SPHERICAL HARMONICS KEPT IN THE VARIATION SPACE IS   79
+
+     DIMENSIONS OF THE SYMMETRY SUBSPACES ARE
+ A   =   79
+
+ ..... DONE SETTING UP THE RUN .....
+ STEP CPU TIME =     0.03 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+          ********************
+          1 ELECTRON INTEGRALS
+          ********************
+ TIME TO DO ORDINARY INTEGRALS=      0.00
+ TIME TO DO      ECP INTEGRALS=      0.00
+ ...... END OF ONE-ELECTRON INTEGRALS ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS 100.00%
+
+          -------------
+          GUESS OPTIONS
+          -------------
+          GUESS =HUCKEL            NORB  =       0          NORDER=       0
+          MIX   =       F          PRTMO =       F          PUNMO =       F
+          TOLZ  = 1.0E-08          TOLE  = 1.0E-05
+          SYMDEN=       F          PURIFY=       F
+
+ INITIAL GUESS ORBITALS GENERATED BY HUCKEL   ROUTINE.
+ HUCKEL GUESS REQUIRES     78439 WORDS.
+
+ STATISTICS FOR GENERATION OF SYMMETRY ORBITAL -Q- MATRIX
+ NUMBER OF CARTESIAN ATOMIC ORBITALS=        104
+ NUMBER OF SPHERICAL CONTAMINANTS DROPPED=    25
+ NUMBER OF LINEARLY DEPENDENT MOS DROPPED=     0
+ TOTAL NUMBER OF MOS IN VARIATION SPACE=      79
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.  ALPHA SET(S).
+     4 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A       12=A       13=A       14=A   
+
+ SYMMETRIES FOR INITIAL GUESS ORBITALS FOLLOW.   BETA SET(S).
+     1 ORBITALS ARE OCCUPIED (    0 CORE ORBITALS).
+     1=A        2=A        3=A        4=A        5=A        6=A        7=A   
+     8=A        9=A       10=A       11=A   
+ ...... END OF INITIAL ORBITAL SELECTION ......
+ STEP CPU TIME =     0.00 TOTAL CPU TIME =        0.0 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.0 SECONDS, CPU UTILIZATION IS  75.00%
+
+                    ----------------------
+                    AO INTEGRAL TECHNOLOGY
+                    ----------------------
+     S,P,L SHELL ROTATED AXIS INTEGRALS, REPROGRAMMED BY
+        KAZUYA ISHIMURA (IMS) AND JOSE SIERRA (SYNSTAR).
+     S,P,D,L SHELL ROTATED AXIS INTEGRALS PROGRAMMED BY
+        KAZUYA ISHIMURA (INSTITUTE FOR MOLECULAR SCIENCE).
+     S,P,D,F,G SHELL TO TOTAL QUARTET ANGULAR MOMENTUM SUM 5,
+        ERIC PROGRAM BY GRAHAM FLETCHER (ELORET AND NASA ADVANCED
+        SUPERCOMPUTING DIVISION, AMES RESEARCH CENTER).
+     S,P,D,F,G,L SHELL GENERAL RYS QUADRATURE PROGRAMMED BY
+        MICHEL DUPUIS (PACIFIC NORTHWEST NATIONAL LABORATORY).
+
+          --------------------
+          2 ELECTRON INTEGRALS
+          --------------------
+
+ THE -PK- OPTION IS OFF, THE INTEGRALS ARE NOT IN SUPERMATRIX FORM.
+ STORING   15000 INTEGRALS/RECORD ON DISK, USING 12 BYTES/INTEGRAL.
+ TWO ELECTRON INTEGRAL EVALUATION REQUIRES  139915 WORDS OF MEMORY.
+ II,JST,KST,LST =  1  1  1  1 NREC =         1 INTLOC =    1
+ II,JST,KST,LST =  2  1  1  1 NREC =         1 INTLOC =    2
+ II,JST,KST,LST =  3  1  1  1 NREC =         1 INTLOC =    7
+ II,JST,KST,LST =  4  1  1  1 NREC =         1 INTLOC =   22
+ II,JST,KST,LST =  5  1  1  1 NREC =         1 INTLOC =   56
+ II,JST,KST,LST =  6  1  1  1 NREC =         1 INTLOC =  121
+ II,JST,KST,LST =  7  1  1  1 NREC =         1 INTLOC =  220
+ II,JST,KST,LST =  8  1  1  1 NREC =         1 INTLOC =  496
+ II,JST,KST,LST =  9  1  1  1 NREC =         1 INTLOC = 1057
+ II,JST,KST,LST = 10  1  1  1 NREC =         1 INTLOC = 2074
+ II,JST,KST,LST = 11  1  1  1 NREC =         1 INTLOC = 3781
+ II,JST,KST,LST = 12  1  1  1 NREC =         1 INTLOC = 9301
+ II,JST,KST,LST = 13  1  1  1 NREC =         2 INTLOC = 5254
+ II,JST,KST,LST = 14  1  1  1 NREC =         3 INTLOC = 9160
+ II,JST,KST,LST = 15  1  1  1 NREC =         5 INTLOC = 9547
+ II,JST,KST,LST = 16  1  1  1 NREC =        10 INTLOC =13688
+ II,JST,KST,LST = 17  1  1  1 NREC =        20 INTLOC =  974
+ II,JST,KST,LST = 18  1  1  1 NREC =        34 INTLOC = 9469
+ II,JST,KST,LST = 19  1  1  1 NREC =        70 INTLOC = 1606
+ TOTAL NUMBER OF NONZERO TWO-ELECTRON INTEGRALS =             1915935
+        128 INTEGRAL RECORDS WERE STORED ON DISK FILE  8.
+  ...... END OF TWO-ELECTRON INTEGRALS .....
+ STEP CPU TIME =     0.42 TOTAL CPU TIME =        0.5 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        0.5 SECONDS, CPU UTILIZATION IS  97.83%
+
+          ---------------------------
+              RO-PBE0 SCF CALCULATION
+          ---------------------------
+
+     NUCLEAR ENERGY =         0.0000000000
+     MAXIT =150     NPUNCH=  2     MULT=  4
+     EXTRAP=T  DAMP=T  SHIFT=T  RSTRCT=T  DIIS=T  SOSCF=F
+         DENSITY MATRIX CONVERGENCE THRESHOLD=  1.00E-05
+     COARSE -> FINE DFT GRID SWITCH THRESHOLD=  3.00E-04 (SWITCH IN $DFT)
+                   HF -> DFT SWITCH THRESHOLD=  5.00E-03 (SWOFF IN $DFT)
+     ROHF CANONICALIZATION PARAMETERS
+             C-C     O-O     V-V
+     ALPHA -0.5000  0.5000  1.5000
+     BETA   1.5000  0.5000 -0.5000
+     MEMORY REQUIRED FOR UHF/ROHF ITERS=    225590 WORDS.
+
+ DFT CODE IS SWITCHING FROM THE FINE GRID NRAD= 96,  NLEB=  302
+                      TO THE COARSE GRID NRAD0= 24, NLEB0=  110
+
+     EXCHANGE FUNCTIONAL   =PBE&HFX   
+     CORRELATION FUNCTIONAL=PBE       
+     DFT THRESHOLD         =.138E-06
+     GRID CHANGE THRESHOLD =.300E-03
+ FOR AN EULER-MACLAURIN QUADRATURE USING  96 RADIAL POINTS:
+ SMALLEST GAUSSIAN PRIMITIVE EXPONENT=        0.0543060000 OF TYPE -S-
+ ON ATOM NUMBER   1 HAS RADIAL NORMALIZATION=  1.000000
+  LARGEST GAUSSIAN PRIMITIVE EXPONENT=       42.6938220000 OF TYPE -S-
+ ON ATOM NUMBER   1 HAS RADIAL NORMALIZATION=  1.000000
+ DFT IS SWITCHED OFF, PERFORMING PURE SCF UNTIL SWOFF THRESHOLD IS REACHED.
+
+ ITER EX      TOTAL ENERGY        E CHANGE  DENSITY CHANGE    DIIS ERROR      VIR. SHIFT       DAMPING
+   1  0       -9.5447821780    -9.5447821780   0.509417988   0.733277997     0.000000000     1.000000000
+          * * *   INITIATING DIIS PROCEDURE   * * *
+   2  1       -9.6073513397    -0.0625691617   0.437764405   0.131834693     0.000000000     1.000000000
+   3  2       -9.6197705008    -0.0124191611   0.192401613   0.108919390     0.000000000     1.000000000
+   4  3       -9.6338596262    -0.0140891253   0.006409572   0.003273670     0.000000000     1.000000000
+   5  4       -9.6338662946    -0.0000066684   0.001377877   0.000361993     0.000000000     1.000000000
+ CONVERGED TO SWOFF, SO DFT CALCULATION IS NOW SWITCHED ON.
+          * * *   INITIATING DIIS PROCEDURE   * * *
+   6  5       -9.7569190675    -0.1230527730   0.072677112   0.033933730
+   7  6       -9.7579444895    -0.0010254220   0.023874729   0.006069813
+   8  7       -9.7579457259    -0.0000012364   0.015439501   0.009644352
+   9  8       -9.7580535632    -0.0001078373   0.001714428   0.000764114
+  10  9       -9.7580554807    -0.0000019175   0.000087332   0.000018434
+ DFT CODE IS SWITCHING BACK TO THE FINE GRID
+          * * *   INITIATING DIIS PROCEDURE   * * *
+  11 10       -9.7580416065     0.0000138742   0.000335176   0.000091220
+  12 11       -9.7580416221    -0.0000000157   0.000046038   0.000006148
+  13 12       -9.7580416224    -0.0000000003   0.000008698   0.000001712
+  14 13       -9.7580416225    -0.0000000000   0.000003849   0.000002286
+
+          -----------------
+          DENSITY CONVERGED
+          -----------------
+     TIME TO FORM FOCK OPERATORS=       2.0 SECONDS (       0.1 SEC/ITER)
+     TIME TO SOLVE SCF EQUATIONS=       0.1 SECONDS (       0.0 SEC/ITER)
+
+ FINAL RO-PBE0 ENERGY IS       -9.7580416225 AFTER  14 ITERATIONS
+ DFT EXCHANGE + CORRELATION ENERGY =        -1.8218558174
+ TOTAL ELECTRON NUMBER             =         4.9999994245
+
+          --------------------
+          SPIN SZ   =    1.500
+          S-SQUARED =    3.750
+          --------------------
+
+ LZ VALUE ANALYSIS FOR THE MOS
+ ----------------------------------------
+ MO     1 (    1) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     2 (    2) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     3 (    2) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     4 (    2) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     5 (    3) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     6 (    4) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO     7 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     8 (    4) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO     9 (    5) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    10 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    11 (    6) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    12 (    6) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    13 (    7) HAS LZ(WEIGHT)=-2.00( 40.1%) -0.00( 19.9%)  2.00( 40.1%) 
+ MO    14 (    7) HAS LZ(WEIGHT)=-2.00(  9.9%) -0.00( 80.1%)  2.00(  9.9%) 
+ MO    15 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    16 (    7) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    17 (    7) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    18 (    8) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    19 (    8) HAS LZ(WEIGHT)=-3.00( 31.2%) -1.00( 18.8%)  1.00( 18.8%)  3.00( 31.2%) 
+ MO    20 (    8) HAS LZ(WEIGHT)=-3.00( 18.8%) -1.00( 31.2%)  1.00( 31.2%)  3.00( 18.8%) 
+ MO    21 (    8) HAS LZ(WEIGHT)=-3.00( 19.1%) -1.00( 30.9%)  1.00( 30.9%)  3.00( 19.1%) 
+ MO    22 (    8) HAS LZ(WEIGHT)=-3.00( 30.9%) -1.00( 19.1%)  1.00( 19.1%)  3.00( 30.9%) 
+ MO    23 (    8) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    24 (    8) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    25 (    9) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    26 (    9) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    27 (    9) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    28 (   10) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    29 (   11) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    30 (   11) HAS LZ(WEIGHT)=-3.00(  6.3%) -1.00( 43.7%)  1.00( 43.7%)  3.00(  6.3%) 
+ MO    31 (   11) HAS LZ(WEIGHT)=-3.00(  6.3%) -1.00( 43.7%)  1.00( 43.7%)  3.00(  6.3%) 
+ MO    32 (   11) HAS LZ(WEIGHT)=-3.00( 43.7%) -1.00(  6.3%)  1.00(  6.3%)  3.00( 43.7%) 
+ MO    33 (   11) HAS LZ(WEIGHT)=-3.00( 43.7%) -1.00(  6.3%)  1.00(  6.3%)  3.00( 43.7%) 
+ MO    34 (   11) HAS LZ(WEIGHT)=-4.00(  3.8%) -2.00( 43.5%)  0.00(  5.4%)  2.00( 43.5%)  4.00(  3.8%) 
+ MO    35 (   11) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    36 (   11) HAS LZ(WEIGHT)=-4.00( 25.4%) -2.00(  6.5%)  0.00( 36.3%)  2.00(  6.5%)  4.00( 25.4%) 
+ MO    37 (   11) HAS LZ(WEIGHT)=-4.00( 20.8%)  0.00( 58.3%)  4.00( 20.8%) 
+ MO    38 (   12) HAS LZ(WEIGHT)=-2.00( 42.2%) -0.00( 15.7%)  2.00( 42.2%) 
+ MO    39 (   12) HAS LZ(WEIGHT)=-2.00(  7.8%) -0.00( 84.3%)  2.00(  7.8%) 
+ MO    40 (   12) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    41 (   12) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    42 (   12) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    43 (   13) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    44 (   13) HAS LZ(WEIGHT)=-3.00( 18.3%) -1.00( 31.7%)  1.00( 31.7%)  3.00( 18.3%) 
+ MO    45 (   13) HAS LZ(WEIGHT)=-3.00( 17.2%) -1.00( 32.8%)  1.00( 32.8%)  3.00( 17.2%) 
+ MO    46 (   13) HAS LZ(WEIGHT)=-3.00( 31.7%) -1.00( 18.3%)  1.00( 18.3%)  3.00( 31.7%) 
+ MO    47 (   13) HAS LZ(WEIGHT)=-3.00( 32.8%) -1.00( 17.2%)  1.00( 17.2%)  3.00( 32.8%) 
+ MO    48 (   13) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    49 (   13) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    50 (   14) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    51 (   15) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    52 (   15) HAS LZ(WEIGHT)= 0.00(100.0%) 
+ MO    53 (   15) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    54 (   16) HAS LZ(WEIGHT)=-2.00( 42.7%)  0.00( 14.6%)  2.00( 42.7%) 
+ MO    55 (   16) HAS LZ(WEIGHT)=-2.00(  7.3%)  0.00( 85.4%)  2.00(  7.3%) 
+ MO    56 (   16) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    57 (   16) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    58 (   16) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    59 (   17) HAS LZ(WEIGHT)=-4.00( 29.3%)  0.00( 41.1%)  4.00( 29.3%) 
+ MO    60 (   17) HAS LZ(WEIGHT)=-2.00( 49.8%)  2.00( 49.8%) 
+ MO    61 (   17) HAS LZ(WEIGHT)=-4.00( 20.6%)  0.00( 58.8%)  4.00( 20.6%) 
+ MO    62 (   17) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    63 (   17) HAS LZ(WEIGHT)=-3.00( 43.7%) -1.00(  6.3%)  1.00(  6.3%)  3.00( 43.7%) 
+ MO    64 (   17) HAS LZ(WEIGHT)=-3.00( 43.8%) -1.00(  6.2%)  1.00(  6.2%)  3.00( 43.8%) 
+ MO    65 (   17) HAS LZ(WEIGHT)=-4.00( 50.0%)  4.00( 50.0%) 
+ MO    66 (   17) HAS LZ(WEIGHT)=-3.00(  6.3%) -1.00( 43.7%)  1.00( 43.7%)  3.00(  6.3%) 
+ MO    67 (   17) HAS LZ(WEIGHT)=-3.00(  6.2%) -1.00( 43.8%)  1.00( 43.8%)  3.00(  6.2%) 
+ MO    68 (   18) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    69 (   18) HAS LZ(WEIGHT)=-3.00( 18.7%) -1.00( 31.3%)  1.00( 31.3%)  3.00( 18.7%) 
+ MO    70 (   18) HAS LZ(WEIGHT)=-3.00( 18.7%) -1.00( 31.3%)  1.00( 31.3%)  3.00( 18.7%) 
+ MO    71 (   18) HAS LZ(WEIGHT)=-3.00( 31.3%) -1.00( 18.7%)  1.00( 18.7%)  3.00( 31.3%) 
+ MO    72 (   18) HAS LZ(WEIGHT)=-3.00( 31.3%) -1.00( 18.7%)  1.00( 18.7%)  3.00( 31.3%) 
+ MO    73 (   18) HAS LZ(WEIGHT)=-0.00(100.0%) 
+ MO    74 (   18) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    75 (   19) HAS LZ(WEIGHT)=-2.00( 42.8%) -0.00( 14.5%)  2.00( 42.8%) 
+ MO    76 (   19) HAS LZ(WEIGHT)=-2.00(  7.2%) -0.00( 85.5%)  2.00(  7.2%) 
+ MO    77 (   19) HAS LZ(WEIGHT)=-2.00( 50.0%)  2.00( 50.0%) 
+ MO    78 (   19) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+ MO    79 (   19) HAS LZ(WEIGHT)=-1.00( 50.0%)  1.00( 50.0%) 
+
+          ------------
+          EIGENVECTORS
+          ------------
+
+                      1          2          3          4          5
+                   -0.4968    -0.2187    -0.2187    -0.2187    13.8869
+                     A          A          A          A          A   
+    1  N  1  S    1.010715   0.000000   0.000000  -0.000000   7.168929
+    2  N  1  S   -0.001425   0.000000   0.000000  -0.000000  -1.053692
+    3  N  1  S   -0.010600   0.000000   0.000000  -0.000000  -6.718711
+    4  N  1  S   -0.004203   0.000000   0.000000  -0.000000   0.607868
+    5  N  1  S    0.007259   0.000000   0.000000  -0.000000  -0.571425
+    6  N  1  X    0.000000   1.027967   0.000000  -0.000000  -0.000000
+    7  N  1  Y    0.000000   0.000000   1.027967  -0.000000  -0.000000
+    8  N  1  Z    0.000000   0.000000   0.000000   1.027967  -0.000000
+    9  N  1  X    0.000000  -0.008487   0.000000  -0.000000  -0.000000
+   10  N  1  Y    0.000000   0.000000  -0.008487  -0.000000  -0.000000
+   11  N  1  Z    0.000000   0.000000   0.000000  -0.008487  -0.000000
+   12  N  1  X    0.000000  -0.026941   0.000000  -0.000000  -0.000000
+   13  N  1  Y    0.000000   0.000000  -0.026941  -0.000000  -0.000000
+   14  N  1  Z    0.000000   0.000000   0.000000  -0.026941  -0.000000
+   15  N  1  X    0.000000  -0.002840   0.000000  -0.000000  -0.000000
+   16  N  1  Y    0.000000   0.000000  -0.002840  -0.000000  -0.000000
+   17  N  1  Z    0.000000   0.000000   0.000000  -0.002840  -0.000000
+   18  N  1  X    0.000000   0.016814   0.000000  -0.000000  -0.000000
+   19  N  1  Y    0.000000   0.000000   0.016814  -0.000000  -0.000000
+   20  N  1  Z    0.000000   0.000000   0.000000   0.016814  -0.000000
+   21  N  1 XX    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   22  N  1 YY    0.000000   0.000000   0.000000  -0.000000   0.000000
+   23  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   24  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   25  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   26  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   27  N  1 XX   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   28  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   29  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   30  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   31  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   32  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   33  N  1 XX    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   34  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   35  N  1 ZZ   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   36  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   37  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   38  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   39  N  1 XX   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   40  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   41  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   42  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   43  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   44  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   45  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   46  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   48  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   49  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   50  N  1 YYX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   51  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   52  N  1 ZZX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   53  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   54  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   55  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   56  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   58  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   59  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   60  N  1 YYX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   61  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   62  N  1 ZZX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   63  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   64  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   65  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   66  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   68  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   69  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   70  N  1 YYX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   71  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   72  N  1 ZZX   0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   73  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   74  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   75  N  1XXXX  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   76  N  1YYYY  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   77  N  1ZZZZ  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   78  N  1XXXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   79  N  1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   81  N  1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   82  N  1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   83  N  1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   84  N  1XXYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   85  N  1XXZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   86  N  1YYZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   87  N  1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   88  N  1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   89  N  1ZZXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   90  N  1XXXX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   91  N  1YYYY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   92  N  1ZZZZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   93  N  1XXXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   94  N  1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   95  N  1YYYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   96  N  1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   97  N  1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   98  N  1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   99  N  1XXYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  100  N  1XXZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  101  N  1YYZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  102  N  1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  103  N  1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  104  N  1ZZXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+
+                      6          7          8          9         10
+                    6.2988     6.2988     6.2988     0.4168     1.7745
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000  -0.000000  -0.000000  -0.423765   0.000000
+    2  N  1  S   -0.000000  -0.000000  -0.000000   0.066559   0.000000
+    3  N  1  S   -0.000000  -0.000000  -0.000000  -2.153400   0.000000
+    4  N  1  S   -0.000000  -0.000000  -0.000000   4.285706   0.000000
+    5  N  1  S   -0.000000  -0.000000  -0.000000  -1.971868   0.000000
+    6  N  1  X   -0.000000   6.805197  -0.000000  -0.000000  -1.039486
+    7  N  1  Y   -0.000000  -0.000000   6.805197  -0.000000   0.000000
+    8  N  1  Z    6.805197  -0.000000  -0.000000  -0.000000   0.000000
+    9  N  1  X   -0.000000  -4.523530  -0.000000  -0.000000  -1.071482
+   10  N  1  Y   -0.000000  -0.000000  -4.523530  -0.000000   0.000000
+   11  N  1  Z   -4.523530  -0.000000  -0.000000  -0.000000   0.000000
+   12  N  1  X   -0.000000  -1.275999  -0.000000  -0.000000   2.908095
+   13  N  1  Y   -0.000000  -0.000000  -1.275999  -0.000000   0.000000
+   14  N  1  Z   -1.275999  -0.000000  -0.000000  -0.000000   0.000000
+   15  N  1  X   -0.000000  -2.402430  -0.000000  -0.000000  -1.374192
+   16  N  1  Y   -0.000000  -0.000000  -2.402430  -0.000000   0.000000
+   17  N  1  Z   -2.402430  -0.000000  -0.000000  -0.000000   0.000000
+   18  N  1  X   -0.000000   0.239754  -0.000000  -0.000000   0.616483
+   19  N  1  Y   -0.000000  -0.000000   0.239754  -0.000000   0.000000
+   20  N  1  Z    0.239754  -0.000000  -0.000000  -0.000000   0.000000
+   21  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   22  N  1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   23  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   24  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   25  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   26  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   27  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   28  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   29  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   30  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   31  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   32  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   33  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   34  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   35  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   36  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   37  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   38  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   39  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   40  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   41  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   42  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   43  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   44  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   45  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   46  N  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   47  N  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   48  N  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   49  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   50  N  1 YYX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   51  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   52  N  1 ZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   53  N  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   54  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   55  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   56  N  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   57  N  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   58  N  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   59  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   60  N  1 YYX  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   61  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   62  N  1 ZZX  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   63  N  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   64  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   65  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   66  N  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   67  N  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   68  N  1 XXY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   69  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   70  N  1 YYX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   71  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   72  N  1 ZZX  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   73  N  1 ZZY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   74  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   75  N  1XXXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   76  N  1YYYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   77  N  1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   78  N  1XXXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   79  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   80  N  1YYYX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   81  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   82  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   83  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   84  N  1XXYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   85  N  1XXZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   86  N  1YYZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   87  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   88  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   89  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   90  N  1XXXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   91  N  1YYYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   92  N  1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   93  N  1XXXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   94  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   95  N  1YYYX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   96  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   97  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   98  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   99  N  1XXYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  100  N  1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  101  N  1YYZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  102  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  103  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  104  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+
+                     11         12         13         14         15
+                    1.7745     1.7745     2.9871     2.9871     2.9871
+                     A          A          A          A          A   
+    1  N  1  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+    2  N  1  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+    3  N  1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    4  N  1  S    0.000000   0.000000  -0.000000   0.000000   0.000000
+    5  N  1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    6  N  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+    7  N  1  Y   -1.039486   0.000000   0.000000   0.000000   0.000000
+    8  N  1  Z    0.000000  -1.039486   0.000000   0.000000   0.000000
+    9  N  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   10  N  1  Y   -1.071482   0.000000   0.000000   0.000000   0.000000
+   11  N  1  Z    0.000000  -1.071482   0.000000   0.000000   0.000000
+   12  N  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   13  N  1  Y    2.908095   0.000000   0.000000   0.000000   0.000000
+   14  N  1  Z    0.000000   2.908095   0.000000   0.000000   0.000000
+   15  N  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   16  N  1  Y   -1.374192   0.000000   0.000000   0.000000   0.000000
+   17  N  1  Z    0.000000  -1.374192   0.000000   0.000000   0.000000
+   18  N  1  X    0.000000   0.000000   0.000000   0.000000   0.000000
+   19  N  1  Y    0.616483   0.000000   0.000000   0.000000   0.000000
+   20  N  1  Z    0.000000   0.616483   0.000000   0.000000   0.000000
+   21  N  1 XX    0.000000   0.000000  -0.027845   0.001710   0.000000
+   22  N  1 YY    0.000000   0.000000   0.015403   0.023260   0.000000
+   23  N  1 ZZ    0.000000   0.000000   0.012442  -0.024970   0.000000
+   24  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  N  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.027898
+   26  N  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   27  N  1 XX    0.000000   0.000000   1.394615  -0.085634   0.000000
+   28  N  1 YY    0.000000   0.000000  -0.771469  -1.164955   0.000000
+   29  N  1 ZZ    0.000000   0.000000  -0.623146   1.250589   0.000000
+   30  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   31  N  1 XZ    0.000000   0.000000   0.000000   0.000000   1.397241
+   32  N  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   33  N  1 XX    0.000000   0.000000  -1.257896   0.077239   0.000000
+   34  N  1 YY    0.000000   0.000000   0.695839   1.050750   0.000000
+   35  N  1 ZZ    0.000000   0.000000   0.562057  -1.127989   0.000000
+   36  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  N  1 XZ    0.000000   0.000000   0.000000   0.000000  -1.260265
+   38  N  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   39  N  1 XX    0.000000   0.000000   0.514721  -0.031606   0.000000
+   40  N  1 YY    0.000000   0.000000  -0.284732  -0.429958   0.000000
+   41  N  1 ZZ    0.000000   0.000000  -0.229989   0.461564   0.000000
+   42  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   43  N  1 XZ    0.000000   0.000000   0.000000   0.000000   0.515690
+   44  N  1 YZ    0.000000   0.000000   0.000000   0.000000   0.000000
+   45  N  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   46  N  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   48  N  1 XXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   49  N  1 XXZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   50  N  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   51  N  1 YYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   52  N  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   53  N  1 ZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   54  N  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   55  N  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   56  N  1 YYY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   57  N  1 ZZZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   58  N  1 XXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   59  N  1 XXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   60  N  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   61  N  1 YYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   62  N  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   63  N  1 ZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   64  N  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   65  N  1 XXX   0.000000   0.000000   0.000000   0.000000   0.000000
+   66  N  1 YYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   68  N  1 XXY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   69  N  1 XXZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   70  N  1 YYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   71  N  1 YYZ   0.000000  -0.000000   0.000000   0.000000   0.000000
+   72  N  1 ZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   73  N  1 ZZY  -0.000000   0.000000   0.000000   0.000000   0.000000
+   74  N  1 XYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   75  N  1XXXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   76  N  1YYYY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   77  N  1ZZZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+   78  N  1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   79  N  1XXXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   80  N  1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   81  N  1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   82  N  1ZZZX   0.000000   0.000000   0.000000   0.000000   0.000000
+   83  N  1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   84  N  1XXYY   0.000000   0.000000  -0.000000   0.000000   0.000000
+   85  N  1XXZZ   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   86  N  1YYZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   87  N  1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   88  N  1YYXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   89  N  1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   90  N  1XXXX   0.000000   0.000000  -0.000000   0.000000   0.000000
+   91  N  1YYYY   0.000000   0.000000   0.000000   0.000000   0.000000
+   92  N  1ZZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   93  N  1XXXY   0.000000   0.000000   0.000000   0.000000   0.000000
+   94  N  1XXXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   95  N  1YYYX   0.000000   0.000000   0.000000   0.000000   0.000000
+   96  N  1YYYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+   97  N  1ZZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   98  N  1ZZZY   0.000000   0.000000   0.000000   0.000000   0.000000
+   99  N  1XXYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+  100  N  1XXZZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  101  N  1YYZZ   0.000000   0.000000  -0.000000   0.000000   0.000000
+  102  N  1XXYZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  103  N  1YYXZ   0.000000   0.000000   0.000000   0.000000   0.000000
+  104  N  1ZZXY   0.000000   0.000000   0.000000   0.000000   0.000000
+
+                     16         17         18         19         20
+                    2.9871     2.9871     2.9124     2.9124     2.9124
+                     A          A          A          A          A   
+    1  N  1  S    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    2  N  1  S    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    3  N  1  S    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    4  N  1  S    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    5  N  1  S    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    6  N  1  X    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    7  N  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    8  N  1  Z    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    9  N  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   10  N  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   11  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   12  N  1  X    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   13  N  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   14  N  1  Z    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   15  N  1  X    0.000000   0.000000  -0.000000  -0.000000   0.000000
+   16  N  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   17  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  N  1  X    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   19  N  1  Y    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   20  N  1  Z    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   21  N  1 XX    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   22  N  1 YY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   23  N  1 ZZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   24  N  1 XY    0.000000  -0.027898  -0.000000  -0.000000  -0.000000
+   25  N  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   26  N  1 YZ   -0.027898   0.000000  -0.000000  -0.000000  -0.000000
+   27  N  1 XX    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   28  N  1 YY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   29  N  1 ZZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   30  N  1 XY    0.000000   1.397241  -0.000000  -0.000000  -0.000000
+   31  N  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   32  N  1 YZ    1.397241   0.000000  -0.000000  -0.000000  -0.000000
+   33  N  1 XX    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   34  N  1 YY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   35  N  1 ZZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   36  N  1 XY    0.000000  -1.260265  -0.000000  -0.000000  -0.000000
+   37  N  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   38  N  1 YZ   -1.260265   0.000000  -0.000000  -0.000000  -0.000000
+   39  N  1 XX    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   40  N  1 YY    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   41  N  1 ZZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   42  N  1 XY    0.000000   0.515690  -0.000000  -0.000000  -0.000000
+   43  N  1 XZ    0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   44  N  1 YZ    0.515690   0.000000  -0.000000  -0.000000  -0.000000
+   45  N  1 XXX   0.000000   0.000000  -0.000000  -0.094505   0.000162
+   46  N  1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000582  -0.000000  -0.000000
+   48  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   49  N  1 XXZ   0.000000   0.000000  -0.082233  -0.000000  -0.000000
+   50  N  1 YYX   0.000000   0.000000  -0.000000   0.063255  -0.081953
+   51  N  1 YYZ   0.000000   0.000000   0.081452  -0.000000  -0.000000
+   52  N  1 ZZX   0.000000   0.000000  -0.000000   0.063537   0.081735
+   53  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   54  N  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   55  N  1 XXX   0.000000   0.000000  -0.000000   1.347647  -0.002317
+   56  N  1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ   0.000000   0.000000  -0.008299  -0.000000  -0.000000
+   58  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   59  N  1 XXZ   0.000000   0.000000   1.172643  -0.000000  -0.000000
+   60  N  1 YYX   0.000000   0.000000  -0.000000  -0.902022   1.168651
+   61  N  1 YYZ   0.000000   0.000000  -1.161509  -0.000000  -0.000000
+   62  N  1 ZZX   0.000000   0.000000  -0.000000  -0.906036  -1.165542
+   63  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   64  N  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   65  N  1 XXX   0.000000   0.000000  -0.000000  -0.707943   0.001217
+   66  N  1 YYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.004360  -0.000000  -0.000000
+   68  N  1 XXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   69  N  1 XXZ   0.000000   0.000000  -0.616010  -0.000000  -0.000000
+   70  N  1 YYX   0.000000   0.000000  -0.000000   0.473848  -0.613913
+   71  N  1 YYZ   0.000000   0.000000   0.610161  -0.000000  -0.000000
+   72  N  1 ZZX   0.000000   0.000000  -0.000000   0.475957   0.612280
+   73  N  1 ZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   74  N  1 XYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   75  N  1XXXX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   76  N  1YYYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   77  N  1ZZZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   78  N  1XXXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   79  N  1XXXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   81  N  1YYYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   82  N  1ZZZX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   83  N  1ZZZY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   84  N  1XXYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   85  N  1XXZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   86  N  1YYZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   87  N  1XXYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   88  N  1YYXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   89  N  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   90  N  1XXXX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   91  N  1YYYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   93  N  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   94  N  1XXXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   95  N  1YYYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   96  N  1YYYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   97  N  1ZZZX   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   98  N  1ZZZY  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   99  N  1XXYY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  100  N  1XXZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  101  N  1YYZZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  102  N  1XXYZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  103  N  1YYXZ   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+  104  N  1ZZXY   0.000000   0.000000  -0.000000  -0.000000  -0.000000
+
+                     21         22         23         24         25
+                    2.9124     2.9124     2.9124     2.9124     0.4506
+                     A          A          A          A          A   
+    1  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    2  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    3  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    4  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    5  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    6  N  1  X    0.000000  -0.000000  -0.000000  -0.000000  -0.855193
+    7  N  1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+    8  N  1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    9  N  1  X    0.000000  -0.000000  -0.000000  -0.000000   0.182847
+   10  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   11  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   12  N  1  X    0.000000  -0.000000  -0.000000  -0.000000  -0.484278
+   13  N  1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   14  N  1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   15  N  1  X    0.000000  -0.000000  -0.000000  -0.000000   2.349850
+   16  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   17  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   18  N  1  X    0.000000  -0.000000  -0.000000  -0.000000  -1.208334
+   19  N  1  Y   -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   20  N  1  Z    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   21  N  1 XX    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   22  N  1 YY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   23  N  1 ZZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   24  N  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   25  N  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   26  N  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   27  N  1 XX    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   28  N  1 YY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   29  N  1 ZZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   30  N  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   31  N  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   32  N  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   33  N  1 XX    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   34  N  1 YY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   35  N  1 ZZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   36  N  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   37  N  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   38  N  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   39  N  1 XX    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   40  N  1 YY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   41  N  1 ZZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   42  N  1 XY    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   43  N  1 XZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   44  N  1 YZ    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   45  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   46  N  1 YYY   0.000615  -0.094504  -0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ   0.000000  -0.000000  -0.094504  -0.000000  -0.000000
+   48  N  1 XXY  -0.082255   0.062863  -0.000000  -0.000000  -0.000000
+   49  N  1 XXZ   0.000000  -0.000000   0.062891  -0.000000  -0.000000
+   50  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   51  N  1 YYZ   0.000000  -0.000000   0.063899  -0.000000  -0.000000
+   52  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   53  N  1 ZZY   0.081430   0.063927  -0.000000  -0.000000  -0.000000
+   54  N  1 XYZ   0.000000  -0.000000  -0.000000  -0.094506  -0.000000
+   55  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   56  N  1 YYY  -0.008765   1.347620  -0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ   0.000000  -0.000000   1.347623  -0.000000  -0.000000
+   58  N  1 XXY   1.172953  -0.896420  -0.000000  -0.000000  -0.000000
+   59  N  1 XXZ   0.000000  -0.000000  -0.896826  -0.000000  -0.000000
+   60  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   61  N  1 YYZ   0.000000  -0.000000  -0.911200  -0.000000  -0.000000
+   62  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   63  N  1 ZZY  -1.161193  -0.911602  -0.000000  -0.000000  -0.000000
+   64  N  1 XYZ   0.000000  -0.000000  -0.000000   1.347649  -0.000000
+   65  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   66  N  1 YYY   0.004605  -0.707929  -0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ   0.000000  -0.000000  -0.707931  -0.000000  -0.000000
+   68  N  1 XXY  -0.616173   0.470905  -0.000000  -0.000000  -0.000000
+   69  N  1 XXZ   0.000000  -0.000000   0.471119  -0.000000  -0.000000
+   70  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   71  N  1 YYZ   0.000000  -0.000000   0.478670  -0.000000  -0.000000
+   72  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   73  N  1 ZZY   0.609996   0.478881  -0.000000  -0.000000  -0.000000
+   74  N  1 XYZ   0.000000  -0.000000  -0.000000  -0.707944  -0.000000
+   75  N  1XXXX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   76  N  1YYYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   77  N  1ZZZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   78  N  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   79  N  1XXXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   80  N  1YYYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   81  N  1YYYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   82  N  1ZZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   83  N  1ZZZY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   84  N  1XXYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   85  N  1XXZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   86  N  1YYZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   87  N  1XXYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   88  N  1YYXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   89  N  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   90  N  1XXXX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   91  N  1YYYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   93  N  1XXXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   94  N  1XXXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   95  N  1YYYX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   96  N  1YYYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   97  N  1ZZZX   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   98  N  1ZZZY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   99  N  1XXYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  100  N  1XXZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  101  N  1YYZZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  102  N  1XXYZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  103  N  1YYXZ   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  104  N  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+                     26         27         28         29         30
+                    0.4506     0.4506     2.2057     7.3667     7.3667
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000  -0.000000  -3.791569  -0.000000   0.000000
+    2  N  1  S   -0.000000  -0.000000  -1.146694  -0.000000   0.000000
+    3  N  1  S   -0.000000  -0.000000   6.350878  -0.000000   0.000000
+    4  N  1  S   -0.000000  -0.000000  -2.749547  -0.000000   0.000000
+    5  N  1  S   -0.000000  -0.000000   1.060965  -0.000000   0.000000
+    6  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    7  N  1  Y   -0.855194  -0.000000  -0.000000  -0.000000   0.000000
+    8  N  1  Z   -0.000000  -0.855194  -0.000000  -0.000000   0.000000
+    9  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   10  N  1  Y    0.182847  -0.000000  -0.000000  -0.000000   0.000000
+   11  N  1  Z   -0.000000   0.182847  -0.000000  -0.000000   0.000000
+   12  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   13  N  1  Y   -0.484278  -0.000000  -0.000000  -0.000000   0.000000
+   14  N  1  Z   -0.000000  -0.484278  -0.000000  -0.000000   0.000000
+   15  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   16  N  1  Y    2.349850  -0.000000  -0.000000  -0.000000   0.000000
+   17  N  1  Z   -0.000000   2.349850  -0.000000  -0.000000   0.000000
+   18  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   19  N  1  Y   -1.208334  -0.000000  -0.000000  -0.000000   0.000000
+   20  N  1  Z   -0.000000  -1.208333  -0.000000  -0.000000   0.000000
+   21  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   22  N  1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   23  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   24  N  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   25  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   26  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   27  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   28  N  1 YY   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   29  N  1 ZZ   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   30  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   31  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   32  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   33  N  1 XX   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   34  N  1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   35  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   36  N  1 XY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   37  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   38  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   39  N  1 XX   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   40  N  1 YY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   41  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   42  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   43  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   44  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   45  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   46  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   47  N  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   48  N  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   49  N  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   50  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   51  N  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   52  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   53  N  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   54  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   55  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   56  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   57  N  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   58  N  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   59  N  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   60  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   61  N  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   62  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   63  N  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   64  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   65  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   66  N  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   67  N  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   68  N  1 XXY   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   69  N  1 XXZ  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   70  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   71  N  1 YYZ  -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   72  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   73  N  1 ZZY   0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   74  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   75  N  1XXXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   76  N  1YYYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   77  N  1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   78  N  1XXXY  -0.000000  -0.000000  -0.000000   1.351443   0.000000
+   79  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000   1.351492
+   80  N  1YYYX  -0.000000  -0.000000  -0.000000  -1.351443   0.000000
+   81  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   82  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000  -1.351393
+   83  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   84  N  1XXYY  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   85  N  1XXZZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   86  N  1YYZZ  -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   87  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   88  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000133
+   89  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   90  N  1XXXX  -0.000000  -0.000000   0.000001  -0.000000   0.000000
+   91  N  1YYYY  -0.000000  -0.000000   0.000001  -0.000000   0.000000
+   92  N  1ZZZZ  -0.000000  -0.000000   0.000001  -0.000000   0.000000
+   93  N  1XXXY  -0.000000  -0.000000  -0.000000  -0.625775   0.000000
+   94  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.625798
+   95  N  1YYYX  -0.000000  -0.000000  -0.000000   0.625775   0.000000
+   96  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   97  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000   0.625752
+   98  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   99  N  1XXYY  -0.000000  -0.000000  -0.000001  -0.000000   0.000000
+  100  N  1XXZZ  -0.000000  -0.000000  -0.000001  -0.000000   0.000000
+  101  N  1YYZZ  -0.000000  -0.000000  -0.000001  -0.000000   0.000000
+  102  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  103  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000062
+  104  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+
+                     31         32         33         34         35
+                    7.3667     7.3667     7.3667     7.3667     7.3667
+                     A          A          A          A          A   
+    1  N  1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    2  N  1  S    0.000000   0.000000   0.000000   0.000000  -0.000000
+    3  N  1  S    0.000000   0.000000   0.000000   0.000000  -0.000000
+    4  N  1  S    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    5  N  1  S    0.000000   0.000000   0.000000   0.000000  -0.000000
+    6  N  1  X    0.000000   0.000000   0.000000   0.000000  -0.000000
+    7  N  1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+    8  N  1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+    9  N  1  X    0.000000   0.000000   0.000000   0.000000  -0.000000
+   10  N  1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   11  N  1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   12  N  1  X    0.000000   0.000000   0.000000   0.000000  -0.000000
+   13  N  1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   14  N  1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   15  N  1  X    0.000000   0.000000   0.000000   0.000000  -0.000000
+   16  N  1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   17  N  1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   18  N  1  X    0.000000   0.000000   0.000000   0.000000  -0.000000
+   19  N  1  Y    0.000000   0.000000   0.000000   0.000000  -0.000000
+   20  N  1  Z    0.000000   0.000000   0.000000   0.000000  -0.000000
+   21  N  1 XX    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   22  N  1 YY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   23  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   24  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   25  N  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   26  N  1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   27  N  1 XX    0.000000   0.000000   0.000000   0.000000  -0.000000
+   28  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   29  N  1 ZZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   30  N  1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   31  N  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   32  N  1 YZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   33  N  1 XX    0.000000   0.000000   0.000000   0.000000  -0.000000
+   34  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   35  N  1 ZZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   36  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  N  1 XZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   38  N  1 YZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   39  N  1 XX    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   40  N  1 YY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   41  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   42  N  1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   43  N  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   44  N  1 YZ    0.000000   0.000000  -0.000000   0.000000  -0.000000
+   45  N  1 XXX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   46  N  1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   48  N  1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   49  N  1 XXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   50  N  1 YYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   51  N  1 YYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   52  N  1 ZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   53  N  1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   54  N  1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   55  N  1 XXX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   56  N  1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   57  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   58  N  1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   59  N  1 XXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   60  N  1 YYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   61  N  1 YYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   62  N  1 ZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   63  N  1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   64  N  1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   65  N  1 XXX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   66  N  1 YYY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   68  N  1 XXY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   69  N  1 XXZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   70  N  1 YYX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   71  N  1 YYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   72  N  1 ZZX   0.000000   0.000000   0.000000   0.000000  -0.000000
+   73  N  1 ZZY   0.000000   0.000000   0.000000   0.000000  -0.000000
+   74  N  1 XYZ   0.000000   0.000000   0.000000   0.000000  -0.000000
+   75  N  1XXXX   0.000000   0.000000   0.000000  -0.490420  -0.000000
+   76  N  1YYYY   0.000000   0.000000   0.000000   0.770712  -0.000000
+   77  N  1ZZZZ   0.000000   0.000000   0.000000  -0.280518  -0.000000
+   78  N  1XXXY   0.000000   0.000000   0.000000   0.000000  -0.510797
+   79  N  1XXXZ   0.000000  -0.510666   0.000000   0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.000000   0.000000   0.000000  -0.510797
+   81  N  1YYYZ   1.351619   0.000000  -0.510330   0.000000  -0.000000
+   82  N  1ZZZX   0.000000  -0.510928   0.000000   0.000000  -0.000000
+   83  N  1ZZZY  -1.351266   0.000000  -0.511265   0.000000  -0.000000
+   84  N  1XXYY   0.000000   0.000000   0.000000  -0.492565  -0.000000
+   85  N  1XXZZ   0.000000   0.000000   0.000000   1.354047  -0.000000
+   86  N  1YYZZ   0.000000   0.000000   0.000000  -0.861283  -0.000000
+   87  N  1XXYZ  -0.000474   0.000000   1.370613   0.000000  -0.000000
+   88  N  1YYXZ   0.000000   1.370613   0.000000   0.000000  -0.000000
+   89  N  1ZZXY   0.000000   0.000000   0.000000   0.000000   1.370613
+   90  N  1XXXX   0.000000   0.000000   0.000000   0.227085  -0.000000
+   91  N  1YYYY   0.000000   0.000000   0.000000  -0.356872  -0.000000
+   92  N  1ZZZZ   0.000000   0.000000   0.000000   0.129892  -0.000000
+   93  N  1XXXY   0.000000   0.000000   0.000000   0.000000   0.236521
+   94  N  1XXXZ   0.000000   0.236460   0.000000   0.000000  -0.000000
+   95  N  1YYYX   0.000000   0.000000   0.000000   0.000000   0.236521
+   96  N  1YYYZ  -0.625856   0.000000   0.236304   0.000000  -0.000000
+   97  N  1ZZZX   0.000000   0.236581   0.000000   0.000000  -0.000000
+   98  N  1ZZZY   0.625693   0.000000   0.236737   0.000000  -0.000000
+   99  N  1XXYY   0.000000   0.000000   0.000000   0.228078  -0.000000
+  100  N  1XXZZ   0.000000   0.000000   0.000000  -0.626980  -0.000000
+  101  N  1YYZZ   0.000000   0.000000   0.000000   0.398810  -0.000000
+  102  N  1XXYZ   0.000219   0.000000  -0.634651   0.000000  -0.000000
+  103  N  1YYXZ   0.000000  -0.634651   0.000000   0.000000  -0.000000
+  104  N  1ZZXY   0.000000   0.000000   0.000000   0.000000  -0.634651
+
+                     36         37         38         39         40
+                    7.3667     7.3667     9.3927     9.3927     9.3927
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000   0.000002  -0.000000   0.000000  -0.000000
+    2  N  1  S    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+    3  N  1  S    0.000000  -0.000002   0.000000  -0.000000  -0.000000
+    4  N  1  S   -0.000000   0.000000   0.000000   0.000000  -0.000000
+    5  N  1  S    0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+    6  N  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    7  N  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    8  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+    9  N  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   10  N  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   11  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   12  N  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   13  N  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   14  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   15  N  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   16  N  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   17  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   18  N  1  X    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   19  N  1  Y    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   20  N  1  Z    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   21  N  1 XX   -0.000000  -0.000000   1.338120  -0.156862  -0.000000
+   22  N  1 YY   -0.000000   0.000000  -0.804906  -1.080415  -0.000000
+   23  N  1 ZZ    0.000000   0.000000  -0.533214   1.237277  -0.000000
+   24  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   25  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   26  N  1 YZ    0.000000   0.000000   0.000000  -0.000000   1.347283
+   27  N  1 XX    0.000000   0.000000  -1.146714   0.134424  -0.000000
+   28  N  1 YY    0.000000   0.000000   0.689772   0.925871  -0.000000
+   29  N  1 ZZ   -0.000000   0.000000   0.456942  -1.060296  -0.000000
+   30  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   31  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   32  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -1.154566
+   33  N  1 XX    0.000000   0.000000   0.613454  -0.071912  -0.000000
+   34  N  1 YY    0.000000   0.000000  -0.369005  -0.495310  -0.000000
+   35  N  1 ZZ   -0.000000   0.000000  -0.244449   0.567223  -0.000000
+   36  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   37  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   38  N  1 YZ    0.000000   0.000000   0.000000  -0.000000   0.617654
+   39  N  1 XX   -0.000000   0.000000  -0.232740   0.027283  -0.000000
+   40  N  1 YY   -0.000000   0.000000   0.139998   0.187917  -0.000000
+   41  N  1 ZZ    0.000000   0.000000   0.092742  -0.215200  -0.000000
+   42  N  1 XY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   43  N  1 XZ    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   44  N  1 YZ    0.000000   0.000000   0.000000  -0.000000  -0.234333
+   45  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   46  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   48  N  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   49  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   50  N  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   51  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   52  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   53  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   54  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   55  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   56  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   58  N  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   59  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   60  N  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   61  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   62  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   63  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   64  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   65  N  1 XXX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   66  N  1 YYY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   68  N  1 XXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   69  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   70  N  1 YYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   71  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   72  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   73  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   74  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   75  N  1XXXX  -0.606972   0.923142  -0.000000   0.000000  -0.000000
+   76  N  1YYYY  -0.121231   0.923268   0.000000   0.000000  -0.000000
+   77  N  1ZZZZ   0.728071   0.923223   0.000000  -0.000000  -0.000000
+   78  N  1XXXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   79  N  1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   81  N  1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   82  N  1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   83  N  1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   84  N  1XXYY   1.279060  -0.810845   0.000000  -0.000000  -0.000000
+   85  N  1XXZZ  -0.212841  -0.810765   0.000000   0.000000  -0.000000
+   86  N  1YYZZ  -1.066103  -0.810987  -0.000000   0.000000  -0.000000
+   87  N  1XXYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   88  N  1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   89  N  1ZZXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   90  N  1XXXX   0.281053  -0.427453   0.000000  -0.000000  -0.000000
+   91  N  1YYYY   0.056135  -0.427512  -0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ  -0.337127  -0.427491  -0.000000   0.000000  -0.000000
+   93  N  1XXXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   94  N  1XXXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   95  N  1YYYX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   96  N  1YYYZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   97  N  1ZZZX   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   98  N  1ZZZY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+   99  N  1XXYY  -0.592258   0.375455  -0.000000   0.000000  -0.000000
+  100  N  1XXZZ   0.098554   0.375418  -0.000000  -0.000000  -0.000000
+  101  N  1YYZZ   0.493650   0.375521   0.000000  -0.000000  -0.000000
+  102  N  1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+  103  N  1YYXZ   0.000000   0.000000   0.000000  -0.000000  -0.000000
+  104  N  1ZZXY   0.000000   0.000000   0.000000  -0.000000  -0.000000
+
+                     41         42         43         44         45
+                    9.3927     9.3927     8.6124     8.6124     8.6124
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    2  N  1  S   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    3  N  1  S   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    4  N  1  S   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    5  N  1  S   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    6  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    7  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    8  N  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+    9  N  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   10  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   11  N  1  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   12  N  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   13  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   14  N  1  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   15  N  1  X   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   16  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   17  N  1  Z   -0.000000  -0.000000   0.000000   0.000000   0.000000
+   18  N  1  X   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   19  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   20  N  1  Z   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   21  N  1 XX   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   22  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   23  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   24  N  1 XY   -0.000000   1.347283  -0.000000   0.000000   0.000000
+   25  N  1 XZ    1.347283  -0.000000  -0.000000   0.000000   0.000000
+   26  N  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   27  N  1 XX   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   28  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   29  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   30  N  1 XY   -0.000000  -1.154566  -0.000000   0.000000   0.000000
+   31  N  1 XZ   -1.154566  -0.000000  -0.000000   0.000000   0.000000
+   32  N  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   33  N  1 XX   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   34  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   35  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   36  N  1 XY   -0.000000   0.617654  -0.000000   0.000000   0.000000
+   37  N  1 XZ    0.617654  -0.000000  -0.000000   0.000000   0.000000
+   38  N  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   39  N  1 XX   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   40  N  1 YY   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   41  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   42  N  1 XY   -0.000000  -0.234333  -0.000000   0.000000   0.000000
+   43  N  1 XZ   -0.234333  -0.000000  -0.000000   0.000000   0.000000
+   44  N  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   45  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.011505   0.000000
+   46  N  1 YYY  -0.000000  -0.000000  -0.000000   0.000000  -0.039722
+   47  N  1 ZZZ  -0.000000  -0.000000  -0.027331   0.000000   0.000000
+   48  N  1 XXY  -0.000000  -0.000000  -0.000000   0.000000  -1.046015
+   49  N  1 XXZ  -0.000000  -0.000000  -1.054619   0.000000   0.000000
+   50  N  1 YYX  -0.000000  -0.000000  -0.000000  -1.065449   0.000000
+   51  N  1 YYZ  -0.000000  -0.000000   1.091286   0.000000   0.000000
+   52  N  1 ZZX  -0.000000  -0.000000  -0.000000   1.080885   0.000000
+   53  N  1 ZZY  -0.000000  -0.000000  -0.000000   0.000000   1.099309
+   54  N  1 XYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   55  N  1 XXX  -0.000000  -0.000000  -0.000000   0.007619   0.000000
+   56  N  1 YYY  -0.000000  -0.000000  -0.000000   0.000000   0.026304
+   57  N  1 ZZZ  -0.000000  -0.000000   0.018098   0.000000   0.000000
+   58  N  1 XXY  -0.000000  -0.000000  -0.000000   0.000000   0.692669
+   59  N  1 XXZ  -0.000000  -0.000000   0.698366   0.000000   0.000000
+   60  N  1 YYX  -0.000000  -0.000000  -0.000000   0.705538   0.000000
+   61  N  1 YYZ  -0.000000  -0.000000  -0.722647   0.000000   0.000000
+   62  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.715759   0.000000
+   63  N  1 ZZY  -0.000000  -0.000000  -0.000000   0.000000  -0.727959
+   64  N  1 XYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   65  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.002963   0.000000
+   66  N  1 YYY  -0.000000  -0.000000  -0.000000   0.000000  -0.010230
+   67  N  1 ZZZ  -0.000000  -0.000000  -0.007039   0.000000   0.000000
+   68  N  1 XXY  -0.000000  -0.000000  -0.000000   0.000000  -0.269392
+   69  N  1 XXZ  -0.000000  -0.000000  -0.271608   0.000000   0.000000
+   70  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.274397   0.000000
+   71  N  1 YYZ  -0.000000  -0.000000   0.281051   0.000000   0.000000
+   72  N  1 ZZX  -0.000000  -0.000000  -0.000000   0.278372   0.000000
+   73  N  1 ZZY  -0.000000  -0.000000  -0.000000   0.000000   0.283117
+   74  N  1 XYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   75  N  1XXXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   76  N  1YYYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   77  N  1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   78  N  1XXXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   79  N  1XXXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   80  N  1YYYX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   81  N  1YYYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   82  N  1ZZZX   0.000000  -0.000000  -0.000000   0.000000   0.000000
+   83  N  1ZZZY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   84  N  1XXYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   85  N  1XXZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   86  N  1YYZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   87  N  1XXYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   88  N  1YYXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   89  N  1ZZXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   90  N  1XXXX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   91  N  1YYYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   92  N  1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   93  N  1XXXY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   94  N  1XXXZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   95  N  1YYYX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   96  N  1YYYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   97  N  1ZZZX  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   98  N  1ZZZY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   99  N  1XXYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  100  N  1XXZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  101  N  1YYZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  102  N  1XXYZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+  103  N  1YYXZ   0.000000  -0.000000  -0.000000   0.000000   0.000000
+  104  N  1ZZXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+
+                     46         47         48         49         50
+                    8.6124     8.6124     8.6124     8.6124     0.0198
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000   0.000000   0.000000  -0.000000  -0.406537
+    2  N  1  S   -0.000000   0.000000   0.000000  -0.000000  -0.037170
+    3  N  1  S   -0.000000   0.000000   0.000000  -0.000000   0.210677
+    4  N  1  S   -0.000000   0.000000   0.000000  -0.000000  -0.922230
+    5  N  1  S   -0.000000   0.000000   0.000000  -0.000000   1.695521
+    6  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+    7  N  1  Y   -0.000000   0.000000   0.000000  -0.000000   0.000000
+    8  N  1  Z   -0.000000   0.000000   0.000000  -0.000000   0.000000
+    9  N  1  X   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   10  N  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   11  N  1  Z   -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   12  N  1  X   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   13  N  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   14  N  1  Z   -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   15  N  1  X   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   16  N  1  Y   -0.000000  -0.000000   0.000000  -0.000000   0.000000
+   17  N  1  Z   -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   18  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   19  N  1  Y   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   20  N  1  Z   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   21  N  1 XX   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   22  N  1 YY   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   23  N  1 ZZ   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   24  N  1 XY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   25  N  1 XZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   26  N  1 YZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   27  N  1 XX   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   28  N  1 YY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   29  N  1 ZZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   30  N  1 XY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   31  N  1 XZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   32  N  1 YZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   33  N  1 XX   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   34  N  1 YY   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   35  N  1 ZZ   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   36  N  1 XY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   37  N  1 XZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   38  N  1 YZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   39  N  1 XX   -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   40  N  1 YY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   41  N  1 ZZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   42  N  1 XY   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   43  N  1 XZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   44  N  1 YZ   -0.000000   0.000000   0.000000  -0.000000   0.000000
+   45  N  1 XXX   1.239187   0.000000   0.000000  -0.000000   0.000000
+   46  N  1 YYY  -0.000000   1.238603   0.000000  -0.000000   0.000000
+   47  N  1 ZZZ  -0.000000   0.000000   1.238939  -0.000000   0.000000
+   48  N  1 XXY  -0.000000  -0.865281   0.000000  -0.000000   0.000000
+   49  N  1 XXZ  -0.000000   0.000000  -0.854774  -0.000000   0.000000
+   50  N  1 YYX  -0.841236   0.000000   0.000000  -0.000000   0.000000
+   51  N  1 YYZ  -0.000000   0.000000  -0.807436  -0.000000   0.000000
+   52  N  1 ZZX  -0.821308   0.000000   0.000000  -0.000000   0.000000
+   53  N  1 ZZY  -0.000000  -0.796480   0.000000  -0.000000   0.000000
+   54  N  1 XYZ  -0.000000   0.000000   0.000000   1.239240   0.000000
+   55  N  1 XXX  -0.820586   0.000000   0.000000  -0.000000   0.000000
+   56  N  1 YYY  -0.000000  -0.820200   0.000000  -0.000000   0.000000
+   57  N  1 ZZZ  -0.000000   0.000000  -0.820422  -0.000000   0.000000
+   58  N  1 XXY  -0.000000   0.572987   0.000000  -0.000000   0.000000
+   59  N  1 XXZ  -0.000000   0.000000   0.566029  -0.000000   0.000000
+   60  N  1 YYX   0.557064   0.000000   0.000000  -0.000000   0.000000
+   61  N  1 YYZ  -0.000000   0.000000   0.534682  -0.000000   0.000000
+   62  N  1 ZZX   0.543868   0.000000   0.000000  -0.000000   0.000000
+   63  N  1 ZZY  -0.000000   0.527427   0.000000  -0.000000   0.000000
+   64  N  1 XYZ  -0.000000   0.000000   0.000000  -0.820621   0.000000
+   65  N  1 XXX   0.319141   0.000000   0.000000  -0.000000   0.000000
+   66  N  1 YYY  -0.000000   0.318991   0.000000  -0.000000   0.000000
+   67  N  1 ZZZ  -0.000000   0.000000   0.319078  -0.000000   0.000000
+   68  N  1 XXY  -0.000000  -0.222845   0.000000  -0.000000   0.000000
+   69  N  1 XXZ  -0.000000   0.000000  -0.220140  -0.000000   0.000000
+   70  N  1 YYX  -0.216653   0.000000   0.000000  -0.000000   0.000000
+   71  N  1 YYZ  -0.000000   0.000000  -0.207948  -0.000000   0.000000
+   72  N  1 ZZX  -0.211521   0.000000   0.000000  -0.000000   0.000000
+   73  N  1 ZZY  -0.000000  -0.205126   0.000000  -0.000000   0.000000
+   74  N  1 XYZ  -0.000000   0.000000   0.000000   0.319155   0.000000
+   75  N  1XXXX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   76  N  1YYYY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   77  N  1ZZZZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   78  N  1XXXY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   79  N  1XXXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   80  N  1YYYX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   81  N  1YYYZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   82  N  1ZZZX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   83  N  1ZZZY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   84  N  1XXYY  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   85  N  1XXZZ  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   86  N  1YYZZ  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   87  N  1XXYZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   88  N  1YYXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   89  N  1ZZXY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   90  N  1XXXX  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   91  N  1YYYY  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ  -0.000000   0.000000   0.000000  -0.000000  -0.000000
+   93  N  1XXXY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   94  N  1XXXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   95  N  1YYYX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   96  N  1YYYZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   97  N  1ZZZX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   98  N  1ZZZY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   99  N  1XXYY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  100  N  1XXZZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  101  N  1YYZZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  102  N  1XXYZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  103  N  1YYXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  104  N  1ZZXY  -0.000000   0.000000   0.000000  -0.000000   0.000000
+
+                     51         52         53         54         55
+                    0.0699     0.0699     0.0699     0.2896     0.2896
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    2  N  1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    3  N  1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    4  N  1  S   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+    5  N  1  S   -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+    6  N  1  X   -0.000000  -0.000000  -0.325556  -0.000000  -0.000000
+    7  N  1  Y   -0.325556  -0.000000  -0.000000  -0.000000  -0.000000
+    8  N  1  Z   -0.000000  -0.325555  -0.000000  -0.000000  -0.000000
+    9  N  1  X   -0.000000  -0.000000  -0.040788  -0.000000  -0.000000
+   10  N  1  Y   -0.040788  -0.000000  -0.000000  -0.000000  -0.000000
+   11  N  1  Z   -0.000000  -0.040788  -0.000000  -0.000000  -0.000000
+   12  N  1  X   -0.000000  -0.000000   0.109187  -0.000000  -0.000000
+   13  N  1  Y    0.109187  -0.000000  -0.000000  -0.000000  -0.000000
+   14  N  1  Z   -0.000000   0.109188  -0.000000  -0.000000  -0.000000
+   15  N  1  X   -0.000000  -0.000000  -0.379929  -0.000000  -0.000000
+   16  N  1  Y   -0.379931  -0.000000  -0.000000  -0.000000  -0.000000
+   17  N  1  Z   -0.000000  -0.379932  -0.000000  -0.000000  -0.000000
+   18  N  1  X   -0.000000  -0.000000   1.293273  -0.000000  -0.000000
+   19  N  1  Y    1.293274  -0.000000  -0.000000  -0.000000  -0.000000
+   20  N  1  Z   -0.000000   1.293274  -0.000000  -0.000000  -0.000000
+   21  N  1 XX   -0.000000  -0.000000  -0.000000  -0.005124   0.000682
+   22  N  1 YY   -0.000000  -0.000000  -0.000000   0.003152   0.004097
+   23  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.001972  -0.004778
+   24  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   25  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   26  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   27  N  1 XX   -0.000000  -0.000000  -0.000000   0.082894  -0.011026
+   28  N  1 YY   -0.000000  -0.000000  -0.000000  -0.050996  -0.066275
+   29  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.031898   0.077301
+   30  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   31  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   32  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   33  N  1 XX   -0.000000  -0.000000  -0.000000  -0.163214   0.021710
+   34  N  1 YY   -0.000000  -0.000000  -0.000000   0.100408   0.130493
+   35  N  1 ZZ   -0.000000  -0.000000  -0.000000   0.062806  -0.152203
+   36  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   37  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   38  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   39  N  1 XX   -0.000000  -0.000000  -0.000000   1.083741  -0.144153
+   40  N  1 YY   -0.000000  -0.000000  -0.000000  -0.666710  -0.866471
+   41  N  1 ZZ   -0.000000  -0.000000  -0.000000  -0.417031   1.010624
+   42  N  1 XY   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   43  N  1 XZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   44  N  1 YZ   -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   45  N  1 XXX  -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   46  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   48  N  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   49  N  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   50  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   51  N  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   52  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   53  N  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   54  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   55  N  1 XXX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   56  N  1 YYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   58  N  1 XXY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   59  N  1 XXZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   60  N  1 YYX  -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   61  N  1 YYZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   62  N  1 ZZX  -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   63  N  1 ZZY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   64  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   65  N  1 XXX  -0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   66  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ  -0.000000   0.000000  -0.000000  -0.000000  -0.000000
+   68  N  1 XXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   69  N  1 XXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   70  N  1 YYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   71  N  1 YYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   72  N  1 ZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   73  N  1 ZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   74  N  1 XYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   75  N  1XXXX  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   76  N  1YYYY  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   77  N  1ZZZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   78  N  1XXXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   79  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   80  N  1YYYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   81  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   82  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   83  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   84  N  1XXYY  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   85  N  1XXZZ  -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   86  N  1YYZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   87  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   88  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   89  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   90  N  1XXXX  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   91  N  1YYYY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+   93  N  1XXXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   94  N  1XXXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   95  N  1YYYX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   96  N  1YYYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   97  N  1ZZZX  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   98  N  1ZZZY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+   99  N  1XXYY  -0.000000  -0.000000  -0.000000  -0.000000   0.000000
+  100  N  1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  101  N  1YYZZ  -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+  102  N  1XXYZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  103  N  1YYXZ  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+  104  N  1ZZXY  -0.000000  -0.000000  -0.000000  -0.000000  -0.000000
+
+                     56         57         58         59         60
+                    0.2896     0.2896     0.2896     2.4913     2.4913
+                     A          A          A          A          A   
+    1  N  1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    2  N  1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    3  N  1  S    0.000000   0.000000   0.000000   0.000000  -0.000000
+    4  N  1  S    0.000000   0.000000   0.000000  -0.000000   0.000000
+    5  N  1  S    0.000000   0.000000   0.000000   0.000000  -0.000000
+    6  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+    7  N  1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+    8  N  1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+    9  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   10  N  1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   11  N  1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   12  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   13  N  1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   14  N  1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   15  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   16  N  1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   17  N  1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   18  N  1  X    0.000000   0.000000   0.000000  -0.000000   0.000000
+   19  N  1  Y    0.000000   0.000000   0.000000  -0.000000   0.000000
+   20  N  1  Z    0.000000   0.000000   0.000000  -0.000000   0.000000
+   21  N  1 XX    0.000000   0.000000   0.000000   0.000000  -0.000000
+   22  N  1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   23  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   24  N  1 XY    0.000000   0.000000  -0.005169  -0.000000   0.000000
+   25  N  1 XZ   -0.005169   0.000000   0.000000  -0.000000   0.000000
+   26  N  1 YZ    0.000000  -0.005169   0.000000  -0.000000   0.000000
+   27  N  1 XX    0.000000   0.000000   0.000000  -0.000000   0.000000
+   28  N  1 YY    0.000000   0.000000   0.000000  -0.000000  -0.000000
+   29  N  1 ZZ    0.000000   0.000000   0.000000   0.000000  -0.000000
+   30  N  1 XY    0.000000   0.000000   0.083624  -0.000000   0.000000
+   31  N  1 XZ    0.083624   0.000000   0.000000  -0.000000   0.000000
+   32  N  1 YZ    0.000000   0.083624   0.000000  -0.000000   0.000000
+   33  N  1 XX    0.000000   0.000000   0.000000   0.000000  -0.000000
+   34  N  1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   35  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   36  N  1 XY    0.000000   0.000000  -0.164652  -0.000000   0.000000
+   37  N  1 XZ   -0.164652   0.000000   0.000000  -0.000000   0.000000
+   38  N  1 YZ    0.000000  -0.164652   0.000000  -0.000000   0.000000
+   39  N  1 XX    0.000000   0.000000   0.000000   0.000000  -0.000000
+   40  N  1 YY    0.000000   0.000000   0.000000   0.000000   0.000000
+   41  N  1 ZZ    0.000000   0.000000   0.000000  -0.000000   0.000000
+   42  N  1 XY    0.000000   0.000000   1.093286  -0.000000   0.000000
+   43  N  1 XZ    1.093286   0.000000   0.000000  -0.000000   0.000000
+   44  N  1 YZ    0.000000   1.093286   0.000000  -0.000000   0.000000
+   45  N  1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   46  N  1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   47  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   48  N  1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   49  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   50  N  1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   51  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   52  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   53  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   54  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   55  N  1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   56  N  1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   57  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   58  N  1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   59  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   60  N  1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   61  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   62  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   63  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   64  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   65  N  1 XXX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   66  N  1 YYY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   67  N  1 ZZZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   68  N  1 XXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   69  N  1 XXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   70  N  1 YYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   71  N  1 YYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   72  N  1 ZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   73  N  1 ZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   74  N  1 XYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   75  N  1XXXX   0.000000   0.000000   0.000000   0.047110  -0.093666
+   76  N  1YYYY   0.000000   0.000000   0.000000   0.057757   0.086080
+   77  N  1ZZZZ   0.000000   0.000000   0.000000  -0.103232   0.005423
+   78  N  1XXXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   79  N  1XXXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   80  N  1YYYX   0.000000   0.000000  -0.000000  -0.000000   0.000000
+   81  N  1YYYZ   0.000000  -0.000000   0.000000  -0.000000   0.000000
+   82  N  1ZZZX  -0.000000   0.000000   0.000000  -0.000000   0.000000
+   83  N  1ZZZY   0.000000  -0.000000   0.000000  -0.000000   0.000000
+   84  N  1XXYY   0.000000   0.000000   0.000000  -0.182775   0.011426
+   85  N  1XXZZ   0.000000   0.000000   0.000000   0.100021   0.153109
+   86  N  1YYZZ   0.000000   0.000000   0.000000   0.081319  -0.162636
+   87  N  1XXYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   88  N  1YYXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   89  N  1ZZXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   90  N  1XXXX   0.000000   0.000000   0.000000  -0.316909   0.630092
+   91  N  1YYYY   0.000000   0.000000   0.000000  -0.388531  -0.579061
+   92  N  1ZZZZ   0.000000   0.000000   0.000000   0.694444  -0.036483
+   93  N  1XXXY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   94  N  1XXXZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   95  N  1YYYX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   96  N  1YYYZ   0.000000   0.000000   0.000000  -0.000000   0.000000
+   97  N  1ZZZX   0.000000   0.000000   0.000000  -0.000000   0.000000
+   98  N  1ZZZY   0.000000   0.000000   0.000000  -0.000000   0.000000
+   99  N  1XXYY   0.000000   0.000000   0.000000   1.229531  -0.076865
+  100  N  1XXZZ   0.000000   0.000000   0.000000  -0.672843  -1.029968
+  101  N  1YYZZ   0.000000   0.000000   0.000000  -0.547031   1.094055
+  102  N  1XXYZ   0.000000  -0.000000   0.000000  -0.000000   0.000000
+  103  N  1YYXZ  -0.000000   0.000000   0.000000  -0.000000   0.000000
+  104  N  1ZZXY   0.000000   0.000000  -0.000000  -0.000000   0.000000
+
+                     61         62         63         64         65
+                    2.4913     2.4913     2.4913     2.4913     2.4913
+                     A          A          A          A          A   
+    1  N  1  S    0.000005  -0.000000   0.000000   0.000000  -0.000000
+    2  N  1  S    0.000002  -0.000000   0.000000   0.000000  -0.000000
+    3  N  1  S   -0.000008  -0.000000   0.000000   0.000000  -0.000000
+    4  N  1  S    0.000003  -0.000000   0.000000   0.000000  -0.000000
+    5  N  1  S   -0.000001  -0.000000   0.000000   0.000000  -0.000000
+    6  N  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+    7  N  1  Y    0.000000  -0.000000   0.000000   0.000000  -0.000000
+    8  N  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+    9  N  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   10  N  1  Y    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   11  N  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   12  N  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   13  N  1  Y    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   14  N  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   15  N  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   16  N  1  Y    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   17  N  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   18  N  1  X    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   19  N  1  Y    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   20  N  1  Z    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   21  N  1 XX    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   22  N  1 YY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   23  N  1 ZZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   24  N  1 XY    0.000000  -0.000000   0.000000   0.000000   0.000000
+   25  N  1 XZ    0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   26  N  1 YZ    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   27  N  1 XX   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   28  N  1 YY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   29  N  1 ZZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   30  N  1 XY    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   31  N  1 XZ    0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   32  N  1 YZ    0.000000  -0.000000   0.000000  -0.000000  -0.000000
+   33  N  1 XX    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   34  N  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   35  N  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   36  N  1 XY    0.000000   0.000000   0.000000   0.000000   0.000000
+   37  N  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   38  N  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   39  N  1 XX    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   40  N  1 YY   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   41  N  1 ZZ   -0.000000  -0.000000   0.000000   0.000000  -0.000000
+   42  N  1 XY    0.000000   0.000000   0.000000   0.000000  -0.000000
+   43  N  1 XZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   44  N  1 YZ    0.000000  -0.000000   0.000000   0.000000  -0.000000
+   45  N  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   46  N  1 YYY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   47  N  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   48  N  1 XXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   49  N  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   50  N  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   51  N  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   52  N  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   53  N  1 ZZY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   54  N  1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   55  N  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   56  N  1 YYY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   57  N  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   58  N  1 XXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   59  N  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   60  N  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   61  N  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   62  N  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   63  N  1 ZZY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   64  N  1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   65  N  1 XXX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   66  N  1 YYY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   67  N  1 ZZZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   68  N  1 XXY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   69  N  1 XXZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   70  N  1 YYX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   71  N  1 YYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   72  N  1 ZZX   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   73  N  1 ZZY   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   74  N  1 XYZ   0.000000  -0.000000   0.000000   0.000000  -0.000000
+   75  N  1XXXX  -0.122253  -0.000000   0.000000   0.000000  -0.000000
+   76  N  1YYYY  -0.123259  -0.000000   0.000000   0.000000  -0.000000
+   77  N  1ZZZZ  -0.123499  -0.000000   0.000000   0.000000  -0.000000
+   78  N  1XXXY   0.000000   0.068058   0.000000   0.000000  -0.180064
+   79  N  1XXXZ   0.000000  -0.000000   0.067909   0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.068058   0.000000   0.000000   0.180064
+   81  N  1YYYZ   0.000000  -0.000000   0.000000   0.068077  -0.000000
+   82  N  1ZZZX   0.000000  -0.000000   0.068207   0.000000  -0.000000
+   83  N  1ZZZY   0.000000  -0.000000   0.000000   0.068039  -0.000000
+   84  N  1XXYY   0.107165  -0.000000   0.000000   0.000000  -0.000000
+   85  N  1XXZZ   0.107587  -0.000000   0.000000   0.000000  -0.000000
+   86  N  1YYZZ   0.109355  -0.000000   0.000000   0.000000  -0.000000
+   87  N  1XXYZ   0.000000  -0.000000   0.000000  -0.182618  -0.000000
+   88  N  1YYXZ   0.000000  -0.000000  -0.182618   0.000000  -0.000000
+   89  N  1ZZXY   0.000000  -0.182618   0.000000   0.000000  -0.000000
+   90  N  1XXXX   0.822395  -0.000000   0.000000   0.000000  -0.000000
+   91  N  1YYYY   0.829165  -0.000000   0.000000   0.000000  -0.000000
+   92  N  1ZZZZ   0.830782  -0.000000   0.000000   0.000000  -0.000000
+   93  N  1XXXY   0.000000  -0.457825   0.000000   0.000000   1.211291
+   94  N  1XXXZ   0.000000  -0.000000  -0.456824   0.000000  -0.000000
+   95  N  1YYYX   0.000000  -0.457825   0.000000   0.000000  -1.211291
+   96  N  1YYYZ   0.000000  -0.000000   0.000000  -0.457952  -0.000000
+   97  N  1ZZZX   0.000000  -0.000000  -0.458826   0.000000  -0.000000
+   98  N  1ZZZY   0.000000  -0.000000   0.000000  -0.457698  -0.000000
+   99  N  1XXYY  -0.720898  -0.000000   0.000000   0.000000  -0.000000
+  100  N  1XXZZ  -0.723739  -0.000000   0.000000   0.000000  -0.000000
+  101  N  1YYZZ  -0.735629  -0.000000   0.000000   0.000000  -0.000000
+  102  N  1XXYZ   0.000000  -0.000000   0.000000   1.228474  -0.000000
+  103  N  1YYXZ   0.000000  -0.000000   1.228473   0.000000  -0.000000
+  104  N  1ZZXY   0.000000   1.228474   0.000000   0.000000  -0.000000
+
+                     66         67         68         69         70
+                    2.4913     2.4913     0.9492     0.9492     0.9492
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    2  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    3  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    4  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    5  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    6  N  1  X   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    7  N  1  Y   -0.000000   0.000000  -0.000000  -0.000000   0.000000
+    8  N  1  Z   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    9  N  1  X   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   10  N  1  Y   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   11  N  1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   12  N  1  X   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   13  N  1  Y   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   14  N  1  Z   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   15  N  1  X   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   16  N  1  Y   -0.000000   0.000000  -0.000000  -0.000000   0.000000
+   17  N  1  Z   -0.000000   0.000000   0.000000   0.000000   0.000000
+   18  N  1  X   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   19  N  1  Y   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   20  N  1  Z   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   21  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   22  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   23  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   24  N  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   25  N  1 XZ    0.000000   0.000000  -0.000000   0.000000   0.000000
+   26  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   27  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   28  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   29  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   30  N  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   31  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   32  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   33  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   34  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   35  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   36  N  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   37  N  1 XZ    0.000000   0.000000  -0.000000   0.000000   0.000000
+   38  N  1 YZ   -0.000000  -0.000000  -0.000000   0.000000   0.000000
+   39  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   40  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   41  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   42  N  1 XY   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   43  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   44  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000   0.000000
+   45  N  1 XXX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   46  N  1 YYY  -0.000000   0.000000  -0.000000  -0.000023   0.000000
+   47  N  1 ZZZ  -0.000000   0.000000  -0.000005   0.000000   0.000000
+   48  N  1 XXY  -0.000000   0.000000  -0.000000  -0.034725   0.000000
+   49  N  1 XXZ  -0.000000   0.000000  -0.034737   0.000000   0.000000
+   50  N  1 YYX  -0.000000   0.000000  -0.000000   0.000000  -0.034740
+   51  N  1 YYZ  -0.000000   0.000000   0.034743   0.000000   0.000000
+   52  N  1 ZZX  -0.000000   0.000000  -0.000000   0.000000   0.034740
+   53  N  1 ZZY  -0.000000   0.000000  -0.000000   0.034755   0.000000
+   54  N  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   55  N  1 XXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   56  N  1 YYY  -0.000000   0.000000  -0.000000   0.000112   0.000000
+   57  N  1 ZZZ  -0.000000   0.000000   0.000023   0.000000   0.000000
+   58  N  1 XXY  -0.000000   0.000000  -0.000000   0.171241   0.000000
+   59  N  1 XXZ  -0.000000   0.000000   0.171301   0.000000   0.000000
+   60  N  1 YYX  -0.000000   0.000000  -0.000000   0.000000   0.171316
+   61  N  1 YYZ  -0.000000   0.000000  -0.171332   0.000000   0.000000
+   62  N  1 ZZX  -0.000000   0.000000  -0.000000   0.000000  -0.171316
+   63  N  1 ZZY  -0.000000   0.000000  -0.000000  -0.171391   0.000000
+   64  N  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   65  N  1 XXX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   66  N  1 YYY  -0.000000   0.000000  -0.000000  -0.000629   0.000000
+   67  N  1 ZZZ  -0.000000   0.000000  -0.000130   0.000000   0.000000
+   68  N  1 XXY  -0.000000   0.000000  -0.000000  -0.961314   0.000000
+   69  N  1 XXZ  -0.000000   0.000000  -0.961649   0.000000   0.000000
+   70  N  1 YYX  -0.000000   0.000000  -0.000000   0.000000  -0.961736
+   71  N  1 YYZ  -0.000000   0.000000   0.961824   0.000000   0.000000
+   72  N  1 ZZX  -0.000000   0.000000  -0.000000   0.000000   0.961737
+   73  N  1 ZZY  -0.000000   0.000000  -0.000000   0.962158   0.000000
+   74  N  1 XYZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   75  N  1XXXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   76  N  1YYYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   77  N  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   78  N  1XXXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   79  N  1XXXZ  -0.180120   0.000000  -0.000000   0.000000   0.000000
+   80  N  1YYYX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   81  N  1YYYZ  -0.000000   0.180057  -0.000000   0.000000   0.000000
+   82  N  1ZZZX   0.180008   0.000000  -0.000000   0.000000   0.000000
+   83  N  1ZZZY  -0.000000  -0.180071  -0.000000   0.000000   0.000000
+   84  N  1XXYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   85  N  1XXZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   86  N  1YYZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   87  N  1XXYZ  -0.000000   0.000019  -0.000000   0.000000   0.000000
+   88  N  1YYXZ   0.000151   0.000000  -0.000000   0.000000   0.000000
+   89  N  1ZZXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   90  N  1XXXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   91  N  1YYYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   92  N  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   93  N  1XXXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   94  N  1XXXZ   1.211669   0.000000  -0.000000   0.000000   0.000000
+   95  N  1YYYX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   96  N  1YYYZ  -0.000000  -1.211243  -0.000000   0.000000   0.000000
+   97  N  1ZZZX  -1.210913   0.000000  -0.000000   0.000000   0.000000
+   98  N  1ZZZY  -0.000000   1.211339  -0.000000   0.000000   0.000000
+   99  N  1XXYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  100  N  1XXZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  101  N  1YYZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  102  N  1XXYZ  -0.000000  -0.000129  -0.000000   0.000000   0.000000
+  103  N  1YYXZ  -0.001015   0.000000  -0.000000   0.000000   0.000000
+  104  N  1ZZXY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+
+                     71         72         73         74         75
+                    0.9492     0.9492     0.9492     0.9492     0.9822
+                     A          A          A          A          A   
+    1  N  1  S   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+    2  N  1  S   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+    3  N  1  S   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+    4  N  1  S   -0.000000   0.000000  -0.000000   0.000000   0.000000
+    5  N  1  S   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+    6  N  1  X    0.000000   0.000000  -0.000000   0.000000  -0.000000
+    7  N  1  Y   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+    8  N  1  Z   -0.000000   0.000000   0.000000   0.000000  -0.000000
+    9  N  1  X   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   10  N  1  Y   -0.000000  -0.000000  -0.000000   0.000000  -0.000000
+   11  N  1  Z   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   12  N  1  X   -0.000001   0.000000  -0.000000   0.000000  -0.000000
+   13  N  1  Y   -0.000000  -0.000001  -0.000000   0.000000  -0.000000
+   14  N  1  Z   -0.000000   0.000000  -0.000001   0.000000  -0.000000
+   15  N  1  X    0.000001   0.000000  -0.000000   0.000000  -0.000000
+   16  N  1  Y   -0.000000   0.000001  -0.000000   0.000000  -0.000000
+   17  N  1  Z   -0.000000   0.000000   0.000001   0.000000  -0.000000
+   18  N  1  X   -0.000001   0.000000  -0.000000   0.000000  -0.000000
+   19  N  1  Y   -0.000000  -0.000001  -0.000000   0.000000  -0.000000
+   20  N  1  Z   -0.000000   0.000000  -0.000001   0.000000  -0.000000
+   21  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   0.050931
+   22  N  1 YY   -0.000000   0.000000  -0.000000   0.000000  -0.031391
+   23  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000  -0.019540
+   24  N  1 XY   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   25  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   26  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   27  N  1 XX   -0.000000   0.000000  -0.000000   0.000000  -0.042606
+   28  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.026260
+   29  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.016346
+   30  N  1 XY   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   31  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   32  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   33  N  1 XX   -0.000000   0.000000  -0.000000   0.000000   1.410397
+   34  N  1 YY   -0.000000   0.000000  -0.000000   0.000000  -0.869296
+   35  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000  -0.541101
+   36  N  1 XY   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   37  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   38  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   39  N  1 XX   -0.000000   0.000000  -0.000000   0.000000  -0.917816
+   40  N  1 YY   -0.000000   0.000000  -0.000000   0.000000   0.565695
+   41  N  1 ZZ   -0.000000   0.000000  -0.000000   0.000000   0.352122
+   42  N  1 XY   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   43  N  1 XZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   44  N  1 YZ   -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   45  N  1 XXX   0.040115   0.000000  -0.000000   0.000000  -0.000000
+   46  N  1 YYY  -0.000000   0.040115  -0.000000   0.000000  -0.000000
+   47  N  1 ZZZ  -0.000000   0.000000   0.040115   0.000000  -0.000000
+   48  N  1 XXY  -0.000000  -0.026929  -0.000000   0.000000  -0.000000
+   49  N  1 XXZ  -0.000000   0.000000  -0.026914   0.000000  -0.000000
+   50  N  1 YYX  -0.026910   0.000000  -0.000000   0.000000  -0.000000
+   51  N  1 YYZ  -0.000000   0.000000  -0.026906   0.000000  -0.000000
+   52  N  1 ZZX  -0.026910   0.000000  -0.000000   0.000000  -0.000000
+   53  N  1 ZZY  -0.000000  -0.026890  -0.000000   0.000000  -0.000000
+   54  N  1 XYZ  -0.000000   0.000000  -0.000000   0.040115  -0.000000
+   55  N  1 XXX  -0.197819   0.000000  -0.000000   0.000000  -0.000000
+   56  N  1 YYY  -0.000000  -0.197819  -0.000000   0.000000  -0.000000
+   57  N  1 ZZZ  -0.000000   0.000000  -0.197819   0.000000  -0.000000
+   58  N  1 XXY  -0.000000   0.132798  -0.000000   0.000000  -0.000000
+   59  N  1 XXZ  -0.000000   0.000000   0.132721   0.000000  -0.000000
+   60  N  1 YYX   0.132701   0.000000  -0.000000   0.000000  -0.000000
+   61  N  1 YYZ  -0.000000   0.000000   0.132681   0.000000  -0.000000
+   62  N  1 ZZX   0.132701   0.000000  -0.000000   0.000000  -0.000000
+   63  N  1 ZZY  -0.000000   0.132604  -0.000000   0.000000  -0.000000
+   64  N  1 XYZ  -0.000000   0.000000  -0.000000  -0.197819  -0.000000
+   65  N  1 XXX   1.110517   0.000000  -0.000000   0.000000  -0.000000
+   66  N  1 YYY  -0.000000   1.110517  -0.000000   0.000000  -0.000000
+   67  N  1 ZZZ  -0.000000   0.000000   1.110517   0.000000  -0.000000
+   68  N  1 XXY  -0.000000  -0.745502  -0.000000   0.000000  -0.000000
+   69  N  1 XXZ  -0.000000   0.000000  -0.745070   0.000000  -0.000000
+   70  N  1 YYX  -0.744958   0.000000  -0.000000   0.000000  -0.000000
+   71  N  1 YYZ  -0.000000   0.000000  -0.744845   0.000000  -0.000000
+   72  N  1 ZZX  -0.744957   0.000000  -0.000000   0.000000  -0.000000
+   73  N  1 ZZY  -0.000000  -0.744413  -0.000000   0.000000  -0.000000
+   74  N  1 XYZ  -0.000000   0.000000  -0.000000   1.110517  -0.000000
+   75  N  1XXXX  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   76  N  1YYYY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   77  N  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   78  N  1XXXY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   79  N  1XXXZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   80  N  1YYYX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   81  N  1YYYZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   82  N  1ZZZX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   83  N  1ZZZY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   84  N  1XXYY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   85  N  1XXZZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   86  N  1YYZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   87  N  1XXYZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   88  N  1YYXZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   89  N  1ZZXY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   90  N  1XXXX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   91  N  1YYYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   92  N  1ZZZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+   93  N  1XXXY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   94  N  1XXXZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   95  N  1YYYX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   96  N  1YYYZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   97  N  1ZZZX  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   98  N  1ZZZY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+   99  N  1XXYY  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  100  N  1XXZZ  -0.000000   0.000000  -0.000000   0.000000   0.000000
+  101  N  1YYZZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+  102  N  1XXYZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+  103  N  1YYXZ  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+  104  N  1ZZXY  -0.000000   0.000000  -0.000000   0.000000  -0.000000
+
+                     76         77         78         79
+                    0.9822     0.9822     0.9822     0.9822
+                     A          A          A          A   
+    1  N  1  S    0.000000  -0.000000  -0.000000  -0.000000
+    2  N  1  S    0.000000  -0.000000  -0.000000  -0.000000
+    3  N  1  S    0.000000  -0.000000  -0.000000  -0.000000
+    4  N  1  S   -0.000000  -0.000000  -0.000000  -0.000000
+    5  N  1  S    0.000000  -0.000000  -0.000000  -0.000000
+    6  N  1  X    0.000000  -0.000000  -0.000000  -0.000000
+    7  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000
+    8  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000
+    9  N  1  X    0.000000  -0.000000  -0.000000  -0.000000
+   10  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000
+   11  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000
+   12  N  1  X    0.000000  -0.000000  -0.000000  -0.000000
+   13  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000
+   14  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000
+   15  N  1  X    0.000000  -0.000000  -0.000000  -0.000000
+   16  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000
+   17  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000
+   18  N  1  X    0.000000  -0.000000  -0.000000  -0.000000
+   19  N  1  Y    0.000000  -0.000000  -0.000000  -0.000000
+   20  N  1  Z    0.000000  -0.000000  -0.000000  -0.000000
+   21  N  1 XX   -0.006842  -0.000000  -0.000000  -0.000000
+   22  N  1 YY   -0.040686  -0.000000  -0.000000  -0.000000
+   23  N  1 ZZ    0.047529  -0.000000  -0.000000  -0.000000
+   24  N  1 XY    0.000000   0.051389  -0.000000  -0.000000
+   25  N  1 XZ    0.000000  -0.000000   0.051389  -0.000000
+   26  N  1 YZ    0.000000  -0.000000  -0.000000   0.051389
+   27  N  1 XX    0.005724  -0.000000  -0.000000  -0.000000
+   28  N  1 YY    0.034036  -0.000000  -0.000000  -0.000000
+   29  N  1 ZZ   -0.039760  -0.000000  -0.000000  -0.000000
+   30  N  1 XY    0.000000  -0.042989  -0.000000  -0.000000
+   31  N  1 XZ    0.000000  -0.000000  -0.042989  -0.000000
+   32  N  1 YZ    0.000000  -0.000000  -0.000000  -0.042989
+   33  N  1 XX   -0.189484  -0.000000  -0.000000  -0.000000
+   34  N  1 YY   -1.126698  -0.000000  -0.000000  -0.000000
+   35  N  1 ZZ    1.316182  -0.000000  -0.000000  -0.000000
+   36  N  1 XY    0.000000   1.423069  -0.000000  -0.000000
+   37  N  1 XZ    0.000000  -0.000000   1.423069  -0.000000
+   38  N  1 YZ    0.000000  -0.000000  -0.000000   1.423069
+   39  N  1 XX    0.123307  -0.000000  -0.000000  -0.000000
+   40  N  1 YY    0.733199  -0.000000  -0.000000  -0.000000
+   41  N  1 ZZ   -0.856506  -0.000000  -0.000000  -0.000000
+   42  N  1 XY    0.000000  -0.926062  -0.000000  -0.000000
+   43  N  1 XZ    0.000000  -0.000000  -0.926062  -0.000000
+   44  N  1 YZ    0.000000  -0.000000  -0.000000  -0.926062
+   45  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000
+   46  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000
+   47  N  1 ZZZ   0.000000  -0.000000  -0.000000  -0.000000
+   48  N  1 XXY   0.000000  -0.000000  -0.000000  -0.000000
+   49  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000
+   50  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000
+   51  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000
+   52  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000
+   53  N  1 ZZY   0.000000  -0.000000  -0.000000  -0.000000
+   54  N  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000
+   55  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000
+   56  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000
+   57  N  1 ZZZ   0.000000  -0.000000  -0.000000  -0.000000
+   58  N  1 XXY   0.000000  -0.000000  -0.000000  -0.000000
+   59  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000
+   60  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000
+   61  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000
+   62  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000
+   63  N  1 ZZY   0.000000  -0.000000  -0.000000  -0.000000
+   64  N  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000
+   65  N  1 XXX   0.000000  -0.000000  -0.000000  -0.000000
+   66  N  1 YYY   0.000000  -0.000000  -0.000000  -0.000000
+   67  N  1 ZZZ   0.000000  -0.000000  -0.000000  -0.000000
+   68  N  1 XXY   0.000000  -0.000000  -0.000000  -0.000000
+   69  N  1 XXZ   0.000000  -0.000000  -0.000000  -0.000000
+   70  N  1 YYX   0.000000  -0.000000  -0.000000  -0.000000
+   71  N  1 YYZ   0.000000  -0.000000  -0.000000  -0.000000
+   72  N  1 ZZX   0.000000  -0.000000  -0.000000  -0.000000
+   73  N  1 ZZY   0.000000  -0.000000  -0.000000  -0.000000
+   74  N  1 XYZ   0.000000  -0.000000  -0.000000  -0.000000
+   75  N  1XXXX  -0.000000  -0.000000  -0.000000  -0.000000
+   76  N  1YYYY  -0.000000  -0.000000  -0.000000  -0.000000
+   77  N  1ZZZZ   0.000000  -0.000000  -0.000000  -0.000000
+   78  N  1XXXY   0.000000   0.000000  -0.000000  -0.000000
+   79  N  1XXXZ   0.000000  -0.000000   0.000000  -0.000000
+   80  N  1YYYX   0.000000   0.000000  -0.000000  -0.000000
+   81  N  1YYYZ   0.000000  -0.000000  -0.000000   0.000000
+   82  N  1ZZZX   0.000000  -0.000000   0.000000  -0.000000
+   83  N  1ZZZY   0.000000  -0.000000  -0.000000   0.000000
+   84  N  1XXYY   0.000000  -0.000000  -0.000000  -0.000000
+   85  N  1XXZZ  -0.000000  -0.000000  -0.000000  -0.000000
+   86  N  1YYZZ  -0.000000  -0.000000  -0.000000  -0.000000
+   87  N  1XXYZ   0.000000  -0.000000  -0.000000  -0.000000
+   88  N  1YYXZ   0.000000  -0.000000  -0.000000  -0.000000
+   89  N  1ZZXY   0.000000  -0.000000  -0.000000  -0.000000
+   90  N  1XXXX   0.000000  -0.000000  -0.000000  -0.000000
+   91  N  1YYYY   0.000000  -0.000000  -0.000000  -0.000000
+   92  N  1ZZZZ  -0.000000  -0.000000  -0.000000  -0.000000
+   93  N  1XXXY   0.000000  -0.000000  -0.000000  -0.000000
+   94  N  1XXXZ   0.000000  -0.000000  -0.000000  -0.000000
+   95  N  1YYYX   0.000000  -0.000000  -0.000000  -0.000000
+   96  N  1YYYZ   0.000000  -0.000000  -0.000000  -0.000000
+   97  N  1ZZZX   0.000000  -0.000000  -0.000000  -0.000000
+   98  N  1ZZZY   0.000000  -0.000000  -0.000000  -0.000000
+   99  N  1XXYY  -0.000000  -0.000000  -0.000000  -0.000000
+  100  N  1XXZZ   0.000000  -0.000000  -0.000000  -0.000000
+  101  N  1YYZZ   0.000000  -0.000000  -0.000000  -0.000000
+  102  N  1XXYZ   0.000000  -0.000000  -0.000000   0.000000
+  103  N  1YYXZ   0.000000  -0.000000   0.000000  -0.000000
+  104  N  1ZZXY   0.000000   0.000000  -0.000000  -0.000000
+ ...... END OF ROHF CALCULATION ......
+ STEP CPU TIME =     2.15 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.62%
+
+     ---------------------------------------------------------------------
+     PROPERTIES FOR THE PBE0     DFT FUNCTIONAL (ROHF TYPE) DENSITY MATRIX
+     ---------------------------------------------------------------------
+
+          -----------------
+          ENERGY COMPONENTS
+          -----------------
+
+         WAVEFUNCTION NORMALIZATION =       1.0000000000
+
+                ONE ELECTRON ENERGY =     -15.6540217201
+                TWO ELECTRON ENERGY =       5.8959800977
+           NUCLEAR REPULSION ENERGY =       0.0000000000
+                                      ------------------
+                       TOTAL ENERGY =      -9.7580416225
+
+ ELECTRON-ELECTRON POTENTIAL ENERGY =       5.8959800977
+  NUCLEUS-ELECTRON POTENTIAL ENERGY =     -22.5309631110
+   NUCLEUS-NUCLEUS POTENTIAL ENERGY =       0.0000000000
+                                      ------------------
+             TOTAL POTENTIAL ENERGY =     -16.6349830133
+               TOTAL KINETIC ENERGY =       6.8769413909
+                 VIRIAL RATIO (V/T) =       2.4189508195
+
+          ---------------------------------------
+          MULLIKEN AND LOWDIN POPULATION ANALYSES
+          ---------------------------------------
+
+     ATOMIC MULLIKEN POPULATION IN EACH MOLECULAR ORBITAL
+
+                      1          2          3          4
+
+                  2.000000   1.000000   1.000000   1.000000
+
+    1             2.000000   1.000000   1.000000   1.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 N             1.00    3.00    0.00   0.00   0.00   0.00   0.00    4.00
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 N             1.00    0.00    0.00   0.00   0.00   0.00   0.00    1.00
+
+     ATOMIC SPIN POPULATION (ALPHA MINUS BETA)
+       ATOM         MULL.POP.                    LOW.POP.
+    1 N             3.000000                     3.000000
+
+               ----- POPULATIONS IN EACH AO -----
+                             MULLIKEN      LOWDIN
+              1  N  1  S      2.02141     0.22903
+              2  N  1  S     -0.00189     0.10653
+              3  N  1  S     -0.02098     0.19722
+              4  N  1  S     -0.00725     0.12783
+              5  N  1  S      0.00871     0.04511
+              6  N  1  X      1.02778     0.27946
+              7  N  1  Y      1.02778     0.27946
+              8  N  1  Z      1.02778     0.27946
+              9  N  1  X     -0.00759     0.17401
+             10  N  1  Y     -0.00759     0.17401
+             11  N  1  Z     -0.00759     0.17401
+             12  N  1  X     -0.02503     0.12191
+             13  N  1  Y     -0.02503     0.12191
+             14  N  1  Z     -0.02503     0.12191
+             15  N  1  X     -0.00197     0.05565
+             16  N  1  Y     -0.00197     0.05565
+             17  N  1  Z     -0.00197     0.05565
+             18  N  1  X      0.00682     0.01769
+             19  N  1  Y      0.00682     0.01769
+             20  N  1  Z      0.00682     0.01769
+             21  N  1 XX      0.00000     0.08063
+             22  N  1 YY      0.00000     0.08063
+             23  N  1 ZZ      0.00000     0.08063
+             24  N  1 XY      0.00000     0.00000
+             25  N  1 XZ      0.00000     0.00000
+             26  N  1 YZ      0.00000     0.00000
+             27  N  1 XX      0.00000     0.11952
+             28  N  1 YY      0.00000     0.11952
+             29  N  1 ZZ      0.00000     0.11952
+             30  N  1 XY      0.00000     0.00000
+             31  N  1 XZ      0.00000     0.00000
+             32  N  1 YZ      0.00000     0.00000
+             33  N  1 XX      0.00000     0.04921
+             34  N  1 YY      0.00000     0.04921
+             35  N  1 ZZ      0.00000     0.04921
+             36  N  1 XY      0.00000     0.00000
+             37  N  1 XZ      0.00000     0.00000
+             38  N  1 YZ      0.00000     0.00000
+             39  N  1 XX      0.00000     0.00963
+             40  N  1 YY      0.00000     0.00963
+             41  N  1 ZZ      0.00000     0.00963
+             42  N  1 XY      0.00000     0.00000
+             43  N  1 XZ      0.00000     0.00000
+             44  N  1 YZ      0.00000     0.00000
+             45  N  1 XXX     0.00000     0.08185
+             46  N  1 YYY     0.00000     0.08185
+             47  N  1 ZZZ     0.00000     0.08185
+             48  N  1 XXY     0.00000     0.03803
+             49  N  1 XXZ     0.00000     0.03803
+             50  N  1 YYX     0.00000     0.03803
+             51  N  1 YYZ     0.00000     0.03803
+             52  N  1 ZZX     0.00000     0.03803
+             53  N  1 ZZY     0.00000     0.03803
+             54  N  1 XYZ     0.00000     0.00000
+             55  N  1 XXX     0.00000     0.06383
+             56  N  1 YYY     0.00000     0.06383
+             57  N  1 ZZZ     0.00000     0.06383
+             58  N  1 XXY     0.00000     0.02903
+             59  N  1 XXZ     0.00000     0.02903
+             60  N  1 YYX     0.00000     0.02903
+             61  N  1 YYZ     0.00000     0.02903
+             62  N  1 ZZX     0.00000     0.02903
+             63  N  1 ZZY     0.00000     0.02903
+             64  N  1 XYZ     0.00000     0.00000
+             65  N  1 XXX     0.00000     0.03804
+             66  N  1 YYY     0.00000     0.03804
+             67  N  1 ZZZ     0.00000     0.03804
+             68  N  1 XXY     0.00000     0.01673
+             69  N  1 XXZ     0.00000     0.01673
+             70  N  1 YYX     0.00000     0.01673
+             71  N  1 YYZ     0.00000     0.01673
+             72  N  1 ZZX     0.00000     0.01673
+             73  N  1 ZZY     0.00000     0.01673
+             74  N  1 XYZ     0.00000     0.00000
+             75  N  1XXXX     0.00000     0.05900
+             76  N  1YYYY     0.00000     0.05900
+             77  N  1ZZZZ     0.00000     0.05900
+             78  N  1XXXY     0.00000     0.00000
+             79  N  1XXXZ     0.00000     0.00000
+             80  N  1YYYX     0.00000     0.00000
+             81  N  1YYYZ     0.00000     0.00000
+             82  N  1ZZZX     0.00000     0.00000
+             83  N  1ZZZY     0.00000     0.00000
+             84  N  1XXYY     0.00000     0.06360
+             85  N  1XXZZ     0.00000     0.06360
+             86  N  1YYZZ     0.00000     0.06360
+             87  N  1XXYZ     0.00000     0.00000
+             88  N  1YYXZ     0.00000     0.00000
+             89  N  1ZZXY     0.00000     0.00000
+             90  N  1XXXX     0.00000     0.02437
+             91  N  1YYYY     0.00000     0.02437
+             92  N  1ZZZZ     0.00000     0.02437
+             93  N  1XXXY     0.00000     0.00000
+             94  N  1XXXZ     0.00000     0.00000
+             95  N  1YYYX     0.00000     0.00000
+             96  N  1YYYZ     0.00000     0.00000
+             97  N  1ZZZX     0.00000     0.00000
+             98  N  1ZZZY     0.00000     0.00000
+             99  N  1XXYY     0.00000     0.02547
+            100  N  1XXZZ     0.00000     0.02547
+            101  N  1YYZZ     0.00000     0.02547
+            102  N  1XXYZ     0.00000     0.00000
+            103  N  1YYXZ     0.00000     0.00000
+            104  N  1ZZXY     0.00000     0.00000
+
+          ----- MULLIKEN ATOMIC OVERLAP POPULATIONS -----
+          (OFF-DIAGONAL ELEMENTS NEED TO BE MULTIPLIED BY 2)
+
+             1
+
+    1    5.0000000
+
+          TOTAL MULLIKEN AND LOWDIN ATOMIC POPULATIONS
+       ATOM         MULL.POP.    CHARGE          LOW.POP.     CHARGE
+    1 N             5.000000    0.000000         5.000000    0.000000
+
+          MULLIKEN SPHERICAL HARMONIC POPULATIONS
+       ATOM           S       P       D      F      G      H      I    TOTAL
+    1 N             2.00    3.00    0.00   0.00   0.00   0.00   0.00    5.00
+
+          -------------------------------
+          BOND ORDER AND VALENCE ANALYSIS     BOND ORDER THRESHOLD=0.050
+          -------------------------------
+
+                   BOND                       BOND                       BOND
+  ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER      ATOM PAIR DIST  ORDER
+
+                       TOTAL       BONDED        FREE
+      ATOM            VALENCE     VALENCE     VALENCE
+    1 N                 3.000       0.000       3.000
+
+          -----------------------------------------
+          ATOMIC SPIN DENSITY AT THE NUCLEUS (A.U.)
+          -----------------------------------------
+                            SPIN DENS    ALPHA DENS     BETA DENS
+    1  N            5.0     0.0000000       0.01537       0.01537
+
+          ---------------------
+          ELECTROSTATIC MOMENTS
+          ---------------------
+
+ POINT   1           X           Y           Z (BOHR)    CHARGE
+                 0.000000    0.000000    0.000000        0.00 (A.U.)
+         DX          DY          DZ         /D/  (DEBYE)
+     0.000000    0.000000    0.000000    0.000000
+ ...... END OF PROPERTY EVALUATION ......
+ STEP CPU TIME =     0.01 TOTAL CPU TIME =        2.6 (    0.0 MIN)
+ TOTAL WALL CLOCK TIME=        2.6 SECONDS, CPU UTILIZATION IS  99.62%
+               809237  WORDS OF DYNAMIC MEMORY USED
+ EXECUTION OF GAMESS TERMINATED NORMALLY Mon Jun 25 13:21:14 2018
+ DDI: 263640 bytes (0.3 MB / 0 MWords) used by master data server.
+
+ ----------------------------------------
+ CPU timing information for all processes
+ ========================================
+ 0: 2.548 + 0.76 = 2.624
+ ----------------------------------------
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+ ddikick.x: exited gracefully.
+unset echo
+----- accounting info -----
+Files used on the master node gwang18-Lenovo-Y50-70 were:
+-rw-rw-r-- 1 gwang18 gwang18   135617 Jun 25 13:21 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.dat
+-rw------- 1 gwang18 gwang18     1567 Jun 25 13:21 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.F05
+-rw-rw-r-- 1 gwang18 gwang18 23042048 Jun 25 13:21 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.F08
+-rw-rw-r-- 1 gwang18 gwang18  8441760 Jun 25 13:21 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.F10
+-rw------- 1 gwang18 gwang18     1567 Jun 25 13:20 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.inp
+-rw-rw-r-- 1 gwang18 gwang18   160983 Jun 25 13:21 /home/gwang18/research/qwalk/ecpcorrelation/n/pbe0/n.out
+ls: No match.
+ls: No match.
+ls: No match.
+Mon Jun 25 13:21:17 EDT 2018
+0.0u 0.0s 0:05.72 0.5% 0+0k 0+16io 0pf+0w

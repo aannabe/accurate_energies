@@ -1,0 +1,17 @@
+#! /bin/bash
+
+#SBATCH -J qwalk           # Job name
+#SBATCH -o qwalk.o%j       # Name of stdout output file
+#SBATCH -e qwalk.e%j       # Name of stderr error file
+#SBATCH -p normal          # Queue name
+#SBATCH -N 1               # Total # of nodes
+#SBATCH -n 64              # Total # of mpi tasks
+#SBATCH -t 04:00:00        # Run time (hh:mm:ss)
+
+
+ibrun qwalk si.opt0
+ibrun qwalk si.opt1
+ibrun qwalk si.opt2
+ibrun qwalk si.opt3
+ibrun qwalk si.opt4
+ibrun qwalk si.opt5

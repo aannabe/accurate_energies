@@ -1,0 +1,125 @@
+include c.sys
+trialfunc { slater-jastrow
+  wf1 { include c.slater }
+  wf2 { include c.jast3 }
+}
+
+method {
+    vmc
+    storeconfig c.vmc.config.1
+    nconfig 100
+    nsteps 50
+    nblock 100
+    timestep 2.5
+    label VMC_0
+}
+
+
+
+method { OPTIMIZE
+    readconfig c.vmc.config.1
+    wfoutput c.opt3.wfout.1
+    nconfig 100
+}
+
+
+
+method {
+    vmc
+    include c.opt3.wfout.1
+    readconfig c.vmc.config.1
+    storeconfig c.vmc.config.2
+    nconfig 100
+    nsteps 50
+    nblock 100
+    timestep 2.5
+    label VMC_1
+}
+
+#method { OPTIMIZE
+#    readconfig c.vmc.config.2
+#    wfoutput c.opt3.wfout.2
+#    nconfig 100
+#}
+#
+#
+
+#trialfunc { include c.opt3.wfout.2}
+#
+#method {
+#    vmc
+#    readconfig c.vmc.config.2
+#    storeconfig c.vmc.config.3
+#    nconfig 100
+#    nsteps 50
+#    nblock 100
+#    timestep 2.5
+#    label VMC_2
+#}
+#
+#method { OPTIMIZE
+#    readconfig c.vmc.config.3
+#    wfoutput c.opt3.wfout.3
+#    nconfig 100
+#}
+#
+#
+#
+#
+#trialfunc { include c.opt3.wfout.3}
+#
+#method {
+#    vmc
+#    readconfig c.vmc.config.3
+#    storeconfig c.vmc.config.4
+#    nconfig 100
+#    nsteps 50
+#    nblock 100
+#    timestep 2.5
+#    label VMC_3
+#}
+#
+#method { OPTIMIZE
+#    readconfig c.vmc.config.4
+#    wfoutput c.opt3.wfout.4
+#    nconfig 100
+#}
+#
+#
+#
+#trialfunc { include c.opt3.wfout.4}
+#
+#method {
+#    vmc
+#    readconfig c.vmc.config.4
+#    storeconfig c.vmc.config.5
+#    nconfig 100
+#    nsteps 50
+#    nblock 100
+#    timestep 2.5
+#    label VMC_4
+#}
+#
+#method { OPTIMIZE
+#    readconfig c.vmc.config.5
+#    wfoutput c.opt3.wfout.5
+#    nconfig 100
+#}
+#
+#
+#trialfunc { include c.opt3.wfout.5}
+#
+#method {
+#    vmc
+#    readconfig c.vmc.config.5
+#    storeconfig c.vmc.config.6
+#    nconfig 100
+#    nsteps 50
+#    nblock 100
+#    timestep 2.5
+#    label VMC_5
+#}
+#
+#
+#
+#

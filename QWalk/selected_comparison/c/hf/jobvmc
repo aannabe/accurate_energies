@@ -1,0 +1,12 @@
+#! /bin/bash
+
+#SBATCH -J qwalk           # Job name
+#SBATCH -o qwalk.o%j       # Name of stdout output file
+#SBATCH -e qwalk.e%j       # Name of stderr error file
+#SBATCH -p skx-dev          # Queue name
+#SBATCH -N 1               # Total # of nodes
+#SBATCH -n 32              # Total # of mpi tasks
+#SBATCH -t 01:30:00        # Run time (hh:mm:ss)
+
+
+ibrun qwalk c.vmc

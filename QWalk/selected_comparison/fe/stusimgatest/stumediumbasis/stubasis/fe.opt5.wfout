@@ -1,0 +1,150 @@
+SLATER-JASTROW
+WF1 { 
+  SLATER
+  SHERMAN_MORRISON_UPDATES
+  NOSORT
+   CSF { 1  1  } 
+  STATES { 
+    1 2 3 4 5 6 7 8 9 10 
+    1 2 3 4 5 6 
+    }
+  ORBITALS {
+    CUTOFF_MO
+    NMO 10
+    ORBFILE fe.orb
+    MAGNIFY 1
+    BASIS { 
+      FE
+      AOSPLINE 
+      NORMTYPE  GAMESSNORM
+      GAMESS { 
+      S
+      3
+        0  20.513   0.234714
+        1  9.77679   -0.877527
+        2  4.5736   -0.341636
+      S
+      1
+        0  1.94991   1
+      S
+      1
+        0  0.766488   1
+      S
+      1
+        0  0.100798   1
+      S
+      1
+        0  0.037516   1
+      S
+      1
+        0  0.01   1
+      P
+      2
+        0  63.1253   0.027147
+        1  11.6569   -1.01188
+      P
+      2
+        0  5.17866   0.215168
+        1  2.03553   0.825095
+      P
+      1
+        0  0.708818   1
+      P
+      1
+        0  0.110168   1
+      P
+      1
+        0  0.029444   1
+      6D
+      4
+        0  33.6668   0.036529
+        1  10.2357   0.182825
+        2  3.46649   0.437069
+        3  1.1273   0.575178
+      6D
+      1
+        0  0.308247   1
+      6D
+      1
+        0  0.08   1
+      10F
+      1
+        0  3.516   1
+      10F
+      1
+        0  0.871   1
+      15G
+      1
+        0  2.269   1
+       } 
+    }
+    CENTERS { 
+      USEGLOBAL
+    }
+  }
+}
+WF2 { 
+  JASTROW2
+  GROUP { 
+    OPTIMIZEBASIS
+    TWOBODY_SPIN { 
+      FREEZE
+      LIKE_COEFFICIENTS { 0.25  0   } 
+      UNLIKE_COEFFICIENTS { 0  0.5   }  
+    } 
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 23.1598838133855
+      CUSP 1
+      CUTOFF 7.5
+    }
+    EEBASIS { 
+      EE
+      CUTOFF_CUSP
+      GAMMA 19.0292006706599
+      CUSP 1
+      CUTOFF 7.5
+    }
+  }
+  GROUP { 
+    OPTIMIZEBASIS
+    ONEBODY { 
+      COEFFICIENTS { FE  0.460639485312739  0.436551852362853  -0.0447810018901274  -0.443413928659927   } 
+    } 
+    TWOBODY { 
+      COEFFICIENTS { 0.0368245275166838  -0.0492787673965481  -0.0876309487842085   } 
+    } 
+    THREEBODY  { 
+      COEFFICIENTS { FE  -0.0674448129192536  0.0374928132459006  0.0334393885171319  0.0293471356964797  -0.0184773408795977  -0.086772056281008  -0.177192928221942  0.327903576907323  0.203543615862042  -0.242252938792246  0.0611184883464595  0.122159721118897   } 
+      SM_TERMS {
+        1  1  0  
+        1  0  1  
+        1  1  1  
+        2  2  0  
+        2  0  1  
+        2  0  2  
+        2  2  2  
+        3  3  0  
+        3  0  2  
+        3  3  2  
+        1  2  2  
+        2  3  2  
+      }
+    }
+    EIBASIS { 
+      FE
+      POLYPADE
+      RCUT 7.5
+      BETA0 4.96610653880382
+      NFUNC 4
+    }
+    EEBASIS { 
+      EE
+      POLYPADE
+      RCUT 7.5
+      BETA0 0.458214430510538
+      NFUNC 3
+    }
+  }
+}

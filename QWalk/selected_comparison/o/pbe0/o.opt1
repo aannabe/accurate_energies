@@ -1,0 +1,25 @@
+include o.sys
+
+
+trialfunc { include o.opt1.wfout}
+
+
+method { OPTIMIZE
+    readconfig o.vmc.config.1
+    wfoutput o.opt2.wfout
+    nconfig 100
+}
+
+
+
+method {
+    vmc
+    readconfig o.vmc.config.1
+    storeconfig o.vmc.config.2
+    nconfig 100
+    nsteps 50
+    nblock 100
+    timestep 2.5
+    label VMC_1
+}
+
