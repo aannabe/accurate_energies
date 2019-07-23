@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Ti.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="7">
+          <occupation mode="ground"/>
+          <coefficient size="10" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="5">
+          <occupation mode="ground"/>
+          <coefficient size="10" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="12.0" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.2677277765 0.06162647083 -0.03156947432 -0.08608219529 -0.1086617907 -0.1202813538 -0.1055824464 -0.06726017457 -0.01099157645 0.02184879726</coefficients>
+      </correlation>
+      <correlation rcut="12.0" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.4473887724 0.1712507519 0.07321657199 0.002561101453 -0.0339776403 -0.07274579153 -0.08954069728 -0.09561594722 -0.07562320812 -0.06365339</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="12.0" size="10" cusp="0" elementType="Ti">
+        <coefficients id="eTi" type="Array"> -1.854582093 -1.13040934 -0.3393268478 0.1886232638 0.5761270243 0.7990396542 0.8338136103 0.5952981639 0.2710367087 0.05791864537</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Ti" especies="u" isize="3" esize="3" rcut="12.0">
+        <coefficients id="uuTi" type="Array" optimize="no">
+        </coefficients>
+      </correlation>
+      <correlation ispecies="Ti" especies1="u" especies2="d" isize="3" esize="3" rcut="12.0">
+        <coefficients id="udTi" type="Array" optimize="no">
+        </coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Ti.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="7">
+          <occupation mode="ground"/>
+          <coefficient size="10" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="5">
+          <occupation mode="ground"/>
+          <coefficient size="10" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="12.0" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.2433615581 0.07236433405 -0.04296212176 -0.08848152433 -0.1151019875 -0.1415354857 -0.1590234329 -0.1689804055 -0.148391369 -0.07678766333</coefficients>
+      </correlation>
+      <correlation rcut="12.0" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.8772207707 0.5116732035 0.2716337546 0.1429439271 0.07074729807 0.01702207959 -0.01456888273 -0.05573505077 -0.07767077464 -0.06535432327</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="12.0" size="10" cusp="0" elementType="Ti">
+        <coefficients id="eTi" type="Array"> -2.274878679 -2.031606815 -0.7256778178 0.1219307217 0.435341919 0.5037724475 0.9146125905 1.117132261 1.125899074 0.6644710719</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Ti" especies="u" isize="3" esize="3" rcut="12.0">
+        <coefficients id="uuTi" type="Array" optimize="yes"> 3.086742783e-06 1.09571776e-05 2.20561163e-06 -3.338769033e-06 -6.228539831e-07 -1.315892412e-08 1.280297556e-05 4.456179907e-06 1.31423291e-06 -1.465235809e-05 -1.863570544e-06 -3.749704032e-06 3.80761421e-07 3.779149165e-07 -3.468867349e-07 -8.51168673e-09 1.991243955e-05 -5.07393416e-06 2.754335093e-06 -5.065090938e-07 -2.455691452e-06 -1.585680102e-08 4.148566934e-08 4.969327658e-07 -3.652762544e-08 -2.956086024e-09</coefficients>
+      </correlation>
+      <correlation ispecies="Ti" especies1="u" especies2="d" isize="3" esize="3" rcut="12.0">
+        <coefficients id="udTi" type="Array" optimize="yes"> 4.395070621e-06 2.000555952e-05 8.685689649e-06 -5.922259448e-06 -1.6116745e-06 -1.983379652e-06 3.107803223e-05 2.115040586e-06 5.421948166e-06 -3.04238871e-05 -2.815597763e-06 -6.888309684e-06 -8.916018798e-08 4.282032747e-06 -1.734652506e-07 1.125784831e-08 3.732750784e-05 -6.297293365e-06 4.231128097e-06 -5.859488047e-07 -7.087601157e-06 9.425981002e-08 3.448034882e-08 1.833199245e-06 -1.239097761e-07 5.409251305e-09</coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>
