@@ -1,0 +1,14 @@
+!NOTE: Perturbative MRCC works only with UHF reference. So, here we will trick MRCC by doing zero UHF iteration right after ROHF.
+
+{uhf
+maxit,0
+}
+scf(i)=energy
+
+{mrcc,method=CCSDT(Q)
+orbital,ignore_error=1  !Ignore the fact that UHF WF is not converged
+maxit,100
+core
+}
+
+

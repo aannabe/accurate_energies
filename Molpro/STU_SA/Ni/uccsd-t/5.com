@@ -13,8 +13,8 @@ Ni 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals_stu_symm/pps/Ni.pp
-include,/global/homes/a/aannabe/docs/totals_stu_symm/basis/unc-aug-cc-pwCVnZ/Ni_5z.basis
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/pps/Ni.pp
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/basis/Ni_5z.basis
 }
 
 {rhf

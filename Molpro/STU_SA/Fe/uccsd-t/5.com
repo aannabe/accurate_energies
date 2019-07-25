@@ -13,11 +13,11 @@ Fe 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals_stu_symm/pps/Fe.pp
-include,/global/homes/a/aannabe/docs/totals_stu_symm/basis/unc-aug-cc-pwCVnZ/Fe_5z.basis
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/pps/Fe.pp
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/basis/Fe_5z.basis
 }
 
-{rhf; shift,-1.0,-0.5
+{rhf
  start,atden
  print,orbitals=2
  wf,16,1,4

@@ -14,7 +14,7 @@ module load python
 #Cori there are 32 cores per node
 
 
-for ((i=3; i<=5; i++))
+for ((i=2; i<=5; i++))
 do
 	molpro -n 1 ${i}.com
 done

@@ -14,10 +14,11 @@ import string
 
 #~~~~~~~~ Input ~~~~~~~~~~~~
 pd.options.display.float_format = '{:,.8f}'.format
-folders = ['rcisd', 'rccsd-t', 'uccsd-t']
-basis = np.array([3,4,5])
-card1=3		# First cardinal to use in extrapolation
-card2=6		# Second cardinal to use in extrapolation
+#folders = ['rcisd', 'rccsd-t', 'uccsd-t']
+folders = ['rcisd']
+basis = np.array([2,3,4,5])
+card1=2		# First cardinal to use in extrapolation
+card2=5		# Second cardinal to use in extrapolation
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def scf_cbs(n, e_cbs, c, d):	#SCF

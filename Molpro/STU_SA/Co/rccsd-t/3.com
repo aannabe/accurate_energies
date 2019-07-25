@@ -13,8 +13,8 @@ Co 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals_stu_symm/pps/Co.pp
-include,/global/homes/a/aannabe/docs/totals_stu_symm/basis/unc-aug-cc-pwCVnZ/Co_tz.basis
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/pps/Co.pp
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/basis/Co_tz.basis
 }
 
 {rhf

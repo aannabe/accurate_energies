@@ -13,8 +13,8 @@ Fe 0.0 0.0 0.0
 }
 
 basis={
-include,/global/homes/a/aannabe/docs/totals_stu_symm/pps/Fe.pp
-include,/global/homes/a/aannabe/docs/totals_stu_symm/basis/unc-aug-cc-pwCVnZ/Fe_qz.basis
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/pps/Fe.pp
+include,/global/homes/a/aannabe/docs/accurate/STU_natural/basis/Fe_qz.basis
 }
 
 {rhf
