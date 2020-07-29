@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Fe.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="10">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="6">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.1800410269 0.03082681639 -0.02338238398 -0.04560776496 -0.06914296172 -0.08862441246 -0.09084199751 -0.07301357404 -0.003173229004 0.04901534581</coefficients>
+      </correlation>
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.6186766581 0.297410942 0.09587733376 0.004537374556 -0.04779431738 -0.0889927761 -0.1003819662 -0.1224430901 -0.09924477844 -0.06807813296</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="12.1" size="10" cusp="0" elementType="Fe">
+        <coefficients id="eFe" type="Array"> -2.794336994 -1.641608956 -0.2062116309 0.5389002792 0.7188440805 0.7955961124 1.059501594 1.01670277 0.4869559302 0.05211845865</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Fe" especies="u" isize="3" esize="3" rcut="12.1">
+        <coefficients id="uuFe" type="Array" optimize="yes"> 2.567365268e-06 2.579347738e-06 -5.584049937e-07 -3.58770389e-06 -5.389696302e-07 2.92450946e-07 9.608622169e-07 1.243444829e-06 2.121609752e-06 -3.528592052e-06 -2.230096491e-06 -1.010749277e-06 -4.850430482e-07 3.054962929e-06 5.755334862e-07 -1.126085754e-08 3.235670115e-06 2.654705359e-06 -1.828976712e-07 1.145596401e-07 -1.019796979e-06 -6.225334829e-08 1.046225975e-08 3.588555451e-07 -9.532859781e-09 -3.441135712e-09</coefficients>
+      </correlation>
+      <correlation ispecies="Fe" especies1="u" especies2="d" isize="3" esize="3" rcut="12.1">
+        <coefficients id="udFe" type="Array" optimize="yes"> 5.162121138e-06 6.9605252e-06 3.540254705e-07 -6.882961814e-06 -1.253252593e-06 -1.407060126e-06 1.013673944e-05 -4.233529473e-06 1.866934873e-06 -1.176519987e-05 -4.808878541e-06 2.465460959e-06 -5.990724013e-07 7.198232827e-06 2.674528033e-07 2.322379303e-08 1.212048467e-05 5.376690342e-06 -3.56681217e-06 3.982434978e-07 -4.440980455e-06 6.204659858e-07 -7.588603901e-08 1.468916847e-06 -1.776266502e-07 2.095716237e-08</coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

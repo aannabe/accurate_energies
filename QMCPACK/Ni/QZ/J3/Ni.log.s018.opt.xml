@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Ni.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="10">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="8">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.1699700301 0.01997749073 -0.01887039621 -0.03045158636 -0.04620828521 -0.05692101453 -0.05946980772 -0.03817886037 0.03326967772 0.04723823731</coefficients>
+      </correlation>
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.5375487883 0.233499594 0.06182391415 0.0003908046244 -0.03665124399 -0.07632552544 -0.08572000417 -0.1141733085 -0.08952969428 -0.06254072431</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="12.1" size="10" cusp="0" elementType="Ni">
+        <coefficients id="eNi" type="Array"> -3.231730421 -1.663582126 0.1097264895 0.8862410448 0.8790123635 0.7705046315 1.035535237 0.9150152052 0.3249627715 0.001405433142</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Ni" especies="u" isize="3" esize="3" rcut="12.1">
+        <coefficients id="uuNi" type="Array" optimize="yes"> 2.540566483e-06 9.392613084e-07 -1.457942338e-06 -3.166632709e-06 -4.413026028e-07 2.940090646e-07 -6.411888732e-07 6.000730468e-07 1.654714219e-06 -1.940215005e-06 -2.215662589e-06 -2.216145052e-07 -4.988564553e-07 2.921233596e-06 6.187712701e-07 -1.500466926e-08 1.531168354e-06 3.433228326e-06 -8.832272385e-07 2.049586439e-07 -7.064913494e-07 -2.625694782e-08 1.984713607e-09 2.661796796e-07 -8.01121691e-09 -2.934975554e-09</coefficients>
+      </correlation>
+      <correlation ispecies="Ni" especies1="u" especies2="d" isize="3" esize="3" rcut="12.1">
+        <coefficients id="udNi" type="Array" optimize="yes"> 5.47974301e-06 3.749279075e-06 -2.849327941e-06 -6.325034345e-06 -9.934838466e-07 -9.93551565e-07 5.712601265e-06 -6.830692907e-06 -7.872908821e-07 -7.509653992e-06 -5.254106858e-06 5.928689142e-06 -4.111873586e-07 6.465235443e-06 -1.256653879e-08 3.327761533e-08 9.427199118e-06 6.410257168e-06 -5.777290843e-06 6.265145138e-07 -3.998793397e-06 8.58149778e-07 -1.164738689e-07 1.458151093e-06 -2.13079835e-07 2.811120075e-08</coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>

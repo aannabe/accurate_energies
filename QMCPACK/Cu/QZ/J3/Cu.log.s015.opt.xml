@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<qmcsystem>
+  <wavefunction name="psi0" target="e">
+    <determinantset type="MolecularOrbital" name="LCAOBSet" source="ion0" transform="yes" href="Cu.log.h5">
+      <slaterdeterminant>
+        <determinant id="updet" size="10">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+        <determinant id="downdet" size="9">
+          <occupation mode="ground"/>
+          <coefficient size="144" spindataset="0"/>
+        </determinant>
+      </slaterdeterminant>
+    </determinantset>
+    <jastrow name="J2" type="Two-Body" function="Bspline" print="yes">
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="u">
+        <coefficients id="uu" type="Array"> 0.1871130465 0.03199064251 -0.002728463618 -0.02354645599 -0.05234914189 -0.0718920422 -0.06832401975 -0.04344828765 -0.01345684764 -0.006687381217</coefficients>
+      </correlation>
+      <correlation rcut="12.1" size="10" speciesA="u" speciesB="d">
+        <coefficients id="ud" type="Array"> 0.2863281767 0.03936482538 -0.04027244015 -0.03403375554 -0.04067864366 -0.0769955066 -0.06711322242 -0.05835450197 -0.02564266689 -0.02320338286</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
+      <correlation rcut="12.1" size="10" cusp="0" elementType="Cu">
+        <coefficients id="eCu" type="Array"> -3.026820759 -1.343226042 0.5612263236 1.142391321 0.7862498719 0.6355196273 0.776750004 0.4131449938 0.06575735491 -0.01413704773</coefficients>
+      </correlation>
+    </jastrow>
+    <jastrow name="J3" type="eeI" function="polynomial" source="ion0" print="yes">
+      <correlation ispecies="Cu" especies="u" isize="3" esize="3" rcut="12.1">
+        <coefficients id="uuCu" type="Array" optimize="yes"> 2.887148043e-06 -5.753966416e-07 -2.261614392e-06 -3.508520524e-06 -3.72339027e-07 -8.59013824e-07 -2.145560594e-06 6.418490102e-08 1.292300213e-06 -1.225692558e-06 -2.3288433e-06 6.008751586e-07 -4.599147351e-07 3.349863236e-06 6.466359909e-07 -2.247327341e-08 4.925426835e-07 4.728697863e-06 -1.844892406e-06 2.411139528e-07 -1.357454631e-06 1.496903256e-07 -1.596364435e-08 7.587253572e-07 -7.22161386e-08 7.135861851e-09</coefficients>
+      </correlation>
+      <correlation ispecies="Cu" especies1="u" especies2="d" isize="3" esize="3" rcut="12.1">
+        <coefficients id="udCu" type="Array" optimize="yes"> 5.760448618e-06 4.164616247e-06 -3.874500467e-06 -6.00448458e-06 -8.750393649e-07 7.851423244e-07 4.653126326e-06 -8.849317309e-06 -8.5386167e-07 -6.35821336e-06 -5.281657706e-06 6.081059164e-06 -4.748463392e-07 6.878220988e-06 -1.189797517e-08 4.107083071e-08 1.101988476e-05 6.221203159e-06 -5.513358923e-06 6.56942191e-07 -4.548953169e-06 8.34780307e-07 -1.197583509e-07 1.752350518e-06 -2.264809575e-07 3.097440057e-08</coefficients>
+      </correlation>
+    </jastrow>
+  </wavefunction>
+</qmcsystem>
